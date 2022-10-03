@@ -2,12 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class InteractableManager : MonoBehaviour {
     // components
     public static InteractableManager Instance;
-    public InteractableUI interactableUI;
     
     // public constants
     public float interactionRadius = 5.0f;
@@ -19,6 +19,7 @@ public class InteractableManager : MonoBehaviour {
     // state
     private List<Interactable> candidatesForInteraction = new List<Interactable>();
     private Interactable selectedObject;
+    public UnityEvent<Interactable> onSelectedObjectChange;
 
     private void Awake() {
         Instance = this;
@@ -41,7 +42,8 @@ public class InteractableManager : MonoBehaviour {
         if (candidatesForInteraction.Count == 0) {
             if(selectedObject != null) selectedObject.Deselect();
             selectedObject = null;
-            interactableUI.ClearInteractableUI();
+            onSelectedObjectChange?.Invoke(selectedObject);
+            // interactableUI.ClearInteractableUI();
             return;
         }
         // 1 candidate
@@ -49,7 +51,8 @@ public class InteractableManager : MonoBehaviour {
             if(selectedObject != null) selectedObject.Deselect();
             selectedObject = candidatesForInteraction[0];
             selectedObject.Select();
-            interactableUI.ShowSelectedObject(selectedObject);
+            onSelectedObjectChange?.Invoke(selectedObject);
+            // interactableUI.ShowSelectedObject(selectedObject);
             return;
         }
         // choose closest candidate
@@ -64,7 +67,8 @@ public class InteractableManager : MonoBehaviour {
         if(selectedObject != null) selectedObject.Deselect();
         selectedObject = closest;
         selectedObject.Select();
-        interactableUI.ShowSelectedObject(selectedObject);
+        onSelectedObjectChange?.Invoke(selectedObject);
+        // interactableUI.ShowSelectedObject(selectedObject);
     }
 
     public Crop GetClosestHarvestableCropTo(Vector3 position, float maxDistance = float.MaxValue) {

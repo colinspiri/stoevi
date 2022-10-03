@@ -30,7 +30,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Sprint",
+                    "name": "Run",
                     "type": "Value",
                     "id": "408f3af5-2821-4f6d-8047-fcebb0112108",
                     "expectedControlType": "",
@@ -241,7 +241,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Sprint",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -252,7 +252,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Sprint",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
