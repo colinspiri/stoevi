@@ -7,8 +7,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MenuManager : MonoBehaviour {
-    public static MenuManager Instance;
+public class InGameMenuManager : MonoBehaviour {
+    public static InGameMenuManager Instance;
     
     // components
     public GameObject menu;
