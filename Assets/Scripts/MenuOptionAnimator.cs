@@ -26,12 +26,12 @@ public class MenuOptionAnimator : MonoBehaviour {
 
     public void DeselectAnimation() {
         selectable.transform.DOScale(1f, uiConstants.selectTime).SetUpdate(true);
-        text.DOColor(Color.white, uiConstants.selectTime);
+        text.DOColor(Color.white, uiConstants.selectTime).SetUpdate(true);
     }
 
     public void SelectAnimation() {
         selectable.transform.DOScale(uiConstants.scaleOnSelect, uiConstants.selectTime).SetUpdate(true);
-        text.DOColor(Color.red, uiConstants.selectTime);
+        text.DOColor(Color.red, uiConstants.selectTime).SetUpdate(true);
         PlaySelectSound();
     }
 

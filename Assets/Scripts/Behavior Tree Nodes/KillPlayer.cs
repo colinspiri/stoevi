@@ -7,7 +7,7 @@ public class KillPlayer : Action
 
     public override TaskStatus OnUpdate()
     {
-        InGameMenuManager.Instance.GameOver(false);
+        PauseMenuManager.Instance.GameOver(false);
         return TaskStatus.Success;
     }
 }
