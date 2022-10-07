@@ -136,6 +136,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1737569140063103629}
+          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+          m_MethodName: Select
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 10
     callback:
       m_PersistentCalls:
@@ -168,13 +184,13 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventID: 0
+  - eventID: 15
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7715346795638395070}
           m_TargetAssemblyTypeName: MenuOptionAnimator, Assembly-CSharp
-          m_MethodName: Select
+          m_MethodName: SubmitAnimation
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -186,7 +202,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 7715346795638395070}
           m_TargetAssemblyTypeName: MenuOptionAnimator, Assembly-CSharp
-          m_MethodName: SelectAnimation
+          m_MethodName: PlaySubmitSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -196,13 +212,13 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventID: 1
+  - eventID: 2
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 7715346795638395070}
           m_TargetAssemblyTypeName: MenuOptionAnimator, Assembly-CSharp
-          m_MethodName: DeselectAnimation
+          m_MethodName: Submit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -225,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1737569140821732808}
+  uiConstants: {fileID: 11400000, guid: 008f57d087c02914385ce176de8758ad, type: 2}
 --- !u!1 &1737569140821732810
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +340,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

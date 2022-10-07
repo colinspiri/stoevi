@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Interactables.unity
     guid: ead5d82894feb0740bffcb19c15f008e
+  - enabled: 1
+    path: Assets/Scenes/Day2.unity
+    guid: 8177ba1438c10794697df8015df5e37e
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
