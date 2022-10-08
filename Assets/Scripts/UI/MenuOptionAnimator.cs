@@ -42,15 +42,15 @@ public class MenuOptionAnimator : MonoBehaviour {
 
     private void PlaySelectSound()
     {
-        // if (AudioManager.Instance) AudioManager.Instance.PlayUI(uiConstants.selectSFX);
+        if (AudioManager.Instance) AudioManager.Instance.PlaySelectSound();
     }
     
     public void PlaySubmitSound()
     {
-        // if(AudioManager.Instance) AudioManager.Instance.PlayUI(uiConstants.submitSFX);
+        if(AudioManager.Instance) AudioManager.Instance.PlaySubmitSound();
     }
     public void PlayBackSound()
     {
-        // if(AudioManager.Instance) AudioManager.Instance.PlayUI(uiConstants.backSFX);
+        if(AudioManager.Instance) AudioManager.Instance.PlayBackSound();
     }
 }

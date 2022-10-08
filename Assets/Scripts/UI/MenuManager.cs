@@ -54,8 +54,8 @@ public class MenuManager : MonoBehaviour
         {
             BackToPreviousMenuScreen();
 
-            /*if (AudioManager.Instance) AudioManager.Instance.PlayUI(uiConstants.backSFX);
-            else Debug.LogError("Audio Manager not found.");*/
+            if (AudioManager.Instance) AudioManager.Instance.PlayBackSound();
+            else Debug.LogError("Audio Manager not found.");
         }
     }
 
