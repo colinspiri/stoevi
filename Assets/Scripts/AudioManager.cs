@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using StarterAssets;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour {
     public static AudioManager Instance;
+    public AudioMixer mixer;
     
     // sfx
     public AudioSource walkingSound;
@@ -40,6 +42,11 @@ public class AudioManager : MonoBehaviour {
     }
     public void ResumeGameSound() {
         AudioListener.pause = false;
+    }
+    
+    public void SetVolume(string mixerChannel, float value) {
+        mixer.SetFloat(mixerChannel, Mathf.Log10(value) * 20f);
+        PlayerPrefs.SetFloat(mixerChannel, value);
     }
 
     private void Update() {

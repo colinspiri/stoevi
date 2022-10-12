@@ -26,13 +26,13 @@ public class MenuOptionAnimator : MonoBehaviour {
 
     public void DeselectAnimation() {
         selectable.transform.DOScale(1f, uiConstants.selectTime).SetUpdate(true);
-        text.DOColor(Color.white, uiConstants.selectTime).SetUpdate(true);
+        if(text != null) text.DOColor(Color.white, uiConstants.selectTime).SetUpdate(true);
     }
 
     public void SelectAnimation() {
         selectable.transform.DOScale(uiConstants.scaleOnSelect, uiConstants.selectTime).SetUpdate(true);
-        text.DOColor(Color.red, uiConstants.selectTime).SetUpdate(true);
-        PlaySelectSound();
+        if(text != null) text.DOColor(Color.red, uiConstants.selectTime).SetUpdate(true);
+        AudioManager.Instance.PlaySelectSound();
     }
 
     public void SubmitAnimation()
@@ -40,17 +40,12 @@ public class MenuOptionAnimator : MonoBehaviour {
         // to be implemented
     }
 
-    private void PlaySelectSound()
-    {
-        if (AudioManager.Instance) AudioManager.Instance.PlaySelectSound();
-    }
-    
     public void PlaySubmitSound()
     {
-        if(AudioManager.Instance) AudioManager.Instance.PlaySubmitSound();
+        AudioManager.Instance.PlaySubmitSound();
     }
     public void PlayBackSound()
     {
-        if(AudioManager.Instance) AudioManager.Instance.PlayBackSound();
+        AudioManager.Instance.PlayBackSound();
     }
 }
