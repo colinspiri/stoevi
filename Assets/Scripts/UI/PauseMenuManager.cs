@@ -17,6 +17,9 @@ public class PauseMenuManager : MonoBehaviour {
     public TextMeshProUGUI gameOverMessage;
     public TextMeshProUGUI gameOverTomatoes;
     public List<GameObject> otherUIObjects;
+    
+    // state
+    private bool gamePaused;
 
     private void Awake() {
         Instance = this;
@@ -36,8 +39,9 @@ public class PauseMenuManager : MonoBehaviour {
     private void Update()
     {
         if (!gameOverPanel.activeSelf) {
-            if(inputActions.Gameplay.Menu.triggered && !pauseMenu.activeSelf) OpenPauseMenu();
-            if(inputActions.UI.Back.triggered && pauseMenu.activeSelf) ClosePauseMenu();
+            if (!gamePaused && inputActions.Gameplay.Menu.triggered) {
+                OpenPauseMenu();
+            }
         }
     }
 
@@ -55,8 +59,9 @@ public class PauseMenuManager : MonoBehaviour {
         ResumeGame();
     }
 
-    private void StopGame()
-    {
+    private void StopGame() {
+        gamePaused = true;
+        
         // disable other UI
         foreach (var uiObject in otherUIObjects) {
             uiObject.SetActive(false);
@@ -71,8 +76,9 @@ public class PauseMenuManager : MonoBehaviour {
         else Debug.LogError("Audio Manager not found");
     }
 
-    private void ResumeGame()
-    {
+    private void ResumeGame() {
+        gamePaused = false;
+        
         // enable other UI
         foreach (var uiObject in otherUIObjects) {
             uiObject.SetActive(true);
@@ -88,6 +94,7 @@ public class PauseMenuManager : MonoBehaviour {
     }
     
     public void GameOver(bool playerSurvived = true) {
+        gamePaused = true;
         gameOverPanel.SetActive(true);
         if (playerSurvived) {
             gameOverPanel.GetComponent<Image>().color = Color.black;
