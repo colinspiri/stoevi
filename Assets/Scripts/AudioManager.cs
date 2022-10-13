@@ -4,11 +4,16 @@ using System.Collections.Generic;
 using StarterAssets;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour {
     public static AudioManager Instance;
     public AudioMixer mixer;
+
+    public SceneReference mainMenuScene;
     
+    // music
+    public AudioSource mainMenuMusic;
     // sfx
     public AudioSource walkingSound;
     public AudioSource runningSound;
@@ -22,19 +27,37 @@ public class AudioManager : MonoBehaviour {
     public AudioSource submitSound;
 
     private void Awake() {
-        if (Instance == null) {
-            Instance = this;
-        }
-        else {
+        if (Instance != null) {
+            Debug.Log("audio manager already exists, deleting myself (" + gameObject.name + ")");
             Destroy(gameObject);
             return;
         }
+        Instance = this;
+        DontDestroyOnLoad(this);
     }
 
     private void Start() {
         backSound.ignoreListenerPause = true;
         selectSound.ignoreListenerPause = true;
         submitSound.ignoreListenerPause = true;
+
+        SceneManager.activeSceneChanged += (oldScene, newScene) => PlaySoundsOnSceneStart(newScene);
+        PlaySoundsOnSceneStart(SceneManager.GetActiveScene());
+    }
+
+    private void PlaySoundsOnSceneStart(Scene newScene) {
+        Debug.Log(gameObject.name + ": PlaySoundsOnSceneStart called on " + newScene.name);
+        
+        ResumeGameSound();
+        // stop all sounds
+        // mainMenuMusic.Stop();
+        
+        // play sounds based on new scene
+        if (newScene.path == mainMenuScene.ScenePath) {
+            Debug.Log(gameObject.name + ": playing main menu music");
+            mainMenuMusic.Play();
+        }
+        else mainMenuMusic.Stop();
     }
 
     public void StopGameSound() {
