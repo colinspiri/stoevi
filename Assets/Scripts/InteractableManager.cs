@@ -34,7 +34,7 @@ public class InteractableManager : MonoBehaviour {
         foreach (var crop in allCrops) {
             if (crop.cropState != Crop.CropState.Empty) return;
         }
-        PauseMenuManager.Instance.GameOver(true);
+        GameManager.Instance.GameOver(true);
     }
 
     private void SelectObjectFromCandidates() {

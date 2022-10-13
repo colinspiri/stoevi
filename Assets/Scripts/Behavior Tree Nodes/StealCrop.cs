@@ -25,7 +25,7 @@ public class StealCrop : Action {
           }
           
           // steal crop
-          TomatoCounter.Instance.TorbalanStoleTomato();
+          GameManager.Instance.TorbalanStoleTomato();
           targetCrop.Value.MakeEmpty();
           
           return TaskStatus.Success;

@@ -26,7 +26,7 @@ public class EatCrop : Action {
             return TaskStatus.Running;
         }
         
-        TomatoCounter.Instance.TorbalanStoleTomato();
+        GameManager.Instance.TorbalanStoleTomato();
         targetCrop.Value.MakeEmpty();
         
         return TaskStatus.Success;
