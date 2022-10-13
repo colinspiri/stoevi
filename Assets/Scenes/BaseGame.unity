@@ -397,6 +397,38 @@ PrefabInstance:
       value: PlayerInput
       objectReference: {fileID: 0}
     - target: {fileID: 4877943795587145617, guid: 8578100fc6540484a84b62ee235cd27d, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: ad81c4de-7587-4f55-ad7c-d2af2fdb3b64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877943795587145617, guid: 8578100fc6540484a84b62ee235cd27d, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877943795587145617, guid: 8578100fc6540484a84b62ee235cd27d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
+      value: e5620687-d87f-4187-8f4e-706337ecef67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877943795587145617, guid: 8578100fc6540484a84b62ee235cd27d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_ActionId
+      value: b2cbdb74-fb1e-4165-83cb-5610b2fedf54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877943795587145617, guid: 8578100fc6540484a84b62ee235cd27d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[17].m_ActionId
+      value: b41468fd-5fa3-412b-8e1d-e92a05942981
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877943795587145617, guid: 8578100fc6540484a84b62ee235cd27d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
+      value: Gameplay/Menu[/Keyboard/escape]
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877943795587145617, guid: 8578100fc6540484a84b62ee235cd27d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_ActionName
+      value: Gameplay/Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877943795587145617, guid: 8578100fc6540484a84b62ee235cd27d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[17].m_ActionName
+      value: Player/New action
+      objectReference: {fileID: 0}
+    - target: {fileID: 4877943795587145617, guid: 8578100fc6540484a84b62ee235cd27d, type: 3}
       propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1413135027}

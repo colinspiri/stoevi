@@ -133,7 +133,7 @@ public class FirstPersonController : MonoBehaviour
 
 	private void CameraMovement() {
 		// if there is an input
-		var look = inputActions.Player.Look.ReadValue<Vector2>();
+		var look = inputActions.Gameplay.Look.ReadValue<Vector2>();
 		if (look.sqrMagnitude >= threshold) {
 			// Don't multiply mouse input by Time.deltaTime
 			float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
@@ -184,7 +184,7 @@ public class FirstPersonController : MonoBehaviour
 		// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 		// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
 		// if there is no input, set the target speed to 0
-		var move = inputActions.Player.Move.ReadValue<Vector2>();
+		var move = inputActions.Gameplay.Move.ReadValue<Vector2>();
 		if (move == Vector2.zero) {
 			targetSpeed = 0.0f;
 			moveState = MoveState.Still;

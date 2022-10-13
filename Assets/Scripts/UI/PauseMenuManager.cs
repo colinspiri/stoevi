@@ -35,9 +35,9 @@ public class PauseMenuManager : MonoBehaviour {
 
     private void Update()
     {
-        if (!pauseMenu.activeSelf && !gameOverPanel.activeSelf && inputActions.UI.Cancel.triggered)
-        {
-            OpenPauseMenu();
+        if (!gameOverPanel.activeSelf) {
+            if(inputActions.Gameplay.Menu.triggered && !pauseMenu.activeSelf) OpenPauseMenu();
+            if(inputActions.UI.Back.triggered && pauseMenu.activeSelf) ClosePauseMenu();
         }
     }
 

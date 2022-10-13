@@ -50,7 +50,7 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        if (inputActions.UI.Cancel.triggered)
+        if (inputActions.UI.Back.triggered)
         {
             BackToPreviousMenuScreen();
 
