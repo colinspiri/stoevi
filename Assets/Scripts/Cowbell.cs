@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Torbalan : MonoBehaviour {
+public class Cowbell : MonoBehaviour {
     private NavMeshAgent agent;
     private AudioSource cowbell;
 
