@@ -210,8 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closeRadius: 30
   farRadius: 31
-  maxTimeCloseToPlayer: 5
-  maxTimeFarFromPlayer: 5
+  maxTimeCloseToPlayer: 20
+  maxTimeFarFromPlayer: 20
   areaNodes: []
 --- !u!82 &789039114618768142
 AudioSource:

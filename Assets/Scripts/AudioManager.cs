@@ -28,7 +28,6 @@ public class AudioManager : MonoBehaviour {
 
     private void Awake() {
         if (Instance != null) {
-            Debug.Log("audio manager already exists, deleting myself (" + gameObject.name + ")");
             Destroy(gameObject);
             return;
         }
@@ -46,15 +45,12 @@ public class AudioManager : MonoBehaviour {
     }
 
     private void PlaySoundsOnSceneStart(Scene newScene) {
-        Debug.Log(gameObject.name + ": PlaySoundsOnSceneStart called on " + newScene.name);
-        
         ResumeGameSound();
         // stop all sounds
         // mainMenuMusic.Stop();
         
         // play sounds based on new scene
         if (newScene.path == mainMenuScene.ScenePath) {
-            Debug.Log(gameObject.name + ": playing main menu music");
             mainMenuMusic.Play();
         }
         else mainMenuMusic.Stop();

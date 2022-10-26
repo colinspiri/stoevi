@@ -102,9 +102,11 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(mainMenuScene.ScenePath);
     }
 
-    public void Quit()
-    {
-        Debug.Log("Quit");
+    public void Quit() {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
         Application.Quit();
+        #endif
     }
 }

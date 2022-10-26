@@ -40,12 +40,12 @@ public class TorbalanDirector : MonoBehaviour {
             if (distance < closeRadius) {
                 timeCloseToPlayer += Time.deltaTime;
                 timeFarFromPlayer = 0;
-                Debug.Log("timeCloseToPlayer = " + timeCloseToPlayer);
+                //Debug.Log("timeCloseToPlayer = " + timeCloseToPlayer);
             }
             else if (distance > farRadius) {
                 timeFarFromPlayer += Time.deltaTime;
                 timeCloseToPlayer = 0;
-                Debug.Log("timeFarFromPlayer = " + timeFarFromPlayer);
+                //Debug.Log("timeFarFromPlayer = " + timeFarFromPlayer);
             }
         }
     }
