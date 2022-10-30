@@ -12,16 +12,21 @@ public class AudioManager : MonoBehaviour {
 
     public SceneReference mainMenuScene;
     
-    // music
+    [Header("Music")]
     public AudioSource mainMenuMusic;
-    // sfx
+
+    [Header("Ambience")] 
+    public AudioSource farmAmbience;
+    
+    [Header("SFX")]
     public AudioSource walkingSound;
     public AudioSource runningSound;
     public AudioSource waterSound;
     public AudioSource harvestSound;
     public AudioSource searchSound;
     public AudioSource chaseSound;
-    // UI
+    
+    [Header("UI")]
     public AudioSource backSound;
     public AudioSource selectSound;
     public AudioSource submitSound;
@@ -39,7 +44,7 @@ public class AudioManager : MonoBehaviour {
         backSound.ignoreListenerPause = true;
         selectSound.ignoreListenerPause = true;
         submitSound.ignoreListenerPause = true;
-
+        
         SceneManager.activeSceneChanged += (oldScene, newScene) => PlaySoundsOnSceneStart(newScene);
         PlaySoundsOnSceneStart(SceneManager.GetActiveScene());
     }
@@ -99,4 +104,8 @@ public class AudioManager : MonoBehaviour {
         selectSound.Play();
     }
     public void PlaySubmitSound() { submitSound.Play(); }
+
+    public void PlayFarmAmbience() {
+        farmAmbience.Play();
+    }
 }
