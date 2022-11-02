@@ -4,6 +4,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class IntroCutscene : MonoBehaviour {
@@ -19,6 +20,8 @@ public class IntroCutscene : MonoBehaviour {
     public TextMeshProUGUI levnikText;
     public TextMeshProUGUI everyoneText;
     public TextMeshProUGUI exceptText;
+
+    public SceneReference day1Scene;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +64,6 @@ public class IntroCutscene : MonoBehaviour {
         // setting
         settingPanel.SetActive(true);
         AudioManager.Instance.PlayFarmAmbience();
-        // fade in ambient nature SFX
 
         Tween bulgariaTween = bulgariaText.DOFade(1, fadeTime);
         yield return bulgariaTween.WaitForCompletion();
@@ -77,8 +79,8 @@ public class IntroCutscene : MonoBehaviour {
 
         Tween exceptTween = exceptText.DOFade(1, fadeTime);
         yield return exceptTween.WaitForCompletion();
-        
-        Debug.Log("done");
+
+        SceneManager.LoadScene(day1Scene.ScenePath);
         
         yield return null;
     }

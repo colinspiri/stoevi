@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using StarterAssets;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -41,18 +42,18 @@ public class AudioManager : MonoBehaviour {
     }
 
     private void Start() {
+        farmAmbience.ignoreListenerPause = true;
         backSound.ignoreListenerPause = true;
         selectSound.ignoreListenerPause = true;
         submitSound.ignoreListenerPause = true;
-        
+
         SceneManager.activeSceneChanged += (oldScene, newScene) => PlaySoundsOnSceneStart(newScene);
         PlaySoundsOnSceneStart(SceneManager.GetActiveScene());
     }
 
     private void PlaySoundsOnSceneStart(Scene newScene) {
-        ResumeGameSound();
+        AudioListener.pause = false;
         // stop all sounds
-        // mainMenuMusic.Stop();
         
         // play sounds based on new scene
         if (newScene.path == mainMenuScene.ScenePath) {
@@ -61,11 +62,13 @@ public class AudioManager : MonoBehaviour {
         else mainMenuMusic.Stop();
     }
 
-    public void StopGameSound() {
+    public void PauseGameSound() {
         AudioListener.pause = true;
+        farmAmbience.DOFade(0.2f, 1).SetUpdate(true);
     }
     public void ResumeGameSound() {
         AudioListener.pause = false;
+        farmAmbience.DOFade(0.5f, 1).SetUpdate(true);
     }
     
     public void SetVolume(string mixerChannel, float value) {
@@ -107,5 +110,8 @@ public class AudioManager : MonoBehaviour {
 
     public void PlayFarmAmbience() {
         farmAmbience.Play();
+    }
+    public void PlayWalking() {
+        walkingSound.Play();
     }
 }

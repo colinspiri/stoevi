@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour {
     private int torbalanTomatoes;
     public int TorbalanTomatoes => torbalanTomatoes;
     public UnityEvent<int> playerHarvestedTomato;
+    
+    // game state
+    public bool gameStopped;
 
     private void Awake() {
         Instance = this;
@@ -50,8 +53,33 @@ public class GameManager : MonoBehaviour {
     public void TorbalanStoleTomato() {
         torbalanTomatoes++;
     }
+
+    public void StopGame() {
+        gameStopped = true;
+        Time.timeScale = 0.0f;
+    }
+
+    public void PlayGame() {
+        gameStopped = false;
+        Time.timeScale = 1.0f;
+    }
+
+    public void Pause() {
+        StopGame();
+
+        if (AudioManager.Instance) AudioManager.Instance.PauseGameSound();
+        else Debug.LogError("Audio Manager not found");
+    }
+
+    public void Resume() {
+        PlayGame();
+        
+        if (AudioManager.Instance) AudioManager.Instance.ResumeGameSound();
+        else Debug.LogError("Audio Manager not found");
+    }
     
     public void GameOver(bool playerSurvived = true) {
+        StopGame();
         PauseMenuManager.Instance.GameOver(playerSurvived);
     }
 }

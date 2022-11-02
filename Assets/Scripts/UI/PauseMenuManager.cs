@@ -17,9 +17,6 @@ public class PauseMenuManager : MonoBehaviour {
     public TextMeshProUGUI gameOverMessage;
     public TextMeshProUGUI gameOverTomatoes;
     public List<GameObject> otherUIObjects;
-    
-    // state
-    private bool gamePaused;
 
     private void Awake() {
         Instance = this;
@@ -31,70 +28,50 @@ public class PauseMenuManager : MonoBehaviour {
         inputActions.Enable();
 
         pauseMenu.SetActive(false);
-        ResumeGame();
+        GameManager.Instance.Resume();
         
         gameOverPanel.SetActive(false);
     }
 
     private void Update()
     {
-        if (!gameOverPanel.activeSelf) {
-            if (!gamePaused && inputActions.Gameplay.Menu.triggered) {
+        if (!gameOverPanel.activeSelf && !GameManager.Instance.gameStopped) {
+            if (inputActions.Gameplay.Menu.triggered) {
                 OpenPauseMenu();
             }
         }
     }
 
-    private void OpenPauseMenu()
-    {
+    private void OpenPauseMenu() {
         pauseMenu.SetActive(true);
-
-        StopGame();
-    }
-
-    public void ClosePauseMenu()
-    {
-        pauseMenu.SetActive(false);
-
-        ResumeGame();
-    }
-
-    private void StopGame() {
-        gamePaused = true;
         
         // disable other UI
         foreach (var uiObject in otherUIObjects) {
             uiObject.SetActive(false);
         }
         
-        Time.timeScale = 0.0f;
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        if (AudioManager.Instance) AudioManager.Instance.StopGameSound();
-        else Debug.LogError("Audio Manager not found");
+        GameManager.Instance.Pause();
     }
 
-    private void ResumeGame() {
-        gamePaused = false;
+    public void ClosePauseMenu()
+    {
+        pauseMenu.SetActive(false);
         
         // enable other UI
         foreach (var uiObject in otherUIObjects) {
             uiObject.SetActive(true);
         }
         
-        Time.timeScale = 1.0f;
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        if (AudioManager.Instance) AudioManager.Instance.ResumeGameSound();
-        else Debug.LogError("Audio Manager not found");
+        GameManager.Instance.Resume();
     }
-    
+
     public void GameOver(bool playerSurvived = true) {
-        gamePaused = true;
         gameOverPanel.SetActive(true);
         if (playerSurvived) {
             gameOverPanel.GetComponent<Image>().color = Color.black;
@@ -109,7 +86,5 @@ public class PauseMenuManager : MonoBehaviour {
             gameOverTomatoes.text = "The Torbalan stole " + GameManager.Instance.TorbalanTomatoes + " tomatoes.\n" +
                                     "He also stole the " + GameManager.Instance.PlayerTomatoes + " you harvested.";
         }
-        
-        StopGame();
     }
 }
