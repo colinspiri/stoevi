@@ -15,9 +15,16 @@ public class MenuOptionAnimator : MonoBehaviour {
     
     // constants
     public UIConstants uiConstants;
+    
+    // state
+    private Color previousTextColor;
 
     private void Awake() {
         selectable = GetComponent<Selectable>();
+    }
+
+    private void Start() {
+        if (text != null) previousTextColor = text.color;
     }
 
     public void Submit() {
@@ -26,7 +33,7 @@ public class MenuOptionAnimator : MonoBehaviour {
 
     public void DeselectAnimation() {
         selectable.transform.DOScale(1f, uiConstants.selectTime).SetUpdate(true);
-        if(text != null) text.DOColor(Color.white, uiConstants.selectTime).SetUpdate(true);
+        if(text != null) text.DOColor(previousTextColor, uiConstants.selectTime).SetUpdate(true);
     }
 
     public void SelectAnimation() {
