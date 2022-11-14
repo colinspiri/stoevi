@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversations:
-  - Day1Test
-  - ConversationTest
+  - Day2Conversation1
+  - Day2Conversation2
   distanceThreshold: 75
   minWaitTime: 10
   maxWaitTime: 20

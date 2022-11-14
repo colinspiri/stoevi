@@ -40,7 +40,6 @@ public class ConversationManager : MonoBehaviour {
         }
         else {
             waitTimer -= Time.deltaTime;
-            Debug.Log("until next conversation = " + waitTimer);
         }
     }
 
