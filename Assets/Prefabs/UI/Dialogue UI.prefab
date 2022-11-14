@@ -56,7 +56,7 @@ MonoBehaviour:
   dialogueViews:
   - {fileID: 4638271798219830054}
   startNode: Day1Test
-  startAutomatically: 1
+  startAutomatically: 0
   runSelectedOptionAsLine: 0
   lineProvider: {fileID: 4638271798026783205}
   verboseLogging: 1
