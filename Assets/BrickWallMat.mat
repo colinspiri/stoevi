@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BrickWallMat
-  m_Shader: {fileID: 4800000, guid: 06299d5ffedf34d3eaed0722d99a281d, type: 3}
+  m_Shader: {fileID: 4800000, guid: 752a909ee82ed4db8bcda5bd7d3a1d49, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
