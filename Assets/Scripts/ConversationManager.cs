@@ -22,18 +22,25 @@ public class ConversationManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         dialogueRunner = FindObjectOfType<DialogueRunner>();
-        dialogueRunner.onNodeComplete.AddListener(_ => OnConversationDone());
+        if (dialogueRunner != null) {
+            dialogueRunner.onNodeComplete.AddListener(_ => OnConversationDone());
+        }
         waitTimer = Random.Range(minWaitTime, maxWaitTime);
     }
 
     // Update is called once per frame
     void Update() {
+        if (dialogueRunner == null) {
+            dialogueRunner = FindObjectOfType<DialogueRunner>();
+            return;
+        }
         if (nextConversation >= conversations.Count) return;
         if (conversationPlaying) return;
 
-        distanceFromTorbalan = Vector3.Distance(FirstPersonController.Instance.transform.position,
-            TorbalanSenses.Instance.transform.position);
-        if (distanceFromTorbalan < distanceThreshold) return;
+        if (TorbalanSenses.Instance != null) {
+            distanceFromTorbalan = Vector3.Distance(FirstPersonController.Instance.transform.position, TorbalanSenses.Instance.transform.position);
+            if (distanceFromTorbalan < distanceThreshold) return;
+        }
 
         if (waitTimer <= 0) {
             StartNextConversation();
