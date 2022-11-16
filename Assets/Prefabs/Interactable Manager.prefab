@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a7ad0fa8985488b877fed83a36a4ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableUI: {fileID: 0}
-  interactionRadius: 5
-  interactionAngle: 80
+  interactionRadius: 2
+  interactionAngle: 60
+  onSelectedObjectChange:
+    m_PersistentCalls:
+      m_Calls: []

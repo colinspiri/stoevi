@@ -100,7 +100,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
 --- !u!114 &7789147941650196040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 1
-  squareBackground: {fileID: 7789147942281967945}
+  canvasGroup: {fileID: 7789147942281967945}
   day1Text: {fileID: 7789147941974230086}
 --- !u!1 &7789147941974230107
 GameObject:

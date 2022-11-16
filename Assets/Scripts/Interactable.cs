@@ -8,13 +8,6 @@ public abstract class Interactable : MonoBehaviour {
     private bool selected;
     private bool interactable = true;
 
-    // components
-    private GameObject player;
-
-    private void Awake() {
-        player = GameObject.FindWithTag("Player");
-    }
-
     // Start is called before the first frame update
     protected virtual void Start() {
         InteractableManager.Instance.AddInteractable(this);
@@ -36,10 +29,10 @@ public abstract class Interactable : MonoBehaviour {
     public abstract string GetUIText();
 
     public float GetDistanceToPlayer() {
-        return Vector3.Distance(player.transform.position, transform.position);
+        return Vector3.Distance(FirstPersonController.Instance.transform.position, transform.position);
     }
     private float GetAngleWithPlayer() { 
-        return Vector3.Angle(player.transform.forward, transform.position - player.transform.position);
+        return Vector3.Angle(FirstPersonController.Instance.transform.forward, transform.position - FirstPersonController.Instance.transform.position);
     }
 
     protected void SetInteractable(bool value) {
