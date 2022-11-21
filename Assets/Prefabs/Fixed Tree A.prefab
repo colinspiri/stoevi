@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 322217099476333165}
   - component: {fileID: 322217099471962637}
   - component: {fileID: 322217099468742511}
-  - component: {fileID: 7353272869465519778}
   m_Layer: 2
   m_Name: Tree A
   m_TagString: Untagged
@@ -118,22 +117,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7353272869465519778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322217099478265005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2777bba7e4e7c6f4681e3ea77eef5438, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Size: {x: 2, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
-  m_Area: 1
-  m_AffectedAgents: ffffffff
 --- !u!1 &322217099478265007
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 849164088160006123}
   - component: {fileID: 6184956650576463128}
+  - component: {fileID: 8525830579288098202}
   m_Layer: 0
   m_Name: Fixed Tree A
   m_TagString: Untagged
@@ -282,3 +266,19 @@ LODGroup:
     - renderer: {fileID: 322217099476333165}
     - renderer: {fileID: 322217099476333167}
   m_Enabled: 1
+--- !u!114 &8525830579288098202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849164088160006124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2777bba7e4e7c6f4681e3ea77eef5438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 3, y: 1, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
