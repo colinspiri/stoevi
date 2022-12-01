@@ -15,7 +15,7 @@ public class Crop : Interactable {
     public Sprite emptySprite;
     public enum CropState { Water, Ripening, Harvest, Empty }
     public CropState cropState;
-    private float ripenTime = 8;
+    public float ripenTime;
     
     // state
     private float ripenTimer;
@@ -82,7 +82,7 @@ public class Crop : Interactable {
         if (cropState == CropState.Water) {
             return GameManager.Instance.IsWaterEmpty() ? "out of water" : "E to water tomato";
         }
-        if (cropState == CropState.Ripening) return "ready to harvest in " + ripenTimer.ToString("0") + "s";
+        if (cropState == CropState.Ripening) return "ready to harvest in " + Mathf.Ceil(ripenTimer).ToString("0") + "s";
         if (cropState == CropState.Harvest) return "E to harvest tomato";
         return "ERROR";
     }

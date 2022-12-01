@@ -144,3 +144,4 @@ MonoBehaviour:
   harvestSprite: {fileID: 21300000, guid: 8a72560c3aa7e470c80eb77598e76719, type: 3}
   emptySprite: {fileID: 21300000, guid: ba6c8846ec1604bc29c073185ad29aef, type: 3}
   cropState: 3
+  ripenTime: 20
