@@ -54,32 +54,28 @@ public class GameManager : MonoBehaviour {
         torbalanTomatoes++;
     }
 
-    public void StopGame() {
+    public void Pause(bool pauseAudio = false) {
         gameStopped = true;
         Time.timeScale = 0.0f;
+
+        if (pauseAudio) {
+            if (AudioManager.Instance) AudioManager.Instance.PauseGameSound();
+            else Debug.LogError("Audio Manager not found");
+        }
     }
 
-    public void PlayGame() {
+    public void Resume(bool resumeAudio = false) {
         gameStopped = false;
         Time.timeScale = 1.0f;
-    }
 
-    public void Pause() {
-        StopGame();
-
-        if (AudioManager.Instance) AudioManager.Instance.PauseGameSound();
-        else Debug.LogError("Audio Manager not found");
-    }
-
-    public void Resume() {
-        PlayGame();
-        
-        if (AudioManager.Instance) AudioManager.Instance.ResumeGameSound();
-        else Debug.LogError("Audio Manager not found");
+        if (resumeAudio) {
+            if (AudioManager.Instance) AudioManager.Instance.ResumeGameSound();
+            else Debug.LogError("Audio Manager not found");
+        }
     }
     
     public void GameOver(bool playerSurvived = true) {
-        StopGame();
+        Pause(true);
         PauseMenuManager.Instance.GameOver(playerSurvived);
     }
 }

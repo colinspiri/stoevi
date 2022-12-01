@@ -17,8 +17,8 @@ public class Day1Cutscene : MonoBehaviour {
     void Start() {
         canvasGroup.gameObject.SetActive(true);
         day1Text.alpha = 0;
-        
-        GameManager.Instance.StopGame();
+
+        GameManager.Instance.Pause();
 
         StartCoroutine(Day1CutsceneCoroutine());
     }
@@ -43,7 +43,7 @@ public class Day1Cutscene : MonoBehaviour {
         // play gate sfx
         
         // fade into gameplay
-        GameManager.Instance.PlayGame();
+        GameManager.Instance.Resume();
         Tweener backgroundTween = canvasGroup.DOFade(0, fadeTime).SetUpdate(true);
         yield return backgroundTween.WaitForCompletion();
         

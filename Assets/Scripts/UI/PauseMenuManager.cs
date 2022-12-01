@@ -53,7 +53,7 @@ public class PauseMenuManager : MonoBehaviour {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        GameManager.Instance.Pause();
+        GameManager.Instance.Pause(true);
     }
 
     public void ClosePauseMenu()
@@ -68,7 +68,7 @@ public class PauseMenuManager : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        GameManager.Instance.Resume();
+        GameManager.Instance.Resume(true);
     }
 
     public void GameOver(bool playerSurvived = true) {
