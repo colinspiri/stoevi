@@ -55,12 +55,12 @@ public class FirstPersonController : MonoBehaviour
 	// state
 	// input
 	private bool runInput;
-	private bool crouchInput;
-	
+	private bool crouchingLastFrame;
+	private bool crouching;
+
 	// camera
 	private float cameraTargetPitch;
 	private float normalHeight;
-	private bool crouching;
 	private Tween crouchTransition;
 	private bool bobbing;
 	private float bobCycle;
@@ -101,13 +101,13 @@ public class FirstPersonController : MonoBehaviour
 
 	private void Update() {
 		// toggle crouching
-		if (crouchInput && !crouching) {
+		if(crouching && !crouchingLastFrame) {
 			crouchTransition = cameraTarget.transform.DOMoveY(transform.position.y + crouchHeight, 0.5f);
-			crouching = true;
+			crouchingLastFrame = true;
 		}
-		if (crouching && !crouchInput) {
+		if (crouchingLastFrame && !crouching) {
 			crouchTransition = cameraTarget.transform.DOMoveY(transform.position.y + normalHeight, 0.5f);
-			crouching = false;
+			crouchingLastFrame = false;
 		}
 
 		JumpAndGravity();
@@ -268,7 +268,12 @@ public class FirstPersonController : MonoBehaviour
 		runInput = context.ReadValueAsButton();
 	}
 	public void OnCrouchInput(InputAction.CallbackContext context) {
-		crouchInput = context.ReadValueAsButton();
+		if (!crouchingLastFrame && context.ReadValueAsButton()) {
+			crouching = true;
+		}
+		if (crouchingLastFrame && context.ReadValueAsButton()) {
+			crouching = false;
+		}
 	}
 
 	private void OnDrawGizmosSelected() {

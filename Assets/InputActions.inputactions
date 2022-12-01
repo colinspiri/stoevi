@@ -318,6 +318,17 @@
                 },
                 {
                     "name": "",
+                    "id": "81426302-5dd9-4aae-a66c-3941fb2174cb",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6eb93310-0bd7-41d0-9f81-ec27a3d7f6d8",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
@@ -378,6 +389,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "49ce9a25-5249-435f-b7a8-d31ef8c074e2",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
