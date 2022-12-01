@@ -115,7 +115,7 @@ MonoBehaviour:
   rotationSpeed: 20
   crouchHeight: 1
   bobFrequency: 1.5
-  bobMagnitude: 0.1
+  bobMagnitude: 0.08
   bobMagnitudeCrouching: 0.05
 --- !u!114 &1978471637655604388
 MonoBehaviour:
