@@ -4182,6 +4182,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterSlider: {fileID: 7618183039233645124}
+  fadeInTime: 0.3
+  valueLerpTime: 0.8
+  waitTime: 1
+  fadeOutTime: 0.5
 --- !u!224 &7618183037229971847
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4724,7 +4728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.08249244, b: 0.5943396, a: 1}
+  m_Color: {r: 0, g: 0.08249244, b: 0.5943396, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5547,7 +5551,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.536
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5569,7 +5573,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 334, y: 0}
+  m_AnchoredPosition: {x: 424, y: 0}
   m_SizeDelta: {x: 180.1034, y: 117.367676}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7618183039233645126
@@ -5582,6 +5586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7618183039233645125}
   - component: {fileID: 7618183039233645124}
+  - component: {fileID: 7618183039233645127}
   m_Layer: 5
   m_Name: Water Slider
   m_TagString: Untagged
@@ -5589,6 +5594,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!225 &7618183039233645127
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7618183039233645126}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!114 &7659877329205876660
 MonoBehaviour:
   m_ObjectHideFlags: 0
