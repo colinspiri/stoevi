@@ -51,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cde63bd3e4e014afbad5f9b6b1a45a89, type: 2}
+  - {fileID: 2100000, guid: 1419baf7da82f40d4ba4301a13981494, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeRadius: 30
-  farRadius: 31
+  farRadius: 60
   maxTimeCloseToPlayer: 20
   maxTimeFarFromPlayer: 20
   areaNodes: []
@@ -233,8 +233,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 5
-  MaxDistance: 50
+  MinDistance: 10
+  MaxDistance: 45
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -345,7 +345,7 @@ MonoBehaviour:
         Known Position","IsShared":true,"PropertyMapping":"TorbalanSenses/LastKnownPosition","Vector3mValue":"(0,0,0)"},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Chase
         Speed","IsShared":true,"SinglemValue":12},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive
         Distance","IsShared":true,"SinglemValue":3},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"KillPlayer","NodeData":{"Offset":"(193.916153,183.916153)"},"ID":7,"Name":"Kill
-        Player","Instant":true}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-662.95575,341.193665)"},"ID":8,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"DirectorGaveCommand","NodeData":{"Offset":"(-188.428467,155.413025)"},"ID":9,"Name":"Director
+        Player","Instant":true}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-647.8034,341.193665)"},"ID":8,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"DirectorGaveCommand","NodeData":{"Offset":"(-188.428467,155.413025)"},"ID":9,"Name":"Director
         Gave Command","Instant":true,"TorbalanDirectordirector":0},{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.Seek","NodeData":{"Offset":"(-4.96228027,161.193665)"},"ID":10,"Name":"Seek
         Director Target","Instant":true,"SharedGameObjecttarget":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedCroptargetCrop":{"Type":"SharedCrop","Name":null},"SharedVector3targetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"DirectorTargetPosition","IsShared":true,"PropertyMapping":"TorbalanDirector/TargetPosition","PropertyMappingOwner":1,"Vector3mValue":"(0,0,0)"},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
         Speed","IsShared":true,"SinglemValue":2},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive

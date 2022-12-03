@@ -99,8 +99,8 @@ MonoBehaviour:
   runSpeed: 8
   crouchSpeed: 1.5
   speedChangeRate: 10
-  walkLoudness: 8
-  runLoudness: 20
+  walkLoudness: 20
+  runLoudness: 35
   gravity: -15
   fallTimeout: 0.15
   grounded: 1

@@ -86,4 +86,8 @@ public class Crop : Interactable {
         if (cropState == CropState.Harvest) return "E to harvest tomato";
         return "ERROR";
     }
+
+    public float GetRipenTimeFloat() {
+        return ripenTimer / ripenTime;
+    }
 }
