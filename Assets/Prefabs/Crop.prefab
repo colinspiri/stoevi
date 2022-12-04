@@ -145,5 +145,7 @@ MonoBehaviour:
   emptySprite: {fileID: 21300000, guid: ba6c8846ec1604bc29c073185ad29aef, type: 3}
   maxTomatoes: 3
   minTomatoes: 1
-  ripenTime: 5
+  growTime: 120
+  ripenTime: 60
   stage: 0
+  startAtRandomStage: 1

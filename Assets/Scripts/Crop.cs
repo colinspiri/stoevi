@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using Yarn.Unity;
 using Random = UnityEngine.Random;
 
 public class Crop : Interactable {
@@ -16,29 +17,43 @@ public class Crop : Interactable {
     // constants
     public int maxTomatoes;
     public int minTomatoes;
+    public float growTime;
     public float ripenTime;
 
     // state
-    public enum CropStage { Seed, Intermediate, Unripe, Ripening, Ripe, Bare }
+    public enum CropStage { Seed, Intermediate, Unripe, Ripe, Bare }
     public CropStage stage;
+    public bool startAtRandomStage;
 
     private int tomatoesLeft;
+    
+    private bool growing;
+    private float growTimer;
+    
+    private bool ripening;
     private float ripenTimer;
 
-    private bool needsWater;
-    private bool wateredToday;
-    private int timesMissedWatering;
+    private bool watered;
+    // private bool wateredToday;
+    // private int timesMissedWatering;
 
     protected override void Start() {
         base.Start();
-        ChangeCropStage(stage);
+        
+        if (startAtRandomStage) {
+            int randomStage = Random.Range(0, 4);
+            Debug.Log("randomStage = " + randomStage + " - " + ((CropStage)randomStage).ToString());
+            ChangeCropStage((CropStage)randomStage);
+        }
+        else ChangeCropStage(stage);
+        
         tomatoesLeft = Random.Range(minTomatoes, maxTomatoes + 1);
     }
 
     public override void Interact() {
         base.Interact();
         
-        if (needsWater && !GameManager.Instance.IsWaterEmpty() && (stage == CropStage.Seed || stage == CropStage.Intermediate || stage == CropStage.Unripe)) Water();
+        if (!watered && !GameManager.Instance.IsWaterEmpty() && (stage == CropStage.Seed || stage == CropStage.Intermediate || stage == CropStage.Unripe)) Water();
         else if (stage == CropStage.Ripe) Harvest();
         
         InteractableManager.Instance.CheckForHarvestableCropsLeft();
@@ -48,9 +63,12 @@ public class Crop : Interactable {
         GameManager.Instance.UseWater();
         AudioManager.Instance.PlayWaterSound();
 
-        needsWater = false;
-        wateredToday = true;
-        if (stage == CropStage.Unripe) {
+        watered = true;
+        
+        if (stage == CropStage.Seed || stage == CropStage.Intermediate) {
+            StartCoroutine(Grow());
+        }
+        else if (stage == CropStage.Unripe) {
             StartCoroutine(Ripen());
         }
     }
@@ -63,29 +81,33 @@ public class Crop : Interactable {
 
     public void RemoveRipeTomatoes() {
         tomatoesLeft--;
-        needsWater = true;
+        watered = false;
         ChangeCropStage(tomatoesLeft <= 0 ? CropStage.Bare : CropStage.Unripe);
     }
 
-    private void AdvanceToNextDay() {
-        if (!wateredToday) timesMissedWatering++;
-        if (timesMissedWatering == 1) {
-            // TODO: crop sprite is "unhealthy" version
+    private IEnumerator Grow() {
+        growing = true;
+        
+        // count down grow timer
+        growTimer = growTime;
+        while (growTimer > 0) {
+            growTimer -= Time.deltaTime;
+            yield return null;
         }
-        if (timesMissedWatering >= 2) {
-            // TODO: crop dies
-        }
-
+        
         ChangeCropStage(stage switch {
             CropStage.Seed => CropStage.Intermediate,
             CropStage.Intermediate => CropStage.Unripe,
             CropStage.Unripe => CropStage.Ripe,
             _ => stage
         });
+
+        growing = false;
+        watered = false;
     }
 
     private IEnumerator Ripen() {
-        ChangeCropStage(CropStage.Ripening);
+        ripening = true;
         
         // count down ripen timer
         ripenTimer = ripenTime;
@@ -95,6 +117,7 @@ public class Crop : Interactable {
         }
         
         ChangeCropStage(CropStage.Ripe);
+        ripening = false;
     }
 
     private void ChangeCropStage(CropStage newStage) {
@@ -105,16 +128,10 @@ public class Crop : Interactable {
             CropStage.Seed => waterSprite,
             CropStage.Intermediate => waterSprite,
             CropStage.Unripe => waterSprite,
-            CropStage.Ripening => waterSprite,
             CropStage.Ripe => harvestSprite,
             CropStage.Bare => emptySprite,
             _ => throw new ArgumentOutOfRangeException()
         };
-
-        if (stage == CropStage.Seed || stage == CropStage.Intermediate || stage == CropStage.Unripe) {
-            needsWater = true;
-        }
-        else needsWater = false;
 
         if (stage == CropStage.Bare) {
             SetInteractable(false);
@@ -123,8 +140,7 @@ public class Crop : Interactable {
     }
 
     public override string GetUIText() {
-        string uiText = "crop stage: " + stage.ToString().ToLower();
-        if (stage == CropStage.Unripe || stage == CropStage.Ripe) uiText += " " + tomatoesLeft;
+        string uiText = stage.ToString().ToLower();
 
         uiText += "\n";
         
@@ -132,13 +148,12 @@ public class Crop : Interactable {
             case CropStage.Seed:
             case CropStage.Intermediate:
             case CropStage.Unripe: {
-                if (!needsWater) uiText += "already watered";
+                if (ripening) uiText += "ripe in " + Mathf.Ceil(ripenTimer).ToString("0") + "s";
+                else if (growing) uiText += "growing in " + Mathf.Ceil(growTimer).ToString("0") + "s";
+                else if (watered) uiText += "already watered";
                 else uiText += GameManager.Instance.IsWaterEmpty() ? "out of water" : "E to water tomato";
                 break;
             }
-            case CropStage.Ripening:
-                uiText += "ripe in " + Mathf.Ceil(ripenTimer).ToString("0") + "s";
-                break;
             case CropStage.Ripe:
                 uiText += "E to harvest tomato";
                 break;
@@ -150,7 +165,13 @@ public class Crop : Interactable {
         return uiText;
     }
 
-    public float GetRipenTimeFloat() {
-        return ripenTimer / ripenTime;
+    public override float GetSliderFloat() {
+        if (ripening) {
+            return ripenTimer / ripenTime;
+        }
+        if (growing) {
+            return growTimer / growTime;
+        }
+        return 0;
     }
 }

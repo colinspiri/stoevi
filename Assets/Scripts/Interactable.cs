@@ -27,6 +27,7 @@ public abstract class Interactable : MonoBehaviour {
     }
 
     public abstract string GetUIText();
+    public abstract float GetSliderFloat();
 
     public float GetDistanceToPlayer() {
         return Vector3.Distance(FirstPersonController.Instance.transform.position, transform.position);

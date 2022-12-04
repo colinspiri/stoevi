@@ -12,4 +12,8 @@ public class Well : Interactable {
     public override string GetUIText() {
         return GameManager.Instance.IsWaterFull() ? "water is already full" : "E to refill water";
     }
+
+    public override float GetSliderFloat() {
+        return 0;
+    }
 }

@@ -40,19 +40,23 @@ public class InteractableManager : MonoBehaviour {
     private void SelectObjectFromCandidates() {
         // no candidates
         if (candidatesForInteraction.Count == 0) {
-            if(selectedObject != null) selectedObject.Deselect();
+            if (selectedObject != null) {
+                selectedObject.Deselect();
+                onSelectedObjectChange?.Invoke(null);
+            }
             selectedObject = null;
-            onSelectedObjectChange?.Invoke(selectedObject);
-            // interactableUI.ClearInteractableUI();
             return;
         }
         // 1 candidate
         if (candidatesForInteraction.Count == 1) {
+            // only candidate is already selected
+            if (selectedObject == candidatesForInteraction[0]) {
+                return;
+            }
             if(selectedObject != null) selectedObject.Deselect();
             selectedObject = candidatesForInteraction[0];
             selectedObject.Select();
             onSelectedObjectChange?.Invoke(selectedObject);
-            // interactableUI.ShowSelectedObject(selectedObject);
             return;
         }
         // choose closest candidate
@@ -64,11 +68,15 @@ public class InteractableManager : MonoBehaviour {
                 closest = candidate;
             }
         }
+        // closest candidate is already selected
+        if (selectedObject == closest) {
+            return;
+        }
         if(selectedObject != null) selectedObject.Deselect();
+        
         selectedObject = closest;
         selectedObject.Select();
         onSelectedObjectChange?.Invoke(selectedObject);
-        // interactableUI.ShowSelectedObject(selectedObject);
     }
 
     public Crop GetClosestHarvestableCropTo(Vector3 position, float maxDistance = float.MaxValue) {

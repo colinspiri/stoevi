@@ -4,43 +4,51 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class InteractableUI : MonoBehaviour {
     // components
     public TextMeshProUGUI interactableText;
-    public Slider ripenTimer;
+    public Slider interactableSlider;
     
     // state
-    private Crop currentRipeningCrop;
-    
+    private Interactable selectedObject;
+
 
     private void Start() {
-        ripenTimer.gameObject.SetActive(false);
+        HideInteractableUI();
+        
         if (InteractableManager.Instance != null) {
-            InteractableManager.Instance.onSelectedObjectChange.AddListener(ShowSelectedObject);
+            InteractableManager.Instance.onSelectedObjectChange.AddListener(newSelectedObject => {
+                selectedObject = newSelectedObject;
+                if (selectedObject == null) {
+                    HideInteractableUI();
+                }
+                else ShowSelectedObject();
+            });
         }
     }
 
-    private void ShowSelectedObject(Interactable selectedObject) {
-        if (selectedObject == null) {
-            interactableText.text = "";
-            ripenTimer.gameObject.SetActive(false);
-            return;
-        }
-        
-        interactableText.text = selectedObject.GetUIText();
+    private void HideInteractableUI() {
+        interactableText.text = "";
+        interactableText.gameObject.SetActive(false);
+        interactableSlider.gameObject.SetActive(false);
+    }
 
-        // show ripen timer if crop is ripening
-        if (selectedObject is Crop { stage: Crop.CropStage.Ripening } crop) {
-            ripenTimer.gameObject.SetActive(true);
-            currentRipeningCrop = crop;
+    private void ShowSelectedObject() {
+        interactableText.gameObject.SetActive(true);
+        interactableText.text = selectedObject.GetUIText();
+        
+        if (selectedObject.GetSliderFloat() != 0) {
+            interactableSlider.gameObject.SetActive(true);
+            interactableSlider.value = selectedObject.GetSliderFloat();
         }
+        else interactableSlider.gameObject.SetActive(false);
     }
 
     private void Update() {
-        if (currentRipeningCrop != null) {
-            ripenTimer.value = currentRipeningCrop.GetRipenTimeFloat();
-        }
+        if(selectedObject != null) ShowSelectedObject();
     }
+    
 }
