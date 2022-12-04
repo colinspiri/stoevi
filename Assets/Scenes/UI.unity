@@ -469,7 +469,7 @@ MonoBehaviour:
     C - crouch
 
     E
-    - interact/water/harvest'
+    / LMB - interact'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6658cec1d8674cf989670fb5fec9149, type: 2}
   m_sharedMaterial: {fileID: -4372524865951003261, guid: d6658cec1d8674cf989670fb5fec9149, type: 2}

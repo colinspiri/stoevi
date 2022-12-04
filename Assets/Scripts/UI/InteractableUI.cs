@@ -32,7 +32,7 @@ public class InteractableUI : MonoBehaviour {
         interactableText.text = selectedObject.GetUIText();
 
         // show ripen timer if crop is ripening
-        if (selectedObject is Crop { cropState: Crop.CropState.Ripening } crop) {
+        if (selectedObject is Crop { stage: Crop.CropStage.Ripening } crop) {
             ripenTimer.gameObject.SetActive(true);
             currentRipeningCrop = crop;
         }

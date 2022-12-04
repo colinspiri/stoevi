@@ -27,7 +27,7 @@ public class EatCrop : Action {
         }
         
         GameManager.Instance.TorbalanStoleTomato();
-        targetCrop.Value.MakeEmpty();
+        targetCrop.Value.RemoveRipeTomatoes();
         
         return TaskStatus.Success;
     }
