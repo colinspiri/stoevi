@@ -26,16 +26,14 @@ public class PauseMenuManager : MonoBehaviour {
     {
         inputActions = new InputActions();
         inputActions.Enable();
-
-        pauseMenu.SetActive(false);
-        GameManager.Instance.Resume();
         
         gameOverPanel.SetActive(false);
+        ClosePauseMenu();
     }
 
     private void Update()
     {
-        if (!gameOverPanel.activeSelf && !GameManager.Instance.gameStopped) {
+        if (!gameOverPanel.activeSelf && (GameManager.Instance == null || !GameManager.Instance.gameStopped)) {
             if (inputActions.Gameplay.Menu.triggered) {
                 OpenPauseMenu();
             }
@@ -53,11 +51,10 @@ public class PauseMenuManager : MonoBehaviour {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        GameManager.Instance.Pause(true);
+        if(GameManager.Instance) GameManager.Instance.Pause(true);
     }
 
-    public void ClosePauseMenu()
-    {
+    public void ClosePauseMenu() {
         pauseMenu.SetActive(false);
         
         // enable other UI
@@ -68,14 +65,14 @@ public class PauseMenuManager : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        GameManager.Instance.Resume(true);
+        if(GameManager.Instance) GameManager.Instance.Resume(true);
     }
 
     public void GameOver(bool playerSurvived = true) {
         gameOverPanel.SetActive(true);
         if (playerSurvived) {
             gameOverPanel.GetComponent<Image>().color = Color.black;
-            gameOverMessage.text = "You survived.";
+            gameOverMessage.text = "You survived day " + (GameManager.Instance.currentDay - 1) + ".";
             
             gameOverTomatoes.text = "You harvested " + GameManager.Instance.PlayerTomatoes + " tomatoes.\n" +
                                     "The Torbalan stole " + GameManager.Instance.TorbalanTomatoes + " tomatoes.";

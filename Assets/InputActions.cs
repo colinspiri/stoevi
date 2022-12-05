@@ -73,6 +73,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""DebugGameOver"",
+                    ""type"": ""Button"",
+                    ""id"": ""abce8ae5-b12c-4af6-9d71-733c4197d1ec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -469,6 +477,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Xbox"",
                     ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c99789d-1ea9-4ff3-8386-c8514166b853"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""DebugGameOver"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1089,33 +1108,6 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
-        },
-        {
-            ""name"": ""Player"",
-            ""id"": ""f08df95b-e05e-4ec6-9e0b-bec510f098db"",
-            ""actions"": [
-                {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""b41468fd-5fa3-412b-8e1d-e92a05942981"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""d1cff6c2-8c02-4669-8d0b-8cbac70bde7c"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""New action"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
         }
     ],
     ""controlSchemes"": [
@@ -1168,6 +1160,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Gameplay_Crouch = m_Gameplay.FindAction("Crouch", throwIfNotFound: true);
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         m_Gameplay_Back = m_Gameplay.FindAction("Back", throwIfNotFound: true);
+        m_Gameplay_DebugGameOver = m_Gameplay.FindAction("DebugGameOver", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1180,9 +1173,6 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
-        // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Newaction = m_Player.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1239,6 +1229,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Crouch;
     private readonly InputAction m_Gameplay_Menu;
     private readonly InputAction m_Gameplay_Back;
+    private readonly InputAction m_Gameplay_DebugGameOver;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -1250,6 +1241,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @Crouch => m_Wrapper.m_Gameplay_Crouch;
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputAction @Back => m_Wrapper.m_Gameplay_Back;
+        public InputAction @DebugGameOver => m_Wrapper.m_Gameplay_DebugGameOver;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1280,6 +1272,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Back.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBack;
                 @Back.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBack;
                 @Back.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBack;
+                @DebugGameOver.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDebugGameOver;
+                @DebugGameOver.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDebugGameOver;
+                @DebugGameOver.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDebugGameOver;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1305,6 +1300,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Back.started += instance.OnBack;
                 @Back.performed += instance.OnBack;
                 @Back.canceled += instance.OnBack;
+                @DebugGameOver.started += instance.OnDebugGameOver;
+                @DebugGameOver.performed += instance.OnDebugGameOver;
+                @DebugGameOver.canceled += instance.OnDebugGameOver;
             }
         }
     }
@@ -1414,39 +1412,6 @@ public class @InputActions : IInputActionCollection, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
-
-    // Player
-    private readonly InputActionMap m_Player;
-    private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Newaction;
-    public struct PlayerActions
-    {
-        private @InputActions m_Wrapper;
-        public PlayerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Player_Newaction;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerActions instance)
-        {
-            if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
-            {
-                @Newaction.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnNewaction;
-            }
-            m_Wrapper.m_PlayerActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
-            }
-        }
-    }
-    public PlayerActions @Player => new PlayerActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1483,6 +1448,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
+        void OnDebugGameOver(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
@@ -1496,9 +1462,5 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
-    }
-    public interface IPlayerActions
-    {
-        void OnNewaction(InputAction.CallbackContext context);
     }
 }

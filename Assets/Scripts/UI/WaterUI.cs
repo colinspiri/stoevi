@@ -23,7 +23,7 @@ public class WaterUI : MonoBehaviour
         waterSlider.value = 1;
         canvasGroup.alpha = 0;
         
-        GameManager.Instance.onWaterValueChange.AddListener(waterValue => {
+        if(GameManager.Instance) GameManager.Instance.onWaterValueChange.AddListener(waterValue => {
             canvasGroup.DOFade(1, fadeInTime);
             Sequence sequence = DOTween.Sequence();
             sequence.Append(waterSlider.DOValue(waterValue, valueLerpTime));

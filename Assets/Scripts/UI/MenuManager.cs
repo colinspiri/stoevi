@@ -55,7 +55,6 @@ public class MenuManager : MonoBehaviour
             BackToPreviousMenuScreen();
 
             if (AudioManager.Instance) AudioManager.Instance.PlayBackSound();
-            else Debug.LogError("Audio Manager not found.");
         }
     }
 
@@ -87,8 +86,13 @@ public class MenuManager : MonoBehaviour
     }
 
 
-    public void Play()
-    {
+    public void Play() {
+        SceneManager.LoadScene(playScene.ScenePath);
+    }
+
+    public void LoadCurrentDay() {
+        int currentDay = PlayerPrefs.GetInt("CurrentDay", 1);
+        // load scene based on current day
         SceneManager.LoadScene(playScene.ScenePath);
     }
 

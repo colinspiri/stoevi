@@ -39,7 +39,7 @@ public class MenuOptionAnimator : MonoBehaviour {
     public void SelectAnimation() {
         selectable.transform.DOScale(uiConstants.scaleOnSelect, uiConstants.selectTime).SetUpdate(true);
         if(text != null) text.DOColor(Color.red, uiConstants.selectTime).SetUpdate(true);
-        AudioManager.Instance.PlaySelectSound();
+        if(AudioManager.Instance) AudioManager.Instance.PlaySelectSound();
     }
 
     public void SubmitAnimation()
@@ -49,10 +49,10 @@ public class MenuOptionAnimator : MonoBehaviour {
 
     public void PlaySubmitSound()
     {
-        AudioManager.Instance.PlaySubmitSound();
+        if(AudioManager.Instance) AudioManager.Instance.PlaySubmitSound();
     }
     public void PlayBackSound()
     {
-        AudioManager.Instance.PlayBackSound();
+        if(AudioManager.Instance) AudioManager.Instance.PlayBackSound();
     }
 }

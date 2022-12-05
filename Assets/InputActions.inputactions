@@ -60,6 +60,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "DebugGameOver",
+                    "type": "Button",
+                    "id": "abce8ae5-b12c-4af6-9d71-733c4197d1ec",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -456,6 +464,17 @@
                     "processors": "",
                     "groups": "Xbox",
                     "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0c99789d-1ea9-4ff3-8386-c8514166b853",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "DebugGameOver",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1072,33 +1091,6 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "RightClick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Player",
-            "id": "f08df95b-e05e-4ec6-9e0b-bec510f098db",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "b41468fd-5fa3-412b-8e1d-e92a05942981",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "d1cff6c2-8c02-4669-8d0b-8cbac70bde7c",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "New action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

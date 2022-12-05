@@ -17,7 +17,7 @@ public class TomatoUI : MonoBehaviour
 
     private void Start() {
         counterText.text = "harvested 0 tomatoes";
-        GameManager.Instance.playerHarvestedTomato.AddListener(tomatoes => {
+        if(GameManager.Instance) GameManager.Instance.playerHarvestedTomato.AddListener(tomatoes => {
             counterText.text = "harvested " + tomatoes + " tomatoes";
         });
     }

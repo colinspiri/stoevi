@@ -3,9 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
+    
+    // day
+    public int currentDay;
     
     // water
     public int maxWater; // 4
@@ -24,6 +28,7 @@ public class GameManager : MonoBehaviour {
 
     private void Awake() {
         Instance = this;
+        currentDay = PlayerPrefs.GetInt("CurrentDay", 1);
     }
 
     private void Start() {
@@ -76,6 +81,14 @@ public class GameManager : MonoBehaviour {
     
     public void GameOver(bool playerSurvived = true) {
         Pause(true);
+        currentDay++;
+        PlayerPrefs.SetInt("CurrentDay", currentDay);
         PauseMenuManager.Instance.GameOver(playerSurvived);
+    }
+
+    public void OnDebugGameOverInput(InputAction.CallbackContext context) {
+        if (context.performed) {
+            GameOver(true);
+        }
     }
 }

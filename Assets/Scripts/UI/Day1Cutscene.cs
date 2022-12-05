@@ -7,47 +7,23 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
-public class Day1Cutscene : MonoBehaviour {
-    public float fadeTime;
+public class Day1Cutscene : Cutscene {
 
-    [FormerlySerializedAs("squareBackground")] public CanvasGroup canvasGroup;
-    public TextMeshProUGUI day1Text;
-
-    // Start is called before the first frame update
-    void Start() {
-        canvasGroup.gameObject.SetActive(true);
-        day1Text.alpha = 0;
-
-        GameManager.Instance.Pause();
-
-        StartCoroutine(Day1CutsceneCoroutine());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+    protected override IEnumerator CutsceneCoroutine() {
+        dayText.alpha = 0;
         
-    }
-
-    private IEnumerator Day1CutsceneCoroutine() {
-        AudioManager.Instance.PlayWalking();
+        if(AudioManager.Instance) AudioManager.Instance.PlayWalking();
 
         yield return new WaitForSecondsRealtime(2);
         
-        day1Text.alpha = 1;
+        dayText.alpha = 1;
+        
         // play sheep baa 
-        AudioManager.Instance.PlayChaseSound();
+        if(AudioManager.Instance) AudioManager.Instance.PlayChaseSound();
 
         yield return new WaitForSecondsRealtime(2);
         
         // play gate sfx
-        
-        // fade into gameplay
-        GameManager.Instance.Resume();
-        Tweener backgroundTween = canvasGroup.DOFade(0, fadeTime).SetUpdate(true);
-        yield return backgroundTween.WaitForCompletion();
-        
-        Destroy(gameObject);
 
         yield return null;
     }
