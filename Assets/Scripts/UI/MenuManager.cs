@@ -90,9 +90,14 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(playScene.ScenePath);
     }
 
+    public void NewGame() {
+        PlayerPrefs.DeleteKey("CurrentDay");
+        SceneManager.LoadScene(playScene.ScenePath);
+    }
+
     public void LoadCurrentDay() {
         int currentDay = PlayerPrefs.GetInt("CurrentDay", 1);
-        // load scene based on current day
+        // TODO: load scene based on current day
         SceneManager.LoadScene(playScene.ScenePath);
     }
 
