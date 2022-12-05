@@ -1829,7 +1829,10 @@ MonoBehaviour:
   defaultBackAction:
     m_PersistentCalls:
       m_Calls: []
-  playScene:
+  introCutscene:
+    sceneAsset: {fileID: 102900000, guid: c24d2e2d55a1fbf40884fdac4fe4fced, type: 3}
+    scenePath: Assets/Scenes/IntroCutscene.unity
+  dayScene:
     sceneAsset: {fileID: 102900000, guid: 8177ba1438c10794697df8015df5e37e, type: 3}
     scenePath: Assets/Scenes/Day2.unity
   mainMenuScene:
@@ -7033,9 +7036,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  playScene:
-    sceneAsset: {fileID: 0}
-    scenePath: 
+  introCutscene:
+    sceneAsset: {fileID: 102900000, guid: c24d2e2d55a1fbf40884fdac4fe4fced, type: 3}
+    scenePath: Assets/Scenes/IntroCutscene.unity
+  dayScene:
+    sceneAsset: {fileID: 102900000, guid: 8177ba1438c10794697df8015df5e37e, type: 3}
+    scenePath: Assets/Scenes/Day2.unity
   mainMenuScene:
     sceneAsset: {fileID: 102900000, guid: 6dd513305e2b80642a43c3ad87d60f9e, type: 3}
     scenePath: Assets/Scenes/MainMenu.unity
