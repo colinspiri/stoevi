@@ -11,18 +11,13 @@ public class InteractableUI : MonoBehaviour {
     // components
     public TextMeshProUGUI interactableText;
     public Slider interactableSlider;
-    
-    // state
-    private Interactable selectedObject;
-
 
     private void Start() {
         HideInteractableUI();
         
         if (InteractableManager.Instance != null) {
             InteractableManager.Instance.onSelectedObjectChange.AddListener(newSelectedObject => {
-                selectedObject = newSelectedObject;
-                if (selectedObject == null) {
+                if (newSelectedObject == null) {
                     HideInteractableUI();
                 }
                 else ShowSelectedObject();
@@ -37,6 +32,8 @@ public class InteractableUI : MonoBehaviour {
     }
 
     private void ShowSelectedObject() {
+        var selectedObject = InteractableManager.Instance.GetSelectedObject();
+        
         interactableText.gameObject.SetActive(true);
         interactableText.text = selectedObject.GetUIText();
         
@@ -48,7 +45,7 @@ public class InteractableUI : MonoBehaviour {
     }
 
     private void Update() {
-        if(selectedObject != null) ShowSelectedObject();
+        if(InteractableManager.Instance.GetSelectedObject() != null) ShowSelectedObject();
     }
     
 }

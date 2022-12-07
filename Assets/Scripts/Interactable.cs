@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour {
+    // constants
+    public float interactionDistance = 5f;
+    
     // state
     private bool selected;
     private bool interactable = true;
@@ -13,15 +16,6 @@ public abstract class Interactable : MonoBehaviour {
         InteractableManager.Instance.AddInteractable(this);
     }
 
-    // Update is called once per frame
-    void Update() {
-        // add as candidate for selection
-        if (interactable && GetDistanceToPlayer() <= InteractableManager.Instance.interactionRadius && GetAngleWithPlayer() <= InteractableManager.Instance.interactionAngle){
-            InteractableManager.Instance.AddCandidate(this);
-        }
-        else InteractableManager.Instance.RemoveCandidate(this);
-    }
-
     public virtual void Interact() {
         // Debug.Log("Interacting with " + gameObject.name);
     }
@@ -29,18 +23,13 @@ public abstract class Interactable : MonoBehaviour {
     public abstract string GetUIText();
     public abstract float GetSliderFloat();
 
-    public float GetDistanceToPlayer() {
-        return Vector3.Distance(FirstPersonController.Instance.transform.position, transform.position);
-    }
-    private float GetAngleWithPlayer() { 
-        return Vector3.Angle(FirstPersonController.Instance.transform.forward, transform.position - FirstPersonController.Instance.transform.position);
+    public bool PlayerWithinInteractionDistance(Vector3 raycastPoint) {
+        var distance = Vector3.Distance(FirstPersonController.Instance.transform.position, raycastPoint);
+        return distance <= interactionDistance;
     }
 
     protected void SetInteractable(bool value) {
         interactable = value;
-        if (!interactable) {
-            InteractableManager.Instance.RemoveCandidate(this);
-        }
     }
 
     public bool IsInteractable() {

@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 150281683}
   - component: {fileID: 150281682}
   - component: {fileID: 150281686}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Soil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,6 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d035706e53c3541964dfb9c647c00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionDistance: 5
 --- !u!1001 &238360720
 PrefabInstance:
   m_ObjectHideFlags: 0
