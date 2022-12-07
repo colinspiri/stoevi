@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,10 @@ public class Well : Interactable {
     
     public override void Interact() {
         ResourceManager.Instance.RefillWater();
+    }
+
+    private void Update() {
+        SetInteractable(ResourceManager.Instance.IsWaterFull() == false);
     }
 
     public override string GetUIText() {

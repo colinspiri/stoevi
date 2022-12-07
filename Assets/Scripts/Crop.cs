@@ -50,6 +50,10 @@ public class Crop : Interactable {
         tomatoesLeft = Random.Range(minTomatoes, maxTomatoes + 1);
     }
 
+    private void Update() {
+        SetInteractable(stage != CropStage.Bare && !growing && !ripening && (stage == CropStage.Ripe || ResourceManager.Instance.IsWaterEmpty() == false));
+    }
+
     public override void Interact() {
         if (!watered && !ResourceManager.Instance.IsWaterEmpty() && (stage == CropStage.Seed || stage == CropStage.Intermediate || stage == CropStage.Unripe)) Water();
         else if (stage == CropStage.Ripe) Harvest();
@@ -85,7 +89,6 @@ public class Crop : Interactable {
 
     private IEnumerator Grow() {
         growing = true;
-        SetInteractable(false);
         
         // count down grow timer
         growTimer = growTime;
@@ -103,12 +106,10 @@ public class Crop : Interactable {
 
         growing = false;
         watered = false;
-        SetInteractable(true);
     }
 
     private IEnumerator Ripen() {
         ripening = true;
-        SetInteractable(false);
         
         // count down ripen timer
         ripenTimer = ripenTime;
@@ -119,7 +120,6 @@ public class Crop : Interactable {
         
         ChangeCropStage(CropStage.Ripe);
         ripening = false;
-        SetInteractable(true);
     }
 
     private void ChangeCropStage(CropStage newStage) {
@@ -136,7 +136,6 @@ public class Crop : Interactable {
         };
 
         if (stage == CropStage.Bare) {
-            SetInteractable(false);
             InteractableManager.Instance.CheckForHarvestableCropsLeft();
         }
     }
@@ -153,11 +152,14 @@ public class Crop : Interactable {
                 if (ripening) uiText += "ripe in " + Mathf.Ceil(ripenTimer).ToString("0") + "s";
                 else if (growing) uiText += "growing in " + Mathf.Ceil(growTimer).ToString("0") + "s";
                 else if (watered) uiText += "already watered";
-                else uiText += ResourceManager.Instance.IsWaterEmpty() ? "out of water" : "E to water tomato";
+                else uiText += ResourceManager.Instance.IsWaterEmpty() ? "out of water" : "E to water plant";
                 break;
             }
             case CropStage.Ripe:
                 uiText += "E to harvest tomato";
+                break;
+            case CropStage.Bare:
+                uiText += "";
                 break;
             default:
                 uiText += "ERROR";

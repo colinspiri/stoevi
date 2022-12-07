@@ -54,14 +54,16 @@ public class InteractableManager : MonoBehaviour {
         if (interactionState == InteractionState.Interacting) {
             // if no longer interactable, go back to selecting
             if (!SelectedObject.IsInteractable()) {
-                holdTimer = 0;
                 interactionState = InteractionState.Selecting;
+                holdTimer = 0;
             }
             // count up hold timer
             holdTimer += Time.deltaTime;
             // if holding for long enough, call interact
             if (holdTimer >= SelectedObject.InteractionTime) {
                 SelectedObject.Interact();
+                interactionState = InteractionState.Selecting;
+                holdTimer = 0;
             }
         }
     }
