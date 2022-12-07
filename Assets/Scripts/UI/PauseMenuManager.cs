@@ -74,14 +74,14 @@ public class PauseMenuManager : MonoBehaviour {
             gameOverPanel.GetComponent<Image>().color = Color.black;
             gameOverMessage.text = "You survived day " + (GameManager.Instance.currentDay - 1) + ".";
             
-            gameOverTomatoes.text = "You harvested " + GameManager.Instance.PlayerTomatoes + " tomatoes.\n" +
-                                    "The Torbalan stole " + GameManager.Instance.TorbalanTomatoes + " tomatoes.";
+            gameOverTomatoes.text = "You harvested " + ResourceManager.Instance.PlayerTomatoes + " tomatoes.\n" +
+                                    "The Torbalan stole " + ResourceManager.Instance.TorbalanTomatoes + " tomatoes.";
         }
         else {
             gameOverMessage.text = "You failed.";
             
-            gameOverTomatoes.text = "The Torbalan stole " + GameManager.Instance.TorbalanTomatoes + " tomatoes.\n" +
-                                    "He also stole the " + GameManager.Instance.PlayerTomatoes + " you harvested.";
+            gameOverTomatoes.text = "The Torbalan stole " + ResourceManager.Instance.TorbalanTomatoes + " tomatoes.\n" +
+                                    "He also stole the " + ResourceManager.Instance.PlayerTomatoes + " you harvested.";
         }
     }
 }

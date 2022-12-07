@@ -42,7 +42,7 @@ public class Crop : Interactable {
         
         if (startAtRandomStage) {
             int randomStage = Random.Range(0, 4);
-            Debug.Log("randomStage = " + randomStage + " - " + ((CropStage)randomStage).ToString());
+            // Debug.Log("randomStage = " + randomStage + " - " + ((CropStage)randomStage).ToString());
             ChangeCropStage((CropStage)randomStage);
         }
         else ChangeCropStage(stage);
@@ -51,14 +51,14 @@ public class Crop : Interactable {
     }
 
     public override void Interact() {
-        if (!watered && !GameManager.Instance.IsWaterEmpty() && (stage == CropStage.Seed || stage == CropStage.Intermediate || stage == CropStage.Unripe)) Water();
+        if (!watered && !ResourceManager.Instance.IsWaterEmpty() && (stage == CropStage.Seed || stage == CropStage.Intermediate || stage == CropStage.Unripe)) Water();
         else if (stage == CropStage.Ripe) Harvest();
         
         InteractableManager.Instance.CheckForHarvestableCropsLeft();
     }
 
     private void Water() {
-        GameManager.Instance.UseWater();
+        ResourceManager.Instance.UseWater();
         AudioManager.Instance.PlayWaterSound();
 
         watered = true;
@@ -72,7 +72,7 @@ public class Crop : Interactable {
     }
 
     private void Harvest() {
-        GameManager.Instance.PlayerHarvestedTomato();
+        ResourceManager.Instance.PlayerHarvestedTomato();
         AudioManager.Instance.PlayHarvestSound();
         RemoveRipeTomatoes();
     }
@@ -149,7 +149,7 @@ public class Crop : Interactable {
                 if (ripening) uiText += "ripe in " + Mathf.Ceil(ripenTimer).ToString("0") + "s";
                 else if (growing) uiText += "growing in " + Mathf.Ceil(growTimer).ToString("0") + "s";
                 else if (watered) uiText += "already watered";
-                else uiText += GameManager.Instance.IsWaterEmpty() ? "out of water" : "E to water tomato";
+                else uiText += ResourceManager.Instance.IsWaterEmpty() ? "out of water" : "E to water tomato";
                 break;
             }
             case CropStage.Ripe:

@@ -13,6 +13,12 @@ public class Soil : Interactable {
     private List<Crop> crops = new List<Crop>();
 
     public override void Interact() {
+        // check if player has seeds left
+        if (!ResourceManager.Instance.HasSeedsLeft()) return;
+        
+        // check if space left
+        if (crops.Count >= maxCrops) return;
+        
         // get player look position
         var position = CameraRaycast.Instance.GetCurrentHitPosition();
         
@@ -20,12 +26,13 @@ public class Soil : Interactable {
         Crop newCrop = Instantiate(seedPrefab, position, transform.rotation).GetComponent<Crop>();
         crops.Add(newCrop);
 
-        if (crops.Count >= maxCrops) {
-            SetInteractable(false);
-        }
+        // use seed
+        ResourceManager.Instance.UseSeed();
     }
 
     public override string GetUIText() {
+        if (crops.Count >= maxCrops) return "no more space";
+        if (!ResourceManager.Instance.HasSeedsLeft()) return "out of seeds";
         return "E to plant seed";
     }
 }
