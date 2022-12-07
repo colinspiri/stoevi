@@ -51,8 +51,6 @@ public class Crop : Interactable {
     }
 
     public override void Interact() {
-        base.Interact();
-        
         if (!watered && !GameManager.Instance.IsWaterEmpty() && (stage == CropStage.Seed || stage == CropStage.Intermediate || stage == CropStage.Unripe)) Water();
         else if (stage == CropStage.Ripe) Harvest();
         
@@ -125,8 +123,8 @@ public class Crop : Interactable {
         
         // change sprite
         spriteRenderer.sprite = stage switch {
-            CropStage.Seed => waterSprite,
-            CropStage.Intermediate => waterSprite,
+            CropStage.Seed => emptySprite,
+            CropStage.Intermediate => emptySprite,
             CropStage.Unripe => waterSprite,
             CropStage.Ripe => harvestSprite,
             CropStage.Bare => emptySprite,

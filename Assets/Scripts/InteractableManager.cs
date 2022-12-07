@@ -20,7 +20,30 @@ public class InteractableManager : MonoBehaviour {
         Instance = this;
     }
 
-    public void SelectObject(Interactable interactable) {
+    private void Update() {
+        // see if camera is pointing at an object
+        RaycastHit hitInfo;
+        var obj = CameraRaycast.Instance.GetCurrentObject(out hitInfo);
+        if (obj == null) {
+            SelectObject(null);
+            return;
+        }
+        
+        // check if object is interactable
+        var interactable = obj.GetComponent<Interactable>();
+        if (interactable == null) {
+            SelectObject(null);
+            return;
+        }
+        
+        // if interactable is within distance and currently interactable, select it
+        if (interactable.PlayerWithinInteractionDistance(hitInfo.point) && interactable.IsInteractable()) {
+            SelectObject(interactable);
+        }
+        else SelectObject(null);
+    }
+
+    private void SelectObject(Interactable interactable) {
         // if interactable is already selected, return
         if (interactable == selectedObject) return;
 

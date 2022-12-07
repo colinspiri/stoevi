@@ -150,7 +150,7 @@ MonoBehaviour:
   growTime: 120
   ripenTime: 60
   stage: 0
-  startAtRandomStage: 1
+  startAtRandomStage: 0
 --- !u!65 &3906466082723591610
 BoxCollider:
   m_ObjectHideFlags: 0

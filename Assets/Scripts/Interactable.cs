@@ -15,13 +15,24 @@ public abstract class Interactable : MonoBehaviour {
     protected virtual void Start() {
         InteractableManager.Instance.AddInteractable(this);
     }
-
-    public virtual void Interact() {
-        // Debug.Log("Interacting with " + gameObject.name);
+    
+    public virtual void Select() {
+        selected = true;
     }
 
+    public virtual void Deselect() {
+        selected = false;
+    }
+
+    public abstract void Interact();
+
     public abstract string GetUIText();
-    public abstract float GetSliderFloat();
+
+    public virtual float GetSliderFloat() {
+        return 0; 
+    }
+    
+    
 
     public bool PlayerWithinInteractionDistance(Vector3 raycastPoint) {
         var distance = Vector3.Distance(FirstPersonController.Instance.transform.position, raycastPoint);
@@ -34,13 +45,6 @@ public abstract class Interactable : MonoBehaviour {
 
     public bool IsInteractable() {
         return interactable; 
-    }
-
-    public void Select() {
-        selected = true;
-    }
-    public void Deselect() {
-        selected = false;
     }
 
     protected virtual void OnDestroy() {
