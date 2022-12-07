@@ -166,6 +166,13 @@ public class FirstPersonController : MonoBehaviour
 	}
 
 	private void Move() {
+		// if interacting with something, stop moving
+		if (InteractableManager.Instance.interactionState == InteractableManager.InteractionState.Interacting) {
+			moveState = MoveState.Still;
+			currentSpeed = 0;
+			return;
+		}
+		
 		// set target speed and movestate assuming the player is moving
 		float targetSpeed;
 		if (crouching) {

@@ -85,6 +85,7 @@ public class Crop : Interactable {
 
     private IEnumerator Grow() {
         growing = true;
+        SetInteractable(false);
         
         // count down grow timer
         growTimer = growTime;
@@ -102,10 +103,12 @@ public class Crop : Interactable {
 
         growing = false;
         watered = false;
+        SetInteractable(true);
     }
 
     private IEnumerator Ripen() {
         ripening = true;
+        SetInteractable(false);
         
         // count down ripen timer
         ripenTimer = ripenTime;
@@ -116,6 +119,7 @@ public class Crop : Interactable {
         
         ChangeCropStage(CropStage.Ripe);
         ripening = false;
+        SetInteractable(true);
     }
 
     private void ChangeCropStage(CropStage newStage) {

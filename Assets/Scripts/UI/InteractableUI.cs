@@ -14,14 +14,21 @@ public class InteractableUI : MonoBehaviour {
 
     private void Start() {
         HideInteractableUI();
-        
-        if (InteractableManager.Instance != null) {
-            InteractableManager.Instance.onSelectedObjectChange.AddListener(newSelectedObject => {
-                if (newSelectedObject == null) {
-                    HideInteractableUI();
-                }
-                else ShowSelectedObject();
-            });
+    }
+    
+    private void Update() {
+        // TODO: refactor so that each interactable has UpdateUI() function to call when values change
+        switch (InteractableManager.Instance.interactionState)
+        {
+            case InteractableManager.InteractionState.None:
+                HideInteractableUI();
+                break;
+            case InteractableManager.InteractionState.Selecting:
+                ShowSelectedObject();
+                break;
+            case InteractableManager.InteractionState.Interacting:
+                ShowInteractingObject();
+                break;
         }
     }
 
@@ -32,7 +39,7 @@ public class InteractableUI : MonoBehaviour {
     }
 
     private void ShowSelectedObject() {
-        var selectedObject = InteractableManager.Instance.GetSelectedObject();
+        var selectedObject = InteractableManager.Instance.SelectedObject;
         
         interactableText.gameObject.SetActive(true);
         interactableText.text = selectedObject.GetUIText();
@@ -44,8 +51,11 @@ public class InteractableUI : MonoBehaviour {
         else interactableSlider.gameObject.SetActive(false);
     }
 
-    private void Update() {
-        if(InteractableManager.Instance.GetSelectedObject() != null) ShowSelectedObject();
+    private void ShowInteractingObject() {
+        interactableText.gameObject.SetActive(true);
+        interactableText.text = InteractableManager.Instance.SelectedObject.GetUIText();
+        
+        interactableSlider.gameObject.SetActive(true);
+        interactableSlider.value = InteractableManager.Instance.GetInteractingFloat();
     }
-    
 }

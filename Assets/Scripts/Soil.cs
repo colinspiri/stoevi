@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,12 +14,6 @@ public class Soil : Interactable {
     private List<Crop> crops = new List<Crop>();
 
     public override void Interact() {
-        // check if player has seeds left
-        if (!ResourceManager.Instance.HasSeedsLeft()) return;
-        
-        // check if space left
-        if (crops.Count >= maxCrops) return;
-        
         // get player look position
         var position = CameraRaycast.Instance.GetCurrentHitPosition();
         
@@ -30,8 +25,13 @@ public class Soil : Interactable {
         ResourceManager.Instance.UseSeed();
     }
 
+    private void Update() {
+        SetInteractable(ResourceManager.Instance.HasSeedsLeft());
+        SetSelectable(crops.Count < maxCrops);
+    }
+
     public override string GetUIText() {
-        if (crops.Count >= maxCrops) return "no more space";
+        // if (crops.Count >= maxCrops) return "no more space";
         if (!ResourceManager.Instance.HasSeedsLeft()) return "out of seeds";
         return "E to plant seed";
     }

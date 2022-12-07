@@ -1110,7 +1110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1114893755
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1216,7 +1216,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.521, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5590,60 +5590,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7618183037229971846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7618183037229971864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48f15ceedcdda426799fd77f96ad9fb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waterSlider: {fileID: 7618183039233645124}
-  fadeInTime: 0.3
-  valueLerpTime: 0.8
-  waitTime: 1
-  fadeOutTime: 0.5
---- !u!224 &7618183037229971847
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7618183037229971864}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 7618183039233645125}
-  m_Father: {fileID: 7618183037269305859}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &7618183037229971864
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7618183037229971847}
-  - component: {fileID: 7618183037229971846}
-  m_Layer: 5
-  m_Name: Water UI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!114 &7618183037269305856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5707,7 +5653,7 @@ RectTransform:
   - {fileID: 7618183037621281573}
   - {fileID: 7618183038542775737}
   - {fileID: 2122442277}
-  - {fileID: 7618183037229971847}
+  - {fileID: 7618183039233645125}
   - {fileID: 414957218}
   - {fileID: 3061339611713286196}
   - {fileID: 1087559540}
@@ -6893,7 +6839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &7618183039233645124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6952,18 +6898,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7618183039233645126}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7618183038209757674}
   - {fileID: 7618183037356560892}
-  m_Father: {fileID: 7618183037229971847}
-  m_RootOrder: 0
+  m_Father: {fileID: 7618183037269305859}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 424, y: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -90.0517, y: 0}
   m_SizeDelta: {x: 180.1034, y: 117.367676}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7618183039233645126
@@ -6977,8 +6923,9 @@ GameObject:
   - component: {fileID: 7618183039233645125}
   - component: {fileID: 7618183039233645124}
   - component: {fileID: 7618183039233645127}
+  - component: {fileID: 7618183039233645128}
   m_Layer: 5
-  m_Name: Water Slider
+  m_Name: Water UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6992,10 +6939,27 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7618183039233645126}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &7618183039233645128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7618183039233645126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f15ceedcdda426799fd77f96ad9fb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterSlider: {fileID: 7618183039233645124}
+  fadeInTime: 0.3
+  valueLerpTime: 0.8
+  waitTime: 1
+  fadeOutTime: 0.5
 --- !u!114 &7659877329205876660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7647,7 +7611,7 @@ MonoBehaviour:
   gameOverTomatoes: {fileID: 7618183038875963121}
   otherUIObjects:
   - {fileID: 7618183037621281574}
-  - {fileID: 7618183037229971864}
+  - {fileID: 7618183039233645126}
   - {fileID: 7618183038542775738}
   - {fileID: 2122442276}
 --- !u!225 &8872362116048988698

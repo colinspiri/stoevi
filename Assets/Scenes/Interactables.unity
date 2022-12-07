@@ -437,7 +437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d035706e53c3541964dfb9c647c00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionDistance: 5
+  InteractionDistance: 5
+  InteractionTime: 2
   seedPrefab: {fileID: 8152074468222590108, guid: cf601c7ebcdc140edbc2ae712d330c05, type: 3}
   maxCrops: 2
 --- !u!1001 &238360720
