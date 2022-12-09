@@ -1,0 +1,41 @@
+﻿title: Cutscene1BeforeShop
+tags:
+---
+// Rumen's donkey and cart pulls up
+Rumen: Dimo! How are you doing?
+Dimo: Rumen.
+Rumen: Where's Petrov?
+Dimo: Left with his wife last month.
+Rumen: So, last man standing, huh.
+Dimo: Mhm...
+===
+
+title: Cutscene1AfterShop
+tags:
+---
+Rumen: Why do you stay here?
+// Dimo's tone changes to stern
+Dimo: My property is not for sale.
+Rumen: I don't want your farm. I just worry for you.
+Dimo: I've survived worse.
+Rumen: Dimo, it's dangerous. An old man living alone-
+Dimo: I am not alone.
+Rumen: It's getting worse, Dimo. Thieves, homeless, ...<i>mango</i>.
+Dimo: They're in Peshtera now?
+Rumen: Two kids went missing last week.
+Dimo: Hm. The <i>mango</i> would do anything for a lev.
+Rumen: That's what people are saying.
+Dimo: I see.
+Rumen: Levnik is dead, Dimo. Peshtera is dying. Let's leave this place, together.
+Rumen: The Party is gone, and we're all that's left. Old men in dying villages.
+Rumen: Come with me, to Plovdiv.
+Dimo: I like the quiet here.
+Rumen: Still thinking about Germany?
+Dimo: I'm close, Rumen.
+Rumen: Is that what you tell Ana?
+// Dimo gets mad
+Dimo: You know nothing about my children. 
+Rumen: What would they want for you?
+Dimo: I will not run away with you to Plovdiv.
+Rumen: Think about it, Dimo. I'll be back soon.
+===
