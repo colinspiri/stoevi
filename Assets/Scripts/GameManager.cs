@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour {
 
         if (pauseAudio) {
             if (AudioManager.Instance) AudioManager.Instance.PauseGameSound();
-            else Debug.LogError("Audio Manager not found");
         }
     }
 
