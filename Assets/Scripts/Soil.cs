@@ -9,10 +9,12 @@ public class Soil : Interactable {
     
     // constants
     public int maxCrops;
+    public int maxFertilizerLevel;
     
     // state
     public SoilData soilData;
     private List<Crop> crops = new List<Crop>();
+    public int fertilizerLevel;
 
     protected override void Start() {
         base.Start();
@@ -20,24 +22,40 @@ public class Soil : Interactable {
     }
 
     private void Update() {
-        SetInteractable(ResourceManager.Instance.HasSeedsLeft());
-        SetSelectable(crops.Count < maxCrops);
+        SetInteractable(true);
+        SetSelectable(true);
     }
 
     public override void Interact() {
         // get player look position
         var lookPosition = CameraRaycast.Instance.GetCurrentHitPosition();
 
-        // use seed
-        ResourceManager.Instance.UseSeed();
+        if (ResourceManager.Instance.HasSeedsLeft() && crops.Count < maxCrops) {
+            // use seed
+            ResourceManager.Instance.UseSeed();
         
-        // spawn crop
-        SpawnCrop(lookPosition);
+            // spawn crop
+            SpawnCrop(lookPosition);
+        }
+        else {
+            // fertilize
+            fertilizerLevel = maxFertilizerLevel;
+        }
+
+    }
+
+    public bool ConsumeFertilizer() {
+        if (fertilizerLevel <= 0) return false;
+        
+        // has fertilizer, lower level 
+        fertilizerLevel--;
+        return true;
     }
 
     private void SpawnCrop(Vector3 position, Crop.CropStage stage = Crop.CropStage.Seed) {
         Crop crop = Instantiate(seedPrefab, position, transform.rotation).GetComponent<Crop>();
         crops.Add(crop);
+        crop.soil = this;
         crop.stage = stage;
     }
 

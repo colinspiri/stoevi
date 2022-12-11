@@ -21,9 +21,11 @@ public class Crop : Interactable {
     public float ripenTime;
 
     // state
+    public Soil soil;
     public enum CropStage { Seed, Intermediate, Unripe, Ripe, Bare }
     public CropStage stage;
     public bool startAtRandomStage;
+    public bool fertilized;
 
     private int tomatoesLeft;
     
@@ -85,6 +87,17 @@ public class Crop : Interactable {
         tomatoesLeft--;
         watered = false;
         ChangeCropStage(tomatoesLeft <= 0 ? CropStage.Bare : CropStage.Unripe);
+    }
+
+    public void AdvanceToNextDay() {
+        if (stage == CropStage.Seed) {
+            if (soil != null) {
+                if (soil.ConsumeFertilizer()) {
+                    fertilized = true;
+                    Debug.Log(gameObject.name + " is fertilized");
+                }
+            }
+        }
     }
 
     private IEnumerator Grow() {

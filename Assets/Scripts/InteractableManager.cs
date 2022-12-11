@@ -109,6 +109,9 @@ public class InteractableManager : MonoBehaviour {
     }
 
     public void SaveAllData() {
+        foreach (var crop in allCrops) {
+            crop.AdvanceToNextDay();
+        }
         foreach (var soil in allSoil) {
             soil.SaveData();
         }
