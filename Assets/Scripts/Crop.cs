@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BehaviorDesigner.Runtime.Tasks.Movement;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,6 +25,7 @@ public class Crop : Interactable {
     public Soil soil;
     public enum CropStage { Seed, Intermediate, Unripe, Ripe, Bare }
     public CropStage stage;
+    
     public bool startAtRandomStage;
     public bool fertilized;
 
@@ -93,14 +95,19 @@ public class Crop : Interactable {
     }
 
     public void AdvanceToNextDay() {
-        if (stage == CropStage.Seed) {
-            if (soil != null) {
-                if (soil.ConsumeFertilizer()) {
-                    fertilized = true;
-                    Debug.Log(gameObject.name + " is fertilized");
-                }
+        if (stage == CropStage.Seed || stage == CropStage.Intermediate) {
+            if (soil != null && soil.ConsumeFertilizer()) {
+                fertilized = true;
+                Debug.Log(gameObject.name + " is fertilized");
             }
         }
+        
+        if (stage == CropStage.Seed) {
+            if(fertilized) ChangeCropStage(CropStage.Unripe);
+            else ChangeCropStage(CropStage.Intermediate);
+        }
+        else if(stage == CropStage.Intermediate) ChangeCropStage(CropStage.Unripe);
+        else if(stage == CropStage.Unripe) ChangeCropStage(CropStage.Ripe);
     }
 
     private IEnumerator Grow() {
@@ -175,7 +182,6 @@ public class Crop : Interactable {
                 uiText += "E to harvest tomato";
                 break;
             case CropStage.Bare:
-                uiText += "";
                 break;
             default:
                 uiText += "ERROR";
