@@ -98,6 +98,7 @@ MonoBehaviour:
   walkSpeed: 4
   runSpeed: 8
   crouchSpeed: 1.5
+  interactingSpeed: 0.3
   speedChangeRate: 10
   walkLoudness: 20
   runLoudness: 35

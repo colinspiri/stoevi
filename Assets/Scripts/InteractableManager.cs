@@ -13,6 +13,7 @@ public class InteractableManager : MonoBehaviour {
     // all interactables
     private List<Interactable> allInteractables = new List<Interactable>();
     private List<Crop> allCrops = new List<Crop>();
+    private List<Soil> allSoil = new List<Soil>();
     
     // state
     public enum InteractionState { None, Selecting, Interacting }
@@ -107,13 +108,21 @@ public class InteractableManager : MonoBehaviour {
         return closestCrop;
     }
 
+    public void SaveAllData() {
+        foreach (var soil in allSoil) {
+            soil.SaveData();
+        }
+    }
+
     public void AddInteractable(Interactable interactable) {
         allInteractables.Add(interactable);
         if(interactable is Crop crop) allCrops.Add(crop);
+        if(interactable is Soil soil) allSoil.Add(soil);
     }
     public void RemoveInteractable(Interactable interactable) {
         allInteractables.Remove(interactable);
         if (interactable is Crop crop) allCrops.Remove(crop);
+        if (interactable is Soil soil) allSoil.Remove(soil);
     }
     
     public void OnInteractInput(InputAction.CallbackContext context) {

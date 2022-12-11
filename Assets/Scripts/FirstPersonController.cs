@@ -18,6 +18,7 @@ public class FirstPersonController : MonoBehaviour
 	public float walkSpeed = 1f;
 	public float runSpeed = 1f;
 	public float crouchSpeed = 1f;
+	public float interactingSpeed = 1f;
 	[Tooltip("Acceleration and deceleration")]
 	public float speedChangeRate = 10.0f;
 
@@ -166,16 +167,13 @@ public class FirstPersonController : MonoBehaviour
 	}
 
 	private void Move() {
-		// if interacting with something, stop moving
-		if (InteractableManager.Instance.interactionState == InteractableManager.InteractionState.Interacting) {
-			moveState = MoveState.Still;
-			currentSpeed = 0;
-			return;
-		}
-		
-		// set target speed and movestate assuming the player is moving
+		// set target speed and state assuming the player is moving
 		float targetSpeed;
-		if (crouching) {
+		if (InteractableManager.Instance.interactionState == InteractableManager.InteractionState.Interacting) {
+			targetSpeed = interactingSpeed;
+			moveState = MoveState.Walking;
+		}
+		else if (crouching) {
 			targetSpeed = crouchSpeed;
 			moveState = MoveState.CrouchWalking;
 		}

@@ -42,6 +42,10 @@ public class GameManager : MonoBehaviour {
         Pause(true);
         currentDay++;
         PlayerPrefs.SetInt("CurrentDay", currentDay);
+        
+        InteractableManager.Instance.SaveAllData();
+        
+        Pause(true);
         PauseMenuManager.Instance.GameOver(playerSurvived);
     }
 
