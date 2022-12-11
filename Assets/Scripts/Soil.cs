@@ -21,9 +21,11 @@ public class Soil : Interactable {
         LoadData();
     }
 
-    private void Update() {
-        SetInteractable(true);
-        SetSelectable(true);
+    public override bool IsInteractable() {
+        if (ResourceManager.Instance.HasSeedsLeft() && crops.Count < maxCrops) return true;
+        
+        if (fertilizerLevel == maxFertilizerLevel) return false;
+        return true;
     }
 
     public override void Interact() {
@@ -60,9 +62,20 @@ public class Soil : Interactable {
     }
 
     public override string GetUIText() {
-        // if (crops.Count >= maxCrops) return "no more space";
-        if (!ResourceManager.Instance.HasSeedsLeft()) return "out of seeds";
-        return "E to plant seed";
+        string uiText = fertilizerLevel > 0 ? "fertilized soil" : "soil";
+        uiText += "\n";
+
+        if (ResourceManager.Instance.HasSeedsLeft() && crops.Count < maxCrops) {
+            uiText += "E to plant seed";
+        }
+        else if (fertilizerLevel < maxFertilizerLevel) {
+            uiText += "E to fertilize";
+        }
+
+        /*if (crops.Count >= maxCrops) uiText += "no more space";
+        else if (!ResourceManager.Instance.HasSeedsLeft()) uiText += "out of seeds";*/
+
+        return uiText;
     }
 
     public void SaveData() {

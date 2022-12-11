@@ -8,10 +8,6 @@ public abstract class Interactable : MonoBehaviour {
     // constants
     [FormerlySerializedAs("interactionDistance")] public float InteractionDistance = 5f;
     [FormerlySerializedAs("interactionTime")] public float InteractionTime = 1f;
-    
-    // state
-    private bool selectable = true;
-    private bool interactable = true;
 
     // Start is called before the first frame update
     protected virtual void Start() {
@@ -27,17 +23,11 @@ public abstract class Interactable : MonoBehaviour {
         return distance <= InteractionDistance;
     }
 
-    protected void SetSelectable(bool value) {
-        selectable = value;
+    public virtual bool IsSelectable() {
+        return true;
     }
-    public bool IsSelectable() {
-        return selectable;
-    }
-    protected void SetInteractable(bool value) {
-        interactable = value;
-    }
-    public bool IsInteractable() {
-        return interactable; 
+    public virtual bool IsInteractable() {
+        return true;
     }
 
     protected virtual void OnDestroy() {

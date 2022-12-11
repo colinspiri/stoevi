@@ -52,8 +52,11 @@ public class Crop : Interactable {
         tomatoesLeft = Random.Range(minTomatoes, maxTomatoes + 1);
     }
 
-    private void Update() {
-        SetInteractable(stage != CropStage.Bare && !growing && !ripening && (stage == CropStage.Ripe || ResourceManager.Instance.IsWaterEmpty() == false));
+    public override bool IsInteractable() {
+        if (stage == CropStage.Bare) return false;
+        if (growing || ripening) return false;
+        if (stage != CropStage.Ripe && ResourceManager.Instance.IsWaterEmpty()) return false;
+        return true;
     }
 
     public override void Interact() {

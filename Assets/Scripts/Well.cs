@@ -9,8 +9,8 @@ public class Well : Interactable {
         ResourceManager.Instance.RefillWater();
     }
 
-    private void Update() {
-        SetInteractable(ResourceManager.Instance.IsWaterFull() == false);
+    public override bool IsInteractable() {
+        return ResourceManager.Instance.IsWaterFull() == false;
     }
 
     public override string GetUIText() {
