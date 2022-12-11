@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour {
     }
     
     public void GameOver(bool playerSurvived = true) {
-        Pause(true);
         currentDay++;
         PlayerPrefs.SetInt("CurrentDay", currentDay);
         
