@@ -37,4 +37,19 @@ public class CameraRaycast : MonoBehaviour {
 
         return null;
     }
+
+    public bool LookingAtGround(out RaycastHit hitInfo) {
+        // Create a ray that starts at the camera's position and points in the direction that the camera is facing
+        Ray ray = new Ray(transform.position, transform.forward);
+
+        // Perform a raycast using the ray and the specified maximum distance
+        bool hit = Physics.Raycast(ray, out hitInfo, maxRaycastDistance);
+
+        // If the raycast hits an object
+        if (hit && hitInfo.collider.CompareTag("Terrain")) {
+            return true;
+        }
+
+        return false;
+    }
 }

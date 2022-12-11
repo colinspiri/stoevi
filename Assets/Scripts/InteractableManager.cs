@@ -16,11 +16,12 @@ public class InteractableManager : MonoBehaviour {
     private List<Soil> allSoil = new List<Soil>();
     
     // state
-    public enum InteractionState { None, Selecting, Interacting }
+    public enum InteractionState { None, Ground, Selecting, Interacting }
     public InteractionState interactionState = InteractionState.None;
     public Interactable SelectedObject { get; private set; }
     
     private float holdTimer;
+    private Vector3 lookPosition;
     
     private void Awake() {
         Instance = this;
@@ -36,7 +37,7 @@ public class InteractableManager : MonoBehaviour {
             SelectObject(null);
             return;
         }
-        
+
         // check if object is interactable
         var interactable = obj.GetComponent<Interactable>();
         if (interactable == null) {
@@ -129,6 +130,11 @@ public class InteractableManager : MonoBehaviour {
     }
     
     public void OnInteractInput(InputAction.CallbackContext context) {
+        if (context.performed) {
+            if (interactionState == InteractionState.None && ResourceManager.Instance.carryingFertilizer) {
+                ResourceManager.Instance.DropFertilizer();
+            }
+        }
         if (context.ReadValueAsButton()) {
             if (interactionState == InteractionState.Selecting && SelectedObject.IsInteractable()) {
                 interactionState = InteractionState.Interacting;

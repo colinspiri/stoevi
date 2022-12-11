@@ -21,8 +21,11 @@ public class ResourceManager : MonoBehaviour {
     public int maxSeeds;
     public int CurrentSeeds { get; private set; }
     public UnityEvent<int> onSeedsChange;
-
     
+    // fertilizer
+    public bool carryingFertilizer { get; private set; }
+    public GameObject fertilizerPrefab;
+
     private void Awake() {
         Instance = this;
     }
@@ -62,5 +65,13 @@ public class ResourceManager : MonoBehaviour {
     }
     public bool HasSeedsLeft() {
         return CurrentSeeds > 0;
+    }
+
+    public void PickUpFertilizer() {
+        carryingFertilizer = true;
+    }
+    public void DropFertilizer() {
+        carryingFertilizer = false;
+        Instantiate(fertilizerPrefab, FirstPersonController.Instance.transform.position + 2*FirstPersonController.Instance.transform.forward, Quaternion.identity);
     }
 }

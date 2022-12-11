@@ -22,26 +22,28 @@ public class Soil : Interactable {
     }
 
     public override bool IsInteractable() {
-        if (ResourceManager.Instance.HasSeedsLeft() && crops.Count < maxCrops) return true;
-        
-        if (fertilizerLevel == maxFertilizerLevel) return false;
-        return true;
+        if (ResourceManager.Instance.carryingFertilizer) {
+            return fertilizerLevel < maxFertilizerLevel;
+        }
+        else {
+            return ResourceManager.Instance.HasSeedsLeft() && crops.Count < maxCrops;
+        }
     }
 
     public override void Interact() {
         // get player look position
         var lookPosition = CameraRaycast.Instance.GetCurrentHitPosition();
 
-        if (ResourceManager.Instance.HasSeedsLeft() && crops.Count < maxCrops) {
+        if (ResourceManager.Instance.carryingFertilizer) {
+            // fertilize
+            fertilizerLevel = maxFertilizerLevel;
+        }
+        else {
             // use seed
             ResourceManager.Instance.UseSeed();
         
             // spawn crop
             SpawnCrop(lookPosition);
-        }
-        else {
-            // fertilize
-            fertilizerLevel = maxFertilizerLevel;
         }
 
     }
@@ -65,15 +67,14 @@ public class Soil : Interactable {
         string uiText = fertilizerLevel > 0 ? "fertilized soil" : "soil";
         uiText += "\n";
 
-        if (ResourceManager.Instance.HasSeedsLeft() && crops.Count < maxCrops) {
-            uiText += "E to plant seed";
+        if (ResourceManager.Instance.carryingFertilizer) {
+            if (IsInteractable()) uiText += "E to fertilize";
         }
-        else if (fertilizerLevel < maxFertilizerLevel) {
-            uiText += "E to fertilize";
+        else {
+            if (IsInteractable()) uiText += "E to plant seed";
+            else if (!ResourceManager.Instance.HasSeedsLeft()) uiText += "out of seeds";
+            else if (crops.Count >= maxCrops) uiText += "no more space";
         }
-
-        /*if (crops.Count >= maxCrops) uiText += "no more space";
-        else if (!ResourceManager.Instance.HasSeedsLeft()) uiText += "out of seeds";*/
 
         return uiText;
     }

@@ -21,7 +21,12 @@ public class InteractableUI : MonoBehaviour {
         switch (InteractableManager.Instance.interactionState)
         {
             case InteractableManager.InteractionState.None:
-                HideInteractableUI();
+                if (ResourceManager.Instance.carryingFertilizer) {
+                    interactableText.gameObject.SetActive(true);
+                    interactableText.text = "E to drop fertilizer";
+                    interactableSlider.gameObject.SetActive(false);
+                }
+                else HideInteractableUI();
                 break;
             case InteractableManager.InteractionState.Selecting:
                 ShowSelectedObject();
