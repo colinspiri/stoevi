@@ -73,6 +73,10 @@ public class Soil : Interactable {
         crop.stage = stage;
     }
 
+    public void RemoveCrop(Crop crop) {
+        crops.Remove(crop);
+    }
+
     public override string GetUIText() {
         string uiText = "";
         if (tilled) uiText += "tilled ";

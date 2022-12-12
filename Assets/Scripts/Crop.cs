@@ -42,24 +42,27 @@ public class Crop : Interactable {
     }
 
     public override bool IsInteractable() {
-        if (health == Health.Dead) return false;
+        // can be removed
+        if (stage == GrowthStage.Bare || health == Health.Dead) return true;
         
+        // can be watered
         if (stage == GrowthStage.Seed || stage == GrowthStage.Sprout || stage == GrowthStage.Intermediate || stage == GrowthStage.Unripe) {
             return ResourceManager.Instance.HasWater();
         }
-
+        
+        // can be harvested
         if (stage == GrowthStage.Ripe) return true;
-
-        if (stage == GrowthStage.Bare) return false;
 
         return false;
     }
 
     private void Update() {
+        // growth timer
         if (state == State.Growing) {
             growthTimer -= Time.deltaTime;
             if(growthTimer <= 0) Grow();
         }
+        // thirsty timer
         else if (state == State.NeedsWater) {
             thirstyTimer -= Time.deltaTime;
             if (thirstyTimer <= 0) {
@@ -79,12 +82,18 @@ public class Crop : Interactable {
     }
 
     public override void Interact() {
-        if (stage == GrowthStage.Ripe) {
+        // can be removed
+        if (stage == GrowthStage.Bare || health == Health.Dead) {
+            Destroy(gameObject);
+            return;
+        }
+        // can be harvested
+        else if (stage == GrowthStage.Ripe) {
             Harvest();
             return;
         }
-
-        if (state == State.NeedsWater && ResourceManager.Instance.HasWater() && 
+        // can be watered
+        else if (state == State.NeedsWater && ResourceManager.Instance.HasWater() && 
             (stage == GrowthStage.Seed || 
              stage == GrowthStage.Sprout || 
              stage == GrowthStage.Intermediate ||
@@ -92,8 +101,8 @@ public class Crop : Interactable {
             Water();
             return;
         }
-        
-        if (state == State.Growing) {
+        // DEBUG: shorten growth timer
+        else if (state == State.Growing) {
             growthTimer = 2f;
             return;
         }
@@ -259,13 +268,18 @@ public class Crop : Interactable {
     }
 
     public override string GetUIText() {
-        string uiText = stage.ToString().ToLower();
-        if (health == Health.Dead) {
-            return uiText + " (dead)";
-        }
-        uiText += " (health: " + health.ToString().ToLower() + ")";
+        string uiText = "";
+        uiText += stage.ToString().ToLower();
+        if (health == Health.Dead) uiText += " (dead)";
+        else uiText += " (health: " + health.ToString().ToLower() + ")";
 
         uiText += "\n";
+        
+        // can be removed
+        if (stage == GrowthStage.Bare || health == Health.Dead) {
+            uiText += "E to dig up";
+            return uiText;
+        }
         
         switch (stage) {
             case GrowthStage.Seed:
@@ -277,8 +291,6 @@ public class Crop : Interactable {
                     uiText += " in " + FormatTimer(growthTimer);
                 }
                 else if(state == State.NeedsWater) {
-                    /*uiText += "thirsty in " + Mathf.Ceil(thirstyTimer).ToString("0") + "s";
-                    uiText += "\n";*/
                     uiText += ResourceManager.Instance.IsWaterEmpty() ? "out of water" : "E to water plant";
                 }
                 break;
@@ -306,5 +318,10 @@ public class Crop : Interactable {
         int minutes = Mathf.FloorToInt(timer / 60F);
         int seconds = Mathf.FloorToInt(timer - minutes * 60);
         return string.Format("{0:0}:{1:00}", minutes, seconds);
+    }
+
+    protected override void OnDestroy() {
+        base.OnDestroy();
+        soil.RemoveCrop(this);
     }
 }
