@@ -122,6 +122,10 @@ public class Crop : Interactable {
             stage == GrowthStage.Unripe) {
             StartGrowing();
         }
+        
+        
+        // update sprite
+        UpdateSprite();
     }
 
     private void StartGrowing() {
@@ -197,6 +201,8 @@ public class Crop : Interactable {
                 _ => stage
             });
         }
+        
+        UpdateSprite();
     }
 
     private void ChangeCropStage(GrowthStage newStage) {
@@ -256,17 +262,26 @@ public class Crop : Interactable {
     private void UpdateSprite() {
         if (health == Health.Dead) {
             spriteRenderer.sprite = farmingConstants.emptySprite;
+            return;
         }
-        
-        spriteRenderer.sprite = stage switch {
-            GrowthStage.Seed => farmingConstants.emptySprite,
-            GrowthStage.Sprout => farmingConstants.waterSprite,
-            GrowthStage.Intermediate => farmingConstants.waterSprite,
-            GrowthStage.Unripe => farmingConstants.waterSprite,
-            GrowthStage.Ripe => farmingConstants.harvestSprite,
-            GrowthStage.Bare => farmingConstants.emptySprite,
-            _ => throw new ArgumentOutOfRangeException()
-        };
+
+        switch (stage) {
+            case GrowthStage.Seed:
+            case GrowthStage.Sprout:
+            case GrowthStage.Intermediate:
+            case GrowthStage.Unripe:
+                if (state == State.NeedsWater) spriteRenderer.sprite = farmingConstants.emptySprite;
+                else if (state == State.Growing) spriteRenderer.sprite = farmingConstants.waterSprite;
+                break;
+            case GrowthStage.Ripe:
+                spriteRenderer.sprite = farmingConstants.harvestSprite;
+                break;
+            case GrowthStage.Bare:
+                spriteRenderer.sprite = farmingConstants.emptySprite;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
     public override string GetUIText() {
