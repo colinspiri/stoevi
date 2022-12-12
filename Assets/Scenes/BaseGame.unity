@@ -500,14 +500,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff01215cfe3f4ee4abee70411a4f224a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxWater: 5
+  maxWater: 7
   onWaterValueChange:
     m_PersistentCalls:
       m_Calls: []
   playerHarvestedTomato:
     m_PersistentCalls:
       m_Calls: []
-  maxSeeds: 3
+  maxSeeds: 10
   onSeedsChange:
     m_PersistentCalls:
       m_Calls: []
