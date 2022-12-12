@@ -7,16 +7,15 @@ using Yarn.Compiler;
 public class Soil : Interactable {
     // components
     public GameObject seedPrefab;
-    
+    public SoilData soilData;
+
     // constants
-    public int maxCrops;
-    public int maxFertilizerLevel;
+    public FarmingConstants farmingConstants;
     
     // state
-    public SoilData soilData;
     private List<Crop> crops = new List<Crop>();
     private bool tilled;
-    public int fertilizerLevel;
+    private int fertilizerLevel;
 
     protected override void Start() {
         base.Start();
@@ -26,15 +25,15 @@ public class Soil : Interactable {
 
     public override bool IsInteractable() {
         // can be fertilized
-        if (ResourceManager.Instance.carryingFertilizer && fertilizerLevel < maxFertilizerLevel) {
+        if (ResourceManager.Instance.carryingFertilizer && fertilizerLevel < farmingConstants.maxFertilizerLevel) {
             return true;
         }
         // can be tilled
-        else if (crops.Count < maxCrops && !tilled) {
+        else if (crops.Count < farmingConstants.maxCrops && !tilled) {
             return true;
         }
         // can plant crops
-        else if(tilled && crops.Count < maxCrops && ResourceManager.Instance.HasSeedsLeft()) {
+        else if(tilled && crops.Count < farmingConstants.maxCrops && ResourceManager.Instance.HasSeedsLeft()) {
             return true;
         }
         return false;
@@ -42,15 +41,15 @@ public class Soil : Interactable {
 
     public override void Interact() {
         // fertilize
-        if (ResourceManager.Instance.carryingFertilizer && fertilizerLevel < maxFertilizerLevel) {
-            fertilizerLevel = maxFertilizerLevel;
+        if (ResourceManager.Instance.carryingFertilizer && fertilizerLevel < farmingConstants.maxFertilizerLevel) {
+            fertilizerLevel = farmingConstants.maxFertilizerLevel;
         }
         // till
-        else if (crops.Count < maxCrops && !tilled) {
+        else if (crops.Count < farmingConstants.maxCrops && !tilled) {
             tilled = true;
         }
         // plant crops
-        else if(tilled && crops.Count < maxCrops && ResourceManager.Instance.HasSeedsLeft()) {
+        else if(tilled && crops.Count < farmingConstants.maxCrops && ResourceManager.Instance.HasSeedsLeft()) {
             var lookPosition = CameraRaycast.Instance.GetCurrentHitPosition();
             SpawnCrop(lookPosition);
             
@@ -87,11 +86,11 @@ public class Soil : Interactable {
         
         // fertilize
         if(ResourceManager.Instance.carryingFertilizer) {
-            if (fertilizerLevel < maxFertilizerLevel) uiText += "E to fertilize";
+            if (fertilizerLevel < farmingConstants.maxFertilizerLevel) uiText += "E to fertilize";
             else uiText += "already fertilized";
         }
         // plant or till 
-        else if (crops.Count < maxCrops) {
+        else if (crops.Count < farmingConstants.maxCrops) {
             if (tilled) {
                 if (ResourceManager.Instance.HasSeedsLeft()) uiText += "E to plant seed";
                 else uiText += "out of seeds";

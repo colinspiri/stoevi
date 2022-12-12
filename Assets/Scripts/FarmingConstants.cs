@@ -12,6 +12,10 @@ public class FarmingConstants : ScriptableObject {
     public Sprite harvestSprite;
     public Sprite emptySprite;
 
+    [Header("Soil")] 
+    public int maxFertilizerLevel;
+    public int maxCrops;
+
     [Header("Crops")] 
     public float baseThirstyTime;
     public SerializedDictionary<Crop.GrowthStage, float> growthTimeByStage;

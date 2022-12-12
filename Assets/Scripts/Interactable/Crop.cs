@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using BehaviorDesigner.Runtime.Tasks.Movement;
+using BehaviorDesigner.Runtime.Tasks.Unity.UnityString;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using Yarn.Compiler;
 
 public class Crop : Interactable {
     // components
@@ -271,7 +273,7 @@ public class Crop : Interactable {
         string uiText = "";
         uiText += stage.ToString().ToLower();
         if (health == Health.Dead) uiText += " (dead)";
-        else uiText += " (health: " + health.ToString().ToLower() + ")";
+        else if (health == Health.Poor) uiText += " (dying)";
 
         uiText += "\n";
         
@@ -291,14 +293,13 @@ public class Crop : Interactable {
                     uiText += " in " + FormatTimer(growthTimer);
                 }
                 else if(state == State.NeedsWater) {
-                    uiText += ResourceManager.Instance.IsWaterEmpty() ? "out of water" : "E to water plant";
+                    uiText += "needs water in " + FormatTimer(thirstyTimer) + "\n";
+                    uiText += ResourceManager.Instance.IsWaterEmpty() ? "out of water" : "E to water";
                 }
                 break;
             }
             case GrowthStage.Ripe:
                 uiText += "E to harvest tomato";
-                break;
-            case GrowthStage.Bare:
                 break;
             default:
                 uiText += "ERROR";
