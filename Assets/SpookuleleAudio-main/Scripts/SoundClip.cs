@@ -13,5 +13,6 @@ namespace SpookuleleAudio
 		public float Volume;
 		public Vector2 LoopBounds;
 		public int Loops;
+		public bool IgnoreListenerPause;
 	}
 }

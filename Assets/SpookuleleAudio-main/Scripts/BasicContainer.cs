@@ -23,6 +23,8 @@ namespace SpookuleleAudio
                 s.Loops = LoopCount;
                 s.LoopBounds = LoopBounds;
             }
+            if (IgnoreListenerPause) 
+                s.IgnoreListenerPause = true;
 
             return s;
         }

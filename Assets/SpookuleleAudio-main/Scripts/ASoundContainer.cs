@@ -50,6 +50,8 @@ namespace SpookuleleAudio
         public Vector2 LoopBounds;
         [ToggleGroup("LoopingEnabled", "Looping"), Tooltip("0 means infinite")]
         public int LoopCount;
+        
+        public bool IgnoreListenerPause;
 
         float SoundClipMax => GetSoundClip().AudioClip != null ? GetSoundClip().AudioClip.length : 1.0f;
 
@@ -62,9 +64,9 @@ namespace SpookuleleAudio
 
         public abstract SoundClip GetSoundClip();
 
-        public void Play() => AudioManager.PlaySound(this);
-        public void Play3D(Transform source) => AudioManager.PlaySound3D(this, source.position);
-        public void Play3D(Vector3 pos) => AudioManager.PlaySound3D(this, pos);
+        public void Play() => AudioPlayer.PlaySound(this);
+        public void Play3D(Transform source) => AudioPlayer.PlaySound3D(this, source.position);
+        public void Play3D(Vector3 pos) => AudioPlayer.PlaySound3D(this, pos);
 
         
 #if UNITY_EDITOR
@@ -97,9 +99,9 @@ namespace SpookuleleAudio
                 if (clip.AudioClip == null)
                     Debug.LogError("Null Clip! @ Container " + name);
                 else if(clip.Loops == -1)
-                    CurrentSoundPreview.Play(clip.AudioClip, clip.Volume, clip.Pitch, clip.AudioGroup, PreviewStartTime);
+                    CurrentSoundPreview.Play(clip.AudioClip, clip.Volume, clip.Pitch, clip.AudioGroup, true, PreviewStartTime);
                 else
-                    CurrentSoundPreview.PlayLooped(clip.AudioClip, clip.Volume, clip.Pitch, clip.AudioGroup, clip.Loops, clip.LoopBounds, PreviewStartTime);
+                    CurrentSoundPreview.PlayLooped(clip.AudioClip, clip.Volume, clip.Pitch, clip.AudioGroup, true, clip.Loops, clip.LoopBounds, PreviewStartTime);
             }
         }
 

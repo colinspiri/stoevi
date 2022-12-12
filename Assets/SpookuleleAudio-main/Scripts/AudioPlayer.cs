@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace SpookuleleAudio
 {
-	public class AudioManager : MonoBehaviour
+	public class AudioPlayer : MonoBehaviour
 	{
 		[SerializeField] int SoundPlayerCount = 100;
-		static AudioManager INSTANCE;
+		static AudioPlayer INSTANCE;
 
 		GameObject mPoolParent;
 		Queue<SoundPlayer> mSoundPlayers;
@@ -33,9 +33,9 @@ namespace SpookuleleAudio
 			if (clip.AudioClip == null)
 				Debug.LogError("Null Clip! @ Container " + container.name);
 			else if(clip.Loops == -1)
-				player.Play(clip.AudioClip, clip.Volume, clip.Pitch, clip.AudioGroup, 0f);
+				player.Play(clip.AudioClip, clip.Volume, clip.Pitch, clip.AudioGroup, clip.IgnoreListenerPause, 0f);
 			else
-				player.PlayLooped(clip.AudioClip, clip.Volume, clip.Pitch, clip.AudioGroup, clip.Loops, clip.LoopBounds, 0f);
+				player.PlayLooped(clip.AudioClip, clip.Volume, clip.Pitch, clip.AudioGroup, clip.IgnoreListenerPause, clip.Loops, clip.LoopBounds, 0f);
 			
 			INSTANCE.mSoundPlayers.Enqueue(player);
 		}
@@ -49,9 +49,9 @@ namespace SpookuleleAudio
 			if (clip.AudioClip == null)
 				Debug.LogError("Null Clip! @ Container " + container.name);
 			else if(clip.Loops == -1)
-				player.Play3D(clip.AudioClip, clip.Volume, clip.Pitch, position, clip.AudioGroup, 0f);
+				player.Play3D(clip.AudioClip, clip.Volume, clip.Pitch, position, clip.AudioGroup, clip.IgnoreListenerPause, 0f);
 			else
-				player.Play3DLooped(clip.AudioClip, clip.Volume, clip.Pitch, position, clip.AudioGroup, clip.Loops, clip.LoopBounds, 0f);
+				player.Play3DLooped(clip.AudioClip, clip.Volume, clip.Pitch, position, clip.AudioGroup, clip.IgnoreListenerPause, clip.Loops, clip.LoopBounds, 0f);
 			
 			INSTANCE.mSoundPlayers.Enqueue(player);
 		}

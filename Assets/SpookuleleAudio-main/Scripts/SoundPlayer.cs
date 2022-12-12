@@ -36,42 +36,42 @@ namespace SpookuleleAudio
 			gameObject.SetActive(false);
 		}
 		
-		public void Play(AudioClip clip, float volume, float pitch, AudioMixerGroup aMixGroup, float atTime = 0.0f, float duration = float.MaxValue)
+		public void Play(AudioClip clip, float volume, float pitch, AudioMixerGroup aMixGroup, bool ignoreListenerPause, float atTime = 0.0f, float duration = float.MaxValue)
 		{
 			gameObject.SetActive(true);
 			Stop();
-			StartCoroutine(CR_Play(clip, volume, pitch, false, Vector3.zero, aMixGroup, -1, Vector2.one, atTime, duration));
+			StartCoroutine(CR_Play(clip, volume, pitch, false, Vector3.zero, aMixGroup, ignoreListenerPause, -1, Vector2.one, atTime, duration));
 		}
 
-		public void PlayLooped(AudioClip clip, float volume, float pitch, AudioMixerGroup aMixGroup, int loops,
+		public void PlayLooped(AudioClip clip, float volume, float pitch, AudioMixerGroup aMixGroup, bool ignoreListenerPause, int loops,
 			Vector2 loopBounds, float atTime = 0.0f)
 		{
 			mLoopCount = loops;
 			mLoopBounds = loopBounds;
 			gameObject.SetActive(true);
 			Stop();
-			StartCoroutine(CR_Play(clip, volume, pitch, false, Vector3.zero, aMixGroup, mLoopCount, mLoopBounds, atTime, float.MaxValue));
+			StartCoroutine(CR_Play(clip, volume, pitch, false, Vector3.zero, aMixGroup, ignoreListenerPause, mLoopCount, mLoopBounds, atTime, float.MaxValue));
 		}
 		
-		public void Play3D(AudioClip clip, float volume, float pitch, Vector3 position, AudioMixerGroup aMixGroup, float atTime = 0.0f, float duration = float.MaxValue)
+		public void Play3D(AudioClip clip, float volume, float pitch, Vector3 position, AudioMixerGroup aMixGroup, bool ignoreListenerPause, float atTime = 0.0f, float duration = float.MaxValue)
 		{
 			gameObject.SetActive(true);
 			Stop();
-			StartCoroutine(CR_Play(clip, volume, pitch, true, position, aMixGroup, -1, Vector2.one, atTime, duration));
+			StartCoroutine(CR_Play(clip, volume, pitch, true, position, aMixGroup, ignoreListenerPause, -1, Vector2.one, atTime, duration));
 		}
 
-		public void Play3DLooped(AudioClip clip, float volume, float pitch, Vector3 position, AudioMixerGroup aMixGroup, int loops,
+		public void Play3DLooped(AudioClip clip, float volume, float pitch, Vector3 position, AudioMixerGroup aMixGroup, bool ignoreListenerPause, int loops,
 			Vector2 loopBounds, float atTime = 0.0f)
 		{
 			mLoopCount = loops;
 			mLoopBounds = loopBounds;
 			gameObject.SetActive(true);
 			Stop();
-			StartCoroutine(CR_Play(clip, volume, pitch, true, position, aMixGroup, mLoopCount, mLoopBounds, atTime, float.MaxValue));
+			StartCoroutine(CR_Play(clip, volume, pitch, true, position, aMixGroup, ignoreListenerPause, mLoopCount, mLoopBounds, atTime, float.MaxValue));
 		}
 
 
-		IEnumerator CR_Play(AudioClip clip, float volume, float pitch, bool is3D, Vector3 position, AudioMixerGroup aMixGroup, int loops, Vector2 loopBounds, float atTime, float duration)
+		IEnumerator CR_Play(AudioClip clip, float volume, float pitch, bool is3D, Vector3 position, AudioMixerGroup aMixGroup, bool ignoreListenerPause, int loops, Vector2 loopBounds, float atTime, float duration)
 		{
 			mSource.time = 0.0f;
 			
@@ -96,6 +96,8 @@ namespace SpookuleleAudio
 
 			mLoopCount = loops;
 			mLoopBounds = loopBounds;
+
+			mSource.ignoreListenerPause = ignoreListenerPause;
 			
 			float waitTime = Mathf.Min(duration, clip.length);
 			if (loops < 0)

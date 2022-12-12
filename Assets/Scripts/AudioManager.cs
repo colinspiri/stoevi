@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using SpookuleleAudio;
 using StarterAssets;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -15,22 +16,22 @@ public class AudioManager : MonoBehaviour {
     
     [Header("Music")]
     public AudioSource mainMenuMusic;
+    public ASoundContainer detectedStinger;
+    public ASoundContainer chaseStinger;
 
     [Header("Ambience")] 
     public AudioSource farmAmbience;
-    
-    [Header("SFX")]
+
+    [Header("SFX")] 
+    public ASoundContainer waterSoundContainer;
     public AudioSource walkingSound;
     public AudioSource runningSound;
-    public AudioSource waterSound;
-    public AudioSource harvestSound;
-    public AudioSource searchSound;
-    public AudioSource chaseSound;
-    
+    public ASoundContainer harvestSound;
+
     [Header("UI")]
-    public AudioSource backSound;
-    public AudioSource selectSound;
-    public AudioSource submitSound;
+    public ASoundContainer backSound;
+    public ASoundContainer selectSound;
+    public ASoundContainer submitSound;
 
     private void Awake() {
         if (Instance != null) {
@@ -43,9 +44,9 @@ public class AudioManager : MonoBehaviour {
 
     private void Start() {
         farmAmbience.ignoreListenerPause = true;
-        backSound.ignoreListenerPause = true;
+        /*backSound.ignoreListenerPause = true;
         selectSound.ignoreListenerPause = true;
-        submitSound.ignoreListenerPause = true;
+        submitSound.ignoreListenerPause = true;*/
 
         SceneManager.activeSceneChanged += (oldScene, newScene) => PlaySoundsOnSceneStart(newScene);
         PlaySoundsOnSceneStart(SceneManager.GetActiveScene());
@@ -59,7 +60,6 @@ public class AudioManager : MonoBehaviour {
         if (newScene.path == mainMenuScene.ScenePath) {
             mainMenuMusic.Play();
         }
-        else mainMenuMusic.Stop();
     }
 
     public void PauseGameSound() {
@@ -94,10 +94,12 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
-    public void PlayWaterSound() { waterSound.Play(); }
+    public void PlayWaterSound() {
+        SpookuleleAudio.AudioPlayer.PlaySound(waterSoundContainer);
+    }
     public void PlayHarvestSound() { harvestSound.Play(); }
-    public void PlaySearchSound() { searchSound.Play(); }
-    public void PlayChaseSound() { chaseSound.Play(); }
+    public void PlaySearchSound() { detectedStinger.Play(); }
+    public void PlayChaseSound() { chaseStinger.Play(); }
 
     public void PlayBackSound() {
         backSound.Play();

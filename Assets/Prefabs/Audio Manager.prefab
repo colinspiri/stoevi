@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7256734327404374083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7125696010733343812}
+  - component: {fileID: 7286760924480338596}
+  m_Layer: 0
+  m_Name: Audio Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7125696010733343812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7256734327404374083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7371432948786616856}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7286760924480338596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7256734327404374083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38b38c28b022cea46857d57503eaa9d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundPlayerCount: 100
 --- !u!1 &7371432948786616860
 GameObject:
   m_ObjectHideFlags: 0
@@ -38,7 +82,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 7125696010733343812}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -59,16 +104,16 @@ MonoBehaviour:
     sceneAsset: {fileID: 102900000, guid: 6dd513305e2b80642a43c3ad87d60f9e, type: 3}
     scenePath: Assets/Scenes/MainMenu.unity
   mainMenuMusic: {fileID: 3236599552570755063}
+  detectedStinger: {fileID: 11400000, guid: eec1939c3a1db0843b90cd7a012995d7, type: 2}
+  chaseStinger: {fileID: 11400000, guid: e4bde46a542f65246afab909d98aeffb, type: 2}
   farmAmbience: {fileID: 799510028603116462}
+  waterSoundContainer: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
   walkingSound: {fileID: 7371432948786616862}
   runningSound: {fileID: 7371432948786616863}
-  waterSound: {fileID: 7371432948786616858}
-  harvestSound: {fileID: 7371432948786616859}
-  searchSound: {fileID: 7371432948786616836}
-  chaseSound: {fileID: 7371432948786616837}
-  backSound: {fileID: 5893985668360824100}
-  selectSound: {fileID: 548498403265253401}
-  submitSound: {fileID: 4575759566605407059}
+  harvestSound: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
+  backSound: {fileID: 11400000, guid: 568ef0dbd1cc2bb43959efe8fddd520d, type: 2}
+  selectSound: {fileID: 11400000, guid: b406f63ec8aea304e952af77d349595c, type: 2}
+  submitSound: {fileID: 11400000, guid: e68f8c3b202904044ab36df3ce91d044, type: 2}
 --- !u!82 &7371432948786616862
 AudioSource:
   m_ObjectHideFlags: 0
