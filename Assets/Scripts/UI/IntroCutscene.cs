@@ -49,7 +49,7 @@ public class IntroCutscene : MonoBehaviour {
         yield return new WaitForSeconds(2);
 
         titleText.alpha = 1;
-        AudioManager.Instance.PlayChaseSound();
+        AudioManager.Instance.PlayChaseStinger();
 
         yield return new WaitForSeconds(2);
 

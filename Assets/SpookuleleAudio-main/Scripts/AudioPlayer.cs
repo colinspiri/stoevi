@@ -14,7 +14,13 @@ namespace SpookuleleAudio
 
 		void Awake()
 		{
+			if (INSTANCE != null) {
+				Destroy(gameObject);
+				return;
+			}
 			INSTANCE = this;
+			DontDestroyOnLoad(this);
+			
 			mSoundPlayers = new Queue<SoundPlayer>();
 			for (var i = 0; i < SoundPlayerCount; i++)
 			{
@@ -32,8 +38,9 @@ namespace SpookuleleAudio
 			SoundClip clip = container.GetSoundClip();
 			if (clip.AudioClip == null)
 				Debug.LogError("Null Clip! @ Container " + container.name);
-			else if(clip.Loops == -1)
+			else if (clip.Loops == -1) {
 				player.Play(clip.AudioClip, clip.Volume, clip.Pitch, clip.AudioGroup, clip.IgnoreListenerPause, 0f);
+			}
 			else
 				player.PlayLooped(clip.AudioClip, clip.Volume, clip.Pitch, clip.AudioGroup, clip.IgnoreListenerPause, clip.Loops, clip.LoopBounds, 0f);
 			

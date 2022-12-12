@@ -7,7 +7,7 @@ public class PlayChaseStinger : Action
 
     public override TaskStatus OnUpdate()
     {
-        AudioManager.Instance.PlayChaseSound();
+        AudioManager.Instance.PlayChaseStinger();
         return TaskStatus.Success;
     }
 }

@@ -12,7 +12,9 @@ public class AudioManager : MonoBehaviour {
     public static AudioManager Instance;
     public AudioMixer mixer;
 
+    [Header("Scenes")]
     public SceneReference mainMenuScene;
+    public SceneReference gameScene;
     
     [Header("Music")]
     public AudioSource mainMenuMusic;
@@ -43,22 +45,26 @@ public class AudioManager : MonoBehaviour {
     }
 
     private void Start() {
+        mainMenuMusic.ignoreListenerPause = true;
         farmAmbience.ignoreListenerPause = true;
-        /*backSound.ignoreListenerPause = true;
-        selectSound.ignoreListenerPause = true;
-        submitSound.ignoreListenerPause = true;*/
 
         SceneManager.activeSceneChanged += (oldScene, newScene) => PlaySoundsOnSceneStart(newScene);
         PlaySoundsOnSceneStart(SceneManager.GetActiveScene());
     }
 
     private void PlaySoundsOnSceneStart(Scene newScene) {
+        // reset listener pause
         AudioListener.pause = false;
-        // stop all sounds
-        
-        // play sounds based on new scene
+
+        // main menu scene
         if (newScene.path == mainMenuScene.ScenePath) {
             mainMenuMusic.Play();
+        }
+        else mainMenuMusic.Stop();
+        
+        // game scene
+        if (newScene.path == gameScene.ScenePath) {
+            if (!farmAmbience.isPlaying) farmAmbience.Play();
         }
     }
 
@@ -94,26 +100,15 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
-    public void PlayWaterSound() {
-        SpookuleleAudio.AudioPlayer.PlaySound(waterSoundContainer);
-    }
+    public void PlayWaterSound() { waterSoundContainer.Play(); }
     public void PlayHarvestSound() { harvestSound.Play(); }
-    public void PlaySearchSound() { detectedStinger.Play(); }
-    public void PlayChaseSound() { chaseStinger.Play(); }
+    public void PlayDetectedStinger() { detectedStinger.Play(); }
+    public void PlayChaseStinger() { chaseStinger.Play(); }
 
-    public void PlayBackSound() {
-        backSound.Play();
-    }
-
-    public void PlaySelectSound() {
-        selectSound.Play();
-    }
+    public void PlayBackSound() { backSound.Play(); }
+    public void PlaySelectSound() { selectSound.Play(); }
     public void PlaySubmitSound() { submitSound.Play(); }
 
-    public void PlayFarmAmbience() {
-        farmAmbience.Play();
-    }
-    public void PlayWalking() {
-        walkingSound.Play();
-    }
+    public void PlayFarmAmbience() { farmAmbience.Play(); }
+    public void PlayWalking() { walkingSound.Play(); }
 }

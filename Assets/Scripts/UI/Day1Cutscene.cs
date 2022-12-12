@@ -19,7 +19,7 @@ public class Day1Cutscene : Cutscene {
         dayText.alpha = 1;
         
         // play sheep baa 
-        if(AudioManager.Instance) AudioManager.Instance.PlayChaseSound();
+        if(AudioManager.Instance) AudioManager.Instance.PlayChaseStinger();
 
         yield return new WaitForSecondsRealtime(2);
         

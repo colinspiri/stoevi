@@ -7,7 +7,7 @@ public class PlaySearchStinger : Action
 
     public override TaskStatus OnUpdate()
     {
-        AudioManager.Instance.PlaySearchSound();
+        AudioManager.Instance.PlayDetectedStinger();
         return TaskStatus.Success;
     }
 }
