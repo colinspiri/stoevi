@@ -5,7 +5,6 @@ using BehaviorDesigner.Runtime.Tasks.Movement;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
 public class Crop : Interactable {
     // components
@@ -19,14 +18,14 @@ public class Crop : Interactable {
     public float growTime;
 
     // state
-    public enum CropStage { Seed, Sprout, Intermediate, Unripe, Ripe, Bare }
-    public CropStage stage;
-    
+    public enum GrowthStage { Seed, Sprout, Intermediate, Unripe, Ripe, Bare }
+    public GrowthStage stage;
+    private enum State { NeedsWater, Growing, Harvestable }
+    private State state;
     // growth
-    private bool growing;
     private float growthTimer;
     // watering
-    private bool watered;
+    private float thirstyTimer;
     // fertilizing
     public bool fertilized;
     // harvesting
@@ -37,40 +36,46 @@ public class Crop : Interactable {
         base.Start();
         
         ChangeCropStage(stage);
-        
-        tomatoesLeft = Random.Range(minTomatoes, maxTomatoes + 1);
+
+        tomatoesLeft = UnityEngine.Random.Range(minTomatoes, maxTomatoes + 1);
     }
 
     public override bool IsInteractable() {
-        if (stage == CropStage.Seed || stage == CropStage.Sprout || stage == CropStage.Intermediate || stage == CropStage.Unripe) {
+        if (stage == GrowthStage.Seed || stage == GrowthStage.Sprout || stage == GrowthStage.Intermediate || stage == GrowthStage.Unripe) {
             return ResourceManager.Instance.HasWater();
         }
 
-        if (stage == CropStage.Ripe) return true;
+        if (stage == GrowthStage.Ripe) return true;
 
-        if (stage == CropStage.Bare) return false;
+        if (stage == GrowthStage.Bare) return false;
 
         return false;
     }
 
     private void Update() {
-        if (growing) {
+        if (state == State.Growing) {
             growthTimer -= Time.deltaTime;
             if(growthTimer <= 0) Grow();
+        }
+        else if (state == State.NeedsWater) {
+            thirstyTimer -= Time.deltaTime;
+            if (thirstyTimer <= 0) {
+                // TODO: crop health becomes poor OR crop dies if health is already poor
+            }
         }
     }
 
     public override void Interact() {
-        if (stage == CropStage.Ripe) {
+        if (stage == GrowthStage.Ripe) {
             Harvest();
             return;
         }
 
-        if (!watered && ResourceManager.Instance.HasWater() && 
-            (stage == CropStage.Seed || 
-             stage == CropStage.Sprout || 
-             stage == CropStage.Intermediate ||
-             stage == CropStage.Unripe)) {
+        if (state == State.NeedsWater && ResourceManager.Instance.HasWater() && 
+            (stage == GrowthStage.Seed || 
+             stage == GrowthStage.Sprout || 
+             stage == GrowthStage.Intermediate ||
+             stage == GrowthStage.Unripe)) {
             Water();
         }
     }
@@ -80,14 +85,13 @@ public class Crop : Interactable {
         AudioManager.Instance.PlayWaterSound();
 
         // if already watered, don't do anything (TODO: over-water?)
-        if (watered) return;
-
-        watered = true;
+        if (state != State.NeedsWater) return;
 
         // start growing
-        if (stage == CropStage.Seed || stage == CropStage.Sprout || stage == CropStage.Intermediate ||
-            stage == CropStage.Unripe) {
-            StartGrowing();
+        if (stage == GrowthStage.Seed || stage == GrowthStage.Sprout || stage == GrowthStage.Intermediate ||
+            stage == GrowthStage.Unripe) {
+            state = State.Growing;
+            growthTimer = growTime;
         }
     }
 
@@ -99,22 +103,17 @@ public class Crop : Interactable {
 
     public void RemoveRipeTomatoes() {
         tomatoesLeft--;
-        watered = false;
-        ChangeCropStage(tomatoesLeft <= 0 ? CropStage.Bare : CropStage.Unripe);
+        
+        ChangeCropStage(tomatoesLeft <= 0 ? GrowthStage.Bare : GrowthStage.Unripe);
     }
 
     public void AdvanceToNextDay() {
         
     }
 
-    private void StartGrowing() {
-        growing = true;
-        growthTimer = growTime;
-    }
-
     private void Grow() {
         // check if fertilized
-        if (stage == CropStage.Seed || stage == CropStage.Sprout) {
+        if (stage == GrowthStage.Seed || stage == GrowthStage.Sprout) {
             if (soil != null && soil.ConsumeFertilizer()) {
                 fertilized = true;
                 Debug.Log(gameObject.name + " is fertilized");
@@ -122,37 +121,54 @@ public class Crop : Interactable {
         }
         
         // advance to next growth stage
-        if (stage == CropStage.Seed && fertilized) {
-            ChangeCropStage(CropStage.Intermediate);
+        if (stage == GrowthStage.Seed && fertilized) {
+            ChangeCropStage(GrowthStage.Intermediate);
         }
         else {
             ChangeCropStage(stage switch {
-                CropStage.Seed => CropStage.Sprout,
-                CropStage.Sprout => CropStage.Intermediate,
-                CropStage.Intermediate => CropStage.Unripe,
-                CropStage.Unripe => CropStage.Ripe,
+                GrowthStage.Seed => GrowthStage.Sprout,
+                GrowthStage.Sprout => GrowthStage.Intermediate,
+                GrowthStage.Intermediate => GrowthStage.Unripe,
+                GrowthStage.Unripe => GrowthStage.Ripe,
                 _ => stage
             });
         }
         
         // set bools
-        growing = false;
-        watered = false;
+        thirstyTimer = farmingConstants.thirstyTime;
     }
 
-    private void ChangeCropStage(CropStage newStage) {
+    private void ChangeCropStage(GrowthStage newStage) {
         stage = newStage;
         
         // change sprite
         spriteRenderer.sprite = stage switch {
-            CropStage.Seed => farmingConstants.emptySprite,
-            CropStage.Sprout => farmingConstants.waterSprite,
-            CropStage.Intermediate => farmingConstants.waterSprite,
-            CropStage.Unripe => farmingConstants.waterSprite,
-            CropStage.Ripe => farmingConstants.harvestSprite,
-            CropStage.Bare => farmingConstants.emptySprite,
+            GrowthStage.Seed => farmingConstants.emptySprite,
+            GrowthStage.Sprout => farmingConstants.waterSprite,
+            GrowthStage.Intermediate => farmingConstants.waterSprite,
+            GrowthStage.Unripe => farmingConstants.waterSprite,
+            GrowthStage.Ripe => farmingConstants.harvestSprite,
+            GrowthStage.Bare => farmingConstants.emptySprite,
             _ => throw new ArgumentOutOfRangeException()
         };
+
+
+        // set state based on new stage
+        switch (stage) {
+            case GrowthStage.Seed:
+            case GrowthStage.Sprout:
+            case GrowthStage.Intermediate:
+            case GrowthStage.Unripe:
+                state = State.NeedsWater;
+                thirstyTimer = farmingConstants.thirstyTime;
+                break;
+            case GrowthStage.Ripe:
+                state = State.Harvestable;
+                break;
+            case GrowthStage.Bare:
+                state = State.Harvestable;
+                break;
+        }
     }
 
     public override string GetUIText() {
@@ -161,23 +177,25 @@ public class Crop : Interactable {
         uiText += "\n";
         
         switch (stage) {
-            case CropStage.Seed:
-            case CropStage.Sprout:
-            case CropStage.Intermediate:
-            case CropStage.Unripe: {
-                if (growing) {
-                    uiText += (stage == CropStage.Unripe) ? "ripe" : "growing";
+            case GrowthStage.Seed:
+            case GrowthStage.Sprout:
+            case GrowthStage.Intermediate:
+            case GrowthStage.Unripe: {
+                if (state == State.Growing) {
+                    uiText += (stage == GrowthStage.Unripe) ? "ripe" : "growing";
                     uiText += " in " + Mathf.Ceil(growthTimer).ToString("0") + "s";
                 }
-                else {
+                else if(state == State.NeedsWater) {
+                    /*uiText += "thirsty in " + Mathf.Ceil(thirstyTimer).ToString("0") + "s";
+                    uiText += "\n";*/
                     uiText += ResourceManager.Instance.IsWaterEmpty() ? "out of water" : "E to water plant";
                 }
                 break;
             }
-            case CropStage.Ripe:
+            case GrowthStage.Ripe:
                 uiText += "E to harvest tomato";
                 break;
-            case CropStage.Bare:
+            case GrowthStage.Bare:
                 break;
             default:
                 uiText += "ERROR";
@@ -188,6 +206,8 @@ public class Crop : Interactable {
     }
 
     public override float GetSliderFloat() {
-        return growthTimer / growTime;
+        if(state == State.Growing) return growthTimer / growTime;
+        if (state == State.NeedsWater) return thirstyTimer / farmingConstants.thirstyTime;
+        return 0;
     }
 }

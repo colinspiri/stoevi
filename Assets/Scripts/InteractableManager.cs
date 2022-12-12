@@ -89,7 +89,7 @@ public class InteractableManager : MonoBehaviour {
 
     public void CheckForHarvestableCropsLeft() {
         foreach (var crop in allCrops) {
-            if (crop.stage != Crop.CropStage.Bare) return;
+            if (crop.stage != Crop.GrowthStage.Bare) return;
         }
         GameManager.Instance.GameOver(true);
     }
@@ -98,7 +98,7 @@ public class InteractableManager : MonoBehaviour {
         float closestDistance = float.MaxValue;
         Crop closestCrop = null;
         foreach (var crop in allCrops) {
-            if (crop.stage != Crop.CropStage.Ripe) continue;
+            if (crop.stage != Crop.GrowthStage.Ripe) continue;
             float distance = Vector3.Distance(position, crop.transform.position);
             if (distance < closestDistance && distance < maxDistance) {
                 closestDistance = distance;

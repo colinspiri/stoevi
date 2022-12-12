@@ -12,7 +12,10 @@ public class FarmingConstants : ScriptableObject {
     public Sprite emptySprite;
 
     [Header("Crops")] 
-    public SerializedDictionary<Crop.CropStage, float> growthTimeByStage;
+    public SerializedDictionary<Crop.GrowthStage, float> growthTimeByStage;
     public List<float> growthTimeConsecutivePenalties;
+
+    [Header("Watering")] 
+    public float thirstyTime;
 
 }

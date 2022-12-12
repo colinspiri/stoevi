@@ -56,7 +56,7 @@ public class Soil : Interactable {
         return true;
     }
 
-    private void SpawnCrop(Vector3 position, Crop.CropStage stage = Crop.CropStage.Seed) {
+    private void SpawnCrop(Vector3 position, Crop.GrowthStage stage = Crop.GrowthStage.Seed) {
         Crop crop = Instantiate(seedPrefab, position, transform.rotation).GetComponent<Crop>();
         crops.Add(crop);
         crop.soil = this;

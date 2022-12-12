@@ -13,7 +13,7 @@ public class SoilData : SerializedScriptableObject {
 
     public void SaveCropData(Crop crop) {
         Vector3 position = crop.transform.position;
-        Crop.CropStage stage = crop.stage;
+        Crop.GrowthStage stage = crop.stage;
         
         cropData.Add(new CropData(position, stage));
     }
@@ -53,9 +53,9 @@ public class SoilData : SerializedScriptableObject {
 
 public struct CropData {
     public Vector3 position;
-    public Crop.CropStage stage;
+    public Crop.GrowthStage stage;
 
-    public CropData(Vector3 position, Crop.CropStage stage) {
+    public CropData(Vector3 position, Crop.GrowthStage stage) {
         this.position = position;
         this.stage = stage;
     }

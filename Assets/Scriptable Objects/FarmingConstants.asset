@@ -20,3 +20,4 @@ MonoBehaviour:
     values: []
   growthTimeConsecutivePenalties:
   - 0
+  thirstyTime: 10
