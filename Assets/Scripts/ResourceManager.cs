@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BehaviorDesigner.Runtime.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -43,6 +44,10 @@ public class ResourceManager : MonoBehaviour {
     public void RefillWater() {
         currentWater = maxWater;
         onWaterValueChange?.Invoke((float)currentWater/maxWater);
+    }
+
+    public bool HasWater() {
+        return currentWater > 0; 
     }
     public bool IsWaterEmpty() {
         return currentWater <= 0;

@@ -140,17 +140,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a95e869413b4696a3cdb957c1ffd81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionDistance: 3
+  InteractionDistance: 3
+  InteractionTime: 1
   spriteRenderer: {fileID: 8152074468140001967}
-  waterSprite: {fileID: 21300000, guid: 9cce9914bb2d940718789ce3a1ac6d0b, type: 3}
-  harvestSprite: {fileID: 21300000, guid: 8a72560c3aa7e470c80eb77598e76719, type: 3}
-  emptySprite: {fileID: 21300000, guid: ba6c8846ec1604bc29c073185ad29aef, type: 3}
+  farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
+  soil: {fileID: 0}
   maxTomatoes: 3
   minTomatoes: 1
-  growTime: 120
-  ripenTime: 60
+  growTime: 5
   stage: 0
-  startAtRandomStage: 0
+  fertilized: 0
 --- !u!65 &3906466082723591610
 BoxCollider:
   m_ObjectHideFlags: 0
