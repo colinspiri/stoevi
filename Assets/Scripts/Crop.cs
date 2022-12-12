@@ -23,6 +23,8 @@ public class Crop : Interactable {
     private enum State { NeedsWater, Growing, Harvestable }
     private State state;
     // growth
+    private int timesGrownToday;
+    private float growthTime;
     private float growthTimer;
     // watering
     private float thirstyTimer;
@@ -77,6 +79,12 @@ public class Crop : Interactable {
              stage == GrowthStage.Intermediate ||
              stage == GrowthStage.Unripe)) {
             Water();
+            return;
+        }
+        
+        if (state == State.Growing) {
+            growthTimer = 2f;
+            return;
         }
     }
 
@@ -90,9 +98,25 @@ public class Crop : Interactable {
         // start growing
         if (stage == GrowthStage.Seed || stage == GrowthStage.Sprout || stage == GrowthStage.Intermediate ||
             stage == GrowthStage.Unripe) {
-            state = State.Growing;
-            growthTimer = growTime;
+            StartGrowing();
         }
+    }
+
+    private void StartGrowing() {
+        state = State.Growing;
+
+        float growthTimeByStage = farmingConstants.growthTimeByStage[stage];
+
+        var index = timesGrownToday >= farmingConstants.growthTimeConsecutivePenalties.Count
+            ? farmingConstants.growthTimeConsecutivePenalties.Count - 1
+            : timesGrownToday;
+        float multiplier = farmingConstants.growthTimeConsecutivePenalties[index];
+
+        // set growth timer
+        growthTime = growthTimeByStage * multiplier;
+        growthTimer = growthTime;
+        
+        Debug.Log("growth time is " + growthTime + " (" + growthTimeByStage + " * " + multiplier + ")");
     }
 
     private void Harvest() {
@@ -134,8 +158,8 @@ public class Crop : Interactable {
             });
         }
         
-        // set bools
-        thirstyTimer = farmingConstants.thirstyTime;
+        // count each growth
+        timesGrownToday++;
     }
 
     private void ChangeCropStage(GrowthStage newStage) {
@@ -183,7 +207,7 @@ public class Crop : Interactable {
             case GrowthStage.Unripe: {
                 if (state == State.Growing) {
                     uiText += (stage == GrowthStage.Unripe) ? "ripe" : "growing";
-                    uiText += " in " + Mathf.Ceil(growthTimer).ToString("0") + "s";
+                    uiText += " in " + FormatTimer(growthTimer);
                 }
                 else if(state == State.NeedsWater) {
                     /*uiText += "thirsty in " + Mathf.Ceil(thirstyTimer).ToString("0") + "s";
@@ -209,5 +233,11 @@ public class Crop : Interactable {
         if(state == State.Growing) return growthTimer / growTime;
         if (state == State.NeedsWater) return thirstyTimer / farmingConstants.thirstyTime;
         return 0;
+    }
+
+    private string FormatTimer(float timer) {
+        int minutes = Mathf.FloorToInt(timer / 60F);
+        int seconds = Mathf.FloorToInt(timer - minutes * 60);
+        return string.Format("{0:0}:{1:00}", minutes, seconds);
     }
 }
