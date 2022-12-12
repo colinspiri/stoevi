@@ -128,14 +128,15 @@ MonoBehaviour:
         Speed","IsShared":true,"SinglemValue":2},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive
         Distance","IsShared":true,"SinglemValue":3},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"EatCrop","NodeData":{"Offset":"(156.320282,213.426987)"},"ID":6,"Name":"Eat
         Crop","Instant":true,"SharedCroptargetCrop":{"Type":"SharedCrop","Name":"Target
-        Crop","IsShared":true},"SheepSpriteManagerspriteManager":1,"SingleeatTime":3}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.MoveRandomlyWithinRadius","NodeData":{"Offset":"(189.955231,225.527786)"},"ID":7,"Name":"Move
+        Crop","IsShared":true},"SheepSpriteManagerspriteManager":1,"SingleeatTime":3}]},{"Type":"BehaviorDesigner.Runtime.Tasks.ParallelComplete","NodeData":{"Offset":"(273.23877,185.278137)"},"ID":7,"Name":"Parallel
+        Complete","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.MoveRandomlyWithinRadius","NodeData":{"Offset":"(-100,130)"},"ID":8,"Name":"Move
         Randomly Within Radius","Instant":true,"SharedVector3center":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Sheep
         Position","IsShared":true,"PropertyMapping":"UnityEngine.Transform/position","PropertyMappingOwner":2,"Vector3mValue":"(0,0,0)"},"SharedFloatradius":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":50},"SharedBoolmoveForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedFloatmaximumTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0},"SharedFloatminPauseDuration":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedFloatmaxPauseDuration":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":6},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
         Speed","IsShared":true,"SinglemValue":2},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive
-        Distance","IsShared":true,"SinglemValue":3},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
+        Distance","IsShared":true,"SinglemValue":3},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(150,110)"},"ID":9,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(-64.6229248,121.451172)"},"ID":10,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":5},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":20}},{"Type":"Bleat","NodeData":{"Offset":"(83.8770752,120.451172)"},"ID":11,"Name":"Bleat","Instant":true,"ASoundContainerbleat":3}]}]}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
         Speed","IsShared":true,"SinglemValue":2},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive
         Distance","IsShared":true,"SinglemValue":3},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Sheep
-        Position","IsShared":true,"PropertyMapping":"UnityEngine.Transform/position","PropertyMappingOwner":3,"Vector3mValue":"(0,0,0)"},{"Type":"SharedCrop","Name":"Target
+        Position","IsShared":true,"PropertyMapping":"UnityEngine.Transform/position","PropertyMappingOwner":4,"Vector3mValue":"(0,0,0)"},{"Type":"SharedCrop","Name":"Target
         Crop","IsShared":true}]}'
       fieldSerializationData:
         typeName: []
@@ -146,6 +147,7 @@ MonoBehaviour:
         - {fileID: 6620360020038090571}
         - {fileID: 4007820795851125806}
         - {fileID: 6620360020038090571}
+        - {fileID: 11400000, guid: f0ef8345da6183b4888a26b2966ea0fb, type: 2}
         - {fileID: 6620360020038090571}
         byteData: 
         byteDataArray: 
@@ -247,3 +249,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8888c1b74c7c247289d87c19195e903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offsetInDegrees: 0
