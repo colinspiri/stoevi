@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour {
     public AudioSource farmAmbience;
 
     [Header("SFX")] 
-    public ASoundContainer waterSoundContainer;
+    public ASoundContainer waterSound;
     public AudioSource walkingSound;
     public AudioSource runningSound;
     public ASoundContainer harvestSound;
@@ -100,7 +100,7 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
-    public void PlayWaterSound() { waterSoundContainer.Play(); }
+    public void PlayWaterSound() { waterSound.Play(); }
     public void PlayHarvestSound() { harvestSound.Play(); }
     public void PlayDetectedStinger() { detectedStinger.Play(); }
     public void PlayChaseStinger() { chaseStinger.Play(); }
