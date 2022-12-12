@@ -34,6 +34,7 @@ public class Crop : Interactable {
     // fertilizing
     public bool fertilized;
     // harvesting
+    public int tomatoesYielded;
     private int tomatoesLeft;
     
 
@@ -41,8 +42,6 @@ public class Crop : Interactable {
         base.Start();
 
         ChangeCropStage(stage);
-
-        tomatoesLeft = UnityEngine.Random.Range(minTomatoes, maxTomatoes + 1);
     }
 
     public override bool IsInteractable() {
@@ -174,7 +173,6 @@ public class Crop : Interactable {
         if (stage == GrowthStage.Seed || stage == GrowthStage.Sprout) {
             if (soil != null && soil.ConsumeFertilizer()) {
                 fertilized = true;
-                Debug.Log(gameObject.name + " is fertilized");
             }
         }
         
@@ -212,6 +210,38 @@ public class Crop : Interactable {
             case GrowthStage.Bare:
                 state = State.Harvestable;
                 break;
+        }
+
+        // set tomatoes left
+        if (stage == GrowthStage.Ripe && tomatoesYielded == 0) {
+            tomatoesYielded = 1;
+            
+            if (health == Health.Fair && fertilized) {
+                float rand = UnityEngine.Random.Range(0f, 1f);
+                // Debug.Log("rand = " + rand);
+                
+                if (rand < 0.75f) {
+                    tomatoesYielded = 2;
+                    
+                    float rand2 = UnityEngine.Random.Range(0f, 1f);
+                    // Debug.Log("rand2 = " + rand2);
+                    
+                    if (rand2 < 0.25f) {
+                        tomatoesYielded = 3;
+                    }
+                }
+            }
+            else if (health == Health.Fair) {
+                float rand = UnityEngine.Random.Range(0f, 1f);
+                // Debug.Log("rand = " + rand);
+                
+                if (rand < 0.25f) {
+                    tomatoesYielded = 2;
+                }
+            }
+
+            tomatoesLeft = tomatoesYielded;
+            // Debug.Log("yielded " + tomatoesYielded + " tomatoes!");
         }
     }
 
