@@ -22,7 +22,7 @@ public class Crop : Interactable {
     public GrowthStage stage;
     private enum State { NeedsWater, Growing, Harvestable }
     private State state;
-    private enum Health { Dead, Poor, Healthy }
+    private enum Health { Fair, Poor, Dead }
     private Health health;
     // growth
     private int timesGrownToday;
@@ -39,13 +39,15 @@ public class Crop : Interactable {
 
     protected override void Start() {
         base.Start();
-        
+
         ChangeCropStage(stage);
 
         tomatoesLeft = UnityEngine.Random.Range(minTomatoes, maxTomatoes + 1);
     }
 
     public override bool IsInteractable() {
+        if (health == Health.Dead) return false;
+        
         if (stage == GrowthStage.Seed || stage == GrowthStage.Sprout || stage == GrowthStage.Intermediate || stage == GrowthStage.Unripe) {
             return ResourceManager.Instance.HasWater();
         }
@@ -65,7 +67,17 @@ public class Crop : Interactable {
         else if (state == State.NeedsWater) {
             thirstyTimer -= Time.deltaTime;
             if (thirstyTimer <= 0) {
-                // TODO: crop health becomes poor OR crop dies if health is already poor
+                if (health == Health.Fair) {
+                    health = Health.Poor;
+                    UpdateSprite();
+                    
+                    timesGrownToday++;
+                    StartThirsty();
+                }
+                else if (health == Health.Poor) {
+                    health = Health.Dead;
+                    UpdateSprite();
+                }
             }
         }
     }
@@ -184,17 +196,7 @@ public class Crop : Interactable {
     private void ChangeCropStage(GrowthStage newStage) {
         stage = newStage;
         
-        // change sprite
-        spriteRenderer.sprite = stage switch {
-            GrowthStage.Seed => farmingConstants.emptySprite,
-            GrowthStage.Sprout => farmingConstants.waterSprite,
-            GrowthStage.Intermediate => farmingConstants.waterSprite,
-            GrowthStage.Unripe => farmingConstants.waterSprite,
-            GrowthStage.Ripe => farmingConstants.harvestSprite,
-            GrowthStage.Bare => farmingConstants.emptySprite,
-            _ => throw new ArgumentOutOfRangeException()
-        };
-
+        UpdateSprite();
 
         // set state based on new stage
         switch (stage) {
@@ -213,8 +215,28 @@ public class Crop : Interactable {
         }
     }
 
+    private void UpdateSprite() {
+        if (health == Health.Dead) {
+            spriteRenderer.sprite = farmingConstants.emptySprite;
+        }
+        
+        spriteRenderer.sprite = stage switch {
+            GrowthStage.Seed => farmingConstants.emptySprite,
+            GrowthStage.Sprout => farmingConstants.waterSprite,
+            GrowthStage.Intermediate => farmingConstants.waterSprite,
+            GrowthStage.Unripe => farmingConstants.waterSprite,
+            GrowthStage.Ripe => farmingConstants.harvestSprite,
+            GrowthStage.Bare => farmingConstants.emptySprite,
+            _ => throw new ArgumentOutOfRangeException()
+        };
+    }
+
     public override string GetUIText() {
         string uiText = stage.ToString().ToLower();
+        if (health == Health.Dead) {
+            return uiText + " (dead)";
+        }
+        uiText += " (health: " + health.ToString().ToLower() + ")";
 
         uiText += "\n";
         
