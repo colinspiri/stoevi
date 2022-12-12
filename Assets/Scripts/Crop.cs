@@ -9,13 +9,10 @@ using UnityEngine.UI;
 public class Crop : Interactable {
     // components
     public SpriteRenderer spriteRenderer;
-    public FarmingConstants farmingConstants;
     public Soil soil;
 
     // constants
-    public int maxTomatoes;
-    public int minTomatoes;
-    public float growTime;
+    public FarmingConstants farmingConstants;
 
     // state
     public enum GrowthStage { Seed, Sprout, Intermediate, Unripe, Ripe, Bare }
@@ -300,7 +297,7 @@ public class Crop : Interactable {
     }
 
     public override float GetSliderFloat() {
-        if(state == State.Growing) return growthTimer / growTime;
+        if(state == State.Growing) return growthTimer / growthTime;
         if (state == State.NeedsWater) return thirstyTimer / thirstyTime;
         return 0;
     }
