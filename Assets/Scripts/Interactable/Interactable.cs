@@ -15,6 +15,11 @@ public abstract class Interactable : MonoBehaviour {
     }
 
     public abstract void Interact();
+
+    public abstract string GetObjectName();
+    public abstract string GetObjectDescription();
+    public abstract string GetButtonPrompt();
+    
     public abstract string GetUIText();
     public virtual float GetSliderFloat() { return 0; }
 

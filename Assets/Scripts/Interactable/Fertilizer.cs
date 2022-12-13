@@ -13,6 +13,21 @@ public class Fertilizer : Interactable {
         Destroy(gameObject);
     }
 
+    public override string GetObjectName() {
+        return "fertilizer";
+    }
+
+    public override string GetObjectDescription() {
+        return "";
+    }
+
+    public override string GetButtonPrompt() {
+        if (ResourceManager.Instance.carryingFertilizer) {
+            return "already carrying fertilizer";
+        }
+        return "E to pick up fertilizer";    
+    }
+
     public override string GetUIText() {
         if (ResourceManager.Instance.carryingFertilizer) {
             return "already carrying fertilizer";

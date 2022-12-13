@@ -12,6 +12,18 @@ public class RefillSeeds : Interactable
         ResourceManager.Instance.RefillSeeds();
     }
 
+    public override string GetObjectName() {
+        return "seed crate";
+    }
+
+    public override string GetObjectDescription() {
+        return "";
+    }
+
+    public override string GetButtonPrompt() {
+        return ResourceManager.Instance.SeedsFull() ? "seeds already full" : "E to refill seeds";
+    }
+
     public override string GetUIText() {
         string uiText = "";
 

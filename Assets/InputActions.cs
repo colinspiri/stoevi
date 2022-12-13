@@ -81,6 +81,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ToggleHUD"",
+                    ""type"": ""Button"",
+                    ""id"": ""34c374f7-86f6-4ad3-9e9b-098d43cf9754"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -488,6 +496,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""DebugGameOver"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2bf46724-8a17-49ce-9db5-169ac7f0490f"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ToggleHUD"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1161,6 +1180,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         m_Gameplay_Back = m_Gameplay.FindAction("Back", throwIfNotFound: true);
         m_Gameplay_DebugGameOver = m_Gameplay.FindAction("DebugGameOver", throwIfNotFound: true);
+        m_Gameplay_ToggleHUD = m_Gameplay.FindAction("ToggleHUD", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1230,6 +1250,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Menu;
     private readonly InputAction m_Gameplay_Back;
     private readonly InputAction m_Gameplay_DebugGameOver;
+    private readonly InputAction m_Gameplay_ToggleHUD;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -1242,6 +1263,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputAction @Back => m_Wrapper.m_Gameplay_Back;
         public InputAction @DebugGameOver => m_Wrapper.m_Gameplay_DebugGameOver;
+        public InputAction @ToggleHUD => m_Wrapper.m_Gameplay_ToggleHUD;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1275,6 +1297,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @DebugGameOver.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDebugGameOver;
                 @DebugGameOver.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDebugGameOver;
                 @DebugGameOver.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDebugGameOver;
+                @ToggleHUD.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnToggleHUD;
+                @ToggleHUD.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnToggleHUD;
+                @ToggleHUD.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnToggleHUD;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1303,6 +1328,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @DebugGameOver.started += instance.OnDebugGameOver;
                 @DebugGameOver.performed += instance.OnDebugGameOver;
                 @DebugGameOver.canceled += instance.OnDebugGameOver;
+                @ToggleHUD.started += instance.OnToggleHUD;
+                @ToggleHUD.performed += instance.OnToggleHUD;
+                @ToggleHUD.canceled += instance.OnToggleHUD;
             }
         }
     }
@@ -1449,6 +1477,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnMenu(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
         void OnDebugGameOver(InputAction.CallbackContext context);
+        void OnToggleHUD(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

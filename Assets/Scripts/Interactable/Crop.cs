@@ -283,6 +283,42 @@ public class Crop : Interactable {
                 throw new ArgumentOutOfRangeException();
         }
     }
+    
+    public override string GetObjectName() {
+        string uiText = stage.ToString().ToLower();
+        return uiText;
+    }
+
+    public override string GetObjectDescription() {
+        string uiText = "";
+        
+        switch (health) {
+            case Health.Dead:
+                uiText += "dead";
+                break;
+            case Health.Poor:
+                uiText += "dying";
+                break;
+            case Health.Fair:
+                uiText += "healthy";
+                break;
+        }
+        
+        return uiText;
+    }
+
+    public override string GetButtonPrompt() {
+        if (stage == GrowthStage.Bare || health == Health.Dead) {
+            return "E to dig up";
+        }
+        else if (state == State.NeedsWater) {
+            return ResourceManager.Instance.IsWaterEmpty() ? "out of water" : "E to water";
+        }
+        else if (stage == GrowthStage.Ripe) {
+            return "E to harvest tomato";
+        }
+        return "";
+    }
 
     public override string GetUIText() {
         string uiText = "";

@@ -9,8 +9,15 @@ using UnityEngine.UI;
 
 public class InteractableUI : MonoBehaviour {
     // components
-    public TextMeshProUGUI interactableText;
-    public Slider interactableSlider;
+    public GameObject objectInfo;
+    public TextMeshProUGUI objectName;
+    public GameObject objectInfoLine;
+    public TextMeshProUGUI objectDescription;
+    
+    public Slider progressSlider;
+
+    public TextMeshProUGUI buttonPrompt;
+    
 
     private void Start() {
         HideInteractableUI();
@@ -18,13 +25,14 @@ public class InteractableUI : MonoBehaviour {
     
     private void Update() {
         // TODO: refactor so that each interactable has UpdateUI() function to call when values change
+        
         switch (InteractableManager.Instance.interactionState)
         {
             case InteractableManager.InteractionState.None:
                 if (ResourceManager.Instance.carryingFertilizer) {
-                    interactableText.gameObject.SetActive(true);
-                    interactableText.text = "E to drop fertilizer";
-                    interactableSlider.gameObject.SetActive(false);
+                    objectInfo.SetActive(false);
+                    progressSlider.value = 0;
+                    buttonPrompt.text = "E to drop fertilizer";
                 }
                 else HideInteractableUI();
                 break;
@@ -38,29 +46,49 @@ public class InteractableUI : MonoBehaviour {
     }
 
     private void HideInteractableUI() {
-        interactableText.text = "";
-        interactableText.gameObject.SetActive(false);
-        interactableSlider.gameObject.SetActive(false);
+        progressSlider.value = 0;
+        objectInfo.SetActive(false);
+        buttonPrompt.text = "";
     }
 
     private void ShowSelectedObject() {
         var selectedObject = InteractableManager.Instance.SelectedObject;
         
-        interactableText.gameObject.SetActive(true);
-        interactableText.text = selectedObject.GetUIText();
-        
-        if (selectedObject.GetSliderFloat() != 0) {
-            interactableSlider.gameObject.SetActive(true);
-            interactableSlider.value = selectedObject.GetSliderFloat();
+        objectInfo.SetActive(true);
+        objectName.text = selectedObject.GetObjectName();
+        if (selectedObject.GetObjectDescription() != "") {
+            objectInfoLine.SetActive(true);
+            objectDescription.gameObject.SetActive(true);
+            objectDescription.text = selectedObject.GetObjectDescription();
         }
-        else interactableSlider.gameObject.SetActive(false);
+        else {
+            objectInfoLine.SetActive(false);
+            objectDescription.gameObject.SetActive(false);
+        }
+
+        progressSlider.value = 0;
+
+        buttonPrompt.text = selectedObject.GetButtonPrompt();
+        buttonPrompt.alpha = 1;
     }
 
     private void ShowInteractingObject() {
-        interactableText.gameObject.SetActive(true);
-        interactableText.text = InteractableManager.Instance.SelectedObject.GetUIText();
-        
-        interactableSlider.gameObject.SetActive(true);
-        interactableSlider.value = InteractableManager.Instance.GetInteractingFloat();
+        var selectedObject = InteractableManager.Instance.SelectedObject;
+
+        objectInfo.SetActive(true);
+        objectName.text = selectedObject.GetObjectName();
+        if (selectedObject.GetObjectDescription() != "") {
+            objectInfoLine.SetActive(true);
+            objectDescription.gameObject.SetActive(true);
+            objectDescription.text = selectedObject.GetObjectDescription();
+        }
+        else {
+            objectInfoLine.SetActive(false);
+            objectDescription.gameObject.SetActive(false);
+        }
+        progressSlider.value = InteractableManager.Instance.GetInteractingFloat();
+
+        buttonPrompt.text = selectedObject.GetButtonPrompt();
+        buttonPrompt.alpha = 0.5f;
     }
 }

@@ -75,6 +75,39 @@ public class Soil : Interactable {
     public void RemoveCrop(Crop crop) {
         crops.Remove(crop);
     }
+    
+    public override string GetObjectName() {
+        return "soil";
+    }
+
+    public override string GetObjectDescription() {
+        if (tilled && fertilizerLevel > 0) return "tilled & fertilized";
+        else if (tilled) return "tilled";
+        else if (fertilizerLevel > 0) return "fertilized";
+        else return "";
+    }
+
+    public override string GetButtonPrompt() {
+        // fertilize
+        if(ResourceManager.Instance.carryingFertilizer) {
+            if (fertilizerLevel < farmingConstants.maxFertilizerLevel) return "E to fertilize";
+            return "already fertilized";
+        }
+        // plant or till 
+        else if (crops.Count < farmingConstants.maxCrops) {
+            if (tilled) {
+                if (ResourceManager.Instance.HasSeedsLeft()) return "E to plant seed";
+                return "out of seeds";
+            }
+            else {
+                return "E to till";
+            }
+        }
+        // no more space
+        else {
+            return "no more space";
+        }
+    }
 
     public override string GetUIText() {
         string uiText = "";

@@ -16,7 +16,7 @@ public class PauseMenuManager : MonoBehaviour {
     public GameObject gameOverPanel;
     public TextMeshProUGUI gameOverMessage;
     public TextMeshProUGUI gameOverTomatoes;
-    public List<GameObject> otherUIObjects;
+    public HUDManager hud;
 
     private void Awake() {
         Instance = this;
@@ -43,10 +43,7 @@ public class PauseMenuManager : MonoBehaviour {
     private void OpenPauseMenu() {
         pauseMenu.SetActive(true);
         
-        // disable other UI
-        foreach (var uiObject in otherUIObjects) {
-            uiObject.SetActive(false);
-        }
+        hud.SetHUDVisible(false);
         
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -57,10 +54,7 @@ public class PauseMenuManager : MonoBehaviour {
     public void ClosePauseMenu() {
         pauseMenu.SetActive(false);
         
-        // enable other UI
-        foreach (var uiObject in otherUIObjects) {
-            uiObject.SetActive(true);
-        }
+        hud.SetHUDVisible(true);
         
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
