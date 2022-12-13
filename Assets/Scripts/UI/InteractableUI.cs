@@ -32,6 +32,7 @@ public class InteractableUI : MonoBehaviour {
                 if (ResourceManager.Instance.carryingFertilizer) {
                     objectInfo.SetActive(false);
                     progressSlider.value = 0;
+                    buttonPrompt.gameObject.SetActive(true);
                     buttonPrompt.text = "E to drop fertilizer";
                 }
                 else HideInteractableUI();
@@ -68,6 +69,7 @@ public class InteractableUI : MonoBehaviour {
 
         progressSlider.value = 0;
 
+        buttonPrompt.gameObject.SetActive(true);
         buttonPrompt.text = selectedObject.GetButtonPrompt();
         buttonPrompt.alpha = 1;
     }
@@ -88,6 +90,7 @@ public class InteractableUI : MonoBehaviour {
         }
         progressSlider.value = InteractableManager.Instance.GetInteractingFloat();
 
+        buttonPrompt.gameObject.SetActive(true);
         buttonPrompt.text = selectedObject.GetButtonPrompt();
         buttonPrompt.alpha = 0.5f;
     }
