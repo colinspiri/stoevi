@@ -11,7 +11,7 @@ public class CameraRaycast : MonoBehaviour {
     public float maxRaycastDistance;
 
     // The layer mask to use for the raycast. This should include the layers of any objects that you want to detect.
-    public LayerMask detectionLayerMask;
+    // public LayerMask detectionLayerMask;
 
     private void Awake() {
         Instance = this;
@@ -28,7 +28,7 @@ public class CameraRaycast : MonoBehaviour {
         Ray ray = new Ray(transform.position, transform.forward);
 
         // Perform a raycast using the ray and the specified maximum distance and layer mask
-        bool hit = Physics.Raycast(ray, out hitInfo, maxRaycastDistance, detectionLayerMask);
+        bool hit = Physics.Raycast(ray, out hitInfo, maxRaycastDistance);
 
         // If the raycast hits an object
         if (hit) {
@@ -36,20 +36,5 @@ public class CameraRaycast : MonoBehaviour {
         }
 
         return null;
-    }
-
-    public bool LookingAtGround(out RaycastHit hitInfo) {
-        // Create a ray that starts at the camera's position and points in the direction that the camera is facing
-        Ray ray = new Ray(transform.position, transform.forward);
-
-        // Perform a raycast using the ray and the specified maximum distance
-        bool hit = Physics.Raycast(ray, out hitInfo, maxRaycastDistance);
-
-        // If the raycast hits an object
-        if (hit && hitInfo.collider.CompareTag("Terrain")) {
-            return true;
-        }
-
-        return false;
     }
 }

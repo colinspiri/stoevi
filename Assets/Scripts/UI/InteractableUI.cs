@@ -9,15 +9,26 @@ using UnityEngine.UI;
 
 public class InteractableUI : MonoBehaviour {
     // components
+    [Header("Object Info")]
     public GameObject objectInfo;
     public TextMeshProUGUI objectName;
     public GameObject objectInfoLine;
     public TextMeshProUGUI objectDescription;
     
+    [Header("Progress Slider")]
     public Slider progressSlider;
 
+    [Header("Button Prompt")]
     public TextMeshProUGUI buttonPrompt;
-    
+
+    [Header("Timer Panel")] 
+    public GameObject timerPanel;
+    public Slider timerSlider;
+    public GameObject timerWaterIcon;
+    public GameObject timerGrowthIcon;
+    public GameObject timerRipeIcon;
+    public TextMeshProUGUI timerText;
+
 
     private void Start() {
         HideInteractableUI();
@@ -29,6 +40,7 @@ public class InteractableUI : MonoBehaviour {
         switch (InteractableManager.Instance.interactionState)
         {
             case InteractableManager.InteractionState.None:
+                // Debug.Log("InteractableUI: none " + ResourceManager.Instance.carryingFertilizer);
                 if (ResourceManager.Instance.carryingFertilizer) {
                     objectInfo.SetActive(false);
                     progressSlider.value = 0;
@@ -50,10 +62,13 @@ public class InteractableUI : MonoBehaviour {
         progressSlider.value = 0;
         objectInfo.SetActive(false);
         buttonPrompt.text = "";
+        
+        // timer
+        timerPanel.gameObject.SetActive(false);
     }
 
     private void ShowSelectedObject() {
-        var selectedObject = InteractableManager.Instance.SelectedObject;
+        var selectedObject = InteractableManager.Instance.selectedObject;
         
         objectInfo.SetActive(true);
         objectName.text = selectedObject.GetObjectName();
@@ -72,10 +87,12 @@ public class InteractableUI : MonoBehaviour {
         buttonPrompt.gameObject.SetActive(true);
         buttonPrompt.text = selectedObject.GetButtonPrompt();
         buttonPrompt.alpha = 1;
+        
+        ShowTimer();
     }
 
     private void ShowInteractingObject() {
-        var selectedObject = InteractableManager.Instance.SelectedObject;
+        var selectedObject = InteractableManager.Instance.selectedObject;
 
         objectInfo.SetActive(true);
         objectName.text = selectedObject.GetObjectName();
@@ -93,5 +110,26 @@ public class InteractableUI : MonoBehaviour {
         buttonPrompt.gameObject.SetActive(true);
         buttonPrompt.text = selectedObject.GetButtonPrompt();
         buttonPrompt.alpha = 0.5f;
+        
+        ShowTimer();
+    }
+
+    private void ShowTimer() {
+        var selectedObject = InteractableManager.Instance.selectedObject;
+        
+        var value = selectedObject.GetSliderFloat();
+        if (value != 0) {
+            timerPanel.SetActive(true);
+            timerSlider.value = value;
+            
+            // icon
+            timerWaterIcon.SetActive(true);
+            timerGrowthIcon.SetActive(false);
+            timerRipeIcon.SetActive(false);
+            
+            // text
+            timerText.text = "0:00";
+        }
+        else timerPanel.SetActive(false);
     }
 }

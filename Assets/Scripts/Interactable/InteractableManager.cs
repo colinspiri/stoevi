@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -16,12 +17,11 @@ public class InteractableManager : MonoBehaviour {
     private List<Soil> allSoil = new List<Soil>();
     
     // state
-    public enum InteractionState { None, Ground, Selecting, Interacting }
+    public enum InteractionState { None, Selecting, Interacting }
     public InteractionState interactionState = InteractionState.None;
-    public Interactable SelectedObject { get; private set; }
+    public Interactable selectedObject { get; private set; }
     
     private float holdTimer;
-    private Vector3 lookPosition;
     
     private void Awake() {
         Instance = this;
@@ -32,66 +32,66 @@ public class InteractableManager : MonoBehaviour {
         
         // see if camera is pointing at an object
         RaycastHit hitInfo;
-        var obj = CameraRaycast.Instance.GetCurrentObject(out hitInfo);
+        GameObject obj = CameraRaycast.Instance.GetCurrentObject(out hitInfo);
         if (obj == null) {
-            SelectObject(null);
+            Deselect();
             return;
         }
 
         // check if object is interactable
         var interactable = obj.GetComponent<Interactable>();
         if (interactable == null) {
-            SelectObject(null);
+            Deselect();
             return;
         }
         
-        // if interactable is within distance and currently interactable, select it
-        if (interactable.IsSelectable() && interactable.PlayerWithinInteractionDistance(hitInfo.point)) {
-            SelectObject(interactable);
-        }
-        else SelectObject(null);
-
-
+        // check if selectable
+        if(!interactable.IsSelectable()) Deselect();
+        // check if within distance
+        if(!interactable.PlayerWithinInteractionDistance(hitInfo.point)) Deselect();
+        
+        // if not already selected, select it
+        if (interactable != selectedObject) SelectObject(interactable);
+        
+        
         // count up hold timer while interacting
         if (interactionState == InteractionState.Interacting) {
-            // if no longer interactable, go back to selecting
-            if (!SelectedObject.IsInteractable()) {
-                interactionState = InteractionState.Selecting;
-                holdTimer = 0;
+            // if no longer interactable, stop interacting
+            if (!selectedObject.IsInteractable()) {
+                StopInteracting();
             }
+            
             // count up hold timer
             holdTimer += Time.deltaTime;
+            
             // if holding for long enough, call interact
-            if (holdTimer >= SelectedObject.InteractionTime) {
-                SelectedObject.Interact();
-                interactionState = InteractionState.Selecting;
-                holdTimer = 0;
+            if (holdTimer >= selectedObject.InteractionTime) {
+                selectedObject.Interact();
+                StopInteracting();
             }
         }
     }
 
-    private void SelectObject(Interactable interactable) {
-        // check if same object
-        if (SelectedObject == interactable) return;
-        
-        // select new object
-        SelectedObject = interactable;
-        
-        // change state
-        if (SelectedObject == null) interactionState = InteractionState.None;
-        else {
-            interactionState = InteractionState.Selecting;
-        }
-
-        // reset hold timer
+    private void Deselect() {
+        selectedObject = null;
+        interactionState = InteractionState.None;
         holdTimer = 0;
     }
 
-    public void CheckForHarvestableCropsLeft() {
-        foreach (var crop in allCrops) {
-            if (crop.stage != Crop.GrowthStage.Bare) return;
-        }
-        GameManager.Instance.GameOver(true);
+    private void SelectObject(Interactable interactable) {
+        selectedObject = interactable;
+        interactionState = InteractionState.Selecting;
+        holdTimer = 0;
+    }
+
+    private void StartInteracting() {
+        interactionState = InteractionState.Interacting;
+        holdTimer = 0;
+    }
+
+    private void StopInteracting() {
+        interactionState = InteractionState.Selecting;
+        holdTimer = 0;
     }
 
     public Crop GetClosestHarvestableCropTo(Vector3 position, float maxDistance = float.MaxValue) {
@@ -127,6 +127,8 @@ public class InteractableManager : MonoBehaviour {
         allInteractables.Remove(interactable);
         if (interactable is Crop crop) allCrops.Remove(crop);
         if (interactable is Soil soil) allSoil.Remove(soil);
+        // if selected
+        if (selectedObject == interactable) Deselect();
     }
     
     public void OnInteractInput(InputAction.CallbackContext context) {
@@ -136,20 +138,16 @@ public class InteractableManager : MonoBehaviour {
             }
         }
         if (context.ReadValueAsButton()) {
-            if (interactionState == InteractionState.Selecting && SelectedObject.IsInteractable()) {
-                interactionState = InteractionState.Interacting;
-                holdTimer = 0;
+            if (interactionState == InteractionState.Selecting && selectedObject.IsInteractable()) {
+                StartInteracting();
             }
         }
-        else {
-            if (interactionState == InteractionState.Interacting) {
-                interactionState = InteractionState.Selecting;
-                holdTimer = 0;
-            }
+        else if (interactionState == InteractionState.Interacting) {
+            StopInteracting();
         }
     }
 
     public float GetInteractingFloat() {
-        return holdTimer / SelectedObject.InteractionTime;
+        return holdTimer / selectedObject.InteractionTime;
     }
 }
