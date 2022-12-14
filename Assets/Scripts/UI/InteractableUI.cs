@@ -28,6 +28,9 @@ public class InteractableUI : MonoBehaviour {
     public GameObject timerGrowthIcon;
     public GameObject timerRipeIcon;
     public TextMeshProUGUI timerText;
+    
+    // constants
+    public enum TimerIcon { None, Water, Growth, Ripe }
 
 
     private void Start() {
@@ -117,19 +120,26 @@ public class InteractableUI : MonoBehaviour {
     private void ShowTimer() {
         var selectedObject = InteractableManager.Instance.selectedObject;
         
-        var value = selectedObject.GetSliderFloat();
+        var value = selectedObject.GetTimerValue();
         if (value != 0) {
             timerPanel.SetActive(true);
             timerSlider.value = value;
             
             // icon
-            timerWaterIcon.SetActive(true);
-            timerGrowthIcon.SetActive(false);
-            timerRipeIcon.SetActive(false);
+            TimerIcon iconType = selectedObject.GetTimerIcon();
+            timerWaterIcon.SetActive(iconType == TimerIcon.Water);
+            timerGrowthIcon.SetActive(iconType == TimerIcon.Growth);
+            timerRipeIcon.SetActive(iconType == TimerIcon.Ripe);
             
             // text
-            timerText.text = "0:00";
+            timerText.text = FormatTimer(selectedObject.GetTimerTime());
         }
         else timerPanel.SetActive(false);
+    }
+    
+    private string FormatTimer(float timer) {
+        int minutes = Mathf.FloorToInt(timer / 60F);
+        int seconds = Mathf.FloorToInt(timer - minutes * 60);
+        return string.Format("{0:0}:{1:00}", minutes, seconds);
     }
 }

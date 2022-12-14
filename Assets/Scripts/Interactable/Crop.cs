@@ -333,43 +333,27 @@ public class Crop : Interactable {
             uiText += "E to dig up";
             return uiText;
         }
-        
-        switch (stage) {
-            case GrowthStage.Seed:
-            case GrowthStage.Sprout:
-            case GrowthStage.Intermediate:
-            case GrowthStage.Unripe: {
-                if (state == State.Growing) {
-                    uiText += (stage == GrowthStage.Unripe) ? "ripe" : "growing";
-                    uiText += " in " + FormatTimer(growthTimer);
-                }
-                else if(state == State.NeedsWater) {
-                    uiText += "needs water in " + FormatTimer(thirstyTimer) + "\n";
-                    uiText += ResourceManager.Instance.IsWaterEmpty() ? "out of water" : "E to water";
-                }
-                break;
-            }
-            case GrowthStage.Ripe:
-                uiText += "E to harvest tomato";
-                break;
-            default:
-                uiText += "ERROR";
-                break;
-        }
 
         return uiText;
     }
 
-    public override float GetSliderFloat() {
-        if(state == State.Growing) return growthTimer / growthTime;
-        if (state == State.NeedsWater) return thirstyTimer / thirstyTime;
+    public override float GetTimerValue() {
+        if(state == State.Growing) return 1 - (growthTimer / growthTime);
+        if (state == State.NeedsWater) return 1 - (thirstyTimer / thirstyTime);
         return 0;
     }
-
-    private string FormatTimer(float timer) {
-        int minutes = Mathf.FloorToInt(timer / 60F);
-        int seconds = Mathf.FloorToInt(timer - minutes * 60);
-        return string.Format("{0:0}:{1:00}", minutes, seconds);
+    public override float GetTimerTime() {
+        if (state == State.Growing) return growthTimer;
+        else if (state == State.NeedsWater) return thirstyTimer;
+        else return 0;
+    }
+    public override InteractableUI.TimerIcon GetTimerIcon() {
+        if (state == State.Growing) {
+            if (stage == GrowthStage.Unripe) return InteractableUI.TimerIcon.Ripe;
+            else return InteractableUI.TimerIcon.Growth;
+        }
+        else if (state == State.NeedsWater) return InteractableUI.TimerIcon.Water;
+        else return InteractableUI.TimerIcon.None;
     }
 
     protected override void OnDestroy() {

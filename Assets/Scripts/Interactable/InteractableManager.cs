@@ -46,9 +46,15 @@ public class InteractableManager : MonoBehaviour {
         }
         
         // check if selectable
-        if(!interactable.IsSelectable()) Deselect();
+        if (!interactable.IsSelectable()) {
+            Deselect();
+            return;
+        }
         // check if within distance
-        if(!interactable.PlayerWithinInteractionDistance(hitInfo.point)) Deselect();
+        if (!interactable.PlayerWithinInteractionDistance(hitInfo.point)) {
+            Deselect();
+            return;
+        }
         
         // if not already selected, select it
         if (interactable != selectedObject) SelectObject(interactable);
