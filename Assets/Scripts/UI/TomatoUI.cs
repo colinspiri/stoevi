@@ -17,6 +17,6 @@ public class TomatoUI : MonoBehaviour
     }
 
     private void UpdateText(int value) {
-        counterText.text = "harvested " + value + " tomatoes";
+        counterText.text = value.ToString();
     }
 }
