@@ -17,6 +17,6 @@ public class SeedUI : MonoBehaviour
     }
 
     private void UpdateText(int value) {
-        counterText.text = "seeds: " + value;
+        counterText.text = value + "/" + ResourceManager.Instance.maxSeeds;
     }
 }
