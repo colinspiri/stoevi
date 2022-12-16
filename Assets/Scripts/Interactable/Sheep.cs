@@ -9,9 +9,10 @@ public class Sheep : Interactable {
     public ASoundContainer bleat;
     
     // behavior tree shared variables
-    public bool scared { get; set; }
     public GameObject player { get; set; }
-    
+    public bool scared { get; set; }
+    public bool beingChased { get; set; }
+
     // public constants
     public float bleatLoudness;
     public float playerRunTowardsDistance;
@@ -20,12 +21,10 @@ public class Sheep : Interactable {
     private void Update() {
         player = FirstPersonController.Instance.gameObject;
 
-        if (!scared) {
-            CheckForPlayerRunningTowardsSheep();
-        }
+        CheckIfBeingChased();
     }
 
-    private void CheckForPlayerRunningTowardsSheep() {
+    private void CheckIfBeingChased() {
         // if player is nearby & running towards sheep, become scared
 
         // player within radius
@@ -38,10 +37,11 @@ public class Sheep : Interactable {
         // player facing sheep
         Vector3 playerToSheep = transform.position - player.transform.position;
         var angle = Vector3.Angle(player.transform.forward, playerToSheep);
-        
+
         if (angle < playerFacingAngle) {
-            BecomeScared();
+            beingChased = true;
         }
+        else beingChased = false;
     }
 
     public override void Interact() {
@@ -49,7 +49,7 @@ public class Sheep : Interactable {
         BecomeScared();
     }
 
-    private void BecomeScared() {
+    public void BecomeScared() {
         scared = true;
         bleat.Play3D(transform);
 

@@ -8,12 +8,12 @@ public class FindNearestCrop : Conditional {
     public SharedCrop targetCrop;
 
     public bool onlyLookWithinRadius;
-    public float radius;
+    public SharedFloat radius;
     
     
     public override TaskStatus OnUpdate() {
         if (onlyLookWithinRadius) {
-            targetCrop.Value = InteractableManager.Instance.GetClosestHarvestableCropTo(transform.position, radius);
+            targetCrop.Value = InteractableManager.Instance.GetClosestHarvestableCropTo(transform.position, radius.Value);
         }
         else {
             targetCrop.Value = InteractableManager.Instance.GetClosestHarvestableCropTo(transform.position);
