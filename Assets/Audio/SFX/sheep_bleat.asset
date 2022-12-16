@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4665407489527409209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: sheep 4
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 0
+  AudioGroup: {fileID: 0}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: 7e17c335111c9974d8bbe2a9d8296c10, type: 3}
+--- !u!114 &-1205292942970645726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: sheep 2
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 0
+  AudioGroup: {fileID: 0}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: 95589b85ada39284488e3ab372067eab, type: 3}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf5380c8dc84054c94b889db9c9c408, type: 3}
+  m_Name: sheep_bleat
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 1
+  PitchRange: {x: 0.9849056, y: 1.2566037}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 1
+  AudioGroup: {fileID: 7557208376370848537, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 0}
+  PreviewStartTime: 0
+  SoundContainers:
+  - {fileID: 1184590206143068105}
+  - {fileID: -1205292942970645726}
+  - {fileID: 4079547940843088105}
+  - {fileID: -4665407489527409209}
+  NoRepeats: 1
+--- !u!114 &1184590206143068105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: sheep 1
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 0
+  AudioGroup: {fileID: 0}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: 1b81dac9464795f43a384e34e5e3c5b9, type: 3}
+--- !u!114 &4079547940843088105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: sheep 3
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 0
+  AudioGroup: {fileID: 0}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: cfffbd7c61650604693789eccfed0606, type: 3}
