@@ -21,27 +21,24 @@ public class Sheep : Interactable {
     private void Update() {
         player = FirstPersonController.Instance.gameObject;
 
-        CheckIfBeingChased();
+        beingChased = CheckIfBeingChased();
     }
 
-    private void CheckIfBeingChased() {
+    private bool CheckIfBeingChased() {
         // if player is nearby & running towards sheep, become scared
 
         // player within radius
         var distance = Vector3.Distance(player.transform.position, transform.position);
-        if (distance > playerRunTowardsDistance) return;
+        if (distance > playerRunTowardsDistance) return false;
 
         // player running
-        if (FirstPersonController.Instance.GetMoveState != FirstPersonController.MoveState.Running) return;
+        if (FirstPersonController.Instance.GetMoveState != FirstPersonController.MoveState.Running) return false;
         
         // player facing sheep
         Vector3 playerToSheep = transform.position - player.transform.position;
         var angle = Vector3.Angle(player.transform.forward, playerToSheep);
 
-        if (angle < playerFacingAngle) {
-            beingChased = true;
-        }
-        else beingChased = false;
+        return angle < playerFacingAngle;
     }
 
     public override void Interact() {
