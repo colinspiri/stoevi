@@ -14,14 +14,42 @@ public class Sheep : Interactable {
     
     // public constants
     public float bleatLoudness;
+    public float playerRunTowardsDistance;
+    public float playerFacingAngle;
 
     private void Update() {
         player = FirstPersonController.Instance.gameObject;
 
+        if (!scared) {
+            CheckForPlayerRunningTowardsSheep();
+        }
+    }
+
+    private void CheckForPlayerRunningTowardsSheep() {
         // if player is nearby & running towards sheep, become scared
+
+        // player within radius
+        var distance = Vector3.Distance(player.transform.position, transform.position);
+        if (distance > playerRunTowardsDistance) return;
+
+        // player running
+        if (FirstPersonController.Instance.GetMoveState != FirstPersonController.MoveState.Running) return;
+        
+        // player facing sheep
+        Vector3 playerToSheep = transform.position - player.transform.position;
+        var angle = Vector3.Angle(player.transform.forward, playerToSheep);
+        
+        if (angle < playerFacingAngle) {
+            BecomeScared();
+        }
     }
 
     public override void Interact() {
+        // TODO: play hit sound
+        BecomeScared();
+    }
+
+    private void BecomeScared() {
         scared = true;
         bleat.Play3D(transform);
 
