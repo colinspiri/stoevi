@@ -320,23 +320,6 @@ public class Crop : Interactable {
         return "";
     }
 
-    public override string GetUIText() {
-        string uiText = "";
-        uiText += stage.ToString().ToLower();
-        if (health == Health.Dead) uiText += " (dead)";
-        else if (health == Health.Poor) uiText += " (dying)";
-
-        uiText += "\n";
-        
-        // can be removed
-        if (stage == GrowthStage.Bare || health == Health.Dead) {
-            uiText += "E to dig up";
-            return uiText;
-        }
-
-        return uiText;
-    }
-
     public override float GetTimerValue() {
         if(state == State.Growing) return 1 - (growthTimer / growthTime);
         if (state == State.NeedsWater) return 1 - (thirstyTimer / thirstyTime);

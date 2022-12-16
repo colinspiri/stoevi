@@ -20,7 +20,6 @@ public abstract class Interactable : MonoBehaviour {
     public abstract string GetObjectDescription();
     public abstract string GetButtonPrompt();
     
-    public abstract string GetUIText();
     public virtual float GetTimerValue() { return 0; }
     public virtual float GetTimerTime() { return 0; }
     public virtual InteractableUI.TimerIcon GetTimerIcon() { return InteractableUI.TimerIcon.None; }

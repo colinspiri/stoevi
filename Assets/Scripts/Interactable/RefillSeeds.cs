@@ -23,13 +23,4 @@ public class RefillSeeds : Interactable
     public override string GetButtonPrompt() {
         return ResourceManager.Instance.SeedsFull() ? "seeds already full" : "E to refill seeds";
     }
-
-    public override string GetUIText() {
-        string uiText = "";
-
-        if (ResourceManager.Instance.SeedsFull()) uiText += "seeds already full";
-        else uiText += "E to refill seeds";
-        
-        return uiText;
-    }
 }

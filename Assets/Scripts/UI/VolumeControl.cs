@@ -18,7 +18,7 @@ public class VolumeControl : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         slider.onValueChanged.AddListener(value => {
-            AudioManager.Instance.SetVolume(mixerChannel, value);
+            if(AudioManager.Instance) AudioManager.Instance.SetVolume(mixerChannel, value);
         });
         slider.value = PlayerPrefs.GetFloat(mixerChannel, slider.value);
     }

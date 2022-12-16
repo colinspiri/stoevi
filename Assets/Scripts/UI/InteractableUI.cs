@@ -44,7 +44,7 @@ public class InteractableUI : MonoBehaviour {
         {
             case InteractableManager.InteractionState.None:
                 // Debug.Log("InteractableUI: none " + ResourceManager.Instance.carryingFertilizer);
-                if (ResourceManager.Instance.carryingFertilizer) {
+                if (ResourceManager.Instance && ResourceManager.Instance.carryingFertilizer) {
                     objectInfo.SetActive(false);
                     progressSlider.value = 0;
                     buttonPrompt.gameObject.SetActive(true);

@@ -27,11 +27,4 @@ public class Fertilizer : Interactable {
         }
         return "E to pick up fertilizer";    
     }
-
-    public override string GetUIText() {
-        if (ResourceManager.Instance.carryingFertilizer) {
-            return "already carrying fertilizer";
-        }
-        return "E to pick up fertilizer";
-    }
 }

@@ -109,37 +109,6 @@ public class Soil : Interactable {
         }
     }
 
-    public override string GetUIText() {
-        string uiText = "";
-        if (tilled) uiText += "tilled ";
-        if (fertilizerLevel > 0) uiText += "fertilized ";
-        uiText += "soil";
-        uiText += "\n";
-
-        
-        // fertilize
-        if(ResourceManager.Instance.carryingFertilizer) {
-            if (fertilizerLevel < farmingConstants.maxFertilizerLevel) uiText += "E to fertilize";
-            else uiText += "already fertilized";
-        }
-        // plant or till 
-        else if (crops.Count < farmingConstants.maxCrops) {
-            if (tilled) {
-                if (ResourceManager.Instance.HasSeedsLeft()) uiText += "E to plant seed";
-                else uiText += "out of seeds";
-            }
-            else {
-                uiText += "E to till";
-            }
-        }
-        // no more space
-        else {
-            uiText += "no more space";
-        }
-
-        return uiText;
-    }
-
     public void SaveData() {
         soilData.ClearData();
         foreach (var crop in crops) {
