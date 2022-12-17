@@ -118,6 +118,9 @@ MonoBehaviour:
   bobFrequency: 1.5
   bobMagnitude: 0.08
   bobMagnitudeCrouching: 0.05
+  peekUpDistance: 1
+  peekSideDistance: 1.8
+  peekRotation: 20
 --- !u!114 &1978471637655604388
 MonoBehaviour:
   m_ObjectHideFlags: 0

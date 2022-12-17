@@ -1,7 +1,14 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Numerics;
+using BehaviorDesigner.Runtime.Tasks.Unity.Math;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Debug = UnityEngine.Debug;
+using Quaternion = UnityEngine.Quaternion;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 [RequireComponent(typeof(CharacterController))]
 
@@ -52,6 +59,9 @@ public class FirstPersonController : MonoBehaviour
 	public float bobFrequency;
 	public float bobMagnitude;
 	public float bobMagnitudeCrouching;
+	public float peekUpDistance;
+	public float peekSideDistance;
+	public float peekRotation;
 
 	// state
 	// input
@@ -63,9 +73,14 @@ public class FirstPersonController : MonoBehaviour
 	// camera
 	private float cameraTargetPitch;
 	private float normalHeight;
-	private Tween crouchTransition;
 	private bool bobbing;
 	private float bobCycle;
+	private Vector3 cameraTargetPosition;
+	private Tween cameraPositionLerpTween;
+	private bool cameraPositionLerping;
+	private float cameraTargetRoll;
+	private Tween cameraRotationLerpTween;
+	private bool cameraRotationLerping;
 
 	// player
 	private float currentSpeed;
@@ -75,8 +90,8 @@ public class FirstPersonController : MonoBehaviour
 	public enum MoveState { Still, Walking, Running, CrouchWalking }
 	private MoveState moveState = MoveState.Still;
 	public MoveState GetMoveState => moveState;
-	private enum PeekState { None, PeekLeft, PeekRight, PeekUp }
-	private PeekState peekState = PeekState.None;
+	private enum PeekState { Center, PeekLeft, PeekRight, PeekUp }
+	private PeekState peekState = PeekState.Center;
 
 	// timeout deltatime
 	private float fallTimeoutDelta;
@@ -106,17 +121,10 @@ public class FirstPersonController : MonoBehaviour
 	private void Update() {
 		// toggle crouching
 		if(crouching && !crouchingLastFrame) {
-			crouchTransition = cameraTarget.transform.DOMoveY(transform.position.y + crouchHeight, 0.5f);
 			crouchingLastFrame = true;
 		}
-		if (crouchingLastFrame && !crouching) {
-			crouchTransition = cameraTarget.transform.DOMoveY(transform.position.y + normalHeight, 0.5f);
+		if(crouchingLastFrame && !crouching) {
 			crouchingLastFrame = false;
-		}
-		
-		// peeking
-		if (peeking) {
-			Debug.Log("peeking");
 		}
 
 		JumpAndGravity();
@@ -141,7 +149,7 @@ public class FirstPersonController : MonoBehaviour
 	}
 
 	private void CameraMovement() {
-		// if there is an input
+		// change rotation and pitch based on mouse movement
 		var look = inputActions.Gameplay.Look.ReadValue<Vector2>();
 		if (look.sqrMagnitude >= threshold) {
 			// Don't multiply mouse input by Time.deltaTime
@@ -160,9 +168,52 @@ public class FirstPersonController : MonoBehaviour
 			transform.Rotate(Vector3.up * rotationVelocity);
 		}
 		
-		// bob head
-		bool crouchTransitioning = crouchTransition != null && crouchTransition.IsActive() && crouchTransition.IsPlaying();
-		if (moveState != MoveState.Still && !crouchTransitioning) {
+		// get peeking direction
+		if (peeking) {
+			var directionInput = inputActions.Gameplay.Move.ReadValue<Vector2>();
+			if (directionInput.y > 0) {
+				peekState = PeekState.PeekUp;
+			}
+			else if (directionInput.x < 0) {
+				peekState = PeekState.PeekLeft;
+			}
+			else if (directionInput.x > 0) {
+				peekState = PeekState.PeekRight;
+			}
+			else peekState = PeekState.Center;
+		}
+
+		// lerp camera position for crouching & peeking
+		// get base height
+		Vector3 cameraPos = transform.position;
+		float cameraRot = 0;
+		if (crouching) cameraPos += crouchHeight * transform.up;
+		else cameraPos += normalHeight * transform.up;
+		// if peeking, add offset
+		if (peeking) {
+			switch (peekState) {
+				case PeekState.PeekLeft:
+					cameraPos += -peekSideDistance * transform.right;
+					cameraRot += peekRotation;
+					break;
+				case PeekState.PeekRight:
+					cameraPos += peekSideDistance * transform.right;
+					cameraRot += -peekRotation;
+					break;
+				case PeekState.PeekUp:
+					cameraPos += peekUpDistance * transform.up;
+					break;
+				case PeekState.Center:
+					break;
+				default:
+					throw new ArgumentOutOfRangeException();
+			}
+		}
+		LerpCameraPosition(cameraPos, 0.5f);
+		LerpCameraRotation(cameraRot, 0.5f);
+
+		// bob head while moving
+		if (moveState != MoveState.Still && !cameraPositionLerping) {
 			bobCycle += currentSpeed * bobFrequency * Time.deltaTime;
 			bobCycle %= 2 * Mathf.PI;
 			var baseHeight = crouching ? crouchHeight : normalHeight;
@@ -172,6 +223,37 @@ public class FirstPersonController : MonoBehaviour
 				cameraTarget.transform.position.z);
 		}
 		else bobCycle = 0;
+	}
+
+	private void LerpCameraPosition(Vector3 newCameraPosition, float duration) {
+		if (newCameraPosition == cameraTargetPosition) return;
+		
+		cameraTargetPosition = newCameraPosition;
+		
+		cameraPositionLerpTween?.Kill();
+		cameraPositionLerpTween = cameraTarget.transform.DOMove(cameraTargetPosition, duration);
+		
+		cameraPositionLerping = true;
+		cameraPositionLerpTween.onComplete += () => {
+			cameraPositionLerping = false;
+			cameraPositionLerpTween = null;
+		};
+	}
+	private void LerpCameraRotation(float newCameraRoll, float duration) {
+		if (newCameraRoll == cameraTargetRoll) return;
+		
+		cameraTargetRoll = newCameraRoll;
+		
+		cameraRotationLerpTween?.Kill();
+		cameraRotationLerpTween =
+			cameraTarget.transform.DOLocalRotate(new Vector3(cameraTarget.transform.eulerAngles.x, 0, cameraTargetRoll),
+				0.5f);
+		
+		cameraRotationLerping = true;
+		cameraRotationLerpTween.onComplete += () => {
+			cameraRotationLerping = false;
+			cameraRotationLerpTween = null;
+		};
 	}
 
 	private void Move() {
