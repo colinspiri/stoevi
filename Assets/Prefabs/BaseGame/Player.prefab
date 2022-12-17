@@ -151,6 +151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8930d72322a66475f8775b84e67b47cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStamina: 10
-  pauseTime: 2
-  recoverThreshold: 5
+  maxStamina: 5
+  pauseTime: 1
+  increaseRate: 0.5
+  recoverRate: 0.3
+  recoverThreshold: 2
+  onStaminaChange:
+    m_PersistentCalls:
+      m_Calls: []
