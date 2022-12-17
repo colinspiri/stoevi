@@ -271,7 +271,7 @@ public class FirstPersonController : MonoBehaviour
 			targetSpeed = crouchSpeed;
 			moveState = MoveState.CrouchWalking;
 		}
-		else if (runInput) {
+		else if (runInput && StaminaController.Instance.HasStamina()) {
 			targetSpeed = runSpeed;
 			moveState = MoveState.Running;
 		}
