@@ -56,8 +56,9 @@ public class FirstPersonController : MonoBehaviour
 	// state
 	// input
 	private bool runInput;
-	private bool crouchingLastFrame;
 	private bool crouching;
+	private bool crouchingLastFrame;
+	private bool peeking;
 
 	// camera
 	private float cameraTargetPitch;
@@ -74,6 +75,8 @@ public class FirstPersonController : MonoBehaviour
 	public enum MoveState { Still, Walking, Running, CrouchWalking }
 	private MoveState moveState = MoveState.Still;
 	public MoveState GetMoveState => moveState;
+	private enum PeekState { None, PeekLeft, PeekRight, PeekUp }
+	private PeekState peekState = PeekState.None;
 
 	// timeout deltatime
 	private float fallTimeoutDelta;
@@ -109,6 +112,11 @@ public class FirstPersonController : MonoBehaviour
 		if (crouchingLastFrame && !crouching) {
 			crouchTransition = cameraTarget.transform.DOMoveY(transform.position.y + normalHeight, 0.5f);
 			crouchingLastFrame = false;
+		}
+		
+		// peeking
+		if (peeking) {
+			Debug.Log("peeking");
 		}
 
 		JumpAndGravity();
@@ -169,7 +177,11 @@ public class FirstPersonController : MonoBehaviour
 	private void Move() {
 		// set target speed and state assuming the player is moving
 		float targetSpeed;
-		if (InteractableManager.Instance.interactionState == InteractableManager.InteractionState.Interacting) {
+		if (peeking) {
+			targetSpeed = 0;
+			moveState = MoveState.Still;
+		}
+		else if (InteractableManager.Instance.interactionState == InteractableManager.InteractionState.Interacting) {
 			targetSpeed = interactingSpeed;
 			moveState = MoveState.Walking;
 		}
@@ -279,6 +291,9 @@ public class FirstPersonController : MonoBehaviour
 		if (crouchingLastFrame && context.ReadValueAsButton()) {
 			crouching = false;
 		}
+	}
+	public void OnPeekInput(InputAction.CallbackContext context) {
+		peeking = context.ReadValueAsButton();
 	}
 
 	private void OnDrawGizmosSelected() {

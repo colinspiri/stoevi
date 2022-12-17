@@ -89,6 +89,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Peek"",
+                    ""type"": ""Button"",
+                    ""id"": ""26fa44d9-2d1e-430b-96bd-733405da5160"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -391,17 +399,6 @@ public class @InputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""08931214-fba6-4b9b-b705-216607597a4d"",
-                    ""path"": ""<Keyboard>/leftCtrl"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Crouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""0b75a17c-87ad-4ec4-9513-10f1fc0d5471"",
                     ""path"": ""<Gamepad>/rightStickPress"",
                     ""interactions"": """",
@@ -507,6 +504,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""ToggleHUD"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2073ab49-7e2a-4b50-a942-a5f7e0fbad0d"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Peek"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1181,6 +1189,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Gameplay_Back = m_Gameplay.FindAction("Back", throwIfNotFound: true);
         m_Gameplay_DebugGameOver = m_Gameplay.FindAction("DebugGameOver", throwIfNotFound: true);
         m_Gameplay_ToggleHUD = m_Gameplay.FindAction("ToggleHUD", throwIfNotFound: true);
+        m_Gameplay_Peek = m_Gameplay.FindAction("Peek", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1251,6 +1260,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Back;
     private readonly InputAction m_Gameplay_DebugGameOver;
     private readonly InputAction m_Gameplay_ToggleHUD;
+    private readonly InputAction m_Gameplay_Peek;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -1264,6 +1274,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @Back => m_Wrapper.m_Gameplay_Back;
         public InputAction @DebugGameOver => m_Wrapper.m_Gameplay_DebugGameOver;
         public InputAction @ToggleHUD => m_Wrapper.m_Gameplay_ToggleHUD;
+        public InputAction @Peek => m_Wrapper.m_Gameplay_Peek;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1300,6 +1311,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @ToggleHUD.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnToggleHUD;
                 @ToggleHUD.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnToggleHUD;
                 @ToggleHUD.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnToggleHUD;
+                @Peek.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
+                @Peek.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
+                @Peek.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1331,6 +1345,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @ToggleHUD.started += instance.OnToggleHUD;
                 @ToggleHUD.performed += instance.OnToggleHUD;
                 @ToggleHUD.canceled += instance.OnToggleHUD;
+                @Peek.started += instance.OnPeek;
+                @Peek.performed += instance.OnPeek;
+                @Peek.canceled += instance.OnPeek;
             }
         }
     }
@@ -1478,6 +1495,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnBack(InputAction.CallbackContext context);
         void OnDebugGameOver(InputAction.CallbackContext context);
         void OnToggleHUD(InputAction.CallbackContext context);
+        void OnPeek(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

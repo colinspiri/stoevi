@@ -76,6 +76,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Peek",
+                    "type": "Button",
+                    "id": "26fa44d9-2d1e-430b-96bd-733405da5160",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -378,17 +386,6 @@
                 },
                 {
                     "name": "",
-                    "id": "08931214-fba6-4b9b-b705-216607597a4d",
-                    "path": "<Keyboard>/leftCtrl",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Crouch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "0b75a17c-87ad-4ec4-9513-10f1fc0d5471",
                     "path": "<Gamepad>/rightStickPress",
                     "interactions": "",
@@ -494,6 +491,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "ToggleHUD",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2073ab49-7e2a-4b50-a942-a5f7e0fbad0d",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Peek",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
