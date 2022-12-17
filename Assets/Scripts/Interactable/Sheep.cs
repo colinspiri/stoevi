@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SpookuleleAudio;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Sheep : Interactable {
     // components
@@ -15,8 +16,17 @@ public class Sheep : Interactable {
 
     // public constants
     public float bleatLoudness;
-    public float playerRunTowardsDistance;
+    [Header("Player Chase")]
+    [FormerlySerializedAs("playerRunTowardsDistance")] public float playerChaseDistance;
     public float playerFacingAngle;
+    
+    // state
+    private float sneakTimer;
+
+    protected override void Start() {
+        base.Start();
+        SheepManager.Instance.AddSheep(this);
+    }
 
     private void Update() {
         player = FirstPersonController.Instance.gameObject;
@@ -29,7 +39,7 @@ public class Sheep : Interactable {
 
         // player within radius
         var distance = Vector3.Distance(player.transform.position, transform.position);
-        if (distance > playerRunTowardsDistance) return false;
+        if (distance > playerChaseDistance) return false;
 
         // player running
         if (FirstPersonController.Instance.GetMoveState != FirstPersonController.MoveState.Running) return false;
@@ -70,5 +80,10 @@ public class Sheep : Interactable {
 
     public override string GetButtonPrompt() {
         return "E to hit sheep";
+    }
+
+    protected override void OnDestroy() {
+        base.OnDestroy();
+        SheepManager.Instance.RemoveSheep(this);
     }
 }
