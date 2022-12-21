@@ -14,13 +14,15 @@ using Vector3 = UnityEngine.Vector3;
 
 public class FirstPersonController : MonoBehaviour
 {
-	// components
+	#region Components
 	public static FirstPersonController Instance;
 	public PlayerInput playerInput;
 	private CharacterController controller;
 	private InputActions inputActions;
+	private BreathController breath;
+	#endregion
 	
-	// public variables
+	#region Public Constants
 	[Header("Player")]
 	public float walkSpeed = 1f;
 	public float runSpeed = 1f;
@@ -62,25 +64,26 @@ public class FirstPersonController : MonoBehaviour
 	public float peekUpDistance;
 	public float peekSideDistance;
 	public float peekRotation;
+	
+	private const float threshold = 0.01f;
+	#endregion
 
-	// state
+	#region State Variables
 	// input
-	private bool runInput;
+	private bool running;
 	private bool crouching;
 	private bool crouchingLastFrame;
 	private bool peeking;
-
+	
 	// camera
 	private float cameraTargetPitch;
 	private float normalHeight;
-	private bool bobbing;
 	private float bobCycle;
 	private Vector3 cameraTargetPosition;
 	private Tween cameraPositionLerpTween;
 	private bool cameraPositionLerping;
 	private float cameraTargetRoll;
 	private Tween cameraRotationLerpTween;
-	private bool cameraRotationLerping;
 
 	// player
 	private float currentSpeed;
@@ -88,21 +91,20 @@ public class FirstPersonController : MonoBehaviour
 	private float verticalVelocity;
 	private float terminalVelocity = 53.0f;
 	public enum MoveState { Still, Walking, Running, CrouchWalking }
-	private MoveState moveState = MoveState.Still;
-	public MoveState GetMoveState => moveState;
+	public MoveState moveState { get; private set; }
 	private enum PeekState { Center, PeekLeft, PeekRight, PeekUp }
-	private PeekState peekState = PeekState.Center;
+	private PeekState peekState;
 
 	// timeout deltatime
 	private float fallTimeoutDelta;
-	
-	private const float threshold = 0.01f;
-
 	private bool IsCurrentDeviceMouse => playerInput.currentControlScheme == "KeyboardMouse";
-
+	#endregion
+	
+	#region Event Functions
 	private void Awake() {
 		Instance = this;
 		controller = GetComponent<CharacterController>();
+		breath = GetComponent<BreathController>();
 	}
 
 	private void OnEnable() {
@@ -111,6 +113,10 @@ public class FirstPersonController : MonoBehaviour
 	}
 
 	private void Start() {
+		// initialize states
+		moveState = MoveState.Still;
+		peekState = PeekState.Center;
+		
 		// reset our timeouts on start
 		fallTimeoutDelta = fallTimeout;
 		
@@ -131,8 +137,11 @@ public class FirstPersonController : MonoBehaviour
 		GroundedCheck();
 		Move();
 		
+		// consume stamina
+		if(running) StaminaController.Instance.ConsumeStamina();
+		
 		// report sound
-		if (TorbalanSenses.Instance != null) {
+		if (TorbalanSenses.Instance != null && !breath.holdingBreath) {
 			if(moveState == MoveState.Running) TorbalanSenses.Instance.ReportSound(transform.position, runLoudness);
 			else if(moveState == MoveState.Walking) TorbalanSenses.Instance.ReportSound(transform.position, walkLoudness);
 		}
@@ -141,11 +150,112 @@ public class FirstPersonController : MonoBehaviour
 	private void LateUpdate() {
 		CameraMovement();
 	}
+	#endregion
+	
+	private void JumpAndGravity()
+	{ 
+		if (grounded)
+		{
+			// reset the fall timeout timer
+			fallTimeoutDelta = fallTimeout;
+
+			// stop our velocity dropping infinitely when grounded
+			if (verticalVelocity < 0.0f)
+			{
+				verticalVelocity = -2f;
+			}
+		}
+		else
+		{
+			// fall timeout
+			if (fallTimeoutDelta >= 0.0f)
+			{
+				fallTimeoutDelta -= Time.deltaTime;
+			}
+		}
+
+		// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
+		if (verticalVelocity < terminalVelocity)
+		{
+			verticalVelocity += gravity * Time.deltaTime;
+		}
+	}
 
 	private void GroundedCheck() {
 		// set sphere position, with offset
 		Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - groundedOffset, transform.position.z);
 		grounded = Physics.CheckSphere(spherePosition, groundedRadius, groundLayers, QueryTriggerInteraction.Ignore);
+	}
+	
+	private void Move() {
+		// set target speed and state assuming the player is moving
+		float targetSpeed;
+		if (peeking) {
+			targetSpeed = 0;
+			moveState = MoveState.Still;
+		}
+		else if (InteractableManager.Instance.interactionState == InteractableManager.InteractionState.Interacting) {
+			targetSpeed = interactingSpeed;
+			moveState = MoveState.Walking;
+		}
+		else if (crouching) {
+			targetSpeed = crouchSpeed;
+			moveState = MoveState.CrouchWalking;
+		}
+		else if (running) {
+			targetSpeed = runSpeed;
+			moveState = MoveState.Running;
+		}
+		else {
+			targetSpeed = walkSpeed;
+			moveState = MoveState.Walking;
+		}
+
+		// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
+		// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
+		// if there is no input, set the target speed to 0
+		var move = inputActions.Gameplay.Move.ReadValue<Vector2>();
+		if (move == Vector2.zero) {
+			targetSpeed = 0.0f;
+			moveState = MoveState.Still;
+		}
+
+		// a reference to the players current horizontal velocity
+		float currentHorizontalSpeed = new Vector3(controller.velocity.x, 0.0f, controller.velocity.z).magnitude;
+
+		float speedOffset = 0.1f;
+		// analog movement
+		bool analogMovement = false;
+		float inputMagnitude = analogMovement ? move.magnitude : 1f;
+
+		// accelerate or decelerate to target speed
+		if (currentHorizontalSpeed < targetSpeed - speedOffset || currentHorizontalSpeed > targetSpeed + speedOffset)
+		{
+			// creates curved result rather than a linear one giving a more organic speed change
+			// note T in Lerp is clamped, so we don't need to clamp our speed
+			currentSpeed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * speedChangeRate);
+
+			// round speed to 3 decimal places
+			currentSpeed = Mathf.Round(currentSpeed * 1000f) / 1000f;
+		}
+		else
+		{
+			currentSpeed = targetSpeed;
+		}
+
+		// normalise input direction
+		Vector3 inputDirection = new Vector3(move.x, 0.0f, move.y).normalized;
+
+		// note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
+		// if there is a move input rotate player when the player is moving
+		if (move != Vector2.zero)
+		{
+			// move
+			inputDirection = transform.right * move.x + transform.forward * move.y;
+		}
+
+		// move the player
+		controller.Move(inputDirection.normalized * (currentSpeed * Time.deltaTime) + new Vector3(0.0f, verticalVelocity, 0.0f) * Time.deltaTime);
 	}
 
 	private void CameraMovement() {
@@ -225,6 +335,7 @@ public class FirstPersonController : MonoBehaviour
 		else bobCycle = 0;
 	}
 
+	#region Helper Functions
 	private void LerpCameraPosition(Vector3 newCameraPosition, float duration) {
 		if (newCameraPosition == cameraTargetPosition) return;
 		
@@ -240,120 +351,18 @@ public class FirstPersonController : MonoBehaviour
 		};
 	}
 	private void LerpCameraRotation(float newCameraRoll, float duration) {
-		if (newCameraRoll == cameraTargetRoll) return;
+		if (Math.Abs(newCameraRoll - cameraTargetRoll) <= threshold) return;
 		
 		cameraTargetRoll = newCameraRoll;
 		
 		cameraRotationLerpTween?.Kill();
 		cameraRotationLerpTween =
 			cameraTarget.transform.DOLocalRotate(new Vector3(cameraTarget.transform.eulerAngles.x, 0, cameraTargetRoll),
-				0.5f);
+				duration);
 		
-		cameraRotationLerping = true;
 		cameraRotationLerpTween.onComplete += () => {
-			cameraRotationLerping = false;
 			cameraRotationLerpTween = null;
 		};
-	}
-
-	private void Move() {
-		// set target speed and state assuming the player is moving
-		float targetSpeed;
-		if (peeking) {
-			targetSpeed = 0;
-			moveState = MoveState.Still;
-		}
-		else if (InteractableManager.Instance.interactionState == InteractableManager.InteractionState.Interacting) {
-			targetSpeed = interactingSpeed;
-			moveState = MoveState.Walking;
-		}
-		else if (crouching) {
-			targetSpeed = crouchSpeed;
-			moveState = MoveState.CrouchWalking;
-		}
-		else if (runInput && StaminaController.Instance.HasStamina()) {
-			targetSpeed = runSpeed;
-			moveState = MoveState.Running;
-		}
-		else {
-			targetSpeed = walkSpeed;
-			moveState = MoveState.Walking;
-		}
-
-		// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
-		// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-		// if there is no input, set the target speed to 0
-		var move = inputActions.Gameplay.Move.ReadValue<Vector2>();
-		if (move == Vector2.zero) {
-			targetSpeed = 0.0f;
-			moveState = MoveState.Still;
-		}
-
-		// a reference to the players current horizontal velocity
-		float currentHorizontalSpeed = new Vector3(controller.velocity.x, 0.0f, controller.velocity.z).magnitude;
-
-		float speedOffset = 0.1f;
-		// analog movement
-		bool analogMovement = false;
-		float inputMagnitude = analogMovement ? move.magnitude : 1f;
-
-		// accelerate or decelerate to target speed
-		if (currentHorizontalSpeed < targetSpeed - speedOffset || currentHorizontalSpeed > targetSpeed + speedOffset)
-		{
-			// creates curved result rather than a linear one giving a more organic speed change
-			// note T in Lerp is clamped, so we don't need to clamp our speed
-			currentSpeed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * speedChangeRate);
-
-			// round speed to 3 decimal places
-			currentSpeed = Mathf.Round(currentSpeed * 1000f) / 1000f;
-		}
-		else
-		{
-			currentSpeed = targetSpeed;
-		}
-
-		// normalise input direction
-		Vector3 inputDirection = new Vector3(move.x, 0.0f, move.y).normalized;
-
-		// note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-		// if there is a move input rotate player when the player is moving
-		if (move != Vector2.zero)
-		{
-			// move
-			inputDirection = transform.right * move.x + transform.forward * move.y;
-		}
-
-		// move the player
-		controller.Move(inputDirection.normalized * (currentSpeed * Time.deltaTime) + new Vector3(0.0f, verticalVelocity, 0.0f) * Time.deltaTime);
-	}
-
-	private void JumpAndGravity()
-	{
-		if (grounded)
-		{
-			// reset the fall timeout timer
-			fallTimeoutDelta = fallTimeout;
-
-			// stop our velocity dropping infinitely when grounded
-			if (verticalVelocity < 0.0f)
-			{
-				verticalVelocity = -2f;
-			}
-		}
-		else
-		{
-			// fall timeout
-			if (fallTimeoutDelta >= 0.0f)
-			{
-				fallTimeoutDelta -= Time.deltaTime;
-			}
-		}
-
-		// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
-		if (verticalVelocity < terminalVelocity)
-		{
-			verticalVelocity += gravity * Time.deltaTime;
-		}
 	}
 
 	private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
@@ -362,9 +371,12 @@ public class FirstPersonController : MonoBehaviour
 		if (lfAngle > 360f) lfAngle -= 360f;
 		return Mathf.Clamp(lfAngle, lfMin, lfMax);
 	}
+	#endregion
 	
+	#region Input Functions
 	public void OnRunInput(InputAction.CallbackContext context) {
-		runInput = context.ReadValueAsButton();
+		var shouldBeRunning = StaminaController.Instance.HasStamina() && context.ReadValueAsButton();
+		running = shouldBeRunning;
 	}
 	public void OnCrouchInput(InputAction.CallbackContext context) {
 		if (!crouchingLastFrame && context.ReadValueAsButton()) {
@@ -377,6 +389,7 @@ public class FirstPersonController : MonoBehaviour
 	public void OnPeekInput(InputAction.CallbackContext context) {
 		peeking = context.ReadValueAsButton();
 	}
+	#endregion
 
 	private void OnDrawGizmosSelected() {
 		// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider

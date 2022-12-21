@@ -84,7 +84,7 @@ public class AudioManager : MonoBehaviour {
 
     private void Update() {
         if (FirstPersonController.Instance) {
-            var state = FirstPersonController.Instance.GetMoveState;
+            var state = FirstPersonController.Instance.moveState;
             if (state == FirstPersonController.MoveState.Still || state == FirstPersonController.MoveState.CrouchWalking) {
                 walkingSound.Stop();
                 runningSound.Stop();

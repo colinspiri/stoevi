@@ -97,6 +97,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""HoldBreath"",
+                    ""type"": ""Button"",
+                    ""id"": ""189203f5-b33f-4c6e-a744-88f2e7a30a7f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -515,6 +523,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Peek"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""391a99dc-4889-42f9-8fdb-f49e20b656fa"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""HoldBreath"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1190,6 +1209,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Gameplay_DebugGameOver = m_Gameplay.FindAction("DebugGameOver", throwIfNotFound: true);
         m_Gameplay_ToggleHUD = m_Gameplay.FindAction("ToggleHUD", throwIfNotFound: true);
         m_Gameplay_Peek = m_Gameplay.FindAction("Peek", throwIfNotFound: true);
+        m_Gameplay_HoldBreath = m_Gameplay.FindAction("HoldBreath", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1261,6 +1281,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_DebugGameOver;
     private readonly InputAction m_Gameplay_ToggleHUD;
     private readonly InputAction m_Gameplay_Peek;
+    private readonly InputAction m_Gameplay_HoldBreath;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -1275,6 +1296,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @DebugGameOver => m_Wrapper.m_Gameplay_DebugGameOver;
         public InputAction @ToggleHUD => m_Wrapper.m_Gameplay_ToggleHUD;
         public InputAction @Peek => m_Wrapper.m_Gameplay_Peek;
+        public InputAction @HoldBreath => m_Wrapper.m_Gameplay_HoldBreath;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1314,6 +1336,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Peek.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
                 @Peek.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
                 @Peek.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
+                @HoldBreath.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHoldBreath;
+                @HoldBreath.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHoldBreath;
+                @HoldBreath.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHoldBreath;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1348,6 +1373,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Peek.started += instance.OnPeek;
                 @Peek.performed += instance.OnPeek;
                 @Peek.canceled += instance.OnPeek;
+                @HoldBreath.started += instance.OnHoldBreath;
+                @HoldBreath.performed += instance.OnHoldBreath;
+                @HoldBreath.canceled += instance.OnHoldBreath;
             }
         }
     }
@@ -1496,6 +1524,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnDebugGameOver(InputAction.CallbackContext context);
         void OnToggleHUD(InputAction.CallbackContext context);
         void OnPeek(InputAction.CallbackContext context);
+        void OnHoldBreath(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

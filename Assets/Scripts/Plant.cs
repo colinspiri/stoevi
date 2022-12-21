@@ -15,7 +15,7 @@ public class Plant : MonoBehaviour {
 
     private void OnTriggerStay(Collider other) {
         if (other.gameObject == FirstPersonController.Instance.gameObject) {
-            if (FirstPersonController.Instance.GetMoveState != FirstPersonController.MoveState.Still) {
+            if (FirstPersonController.Instance.moveState != FirstPersonController.MoveState.Still) {
                 Rustle();
             }
         }
