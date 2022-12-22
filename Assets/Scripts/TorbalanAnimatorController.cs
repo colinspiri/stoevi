@@ -24,4 +24,8 @@ public class TorbalanAnimatorController : MonoBehaviour {
         bool running = currentSpeed > runningSpeedThreshold;
         animator.SetBool("running", running);
     }
+
+    public void PlayPickingFruitAnimation(bool value = true) {
+        animator.SetBool("pickingfruit", value);
+    }
 }

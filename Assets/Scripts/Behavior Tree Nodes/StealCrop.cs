@@ -5,12 +5,14 @@ using UnityEngine;
 public class StealCrop : Action {
      public SharedCrop targetCrop;
      public float stealTime;
+     public Animator animator;
 
      private float stealTimer;
      
      public override void OnStart() {
           base.OnStart();
           stealTimer = 0;
+          animator.SetBool("pickingfruit", true);
      }
      
      public override TaskStatus OnUpdate() {
@@ -29,5 +31,10 @@ public class StealCrop : Action {
           targetCrop.Value.RemoveRipeTomatoes();
           
           return TaskStatus.Success;
+     }
+
+     public override void OnEnd() {
+          base.OnEnd();
+          animator.SetBool("pickingfruit", false);
      }
 }
