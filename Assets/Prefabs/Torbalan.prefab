@@ -420,6 +420,7 @@ MonoBehaviour:
   animator: {fileID: 4593342656570558068}
   agent: {fileID: 789039114618768136}
   walkingSpeedThreshold: 0.1
+  runningSpeedThreshold: 6
 --- !u!1 &1636725163064086798
 GameObject:
   m_ObjectHideFlags: 0
