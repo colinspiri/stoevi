@@ -29,6 +29,9 @@ public class AudioManager : MonoBehaviour {
     public AudioSource walkingSound;
     public AudioSource runningSound;
     public ASoundContainer harvestSound;
+    public AudioSource playerBreathing;
+    public AudioSource playerTiredBreathing;
+    public ASoundContainer torbalanInhale;
 
     [Header("UI")]
     public ASoundContainer backSound;
@@ -70,11 +73,11 @@ public class AudioManager : MonoBehaviour {
 
     public void PauseGameSound() {
         AudioListener.pause = true;
-        farmAmbience.DOFade(0.2f, 1).SetUpdate(true);
+        farmAmbience.DOFade(0.1f, 1).SetUpdate(true);
     }
     public void ResumeGameSound() {
         AudioListener.pause = false;
-        farmAmbience.DOFade(0.5f, 1).SetUpdate(true);
+        farmAmbience.DOFade(0.3f, 1).SetUpdate(true);
     }
     
     public void SetVolume(string mixerChannel, float value) {
@@ -100,9 +103,22 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
+    public void SetBreathingSound(bool value) {
+        if (value && !playerBreathing.isPlaying) playerBreathing.Play();
+        if(playerBreathing.isPlaying && !value) playerBreathing.Stop();
+    }
+    public void SetTiredBreathingSound(bool value) {
+        if (value && !playerTiredBreathing.isPlaying) playerTiredBreathing.Play();
+        if(playerTiredBreathing.isPlaying && !value) playerTiredBreathing.Stop();
+    }
+
     public void PlayWaterSound() { waterSound.Play(); }
     public void PlayHarvestSound() { harvestSound.Play(); }
-    public void PlayDetectedStinger() { detectedStinger.Play(); }
+
+    public void PlayDetectedStinger() {
+        detectedStinger.Play();
+        torbalanInhale.Play();
+    }
     public void PlayChaseStinger() { chaseStinger.Play(); }
 
     public void PlayBackSound() { backSound.Play(); }

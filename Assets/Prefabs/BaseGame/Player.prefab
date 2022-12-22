@@ -172,3 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20f83a3ecc6164dd58ca0471c04783ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inhaleSound: {fileID: 11400000, guid: eb6aa65653bb3eb4c84b2480d81a2ea6, type: 2}
+  exhaleSound: {fileID: 11400000, guid: 5cfcc74b32ca7414681573dc7a9d9fb2, type: 2}
+  breatheLoudness: 5
+  exhaleLoudness: 10

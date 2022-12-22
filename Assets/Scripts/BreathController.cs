@@ -1,10 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using SpookuleleAudio;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class BreathController : MonoBehaviour {
+    // components
+    public ASoundContainer inhaleSound;
+    public ASoundContainer exhaleSound;
+    
     // public variables
     public float breatheLoudness;
     public float exhaleLoudness;
@@ -13,11 +18,30 @@ public class BreathController : MonoBehaviour {
     public bool holdingBreath { get; private set; }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
+        // stop holding breath when stamina runs out
+        if(!StaminaController.Instance.HasStamina() && holdingBreath) StopHoldingBreath();
+        
         // consume stamina
         if (holdingBreath) {
             StaminaController.Instance.ConsumeStamina();
+        }
+        
+        // play SFX
+        // tired
+        if (StaminaController.Instance.staminaState == StaminaController.StaminaState.Recovering || StaminaController.Instance.staminaState == StaminaController.StaminaState.Decreasing) {
+            AudioManager.Instance.SetTiredBreathingSound(true);
+            AudioManager.Instance.SetBreathingSound(false);
+        }
+        // holding breath
+        else if (holdingBreath) {
+            AudioManager.Instance.SetTiredBreathingSound(false);
+            AudioManager.Instance.SetBreathingSound(false);
+        }
+        // breathing normally
+        else {
+            AudioManager.Instance.SetTiredBreathingSound(false);
+            AudioManager.Instance.SetBreathingSound(true);
         }
         
         // report sound
@@ -29,13 +53,15 @@ public class BreathController : MonoBehaviour {
     private void StartHoldingBreath() {
         holdingBreath = true;
         
-        // breathe in SFX
+        // inhale SFX
+        inhaleSound.Play();
     }
 
     private void StopHoldingBreath() {
         holdingBreath = false;
         
-        // breathe out SFX
+        // exhale SFX
+        exhaleSound.Play();
         
         // report sound
         if (TorbalanSenses.Instance != null) {
