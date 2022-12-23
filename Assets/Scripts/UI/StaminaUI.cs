@@ -33,20 +33,16 @@ public class StaminaUI : MonoBehaviour
     void Start() {
         slider.value = 1;
         canvasGroup.alpha = 0;
+    }
 
-        StaminaController.OnStaminaChange += stamina => {
-            ShowUI();
-            
-            slider.DOValue(stamina, valueLerpTime);
-        };
-        StaminaController.OnStateChange += state => {
-            ShowUI();
-            
-            if (state == StaminaController.StaminaState.Recovering) {
-                fill.color = recoveringColor;
-            }
-            else fill.color = normalColor;
-        };
+    private void OnEnable() {
+        StaminaController.OnStaminaChange += UpdateValue;
+        StaminaController.OnStateChange += UpdateState;
+    }
+
+    private void OnDisable() {
+        StaminaController.OnStaminaChange -= UpdateValue;
+        StaminaController.OnStateChange -= UpdateState;
     }
 
     private void Update() {
@@ -60,6 +56,21 @@ public class StaminaUI : MonoBehaviour
                 fadeOutTween.onKill += () => fadeOutTween = null;
             }
         }
+    }
+
+    private void UpdateValue(float value) {
+        ShowUI();
+            
+        slider.DOValue(value, valueLerpTime);
+    }
+
+    private void UpdateState(StaminaController.StaminaState state) {
+        ShowUI();
+            
+        if (state == StaminaController.StaminaState.Recovering) {
+            fill.color = recoveringColor;
+        }
+        else fill.color = normalColor;
     }
 
     private void ShowUI() {
