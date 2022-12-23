@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class InteractableManager : MonoBehaviour {
     // components
     public static InteractableManager Instance;
+    public InputActions inputActions;
 
     // all interactables
     private List<Interactable> allInteractables = new List<Interactable>();
@@ -24,6 +25,9 @@ public class InteractableManager : MonoBehaviour {
 
     private void Awake() {
         Instance = this;
+        
+        inputActions = new InputActions();
+        inputActions.Enable();
     }
 
     private void Start() {
@@ -62,6 +66,8 @@ public class InteractableManager : MonoBehaviour {
         
         // if not already selected, select it
         if (interactable != selectedObject) SelectObject(interactable);
+        
+        Debug.Log("state = " + interactionState + " on " + (selectedObject == null ? "null" : selectedObject.name));
 
         // count up hold timer while interacting
         if (interactionState == InteractionState.Interacting) {
