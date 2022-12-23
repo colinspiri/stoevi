@@ -14,7 +14,9 @@ public class HUDManager : MonoBehaviour {
     private void Awake() {
         inputActions = new InputActions();
         inputActions.Enable();
-        inputActions.Gameplay.ToggleHUD.performed += context => { SetHUDVisible(!hudEnabled); };
+        inputActions.Gameplay.ToggleHUD.performed += context => {
+            SetHUDVisible(!hudEnabled);
+        };
     }
 
     // Start is called before the first frame update

@@ -22,7 +22,8 @@ public class StaminaController : MonoBehaviour {
     private float pauseTimer;
     
     // callbacks
-    public UnityEvent<float> onStaminaChange;
+    public static event Action<float> OnStaminaChange = delegate { };
+    public static event Action<StaminaState> OnStateChange = delegate { };
 
     private void Awake() {
         Instance = this;
@@ -37,11 +38,7 @@ public class StaminaController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (staminaState == StaminaState.Decreasing) {
-            pauseTimer -= Time.deltaTime;
-        
-            if (pauseTimer <= 0) {
-                staminaState = StaminaState.Increasing;
-            }
+            UpdateDecreasing();
         }
         else if (staminaState == StaminaState.Increasing) {
             UpdateIncreasing();
@@ -52,10 +49,6 @@ public class StaminaController : MonoBehaviour {
     }
     
     #region Public Functions
-    public bool AtMaxStamina() {
-        return currentStamina >= maxStamina;
-    }
-
     public bool HasStamina() {
         return staminaState != StaminaState.Recovering && currentStamina > 0;
     }
@@ -63,7 +56,7 @@ public class StaminaController : MonoBehaviour {
     public void ConsumeStamina(float multiplier = 1.0f) {
         if (!HasStamina()) return;
         
-        staminaState = StaminaState.Decreasing;
+        ChangeStaminaState(StaminaState.Decreasing);
         pauseTimer = pauseTime;
 
         ChangeStamina(-multiplier * Time.deltaTime);
@@ -71,6 +64,14 @@ public class StaminaController : MonoBehaviour {
     #endregion
     
     #region Helper Functions
+
+    private void UpdateDecreasing() {
+        pauseTimer -= Time.deltaTime;
+        
+        if (pauseTimer <= 0) {
+            ChangeStaminaState(StaminaState.Increasing);
+        }
+    }
     private void UpdateIncreasing() {
         if (currentStamina >= maxStamina) return;
         
@@ -81,22 +82,28 @@ public class StaminaController : MonoBehaviour {
         ChangeStamina(recoverRate * Time.deltaTime);
         
         if (currentStamina > recoverThreshold) {
-            staminaState = StaminaState.Increasing;
+            ChangeStaminaState(StaminaState.Increasing);
         }
     }
-    
+
     private void ChangeStamina(float amount) {
         currentStamina += amount;
         
         if (currentStamina < 0) {
             currentStamina = 0;
-            staminaState = StaminaState.Recovering;
+            ChangeStaminaState(StaminaState.Recovering);
         }
-        if (currentStamina > maxStamina) {
+        if (currentStamina >= maxStamina) {
             currentStamina = maxStamina;
         }
-        
-        onStaminaChange?.Invoke(currentStamina/maxStamina);
+
+        OnStaminaChange(currentStamina / maxStamina);
+    }
+    
+    private void ChangeStaminaState(StaminaState newState) {
+        staminaState = newState;
+
+        OnStateChange(staminaState);
     }
     
     #endregion

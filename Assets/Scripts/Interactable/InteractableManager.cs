@@ -23,6 +23,9 @@ public class InteractableManager : MonoBehaviour {
     
     private float holdTimer;
     
+    // events
+    public static event Action<Interactable> OnSelectObject = delegate { };
+
     private void Awake() {
         Instance = this;
     }
@@ -82,12 +85,16 @@ public class InteractableManager : MonoBehaviour {
         selectedObject = null;
         interactionState = InteractionState.None;
         holdTimer = 0;
+
+        OnSelectObject(null);
     }
 
     private void SelectObject(Interactable interactable) {
         selectedObject = interactable;
         interactionState = InteractionState.Selecting;
         holdTimer = 0;
+
+        OnSelectObject(selectedObject);
     }
 
     private void StartInteracting() {

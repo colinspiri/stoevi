@@ -35,6 +35,9 @@ public class InteractableUI : MonoBehaviour {
 
     private void Start() {
         HideInteractableUI();
+
+        InteractableManager.OnSelectObject += interactable => {
+        };
     }
     
     private void Update() {
