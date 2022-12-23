@@ -29,7 +29,7 @@ public class Sheep : Interactable {
     }
 
     private void Update() {
-        player = FirstPersonController.Instance.gameObject;
+        player = FirstPersonMovement.Instance.gameObject;
 
         beingChased = CheckIfBeingChased();
     }
@@ -42,7 +42,7 @@ public class Sheep : Interactable {
         if (distance > playerChaseDistance) return false;
 
         // player running
-        if (FirstPersonController.Instance.moveState != FirstPersonController.MoveState.Running) return false;
+        if (FirstPersonMovement.Instance.moveState != FirstPersonMovement.MoveState.Running) return false;
         
         // player facing sheep
         Vector3 playerToSheep = transform.position - player.transform.position;

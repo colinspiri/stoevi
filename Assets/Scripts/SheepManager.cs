@@ -45,12 +45,12 @@ public class SheepManager : MonoBehaviour {
         float maxDistance = 0;
         foreach (var sheep in allSheep) {
             // check if player looking
-            Vector3 playerToSheep = sheep.transform.position - FirstPersonController.Instance.transform.position;
-            var angle = Vector3.Angle(FirstPersonController.Instance.transform.forward, playerToSheep);
+            Vector3 playerToSheep = sheep.transform.position - FirstPersonMovement.Instance.transform.position;
+            var angle = Vector3.Angle(FirstPersonMovement.Instance.transform.forward, playerToSheep);
             if (angle < 90) continue;
             
             // has to be farther than min scare distance
-            var distance = Vector3.Distance(FirstPersonController.Instance.transform.position, sheep.transform.position);
+            var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, sheep.transform.position);
             if (distance < minScareDistance) continue;
 
             // look for farthest sheep
@@ -66,8 +66,8 @@ public class SheepManager : MonoBehaviour {
         
 
         // teleport sheep behind player
-        var pos = FirstPersonController.Instance.transform.position -
-                  2 * FirstPersonController.Instance.transform.forward + 1 * Vector3.up;
+        var pos = FirstPersonMovement.Instance.transform.position -
+                  2 * FirstPersonMovement.Instance.transform.forward + 1 * Vector3.up;
         chosenSheep.transform.position = pos;
         
         // play stinger and bleat

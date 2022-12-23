@@ -86,17 +86,17 @@ public class AudioManager : MonoBehaviour {
     }
 
     private void Update() {
-        if (FirstPersonController.Instance) {
-            var state = FirstPersonController.Instance.moveState;
-            if (state == FirstPersonController.MoveState.Still || state == FirstPersonController.MoveState.CrouchWalking) {
+        if (FirstPersonMovement.Instance) {
+            var state = FirstPersonMovement.Instance.moveState;
+            if (state == FirstPersonMovement.MoveState.Still || state == FirstPersonMovement.MoveState.CrouchWalking) {
                 walkingSound.Stop();
                 runningSound.Stop();
             }
-            else if (state == FirstPersonController.MoveState.Walking) {
+            else if (state == FirstPersonMovement.MoveState.Walking) {
                 if (!walkingSound.isPlaying) walkingSound.Play();
                 runningSound.Stop();
             }
-            else if (state == FirstPersonController.MoveState.Running) {
+            else if (state == FirstPersonMovement.MoveState.Running) {
                 walkingSound.Stop();
                 if(!runningSound.isPlaying) runningSound.Play();
             }

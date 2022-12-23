@@ -17,7 +17,7 @@ public class StaminaController : MonoBehaviour {
     
     // state
     public enum StaminaState { Decreasing, Increasing, Recovering }
-    public StaminaState staminaState { get; private set; }
+    public StaminaState staminaState;
     private float currentStamina;
     private float pauseTimer;
     

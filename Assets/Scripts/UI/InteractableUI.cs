@@ -32,28 +32,28 @@ public class InteractableUI : MonoBehaviour {
     // constants
     public enum TimerIcon { None, Water, Growth, Ripe }
 
-
     private void Start() {
         HideInteractableUI();
-
-        InteractableManager.OnSelectObject += interactable => {
-        };
     }
     
     private void Update() {
-        // TODO: refactor so that each interactable has UpdateUI() function to call when values change
-        
+        UpdateUI();
+    }
+
+    private void UpdateUI() {
         switch (InteractableManager.Instance.interactionState)
         {
             case InteractableManager.InteractionState.None:
-                // Debug.Log("InteractableUI: none " + ResourceManager.Instance.carryingFertilizer);
+                // carrying fertilizer special case
                 if (ResourceManager.Instance && ResourceManager.Instance.carryingFertilizer) {
                     objectInfo.SetActive(false);
                     progressSlider.value = 0;
                     buttonPrompt.gameObject.SetActive(true);
                     buttonPrompt.text = "E to drop fertilizer";
                 }
-                else HideInteractableUI();
+                else {
+                    HideInteractableUI();
+                }
                 break;
             case InteractableManager.InteractionState.Selecting:
                 ShowSelectedObject();
@@ -76,17 +76,7 @@ public class InteractableUI : MonoBehaviour {
     private void ShowSelectedObject() {
         var selectedObject = InteractableManager.Instance.selectedObject;
         
-        objectInfo.SetActive(true);
-        objectName.text = selectedObject.GetObjectName();
-        if (selectedObject.GetObjectDescription() != "") {
-            objectInfoLine.SetActive(true);
-            objectDescription.gameObject.SetActive(true);
-            objectDescription.text = selectedObject.GetObjectDescription();
-        }
-        else {
-            objectInfoLine.SetActive(false);
-            objectDescription.gameObject.SetActive(false);
-        }
+        ShowObjectInfo(selectedObject);
 
         progressSlider.value = 0;
 
@@ -94,12 +84,24 @@ public class InteractableUI : MonoBehaviour {
         buttonPrompt.text = selectedObject.GetButtonPrompt();
         buttonPrompt.alpha = 1;
         
-        ShowTimer();
+        ShowTimer(selectedObject);
     }
 
     private void ShowInteractingObject() {
         var selectedObject = InteractableManager.Instance.selectedObject;
 
+        ShowObjectInfo(selectedObject);
+        
+        progressSlider.value = InteractableManager.Instance.GetInteractingFloat();
+
+        buttonPrompt.gameObject.SetActive(true);
+        buttonPrompt.text = selectedObject.GetButtonPrompt();
+        buttonPrompt.alpha = 0.5f;
+        
+        ShowTimer(selectedObject);
+    }
+
+    private void ShowObjectInfo(Interactable selectedObject) {
         objectInfo.SetActive(true);
         objectName.text = selectedObject.GetObjectName();
         if (selectedObject.GetObjectDescription() != "") {
@@ -111,18 +113,9 @@ public class InteractableUI : MonoBehaviour {
             objectInfoLine.SetActive(false);
             objectDescription.gameObject.SetActive(false);
         }
-        progressSlider.value = InteractableManager.Instance.GetInteractingFloat();
-
-        buttonPrompt.gameObject.SetActive(true);
-        buttonPrompt.text = selectedObject.GetButtonPrompt();
-        buttonPrompt.alpha = 0.5f;
-        
-        ShowTimer();
     }
 
-    private void ShowTimer() {
-        var selectedObject = InteractableManager.Instance.selectedObject;
-        
+    private void ShowTimer(Interactable selectedObject) {
         var value = selectedObject.GetTimerValue();
         if (value != 0) {
             timerPanel.SetActive(true);

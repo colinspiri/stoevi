@@ -31,12 +31,12 @@ public class TorbalanDirector : MonoBehaviour {
         }
         if (timeFarFromPlayer >= maxTimeFarFromPlayer) {
             directorCommandGiven = true;
-            TargetPosition = FirstPersonController.Instance.transform.position;
+            TargetPosition = FirstPersonMovement.Instance.transform.position;
             timeFarFromPlayer = 0;
         }
 
         if (directorCommandGiven == false) {
-            var distance = Vector3.Distance(FirstPersonController.Instance.transform.position, transform.position);
+            var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
             if (distance < closeRadius) {
                 timeCloseToPlayer += Time.deltaTime;
                 timeFarFromPlayer = 0;
@@ -54,7 +54,7 @@ public class TorbalanDirector : MonoBehaviour {
         float maxDistance = 0;
         Vector3 farthestPosition = Vector3.zero;
         foreach (var node in areaNodes) {
-            var distance = Vector3.Distance(FirstPersonController.Instance.transform.position, node.position);
+            var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, node.position);
             if (distance > maxDistance) {
                 distance = maxDistance;
                 farthestPosition = node.position;

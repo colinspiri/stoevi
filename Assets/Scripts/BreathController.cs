@@ -16,6 +16,8 @@ public class BreathController : MonoBehaviour {
     
     // state
     public bool holdingBreath { get; private set; }
+    
+    // TODO: add passive breathing state with state transitions that triggers based on StaminaController.ChangeState
 
     // Update is called once per frame
     void Update() {

@@ -10,12 +10,12 @@ public class Plant : MonoBehaviour {
         // play audio TODO
         
         // report sound
-        TorbalanSenses.Instance.ReportSound(FirstPersonController.Instance.transform.position, loudness);
+        TorbalanSenses.Instance.ReportSound(FirstPersonMovement.Instance.transform.position, loudness);
     }
 
     private void OnTriggerStay(Collider other) {
-        if (other.gameObject == FirstPersonController.Instance.gameObject) {
-            if (FirstPersonController.Instance.moveState != FirstPersonController.MoveState.Still) {
+        if (other.gameObject == FirstPersonMovement.Instance.gameObject) {
+            if (FirstPersonMovement.Instance.moveState != FirstPersonMovement.MoveState.Still) {
                 Rustle();
             }
         }

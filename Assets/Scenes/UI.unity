@@ -4107,13 +4107,13 @@ MonoBehaviour:
       m_Calls: []
   introCutscene:
     sceneAsset: {fileID: 102900000, guid: c24d2e2d55a1fbf40884fdac4fe4fced, type: 3}
-    scenePath: Assets/Scenes/IntroCutscene.unity
+    scenePath: Assets/Scenes/_IntroCutscene.unity
   dayScene:
     sceneAsset: {fileID: 102900000, guid: 8177ba1438c10794697df8015df5e37e, type: 3}
-    scenePath: Assets/Scenes/Day2.unity
+    scenePath: Assets/Scenes/_Day2.unity
   mainMenuScene:
     sceneAsset: {fileID: 102900000, guid: 6dd513305e2b80642a43c3ad87d60f9e, type: 3}
-    scenePath: Assets/Scenes/MainMenu.unity
+    scenePath: Assets/Scenes/_MainMenu.unity
 --- !u!114 &751427251349256815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9086,13 +9086,13 @@ MonoBehaviour:
         m_CallState: 2
   introCutscene:
     sceneAsset: {fileID: 102900000, guid: c24d2e2d55a1fbf40884fdac4fe4fced, type: 3}
-    scenePath: Assets/Scenes/IntroCutscene.unity
+    scenePath: Assets/Scenes/_IntroCutscene.unity
   dayScene:
     sceneAsset: {fileID: 102900000, guid: 8177ba1438c10794697df8015df5e37e, type: 3}
-    scenePath: Assets/Scenes/Day2.unity
+    scenePath: Assets/Scenes/_Day2.unity
   mainMenuScene:
     sceneAsset: {fileID: 102900000, guid: 6dd513305e2b80642a43c3ad87d60f9e, type: 3}
-    scenePath: Assets/Scenes/MainMenu.unity
+    scenePath: Assets/Scenes/_MainMenu.unity
 --- !u!114 &8155431654241726389
 MonoBehaviour:
   m_ObjectHideFlags: 0

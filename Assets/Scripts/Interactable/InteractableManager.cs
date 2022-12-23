@@ -18,16 +18,17 @@ public class InteractableManager : MonoBehaviour {
     
     // state
     public enum InteractionState { None, Selecting, Interacting }
-    public InteractionState interactionState = InteractionState.None;
+    public InteractionState interactionState { get; private set; }
     public Interactable selectedObject { get; private set; }
-    
     private float holdTimer;
-    
-    // events
-    public static event Action<Interactable> OnSelectObject = delegate { };
 
     private void Awake() {
         Instance = this;
+    }
+
+    private void Start() {
+        interactionState = InteractionState.None;
+        selectedObject = null;
     }
 
     private void Update() {
@@ -61,8 +62,7 @@ public class InteractableManager : MonoBehaviour {
         
         // if not already selected, select it
         if (interactable != selectedObject) SelectObject(interactable);
-        
-        
+
         // count up hold timer while interacting
         if (interactionState == InteractionState.Interacting) {
             // if no longer interactable, stop interacting
@@ -85,16 +85,12 @@ public class InteractableManager : MonoBehaviour {
         selectedObject = null;
         interactionState = InteractionState.None;
         holdTimer = 0;
-
-        OnSelectObject(null);
     }
 
     private void SelectObject(Interactable interactable) {
         selectedObject = interactable;
         interactionState = InteractionState.Selecting;
         holdTimer = 0;
-
-        OnSelectObject(selectedObject);
     }
 
     private void StartInteracting() {

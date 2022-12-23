@@ -15,12 +15,12 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.68235296, g: 0.68235296, b: 0.68235296, a: 1}
+  m_FogColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
   m_LinearFogStart: 10
   m_LinearFogEnd: 30
-  m_AmbientSkyColor: {r: 0.68235296, g: 0.68235296, b: 0.68235296, a: 1}
+  m_AmbientSkyColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
   m_AmbientEquatorColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_AmbientGroundColor: {r: 0.122641504, g: 0.05563045, b: 0, a: 1}
   m_AmbientIntensity: 1
@@ -159,6 +159,8 @@ MonoBehaviour:
     scenePath: Assets/Scenes/Environment.unity
   - sceneAsset: {fileID: 102900000, guid: ead5d82894feb0740bffcb19c15f008e, type: 3}
     scenePath: Assets/Scenes/Interactables.unity
+  - sceneAsset: {fileID: 102900000, guid: a23ab905d791c68488bc3f83f8fcd630, type: 3}
+    scenePath: Assets/Scenes/Player.unity
   - sceneAsset: {fileID: 102900000, guid: 094e2805e8fd7194e8788fae9e38f86a, type: 3}
     scenePath: Assets/Scenes/UI.unity
 --- !u!4 &1281197024

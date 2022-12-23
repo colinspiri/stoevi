@@ -6,7 +6,6 @@ using UnityEngine;
 public abstract class SpriteManager : MonoBehaviour {
     // components
     public SpriteRenderer spriteRenderer;
-    private Camera cam;
     
     // state
     private Sprite frontSprite;
@@ -14,13 +13,9 @@ public abstract class SpriteManager : MonoBehaviour {
     private Sprite leftSprite;
     private Sprite rightSprite;
 
-    protected void Awake() {
-        cam = FindObjectOfType<Camera>();
-    }
-
     // Update is called once per frame
     protected void Update() {
-        Vector3 toTarget = cam.transform.position - transform.position;
+        Vector3 toTarget = CameraRaycast.Instance.transform.position - transform.position;
         toTarget.Normalize();
         float dot = Vector3.Dot(toTarget, transform.forward);
 

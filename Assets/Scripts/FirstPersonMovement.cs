@@ -12,10 +12,10 @@ using Vector3 = UnityEngine.Vector3;
 
 [RequireComponent(typeof(CharacterController))]
 
-public class FirstPersonController : MonoBehaviour
+public class FirstPersonMovement : MonoBehaviour
 {
 	#region Components
-	public static FirstPersonController Instance;
+	public static FirstPersonMovement Instance;
 	public PlayerInput playerInput;
 	private CharacterController controller;
 	private InputActions inputActions;
@@ -70,7 +70,7 @@ public class FirstPersonController : MonoBehaviour
 
 	#region State Variables
 	// input
-	private bool running;
+	private bool runInput;
 	private bool crouching;
 	private bool crouchingLastFrame;
 	private bool peeking;
@@ -138,7 +138,7 @@ public class FirstPersonController : MonoBehaviour
 		Move();
 		
 		// consume stamina
-		if(running) StaminaController.Instance.ConsumeStamina();
+		if(moveState == MoveState.Running) StaminaController.Instance.ConsumeStamina();
 		
 		// report sound
 		if (TorbalanSenses.Instance != null && !breath.holdingBreath) {
@@ -188,9 +188,15 @@ public class FirstPersonController : MonoBehaviour
 	}
 	
 	private void Move() {
-		// set target speed and state assuming the player is moving
+		// if there is no input, set the target speed to 0
 		float targetSpeed;
-		if (peeking) {
+		var move = inputActions.Gameplay.Move.ReadValue<Vector2>();
+		if (move == Vector2.zero) {
+			targetSpeed = 0.0f;
+			moveState = MoveState.Still;
+		}
+		// set target speed and and move state if player is moving
+		else if (peeking) {
 			targetSpeed = 0;
 			moveState = MoveState.Still;
 		}
@@ -202,22 +208,13 @@ public class FirstPersonController : MonoBehaviour
 			targetSpeed = crouchSpeed;
 			moveState = MoveState.CrouchWalking;
 		}
-		else if (running) {
+		else if (runInput) {
 			targetSpeed = runSpeed;
 			moveState = MoveState.Running;
 		}
 		else {
 			targetSpeed = walkSpeed;
 			moveState = MoveState.Walking;
-		}
-
-		// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
-		// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-		// if there is no input, set the target speed to 0
-		var move = inputActions.Gameplay.Move.ReadValue<Vector2>();
-		if (move == Vector2.zero) {
-			targetSpeed = 0.0f;
-			moveState = MoveState.Still;
 		}
 
 		// a reference to the players current horizontal velocity
@@ -376,7 +373,7 @@ public class FirstPersonController : MonoBehaviour
 	#region Input Functions
 	public void OnRunInput(InputAction.CallbackContext context) {
 		var shouldBeRunning = StaminaController.Instance.HasStamina() && context.ReadValueAsButton();
-		running = shouldBeRunning;
+		runInput = shouldBeRunning;
 	}
 	public void OnCrouchInput(InputAction.CallbackContext context) {
 		if (!crouchingLastFrame && context.ReadValueAsButton()) {

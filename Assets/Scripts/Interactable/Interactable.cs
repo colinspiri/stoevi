@@ -25,7 +25,7 @@ public abstract class Interactable : MonoBehaviour {
     public virtual InteractableUI.TimerIcon GetTimerIcon() { return InteractableUI.TimerIcon.None; }
 
     public bool PlayerWithinInteractionDistance(Vector3 raycastPoint) {
-        var distance = Vector3.Distance(FirstPersonController.Instance.transform.position, raycastPoint);
+        var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, raycastPoint);
         return distance <= InteractionDistance;
     }
 

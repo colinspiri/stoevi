@@ -84,6 +84,6 @@ public class ResourceManager : MonoBehaviour {
     }
     public void DropFertilizer() {
         carryingFertilizer = false;
-        Instantiate(fertilizerPrefab, FirstPersonController.Instance.transform.position + 2*FirstPersonController.Instance.transform.forward, Quaternion.identity);
+        Instantiate(fertilizerPrefab, FirstPersonMovement.Instance.transform.position + 2*FirstPersonMovement.Instance.transform.forward, Quaternion.identity);
     }
 }
