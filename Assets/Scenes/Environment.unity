@@ -194,9 +194,9 @@ Mesh:
       format: 0
       dimension: 2
     - stream: 0
-      offset: 0
+      offset: 48
       format: 0
-      dimension: 0
+      dimension: 2
     - stream: 0
       offset: 0
       format: 0
@@ -229,8 +229,8 @@ Mesh:
       offset: 0
       format: 0
       dimension: 0
-    m_DataSize: 1152
-    _typelessdata: 958258375ae7a141b3c8e4b6313b15350000803fdd17d9b40000803f313b15b534ce30af000080bf3d03de35cb3eb735b8a913c15de7a141ff33bb3ff004cb340000803fa9ab93b40000803ff004cbb434ceb0ae000080bfc4a913c14434bb3f1830f1bf5de7a141f4f53841f004cb340000803fa9ab93b40000803ff004cbb434ceb0ae000080bf7630f1bffdf53841639c4ac15ee7a141413e1d41fe2657340000803fea7e1cb40000803ffe2657b4ea7e1c1d000080bf6f9c4ac14a3e1d41719c4ac10000f636483e1d41d95463b4000080bfecaae832000080bfd9546334ecaae89b000080bf719c4a41483e1d41c6a913c10000d6363834bb3f1901e4b4000080bfb56a4334000080bf1901e43400000000000080bfc6a913413834bb3f8430f1bf0000ab36fbf538411901e4b4000080bfb56a4334000080bf1901e43400000000000080bf8430f13ffbf53841000000000000000000000000e32b2bb5000080bf06e0b434000080bfe32b2b3500000000000080bf0000000000000000000000000000000000000000814620be15207ab444d87cbf44d87c3f00000000814620be000080bf0000000000000000c6a913c10000d6363834bb3f814620bed5a877b444d87cbf45d87c3f00000000824620be000080bf7f8115c10000d636958258375ae7a141b3c8e4b6814620bed5a877b444d87cbf45d87c3f00000000824620be000080bf01bf67375ae7a141b8a913c15de7a141ff33bb3f814620be953175b444d87cbf44d87c3f00000000814620be000080bf708115c15de7a1418430f1bf0000ab36fbf538415caa7c3f784c1ab5ffbc243efebc24be000000005baa7c3f000080bfe2663b410000ab360000000000000000000000005caa7c3f79581ab5ffbc243efebc24be000000005baa7c3f000080bf00000000000000001830f1bf5de7a141f4f538415caa7c3f79581ab5ffbc243efebc24be000000005baa7c3f000080bfd9663b415de7a141958258375ae7a141b3c8e4b65caa7c3f7a641ab5ffbc243efebc24be000000005baa7c3f000080bfc8bb13b75ae7a141c6a913c10000d6363834bb3fccd16cbf7c980135b972c2beb972c23edd093229ccd16cbf000080bf38749bc003642936719c4ac10000f636483e1d41ccd16cbf5ae50135b972c2beba72c23e3d7b6228ccd16cbf000080bff4685ec104646936b8a913c15de7a141ff33bb3fccd16cbf5ae50135b972c2beba72c23e3d7b6228ccd16cbf000080bf20749bc05be7a141639c4ac15ee7a141413e1d41ccd16cbf37320235b972c2beba72c23e383282a8ccd16cbf000080bfe9685ec15ce7a141719c4ac10000f636483e1d411a7d22be2d0de734a9c17c3fa9c17cbf2e0de7a71b7d22be000080bfb5172f4141b919368430f1bf0000ab36fbf538411a7d22be410ce634a9c17c3fa9c17cbf000000001b7d22be000080bfd287d53c4b506e33639c4ac15ee7a141413e1d411a7d22be410ce634a9c17c3fa9c17cbf000000001b7d22be000080bfa8172f415be7a1411830f1bf5de7a141f4f538411b7d22be550be534a9c17c3fa9c17cbf550be5a71b7d22be000080bf626fd53c5ae7a141
+    m_DataSize: 1344
+    _typelessdata: 958258375ae7a141b3c8e4b6313b15350000803fdd17d9b40000803f313b15b534ce30af000080bf3d03de35cb3eb7352596033ff2bc533fb8a913c15de7a141ff33bb3ff004cb340000803fa9ab93b40000803ff004cbb434ceb0ae000080bfc4a913c14434bb3fdd24153f74881e3f1830f1bf5de7a141f4f53841f004cb340000803fa9ab93b40000803ff004cbb434ceb0ae000080bf7630f1bffdf53841aed0493ff2bc533f639c4ac15ee7a141413e1d41fe2657340000803fea7e1cb40000803ffe2657b4ea7e1c1d000080bf6f9c4ac14a3e1d41f7f5493f5b47123f719c4ac10000f636483e1d41d95463b4000080bfecaae832000080bfd9546334ecaae89b000080bf719c4a41483e1d412596033f1d66973ec6a913c10000d6363834bb3f1901e4b4000080bfb56a4334000080bf1901e43400000000000080bfc6a913413834bb3f4267383f4ae8af3e8430f1bf0000ab36fbf538411901e4b4000080bfb56a4334000080bf1901e43400000000000080bf8430f13ffbf5384170bb033fa2280d3f000000000000000000000000e32b2bb5000080bf06e0b434000080bfe32b2b3500000000000080bf0000000000000000faf5493fa2280d3f000000000000000000000000814620be15207ab444d87cbf44d87c3f00000000814620be000080bf00000000000000002896033fa796743ec6a913c10000d6363834bb3f814620bed5a877b444d87cbf45d87c3f00000000824620be000080bf7f8115c10000d6362896033f14d7a33c958258375ae7a141b3c8e4b6814620bed5a877b444d87cbf45d87c3f00000000824620be000080bf01bf67375ae7a141ddee7c3fb296743eb8a913c15de7a141ff33bb3f814620be953175b444d87cbf44d87c3f00000000814620be000080bf708115c15de7a141ddee7c3f0bd7a33c8430f1bf0000ab36fbf538415caa7c3f784c1ab5ffbc243efebc24be000000005baa7c3f000080bfe2663b410000ab367cd7a33c98ed113f0000000000000000000000005caa7c3f79581ab5ffbc243efebc24be000000005baa7c3f000080bf00000000000000000bd7a33c1d66973e1830f1bf5de7a141f4f538415caa7c3f79581ab5ffbc243efebc24be000000005baa7c3f000080bfd9663b415de7a141daeefc3e98ed113f958258375ae7a141b3c8e4b65caa7c3f7a641ab5ffbc243efebc24be000000005baa7c3f000080bfc8bb13b75ae7a141d3eefc3e1d66973ec6a913c10000d6363834bb3fccd16cbf7c980135b972c2beb972c23edd093229ccd16cbf000080bf38749bc003642936d7eefc3e540c173f719c4ac10000f636483e1d41ccd16cbf5ae50135b972c2beba72c23e3d7b6228ccd16cbf000080bff4685ec104646936d7eefc3e98444d3fb8a913c15de7a141ff33bb3fccd16cbf5ae50135b972c2beba72c23e3d7b6228ccd16cbf000080bf20749bc05be7a1410bd7a33c510c173f639c4ac15ee7a141413e1d41ccd16cbf37320235b972c2beba72c23e383282a8ccd16cbf000080bfe9685ec15ce7a1410bd7a33c95444d3f719c4ac10000f636483e1d411a7d22be2d0de734a9c17c3fa9c17cbf2e0de7a71b7d22be000080bfb5172f4141b91936e0eefc3e0bd7a33c8430f1bf0000ab36fbf538411a7d22be410ce634a9c17c3fa9c17cbf000000001b7d22be000080bfd287d53c4b506e33dfeefc3eac288d3e639c4ac15ee7a141413e1d411a7d22be410ce634a9c17c3fa9c17cbf000000001b7d22be000080bfa8172f415be7a1412ad7a33c0bd7a33c1830f1bf5de7a141f4f538411b7d22be550be534a9c17c3fa9c17cbf550be5a71b7d22be000080bf626fd53c5ae7a1410bd7a33cac288d3e
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -346,7 +346,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &196993131
 Transform:
@@ -434,6 +434,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sunflowers (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
 --- !u!4 &202165250 stripped
@@ -495,6 +499,10 @@ PrefabInstance:
     - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
       propertyPath: m_Name
       value: Sunflowers (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
@@ -639,7 +647,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &363077002
 Transform:
@@ -776,6 +784,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sunflowers (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
 --- !u!4 &448450226 stripped
@@ -800,7 +812,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &462567207
 Transform:
@@ -895,7 +907,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &483875615
 Transform:
@@ -1028,6 +1040,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sunflowers (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
 --- !u!4 &527183097 stripped
@@ -1052,7 +1068,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &581682080
 Transform:
@@ -1144,7 +1160,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &587634152
 Transform:
@@ -1187,7 +1203,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &634105401
 Transform:
@@ -1294,7 +1310,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!64 &732565647
 MeshCollider:
@@ -1665,6 +1681,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5145659544933604007, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
 --- !u!1001 &773231592
@@ -1721,6 +1741,10 @@ PrefabInstance:
     - target: {fileID: 5145659544933604007, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
       propertyPath: m_Name
       value: Barrel (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145659544933604007, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
@@ -1779,6 +1803,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sunflowers (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
 --- !u!4 &788081254 stripped
@@ -1796,6 +1824,10 @@ PrefabInstance:
     - target: {fileID: 4912158995603880659, guid: 0265fe6ae818e9c409f8c4384fab631b, type: 3}
       propertyPath: m_Name
       value: Fence (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912158995603880659, guid: 0265fe6ae818e9c409f8c4384fab631b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4912158995603880663, guid: 0265fe6ae818e9c409f8c4384fab631b, type: 3}
       propertyPath: m_RootOrder
@@ -1917,7 +1949,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &896465242
 Transform:
@@ -2058,6 +2090,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sunflowers (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
 --- !u!4 &900881109 stripped
@@ -2087,7 +2123,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!65 &917109237
 BoxCollider:
@@ -2187,7 +2223,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &938341394
 Transform:
@@ -2323,6 +2359,10 @@ PrefabInstance:
     - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
       propertyPath: m_Name
       value: Sunflowers (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
@@ -2526,7 +2566,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1062134610
 Transform:
@@ -2678,7 +2718,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1234558564
 Transform:
@@ -2810,6 +2850,10 @@ PrefabInstance:
     - target: {fileID: 5145659544933604007, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
       propertyPath: m_Name
       value: Barrel (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145659544933604007, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
@@ -2963,6 +3007,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sunflowers (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
 --- !u!4 &1359030396 stripped
@@ -3024,6 +3072,10 @@ PrefabInstance:
     - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
       propertyPath: m_Name
       value: Sunflowers (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
@@ -3131,6 +3183,10 @@ PrefabInstance:
     - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
       propertyPath: m_Name
       value: Sunflowers (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
@@ -3353,7 +3409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5145659544933604007, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
@@ -3412,6 +3468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sunflowers (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
 --- !u!4 &1520763905 stripped
@@ -3459,6 +3519,10 @@ PrefabInstance:
     - target: {fileID: 4912158995603880659, guid: 0265fe6ae818e9c409f8c4384fab631b, type: 3}
       propertyPath: m_Name
       value: Fence (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912158995603880659, guid: 0265fe6ae818e9c409f8c4384fab631b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4912158995603880663, guid: 0265fe6ae818e9c409f8c4384fab631b, type: 3}
       propertyPath: m_RootOrder
@@ -3561,6 +3625,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5145659544933604007, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
 --- !u!1001 &1760560385
@@ -3617,6 +3685,10 @@ PrefabInstance:
     - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
       propertyPath: m_Name
       value: Sunflowers (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
@@ -3742,6 +3814,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sunflowers (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
 --- !u!4 &1868001662 stripped
@@ -3866,6 +3942,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4912158995603880659, guid: 0265fe6ae818e9c409f8c4384fab631b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4912158995603880663, guid: 0265fe6ae818e9c409f8c4384fab631b, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -3932,7 +4012,7 @@ GameObject:
   m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!114 &2028902767
 MonoBehaviour:
@@ -3976,7 +4056,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2047240049
 Transform:
@@ -4061,6 +4141,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrel (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5145659544933604007, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
 --- !u!1001 &2134798519
@@ -4117,6 +4201,10 @@ PrefabInstance:
     - target: {fileID: 5145659544933604007, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
       propertyPath: m_Name
       value: Barrel (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145659544933604007, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
@@ -4232,6 +4320,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sunflowers
       objectReference: {fileID: 0}
+    - target: {fileID: 9061780796740596484, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1cacc089ff32dc4eafe235383cc6a83, type: 3}
 --- !u!1001 &4912158995281887219
@@ -4244,6 +4336,10 @@ PrefabInstance:
     - target: {fileID: 4912158995603880659, guid: 0265fe6ae818e9c409f8c4384fab631b, type: 3}
       propertyPath: m_Name
       value: Fence
+      objectReference: {fileID: 0}
+    - target: {fileID: 4912158995603880659, guid: 0265fe6ae818e9c409f8c4384fab631b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4912158995603880663, guid: 0265fe6ae818e9c409f8c4384fab631b, type: 3}
       propertyPath: m_RootOrder
@@ -4353,6 +4449,10 @@ PrefabInstance:
     - target: {fileID: 5145659544933604007, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
       propertyPath: m_Name
       value: Barrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145659544933604007, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}

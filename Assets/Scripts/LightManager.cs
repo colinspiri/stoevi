@@ -23,8 +23,8 @@ public class LightManager : MonoBehaviour {
         if (Preset == null) return;
 
         if (Application.isPlaying) {
-            TimeOfDay += Time.deltaTime;
-            TimeOfDay %= 24; // clamp between 0-24
+            if (TimeOfDay >= 24) TimeOfDay = 24;
+            else TimeOfDay += Time.deltaTime;
         }
         UpdateLighting(TimeOfDay / 24f);
     }
@@ -32,12 +32,14 @@ public class LightManager : MonoBehaviour {
 
     private void UpdateLighting(float timePercent) {
         RenderSettings.ambientLight = Preset.AmbientColor.Evaluate(timePercent);
-        RenderSettings.fogColor = Preset.FogColor.Evaluate(timePercent);
 
         if (DirectionalLight != null) {
             DirectionalLight.color = Preset.DirectionalColor.Evaluate(timePercent);
             DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f) - 90f, 170f, 0));
         }
+        
+        RenderSettings.fogColor = Preset.FogColor.Evaluate(timePercent);
+        RenderSettings.fogEndDistance = Mathf.Lerp(Preset.FogMaxDistanceDay, Preset.FogMaxDistanceNight, timePercent);
 
         if (Camera != null) {
             Camera.backgroundColor = Preset.FogColor.Evaluate(timePercent);
