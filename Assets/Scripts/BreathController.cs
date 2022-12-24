@@ -19,6 +19,13 @@ public class BreathController : MonoBehaviour {
     
     // TODO: add passive breathing state with state transitions that triggers based on StaminaController.ChangeState
 
+    private void Start() {
+        InputHandler.OnHoldBreathPressed += value => {
+            if(!holdingBreath && value && StaminaController.Instance.HasStamina()) StartHoldingBreath();
+            if(holdingBreath && !value) StopHoldingBreath();
+        };
+    }
+
     // Update is called once per frame
     void Update() {
         // stop holding breath when stamina runs out
@@ -69,12 +76,5 @@ public class BreathController : MonoBehaviour {
         if (TorbalanSenses.Instance != null) {
             TorbalanSenses.Instance.ReportSound(transform.position, exhaleLoudness);
         }
-    }
-    
-    public void OnHoldBreathInput(InputAction.CallbackContext context) {
-        var shouldBeHoldingBreath = StaminaController.Instance.HasStamina() && context.ReadValueAsButton();
-        
-        if(holdingBreath && !shouldBeHoldingBreath) StopHoldingBreath();
-        else if(!holdingBreath && shouldBeHoldingBreath) StartHoldingBreath();
     }
 }

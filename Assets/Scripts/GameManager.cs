@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour {
         currentDay = PlayerPrefs.GetInt("CurrentDay", 1);
     }
 
+    private void Start() {
+        InputHandler.OnDebugGameOverPressed += () => GameOver(true);
+    }
+
     public void Pause(bool pauseAudio = false) {
         gameStopped = true;
         Time.timeScale = 0.0f;
@@ -46,11 +50,5 @@ public class GameManager : MonoBehaviour {
         
         Pause(true);
         PauseMenuManager.Instance.GameOver(playerSurvived);
-    }
-
-    public void OnDebugGameOverInput(InputAction.CallbackContext context) {
-        if (context.performed) {
-            GameOver(true);
-        }
     }
 }

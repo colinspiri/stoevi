@@ -33,9 +33,26 @@ public class InteractableManager : MonoBehaviour {
     private void Start() {
         interactionState = InteractionState.None;
         selectedObject = null;
+
+        InputHandler.OnInteractPressed += () => {
+            if (interactionState == InteractionState.None && ResourceManager.Instance.carryingFertilizer) {
+                ResourceManager.Instance.DropFertilizer();
+            }
+        };
     }
 
     private void Update() {
+        // receive input
+        if (InputHandler.Instance.interact) {
+            if (interactionState == InteractionState.Selecting && selectedObject.IsInteractable()) {
+                StartInteracting();
+            }
+        }
+        else if (interactionState == InteractionState.Interacting) {
+            StopInteracting();
+        }
+        
+        // if game is stopped
         if (GameManager.Instance && GameManager.Instance.gameStopped) return;
         
         // see if camera is pointing at an object
@@ -67,8 +84,6 @@ public class InteractableManager : MonoBehaviour {
         // if not already selected, select it
         if (interactable != selectedObject) SelectObject(interactable);
         
-        Debug.Log("state = " + interactionState + " on " + (selectedObject == null ? "null" : selectedObject.name));
-
         // count up hold timer while interacting
         if (interactionState == InteractionState.Interacting) {
             // if no longer interactable, stop interacting
@@ -83,6 +98,7 @@ public class InteractableManager : MonoBehaviour {
             if (holdTimer >= selectedObject.InteractionTime) {
                 selectedObject.Interact();
                 StopInteracting();
+                InputHandler.Instance.ResetInteractInput();
             }
         }
     }
@@ -144,22 +160,6 @@ public class InteractableManager : MonoBehaviour {
         if (interactable is Soil soil) allSoil.Remove(soil);
         // if selected
         if (selectedObject == interactable) Deselect();
-    }
-    
-    public void OnInteractInput(InputAction.CallbackContext context) {
-        if (context.performed) {
-            if (interactionState == InteractionState.None && ResourceManager.Instance.carryingFertilizer) {
-                ResourceManager.Instance.DropFertilizer();
-            }
-        }
-        if (context.ReadValueAsButton()) {
-            if (interactionState == InteractionState.Selecting && selectedObject.IsInteractable()) {
-                StartInteracting();
-            }
-        }
-        else if (interactionState == InteractionState.Interacting) {
-            StopInteracting();
-        }
     }
 
     public float GetInteractingFloat() {

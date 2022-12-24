@@ -36,7 +36,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Interact"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""3f8e907f-2e13-4369-aecc-8a9704b2db29"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -52,7 +52,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Crouch"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""75c16cd1-af51-4963-ab1c-1c3fd423ed36"",
                     ""expectedControlType"": """",
                     ""processors"": """",
@@ -92,7 +92,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Peek"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""26fa44d9-2d1e-430b-96bd-733405da5160"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -100,7 +100,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""HoldBreath"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""189203f5-b33f-4c6e-a744-88f2e7a30a7f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",

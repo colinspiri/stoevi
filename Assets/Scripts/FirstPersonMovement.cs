@@ -69,13 +69,8 @@ public class FirstPersonMovement : MonoBehaviour
 	#endregion
 
 	#region State Variables
-	// input
-	private bool runInput;
-	private bool crouching;
-	private bool crouchingLastFrame;
-	private bool peeking;
-	
 	// camera
+	private bool crouching;
 	private float cameraTargetPitch;
 	private float normalHeight;
 	private float bobCycle;
@@ -92,7 +87,7 @@ public class FirstPersonMovement : MonoBehaviour
 	private float terminalVelocity = 53.0f;
 	public enum MoveState { Still, Walking, Running, CrouchWalking }
 	public MoveState moveState { get; private set; }
-	private enum PeekState { Center, PeekLeft, PeekRight, PeekUp }
+	private enum PeekState { None, PeekCenter, PeekLeft, PeekRight, PeekUp }
 	private PeekState peekState;
 
 	// timeout deltatime
@@ -115,7 +110,7 @@ public class FirstPersonMovement : MonoBehaviour
 	private void Start() {
 		// initialize states
 		moveState = MoveState.Still;
-		peekState = PeekState.Center;
+		peekState = PeekState.None;
 		
 		// reset our timeouts on start
 		fallTimeoutDelta = fallTimeout;
@@ -125,14 +120,6 @@ public class FirstPersonMovement : MonoBehaviour
 	}
 
 	private void Update() {
-		// toggle crouching
-		if(crouching && !crouchingLastFrame) {
-			crouchingLastFrame = true;
-		}
-		if(crouchingLastFrame && !crouching) {
-			crouchingLastFrame = false;
-		}
-
 		JumpAndGravity();
 		GroundedCheck();
 		Move();
@@ -151,7 +138,7 @@ public class FirstPersonMovement : MonoBehaviour
 		CameraMovement();
 	}
 	#endregion
-	
+
 	private void JumpAndGravity()
 	{ 
 		if (grounded)
@@ -188,6 +175,9 @@ public class FirstPersonMovement : MonoBehaviour
 	}
 	
 	private void Move() {
+		// input
+		crouching = InputHandler.Instance.crouching;
+		
 		// if there is no input, set the target speed to 0
 		float targetSpeed;
 		var move = inputActions.Gameplay.Move.ReadValue<Vector2>();
@@ -196,7 +186,7 @@ public class FirstPersonMovement : MonoBehaviour
 			moveState = MoveState.Still;
 		}
 		// set target speed and and move state if player is moving
-		else if (peeking) {
+		else if (InputHandler.Instance.peek) {
 			targetSpeed = 0;
 			moveState = MoveState.Still;
 		}
@@ -208,7 +198,7 @@ public class FirstPersonMovement : MonoBehaviour
 			targetSpeed = crouchSpeed;
 			moveState = MoveState.CrouchWalking;
 		}
-		else if (runInput) {
+		else if (InputHandler.Instance.run && StaminaController.Instance.HasStamina()) {
 			targetSpeed = runSpeed;
 			moveState = MoveState.Running;
 		}
@@ -276,7 +266,7 @@ public class FirstPersonMovement : MonoBehaviour
 		}
 		
 		// get peeking direction
-		if (peeking) {
+		if (InputHandler.Instance.peek) {
 			var directionInput = inputActions.Gameplay.Move.ReadValue<Vector2>();
 			if (directionInput.y > 0) {
 				peekState = PeekState.PeekUp;
@@ -287,8 +277,9 @@ public class FirstPersonMovement : MonoBehaviour
 			else if (directionInput.x > 0) {
 				peekState = PeekState.PeekRight;
 			}
-			else peekState = PeekState.Center;
+			else peekState = PeekState.PeekCenter;
 		}
+		else peekState = PeekState.None;
 
 		// lerp camera position for crouching & peeking
 		// get base height
@@ -297,7 +288,7 @@ public class FirstPersonMovement : MonoBehaviour
 		if (crouching) cameraPos += crouchHeight * transform.up;
 		else cameraPos += normalHeight * transform.up;
 		// if peeking, add offset
-		if (peeking) {
+		if (peekState != PeekState.None) {
 			switch (peekState) {
 				case PeekState.PeekLeft:
 					cameraPos += -peekSideDistance * transform.right;
@@ -310,7 +301,7 @@ public class FirstPersonMovement : MonoBehaviour
 				case PeekState.PeekUp:
 					cameraPos += peekUpDistance * transform.up;
 					break;
-				case PeekState.Center:
+				case PeekState.PeekCenter:
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();
@@ -367,24 +358,6 @@ public class FirstPersonMovement : MonoBehaviour
 		if (lfAngle < -360f) lfAngle += 360f;
 		if (lfAngle > 360f) lfAngle -= 360f;
 		return Mathf.Clamp(lfAngle, lfMin, lfMax);
-	}
-	#endregion
-	
-	#region Input Functions
-	public void OnRunInput(InputAction.CallbackContext context) {
-		var shouldBeRunning = StaminaController.Instance.HasStamina() && context.ReadValueAsButton();
-		runInput = shouldBeRunning;
-	}
-	public void OnCrouchInput(InputAction.CallbackContext context) {
-		if (!crouchingLastFrame && context.ReadValueAsButton()) {
-			crouching = true;
-		}
-		if (crouchingLastFrame && context.ReadValueAsButton()) {
-			crouching = false;
-		}
-	}
-	public void OnPeekInput(InputAction.CallbackContext context) {
-		peeking = context.ReadValueAsButton();
 	}
 	#endregion
 
