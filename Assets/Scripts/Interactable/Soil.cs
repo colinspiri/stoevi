@@ -13,7 +13,7 @@ public class Soil : Interactable {
     public FarmingConstants farmingConstants;
     
     // state
-    private List<Crop> crops = new List<Crop>();
+    public List<Crop> crops = new List<Crop>();
     private bool tilled;
     private int fertilizerLevel;
 
@@ -67,9 +67,11 @@ public class Soil : Interactable {
 
     private void SpawnCrop(Vector3 position, Crop.GrowthStage stage = Crop.GrowthStage.Seed) {
         Crop crop = Instantiate(seedPrefab, position, transform.rotation).GetComponent<Crop>();
-        crops.Add(crop);
+        crop.transform.parent = transform;
         crop.soil = this;
         crop.stage = stage;
+        
+        crops.Add(crop);
     }
 
     public void RemoveCrop(Crop crop) {
@@ -110,18 +112,35 @@ public class Soil : Interactable {
     }
 
     public void SaveData() {
-        soilData.ClearData();
-        foreach (var crop in crops) {
-            soilData.SaveCropData(crop);
-        }
-        soilData.SaveToFile();
+        soilData.SaveDataFromSoil(this);
     }
 
-    private void LoadData() {
-        crops.Clear();
+    public void LoadData() {
+        DestroyInstantiatedCrops();
+        
         soilData.LoadDataFromFile();
         foreach (var cropData in soilData.cropData) {
-            SpawnCrop(cropData.position, cropData.stage);
+            Vector3 spawnPosition = cropData.relativePosition;
+            SpawnCrop(spawnPosition, cropData.stage);
         }
+    }
+
+    private void DestroyInstantiatedCrops() {
+        while (crops.Count > 0) {
+            if (Application.isEditor) {
+                Debug.Log("destroyed " + crops[0].name);
+                DestroyImmediate(crops[0].gameObject);
+            }
+            else Destroy(crops[0].gameObject);
+            
+            crops.RemoveAt(0);
+        }
+        crops.Clear();
+    }
+
+    public void ClearData() {
+        DestroyInstantiatedCrops();
+        
+        soilData.ClearData();
     }
 }

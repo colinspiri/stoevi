@@ -111,5 +111,5 @@ MonoBehaviour:
   InteractionDistance: 5
   InteractionTime: 2
   seedPrefab: {fileID: 8152074468222590108, guid: cf601c7ebcdc140edbc2ae712d330c05, type: 3}
-  soilData: {fileID: 11400000, guid: 903eac2d8ff18b34b98f39990960530c, type: 2}
+  soilData: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}

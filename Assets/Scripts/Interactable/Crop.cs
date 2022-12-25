@@ -148,7 +148,7 @@ public class Crop : Interactable {
         growthTime = growthTimeByStage * multiplier;
         growthTimer = growthTime;
 
-        Debug.Log("growth time is " + growthTime + " (" + growthTimeByStage + " * " + multiplier + ")");
+        // Debug.Log("growth time is " + growthTime + " (" + growthTimeByStage + " * " + multiplier + ")");
     }
 
     private void StartThirsty() {
@@ -164,7 +164,7 @@ public class Crop : Interactable {
         thirstyTime = farmingConstants.baseThirstyTime * multiplier;
         thirstyTimer = thirstyTime;
         
-        Debug.Log("thirsty time is " + thirstyTime + " (" + farmingConstants.baseThirstyTime + " * " + multiplier + ")");
+        // Debug.Log("thirsty time is " + thirstyTime + " (" + farmingConstants.baseThirstyTime + " * " + multiplier + ")");
     }
 
     private void Harvest() {

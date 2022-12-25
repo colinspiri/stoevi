@@ -11,15 +11,21 @@ using UnityEngine;
 public class SoilData : SerializedScriptableObject {
     public List<CropData> cropData = new List<CropData>();
 
-    public void SaveCropData(Crop crop) {
-        Vector3 position = crop.transform.position;
-        Crop.GrowthStage stage = crop.stage;
+    public void SaveDataFromSoil(Soil soil) {
+        ClearData();
         
-        cropData.Add(new CropData(position, stage));
+        foreach (var crop in soil.crops) {
+            Vector3 relativePosition = crop.transform.position;
+            Crop.GrowthStage stage = crop.stage;
+        
+            cropData.Add(new CropData(relativePosition, stage));
+        }
+        
+        SaveToFile();
     }
 
-    public void SaveToFile() {
-        var filePath = Path.Combine(Application.persistentDataPath, name + ".json");
+    private void SaveToFile() {
+        var filePath = GetFilePath();
 
         var json = JsonUtility.ToJson(this);
         Debug.Log("saving data to " + filePath + " : \n" + json);
@@ -27,9 +33,9 @@ public class SoilData : SerializedScriptableObject {
     }
     
     public void LoadDataFromFile() {
-        ClearData();
+        cropData.Clear();
 
-        var filePath = Path.Combine(Application.persistentDataPath, name + ".json");
+        var filePath = GetFilePath();
 
         if(!File.Exists(filePath)) {
             Debug.LogWarning($"File \"{filePath}\" not found!", this);
@@ -48,15 +54,24 @@ public class SoilData : SerializedScriptableObject {
 
     public void ClearData() {
         cropData.Clear();
+
+        var filePath = GetFilePath();
+        File.WriteAllText(filePath, "");
+        
+        Debug.Log("data on " + name + " cleared");
+    }
+
+    private string GetFilePath() {
+        return Path.Combine(Application.persistentDataPath, name + ".json");
     }
 }
 
 public struct CropData {
-    public Vector3 position;
+    public Vector3 relativePosition;
     public Crop.GrowthStage stage;
 
-    public CropData(Vector3 position, Crop.GrowthStage stage) {
-        this.position = position;
+    public CropData(Vector3 relativePosition, Crop.GrowthStage stage) {
+        this.relativePosition = relativePosition;
         this.stage = stage;
     }
 }

@@ -21,6 +21,7 @@ public class DateTimeText : MonoBehaviour {
 
     private void Start() {
         showNightPrompt = false;
+        UpdateText(0);
         DayManager.OnNight += () => {
             showNightPrompt = true;
         };
