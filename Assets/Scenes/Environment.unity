@@ -3298,7 +3298,7 @@ MonoBehaviour:
   DirectionalLight: {fileID: 0}
   Preset: {fileID: 11400000, guid: 227c832ea72d0d84aa7974658c2b0001, type: 2}
   Camera: {fileID: 0}
-  TimeOfDay: 0
+  TimePercent: 0
 --- !u!4 &1457591964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5145659544933604003, guid: c855b1595248b7d4d8148f14d61200b2, type: 3}

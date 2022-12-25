@@ -1925,7 +1925,7 @@ GameObject:
   - component: {fileID: 1087559541}
   - component: {fileID: 1087559543}
   m_Layer: 5
-  m_Name: Current Day Text
+  m_Name: Date Time Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2005,7 +2005,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2059,6 +2059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1720d42a6cfae459ef3d2afeb43bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingHour: 15
 --- !u!1 &1107441611
 GameObject:
   m_ObjectHideFlags: 0

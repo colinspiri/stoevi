@@ -128,14 +128,8 @@ public class InteractableUI : MonoBehaviour {
             timerRipeIcon.SetActive(iconType == TimerIcon.Ripe);
             
             // text
-            timerText.text = FormatTimer(selectedObject.GetTimerTime());
+            timerText.text = Util.FormatTimer(selectedObject.GetTimerTime());
         }
         else timerPanel.SetActive(false);
-    }
-    
-    private string FormatTimer(float timer) {
-        int minutes = Mathf.FloorToInt(timer / 60F);
-        int seconds = Mathf.FloorToInt(timer - minutes * 60);
-        return string.Format("{0:0}:{1:00}", minutes, seconds);
     }
 }

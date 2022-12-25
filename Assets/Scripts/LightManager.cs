@@ -6,13 +6,18 @@ using UnityEngine;
 [ExecuteInEditMode]
 [ExecuteAlways]
 public class LightManager : MonoBehaviour {
-    // references
+    // components
+    public static LightManager Instance;
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
     [SerializeField] private Camera Camera;
 
     // state
-    [SerializeField, Range(0, 24)] private float TimeOfDay;
+    [SerializeField, Range(0, 1)] private float TimePercent;
+
+    private void Awake() {
+        Instance = this;
+    }
 
     private void Start() {
         TryGetComponents();
@@ -22,15 +27,15 @@ public class LightManager : MonoBehaviour {
     void Update() {
         if (Preset == null) return;
 
-        if (Application.isPlaying) {
-            if (TimeOfDay >= 24) TimeOfDay = 24;
-            else TimeOfDay += Time.deltaTime;
+        // update lighting in editor
+        if (!Application.isPlaying) {
+            UpdateLighting(TimePercent);
         }
-        UpdateLighting(TimeOfDay / 24f);
     }
-    
 
-    private void UpdateLighting(float timePercent) {
+    public void UpdateLighting(float timePercent) {
+        TryGetComponents();
+        
         RenderSettings.ambientLight = Preset.AmbientColor.Evaluate(timePercent);
 
         if (DirectionalLight != null) {
