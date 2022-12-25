@@ -35,12 +35,17 @@ public class Crop : Interactable {
     // harvesting
     public int tomatoesYielded;
     private int tomatoesLeft;
+    // nighttime
+    private bool enoughLightToGrow;
     
 
     protected override void Start() {
         base.Start();
 
         ChangeCropStage(stage);
+        
+        enoughLightToGrow = true;
+        DayManager.OnNight += () => enoughLightToGrow = false;
     }
 
     public override bool IsInteractable() {
@@ -60,12 +65,12 @@ public class Crop : Interactable {
 
     private void Update() {
         // growth timer
-        if (state == State.Growing) {
+        if (state == State.Growing && enoughLightToGrow) {
             growthTimer -= Time.deltaTime;
             if(growthTimer <= 0) Grow();
         }
         // thirsty timer
-        else if (state == State.NeedsWater) {
+        else if (state == State.NeedsWater && enoughLightToGrow) {
             thirstyTimer -= Time.deltaTime;
             if (thirstyTimer <= 0) {
                 if (health == Health.Fair) {
@@ -311,6 +316,9 @@ public class Crop : Interactable {
         if (stage == GrowthStage.Bare || health == Health.Dead) {
             return "E to dig up";
         }
+        else if (!enoughLightToGrow) {
+            return "";
+        }
         else if (state == State.NeedsWater) {
             return ResourceManager.Instance.IsWaterEmpty() ? "out of water" : "E to water";
         }
@@ -321,22 +329,25 @@ public class Crop : Interactable {
     }
 
     public override float GetTimerValue() {
+        if (!enoughLightToGrow) return 0;
         if(state == State.Growing) return 1 - (growthTimer / growthTime);
         if (state == State.NeedsWater) return 1 - (thirstyTimer / thirstyTime);
         return 0;
     }
     public override float GetTimerTime() {
+        if (!enoughLightToGrow) return 0;
         if (state == State.Growing) return growthTimer;
-        else if (state == State.NeedsWater) return thirstyTimer;
-        else return 0;
+        if (state == State.NeedsWater) return thirstyTimer;
+        return 0;
     }
     public override InteractableUI.TimerIcon GetTimerIcon() {
+        if (!enoughLightToGrow) return InteractableUI.TimerIcon.None;
         if (state == State.Growing) {
             if (stage == GrowthStage.Unripe) return InteractableUI.TimerIcon.Ripe;
             else return InteractableUI.TimerIcon.Growth;
         }
-        else if (state == State.NeedsWater) return InteractableUI.TimerIcon.Water;
-        else return InteractableUI.TimerIcon.None;
+        if (state == State.NeedsWater) return InteractableUI.TimerIcon.Water;
+        return InteractableUI.TimerIcon.None;
     }
 
     protected override void OnDestroy() {
