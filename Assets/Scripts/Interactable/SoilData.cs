@@ -12,6 +12,7 @@ using Random = UnityEngine.Random;
 [CreateAssetMenu(fileName = "NewSoilData", menuName = "SoilData")]
 public class SoilData : SerializedScriptableObject {
     private static float maxDistanceFromCenter = 1.5f;
+    private static float minDistanceToOtherCrop = 1.5f;
     
     public List<CropData> cropData = new List<CropData>();
 
@@ -29,19 +30,14 @@ public class SoilData : SerializedScriptableObject {
         SaveToFile();
     }
 
-    private void SaveToFile() {
+    public void SaveToFile() {
         var filePath = GetFilePath();
         File.WriteAllText(filePath, "");
 
         var json = JsonUtility.ToJson(this);
-        // Debug.Log("saving data to " + filePath + " : \n" + json);
         File.WriteAllText(filePath, json);
     }
 
-    public void OnEditorRefresh() {
-        SaveToFile();
-    }
-    
     public void LoadDataFromFile() {
         cropData.Clear();
 
@@ -73,8 +69,29 @@ public class SoilData : SerializedScriptableObject {
         if (cropData.Count >= 2) return;
 
         Vector3 randomPosition = Vector3.zero;
-        randomPosition.x = Random.Range(-maxDistanceFromCenter, maxDistanceFromCenter);
-        randomPosition.z = Random.Range(-maxDistanceFromCenter, maxDistanceFromCenter);
+        int maxLoops = 1000;
+        for (int loops = 0; loops <= maxLoops; loops++) {
+            randomPosition.x = Random.Range(-maxDistanceFromCenter, maxDistanceFromCenter);
+            randomPosition.z = Random.Range(-maxDistanceFromCenter, maxDistanceFromCenter);
+
+            // if no other crops, accept random position
+            if (cropData.Count == 0) break;
+            
+            // if there is other crop, calculate distance
+            bool passesDistanceCriteria = true;
+            foreach (var data in cropData) {
+                float distance = Vector3.Distance(randomPosition, data.relativePosition);
+                if (distance == 0) continue;
+                if (distance <= minDistanceToOtherCrop) {
+                    passesDistanceCriteria = false;
+                    break;
+                }
+            }
+            if (passesDistanceCriteria) break;
+            // reset random position for next loop
+            randomPosition = Vector3.zero;
+        }
+        
         
         cropData.Add(new CropData(randomPosition, Crop.GrowthStage.Seed));
     }
@@ -82,8 +99,11 @@ public class SoilData : SerializedScriptableObject {
     private string GetFilePath() {
         return Path.Combine(Application.persistentDataPath, name + ".json");
     }
+    
+    
 }
 
+[Serializable]
 public struct CropData {
     public Vector3 relativePosition;
     public Crop.GrowthStage stage;

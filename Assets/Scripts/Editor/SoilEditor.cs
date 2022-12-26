@@ -10,40 +10,26 @@ public class SoilEditor : Editor {
 
     private void OnEnable() {
         soil = target as Soil;
-        UpdateSoil();
+        EditorRefresh();
     }
 
     private void OnValidate() {
-        UpdateSoil();
+        EditorRefresh();
     }
 
     private void OnSceneGUI() {
-        UpdateSoil();
+        EditorRefresh();
     }
 
     public override void OnInspectorGUI() {
         base.OnInspectorGUI();
 
-        if(GUILayout.Button("Clear Data")) {
-            soil.ClearData();
-        }
-
-        if (GUILayout.Button("Add Random Crop")) {
-            AddRandomCrop();
+        if (GUILayout.Button("Refresh")) {
+            EditorRefresh();
         }
     }
 
-    private void UpdateSoil() {
-        // Debug.Log("loading soil data on " + soil.name);
-        
-        soil.EditorChangedSoilData();
-        soil.LoadData();
-    }
-
-    private void AddRandomCrop() {
-        soil.soilData.AddRandomCrop();
-        
-        soil.EditorChangedSoilData();
+    private void EditorRefresh() {
         soil.LoadData();
     }
 }

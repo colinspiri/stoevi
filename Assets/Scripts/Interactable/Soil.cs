@@ -128,22 +128,17 @@ public class Soil : Interactable {
         }
     }
 
-    public void EditorChangedSoilData() {
-        soilData.OnEditorRefresh();
-    }
-
     private void DestroyInstantiatedCrops() {
+        // destroy all crops in list
         while (crops.Count > 0) {
-            if (Application.isEditor) {
-                DestroyImmediate(crops[0].gameObject);
-            }
+            if (Application.isEditor) DestroyImmediate(crops[0].gameObject);
             else Destroy(crops[0].gameObject);
             
             crops.RemoveAt(0);
         }
         crops.Clear();
         
-        // also destroy crops that are children
+        // also destroy anything parented but not referenced
         foreach (Transform child in transform) {
             if(Application.isPlaying) Destroy(child.gameObject);
             else DestroyImmediate(child.gameObject);

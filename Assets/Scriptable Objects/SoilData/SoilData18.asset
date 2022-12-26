@@ -20,64 +20,9 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: cropData
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[CropData, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: CropData, Assembly-CSharp
-    - Name: relativePosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: -1.28255141
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: -0.06447168
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: stage
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: CropData, Assembly-CSharp
-    - Name: relativePosition
-      Entry: 7
-      Data: UnityEngine.Vector3, UnityEngine.CoreModule
-    - Name: 
-      Entry: 4
-      Data: 0.13529247
-    - Name: 
-      Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0.280547023
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: stage
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
+  cropData:
+  - relativePosition: {x: -0.88, y: 0, z: 1.3371377}
+    stage: 4
+  - relativePosition: {x: 0.6732115, y: 0, z: 0.519968}
+    stage: 0
