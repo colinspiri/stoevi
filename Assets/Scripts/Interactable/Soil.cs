@@ -117,12 +117,18 @@ public class Soil : Interactable {
 
     public void LoadData() {
         DestroyInstantiatedCrops();
-        
+
         soilData.LoadDataFromFile();
+
         foreach (var cropData in soilData.cropData) {
-            Vector3 spawnPosition = cropData.relativePosition;
+            Vector3 spawnPosition = cropData.relativePosition + transform.position;
+            spawnPosition.y = transform.position.y + transform.localScale.y / 2;
             SpawnCrop(spawnPosition, cropData.stage);
         }
+    }
+
+    public void EditorChangedSoilData() {
+        soilData.OnEditorRefresh();
     }
 
     private void DestroyInstantiatedCrops() {

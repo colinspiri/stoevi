@@ -9,7 +9,7 @@ public class LightManager : MonoBehaviour {
     public static LightManager Instance;
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
-    [SerializeField] private Camera Camera;
+    private Camera Camera;
 
     // state
     [SerializeField, Range(0, 1)] private float TimePercent;
