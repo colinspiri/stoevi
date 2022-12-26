@@ -35,19 +35,19 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: -0.541931868
+      Data: -1.28255141
     - Name: 
       Entry: 4
       Data: 0
     - Name: 
       Entry: 4
-      Data: -1.35819578
+      Data: -0.06447168
     - Name: 
       Entry: 8
       Data: 
     - Name: stage
       Entry: 3
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -59,13 +59,13 @@ MonoBehaviour:
       Data: UnityEngine.Vector3, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 1.63969183
+      Data: 0.13529247
     - Name: 
       Entry: 4
       Data: 0
     - Name: 
       Entry: 4
-      Data: -0.5
+      Data: 0.280547023
     - Name: 
       Entry: 8
       Data: 

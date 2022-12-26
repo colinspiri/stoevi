@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using Yarn.Compiler;
 
@@ -134,7 +135,6 @@ public class Soil : Interactable {
     private void DestroyInstantiatedCrops() {
         while (crops.Count > 0) {
             if (Application.isEditor) {
-                Debug.Log("destroyed " + crops[0].name);
                 DestroyImmediate(crops[0].gameObject);
             }
             else Destroy(crops[0].gameObject);
@@ -142,6 +142,12 @@ public class Soil : Interactable {
             crops.RemoveAt(0);
         }
         crops.Clear();
+        
+        // also destroy crops that are children
+        foreach (Transform child in transform) {
+            if(Application.isPlaying) Destroy(child.gameObject);
+            else DestroyImmediate(child.gameObject);
+        }
     }
 
     public void ClearData() {

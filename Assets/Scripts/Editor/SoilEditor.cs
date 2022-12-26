@@ -14,7 +14,6 @@ public class SoilEditor : Editor {
     }
 
     private void OnValidate() {
-        Debug.Log("OnValidate()");
         UpdateSoil();
     }
 
@@ -35,7 +34,7 @@ public class SoilEditor : Editor {
     }
 
     private void UpdateSoil() {
-        Debug.Log("loading soil data on " + soil.name);
+        // Debug.Log("loading soil data on " + soil.name);
         
         soil.EditorChangedSoilData();
         soil.LoadData();

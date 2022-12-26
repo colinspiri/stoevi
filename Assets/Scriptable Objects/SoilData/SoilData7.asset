@@ -26,7 +26,31 @@ MonoBehaviour:
       Data: 0|System.Collections.Generic.List`1[[CropData, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: CropData, Assembly-CSharp
+    - Name: relativePosition
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: -0.194079161
+    - Name: 
+      Entry: 4
       Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1.21857762
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: stage
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 

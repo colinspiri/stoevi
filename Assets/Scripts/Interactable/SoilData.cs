@@ -31,9 +31,10 @@ public class SoilData : SerializedScriptableObject {
 
     private void SaveToFile() {
         var filePath = GetFilePath();
+        File.WriteAllText(filePath, "");
 
         var json = JsonUtility.ToJson(this);
-        Debug.Log("saving data to " + filePath + " : \n" + json);
+        // Debug.Log("saving data to " + filePath + " : \n" + json);
         File.WriteAllText(filePath, json);
     }
 
@@ -57,7 +58,7 @@ public class SoilData : SerializedScriptableObject {
         }
 
         var json = File.ReadAllText(filePath);
-        Debug.Log("loading data from " + filePath + " : \n" + json);
+        // Debug.Log("loading data from " + filePath + " : \n" + json);
         JsonUtility.FromJsonOverwrite(json, this);
     }
 
@@ -66,8 +67,6 @@ public class SoilData : SerializedScriptableObject {
 
         var filePath = GetFilePath();
         File.WriteAllText(filePath, "");
-        
-        Debug.Log("data on " + name + " cleared");
     }
 
     public void AddRandomCrop() {
