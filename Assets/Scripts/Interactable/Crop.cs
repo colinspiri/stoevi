@@ -53,7 +53,7 @@ public class Crop : Interactable {
         if (stage == GrowthStage.Bare || health == Health.Dead) return true;
         
         // can be watered
-        if (stage == GrowthStage.Seed || stage == GrowthStage.Sprout || stage == GrowthStage.Intermediate || stage == GrowthStage.Unripe) {
+        if (enoughLightToGrow && (stage == GrowthStage.Seed || stage == GrowthStage.Sprout || stage == GrowthStage.Intermediate || stage == GrowthStage.Unripe)) {
             return ResourceManager.Instance.HasWater();
         }
         
