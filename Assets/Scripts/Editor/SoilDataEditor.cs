@@ -16,12 +16,10 @@ public class SoilDataEditor : Editor {
         // buttons
         if(GUILayout.Button("Clear Data")) {
             soilData.ClearData();
-            soilData.SaveToFile();
         }
 
         if (GUILayout.Button("Add Random Crop")) {
             soilData.AddRandomCrop();
-            soilData.SaveToFile();
         }
         
         // display original info

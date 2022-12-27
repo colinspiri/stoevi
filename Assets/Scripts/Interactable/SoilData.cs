@@ -48,11 +48,6 @@ public class SoilData : SerializedScriptableObject {
             return;
         }
 
-        if (PlayerPrefs.GetInt("CurrentDay", 1) == 1) {
-            File.WriteAllText(filePath, "");
-            return;
-        }
-
         var json = File.ReadAllText(filePath);
         // Debug.Log("loading data from " + filePath + " : \n" + json);
         JsonUtility.FromJsonOverwrite(json, this);
@@ -65,7 +60,7 @@ public class SoilData : SerializedScriptableObject {
         File.WriteAllText(filePath, "");
     }
 
-    public void AddRandomCrop() {
+    public void AddRandomCrop(Crop.GrowthStage growthStage = Crop.GrowthStage.Seed) {
         if (cropData.Count >= 2) return;
 
         Vector3 randomPosition = Vector3.zero;
@@ -92,15 +87,18 @@ public class SoilData : SerializedScriptableObject {
             randomPosition = Vector3.zero;
         }
         
-        
-        cropData.Add(new CropData(randomPosition, Crop.GrowthStage.Seed));
+        cropData.Add(new CropData(randomPosition, growthStage));
+
+        SaveToFile();
+    }
+
+    public bool HasSpaceInSoil() {
+        return cropData.Count < 2;
     }
 
     private string GetFilePath() {
         return Path.Combine(Application.persistentDataPath, name + ".json");
     }
-    
-    
 }
 
 [Serializable]

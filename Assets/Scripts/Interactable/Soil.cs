@@ -117,6 +117,8 @@ public class Soil : Interactable {
     }
 
     public void LoadData() {
+        Debug.Log("LoadData()");
+        
         DestroyInstantiatedCrops();
 
         soilData.LoadDataFromFile();
@@ -134,7 +136,7 @@ public class Soil : Interactable {
             if (Application.isEditor) DestroyImmediate(crops[0].gameObject);
             else Destroy(crops[0].gameObject);
             
-            crops.RemoveAt(0);
+            if(crops.Count > 0) crops.RemoveAt(0);
         }
         crops.Clear();
         
@@ -143,11 +145,5 @@ public class Soil : Interactable {
             if(Application.isPlaying) Destroy(child.gameObject);
             else DestroyImmediate(child.gameObject);
         }
-    }
-
-    public void ClearData() {
-        DestroyInstantiatedCrops();
-        
-        soilData.ClearData();
     }
 }

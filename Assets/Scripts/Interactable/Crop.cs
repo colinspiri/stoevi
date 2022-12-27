@@ -212,8 +212,6 @@ public class Crop : Interactable {
 
     private void ChangeCropStage(GrowthStage newStage) {
         stage = newStage;
-        
-        UpdateSprite();
 
         // set state based on new stage
         switch (stage) {
@@ -230,6 +228,9 @@ public class Crop : Interactable {
                 state = State.Harvestable;
                 break;
         }
+        
+        // update sprite
+        UpdateSprite();
 
         // set tomatoes left
         if (stage == GrowthStage.Ripe && tomatoesYielded == 0) {
