@@ -329,8 +329,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111a4b52fc75434459fa46f139127d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeUntilEvening: 240
-  timeUntilDark: 60
+  minutesUntilEvening: 4
+  minutesUntilDark: 3
 --- !u!1001 &2081909844
 PrefabInstance:
   m_ObjectHideFlags: 0

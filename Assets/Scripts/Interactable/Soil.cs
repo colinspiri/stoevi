@@ -15,12 +15,12 @@ public class Soil : Interactable {
     
     // state
     public List<Crop> crops = new List<Crop>();
-    private bool tilled;
+    // private bool tilled;
     private int fertilizerLevel;
 
     protected override void Start() {
         base.Start();
-        tilled = false;
+        // tilled = false;
         LoadData();
     }
 
@@ -30,11 +30,11 @@ public class Soil : Interactable {
             return true;
         }
         // can be tilled
-        else if (crops.Count < farmingConstants.maxCrops && !tilled) {
+        /*else if (crops.Count < farmingConstants.maxCrops && !tilled) {
             return true;
-        }
+        }*/
         // can plant crops
-        else if(tilled && crops.Count < farmingConstants.maxCrops && ResourceManager.Instance.HasSeedsLeft()) {
+        else if(crops.Count < farmingConstants.maxCrops && ResourceManager.Instance.HasSeedsLeft()) {
             return true;
         }
         return false;
@@ -46,11 +46,11 @@ public class Soil : Interactable {
             fertilizerLevel = farmingConstants.maxFertilizerLevel;
         }
         // till
-        else if (crops.Count < farmingConstants.maxCrops && !tilled) {
+        /*else if (crops.Count < farmingConstants.maxCrops && !tilled) {
             tilled = true;
-        }
+        }*/
         // plant crops
-        else if(tilled && crops.Count < farmingConstants.maxCrops && ResourceManager.Instance.HasSeedsLeft()) {
+        else if(crops.Count < farmingConstants.maxCrops && ResourceManager.Instance.HasSeedsLeft()) {
             var lookPosition = CameraRaycast.Instance.GetCurrentHitPosition();
             SpawnCrop(lookPosition);
             
@@ -84,9 +84,7 @@ public class Soil : Interactable {
     }
 
     public override string GetObjectDescription() {
-        if (tilled && fertilizerLevel > 0) return "tilled & fertilized";
-        else if (tilled) return "tilled";
-        else if (fertilizerLevel > 0) return "fertilized";
+        if (fertilizerLevel > 0) return "fertilized";
         else return "";
     }
 
@@ -96,15 +94,10 @@ public class Soil : Interactable {
             if (fertilizerLevel < farmingConstants.maxFertilizerLevel) return "E to fertilize";
             return "already fertilized";
         }
-        // plant or till 
+        // plant 
         else if (crops.Count < farmingConstants.maxCrops) {
-            if (tilled) {
-                if (ResourceManager.Instance.HasSeedsLeft()) return "E to plant seed";
-                return "out of seeds";
-            }
-            else {
-                return "E to till";
-            }
+            if (ResourceManager.Instance.HasSeedsLeft()) return "E to plant seed";
+            return "out of seeds";
         }
         // no more space
         else {

@@ -17,7 +17,7 @@ MonoBehaviour:
   emptySprite: {fileID: 21300000, guid: ba6c8846ec1604bc29c073185ad29aef, type: 3}
   maxFertilizerLevel: 2
   maxCrops: 2
-  baseThirstyTime: 180
+  baseThirstyTime: 300
   growthTimeByStage:
     keys: 00000000010000000200000003000000
     values:

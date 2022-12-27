@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cropsToSpawnByStage:
     keys: 000000000100000002000000030000000400000005000000
-    values: 040000000400000005000000050000000a00000000000000
+    values: 000000000000000002000000080000000500000000000000
   allSoilData:
   - {fileID: 11400000, guid: 903eac2d8ff18b34b98f39990960530c, type: 2}
   - {fileID: 11400000, guid: 6f27a3b2d57fa9f4a8f996b2ed1c7a17, type: 2}
@@ -434,7 +434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620360020038090571, guid: 3a93b794a2b8e441eaf18b2abba5d7d8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a93b794a2b8e441eaf18b2abba5d7d8, type: 3}
@@ -1519,7 +1519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620360020038090571, guid: 3a93b794a2b8e441eaf18b2abba5d7d8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a93b794a2b8e441eaf18b2abba5d7d8, type: 3}
@@ -2453,7 +2453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 789039114618768132, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 789039114618768139, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_RootOrder
@@ -2461,15 +2461,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 789039114618768139, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 165.15
+      value: 151.55
       objectReference: {fileID: 0}
     - target: {fileID: 789039114618768139, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.71
+      value: 3.66
       objectReference: {fileID: 0}
     - target: {fileID: 789039114618768139, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 156.55
+      value: 187.15
       objectReference: {fileID: 0}
     - target: {fileID: 789039114618768139, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2720,7 +2720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620360020038090571, guid: 3a93b794a2b8e441eaf18b2abba5d7d8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a93b794a2b8e441eaf18b2abba5d7d8, type: 3}
@@ -2809,6 +2809,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fertilizer
       objectReference: {fileID: 0}
+    - target: {fileID: 1433479246987159136, guid: bbc628e78fbd4e24797aba1a744dc2b6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1433479246987159140, guid: bbc628e78fbd4e24797aba1a744dc2b6, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -2869,6 +2873,10 @@ PrefabInstance:
     - target: {fileID: 2286146043468307675, guid: f541148212600784ca0c5703e4c0c083, type: 3}
       propertyPath: m_Name
       value: Seed Crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286146043468307675, guid: f541148212600784ca0c5703e4c0c083, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2286146043468307679, guid: f541148212600784ca0c5703e4c0c083, type: 3}
       propertyPath: m_RootOrder

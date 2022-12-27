@@ -99,5 +99,5 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  FogMaxDistanceDay: 50
-  FogMaxDistanceNight: 20
+  FogMaxDistanceDay: 40
+  FogMaxDistanceNight: 25

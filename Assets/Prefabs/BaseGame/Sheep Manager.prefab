@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bleat: {fileID: 11400000, guid: 16b83431b8146a14bb6f8b675a217298, type: 2}
-  scareCooldownMin: 60
-  scareCooldownMax: 180
+  scareCooldownMin: 30
+  scareCooldownMax: 120
   minScareDistance: 10

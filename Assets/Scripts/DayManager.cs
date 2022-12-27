@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class DayManager : MonoBehaviour {
     // constants
-    public float timeUntilEvening;
-    public float timeUntilDark;
+    public float minutesUntilEvening;
+    public float minutesUntilDark;
+    private float timeUntilEvening;
+    private float timeUntilDark;
     
     // state
     private float timer;
@@ -17,6 +19,8 @@ public class DayManager : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        timeUntilEvening = minutesUntilEvening * 60;
+        timeUntilDark = minutesUntilDark * 60;
         timer = 0;
         LightManager.Instance.UpdateLighting(0);
     }
