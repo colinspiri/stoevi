@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour {
 
     // game state
     public bool gameStopped;
+    
+    public static event Action<bool> OnGameOver = delegate {  };
 
     private void Awake() {
         Instance = this;
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour {
         InteractableManager.Instance.SaveAllData();
         
         Pause(true);
-        PauseMenuManager.Instance.GameOver(playerSurvived);
+
+        OnGameOver(playerSurvived);
     }
 }

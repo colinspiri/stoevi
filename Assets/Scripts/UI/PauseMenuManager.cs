@@ -7,36 +7,23 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class PauseMenuManager : MonoBehaviour {
-    public static PauseMenuManager Instance;
-    
-    [SerializeField] GameObject pauseMenu;
+    [SerializeField] private GameObject pauseMenu;
     private InputActions inputActions;
     
     // components
-    public GameObject gameOverPanel;
-    public TextMeshProUGUI gameOverMessage;
-    public TextMeshProUGUI gameOverTomatoes;
     public HUDManager hud;
 
-    private void Awake() {
-        Instance = this;
-    }
-
-    private void Start()
-    {
+    private void Start() {
         inputActions = new InputActions();
         inputActions.Enable();
         
-        gameOverPanel.SetActive(false);
         ClosePauseMenu();
     }
 
-    private void Update()
-    {
-        if (!gameOverPanel.activeSelf && (GameManager.Instance == null || !GameManager.Instance.gameStopped)) {
-            if (inputActions.Gameplay.Menu.triggered) {
-                OpenPauseMenu();
-            }
+    private void Update() {
+        if (GameManager.Instance != null && GameManager.Instance.gameStopped) return;
+        if (inputActions.Gameplay.Menu.triggered) {
+            OpenPauseMenu();
         }
     }
 
@@ -60,22 +47,5 @@ public class PauseMenuManager : MonoBehaviour {
         Cursor.visible = false;
 
         if(GameManager.Instance) GameManager.Instance.Resume(true);
-    }
-
-    public void GameOver(bool playerSurvived = true) {
-        gameOverPanel.SetActive(true);
-        if (playerSurvived) {
-            gameOverPanel.GetComponent<Image>().color = Color.black;
-            gameOverMessage.text = "You survived day " + (GameManager.Instance.currentDay - 1) + ".";
-            
-            gameOverTomatoes.text = "You harvested " + ResourceManager.Instance.PlayerTomatoes + " tomatoes.\n" +
-                                    "The Torbalan stole " + ResourceManager.Instance.TorbalanTomatoes + " tomatoes.";
-        }
-        else {
-            gameOverMessage.text = "You failed.";
-            
-            gameOverTomatoes.text = "The Torbalan stole " + ResourceManager.Instance.TorbalanTomatoes + " tomatoes.\n" +
-                                    "He also stole the " + ResourceManager.Instance.PlayerTomatoes + " you harvested.";
-        }
     }
 }

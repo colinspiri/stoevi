@@ -564,7 +564,7 @@ MonoBehaviour:
   closeRadius: 30
   farRadius: 60
   maxTimeCloseToPlayer: 60
-  maxTimeFarFromPlayer: 30
+  maxTimeFarFromPlayer: 20
   areaNodes: []
 --- !u!82 &789039114618768142
 AudioSource:

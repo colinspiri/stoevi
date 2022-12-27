@@ -15,12 +15,6 @@ public class TorbalanDirector : MonoBehaviour {
     private float timeCloseToPlayer;
     private float timeFarFromPlayer;
     public Vector3 TargetPosition { get; set; }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update() {
@@ -40,12 +34,12 @@ public class TorbalanDirector : MonoBehaviour {
             if (distance < closeRadius) {
                 timeCloseToPlayer += Time.deltaTime;
                 timeFarFromPlayer = 0;
-                //Debug.Log("timeCloseToPlayer = " + timeCloseToPlayer);
+                Debug.Log("timeCloseToPlayer = " + timeCloseToPlayer);
             }
             else if (distance > farRadius) {
                 timeFarFromPlayer += Time.deltaTime;
                 timeCloseToPlayer = 0;
-                //Debug.Log("timeFarFromPlayer = " + timeFarFromPlayer);
+                Debug.Log("timeFarFromPlayer = " + timeFarFromPlayer);
             }
         }
     }
