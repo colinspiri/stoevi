@@ -53,12 +53,24 @@ public class Crop : Interactable {
         if (stage == GrowthStage.Bare || health == Health.Dead) return true;
         
         // can be watered
-        if (enoughLightToGrow && (stage == GrowthStage.Seed || stage == GrowthStage.Sprout || stage == GrowthStage.Intermediate || stage == GrowthStage.Unripe)) {
-            return ResourceManager.Instance.HasWater();
+        if (enoughLightToGrow && state == State.NeedsWater && ResourceManager.Instance.HasWater() &&
+            (stage == GrowthStage.Seed ||
+             stage == GrowthStage.Sprout ||
+             stage == GrowthStage.Intermediate ||
+             stage == GrowthStage.Unripe)) {
+            return true;
         }
-        
+
         // can be harvested
         if (stage == GrowthStage.Ripe) return true;
+        
+        // DEBUG: shorten growth timer
+        #if UNITY_EDITOR
+        if (state == State.Growing) {
+            growthTimer = 2f;
+            return true;
+        }
+        #endif
 
         return false;
     }
@@ -100,19 +112,21 @@ public class Crop : Interactable {
             return;
         }
         // can be watered
-        else if (state == State.NeedsWater && ResourceManager.Instance.HasWater() && 
-            (stage == GrowthStage.Seed || 
-             stage == GrowthStage.Sprout || 
-             stage == GrowthStage.Intermediate ||
-             stage == GrowthStage.Unripe)) {
+        else if (enoughLightToGrow && state == State.NeedsWater && ResourceManager.Instance.HasWater() && 
+                 (stage == GrowthStage.Seed || 
+                  stage == GrowthStage.Sprout || 
+                  stage == GrowthStage.Intermediate ||
+                  stage == GrowthStage.Unripe)) {
             Water();
             return;
         }
         // DEBUG: shorten growth timer
+#if UNITY_EDITOR
         else if (state == State.Growing) {
             growthTimer = 2f;
             return;
         }
+        #endif
     }
 
     private void Water() {

@@ -2124,7 +2124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1720d42a6cfae459ef3d2afeb43bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHour: 15
 --- !u!1 &1107441611
 GameObject:
   m_ObjectHideFlags: 0
@@ -9643,9 +9642,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 6749729044817748472}
-  gameOverPanel: {fileID: 6442295116052333941}
-  gameOverMessage: {fileID: 7618183037298244447}
-  gameOverTomatoes: {fileID: 7618183038875963121}
   hud: {fileID: 1969297023}
 --- !u!225 &8872362116048988698
 CanvasGroup:

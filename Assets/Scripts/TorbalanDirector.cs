@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TorbalanDirector : MonoBehaviour {
     // constants
@@ -10,41 +11,83 @@ public class TorbalanDirector : MonoBehaviour {
     public float maxTimeFarFromPlayer;
     public List<Transform> areaNodes;
     
+    // behavior tree variables
+    public Vector3 TargetPosition { get; set; }
+    public bool CommandGiven;
+    
     // state
-    private bool directorCommandGiven;
+    public enum DirectorCommand { None, ApproachPlayer, BackOff }
+    private DirectorCommand currentCommand = DirectorCommand.None;
     private float timeCloseToPlayer;
     private float timeFarFromPlayer;
-    public Vector3 TargetPosition { get; set; }
 
     // Update is called once per frame
     void Update() {
-        if (timeCloseToPlayer >= maxTimeCloseToPlayer) {
-            directorCommandGiven = true;
-            TargetPosition = GetFarthestAreaNodeFromPlayer();
-            timeCloseToPlayer = 0;
+        if (currentCommand == DirectorCommand.None) {
+            CountTimers();
         }
-        if (timeFarFromPlayer >= maxTimeFarFromPlayer) {
-            directorCommandGiven = true;
+        else if (currentCommand == DirectorCommand.ApproachPlayer) {
             TargetPosition = FirstPersonMovement.Instance.transform.position;
-            timeFarFromPlayer = 0;
+            CheckApproachPlayerCondition();
+        }
+        else if (currentCommand == DirectorCommand.BackOff) {
+            TargetPosition = GetFarthestAreaNodeFromPlayer();
+            CheckBackOffCondition();
+        }
+    }
+
+    private void CountTimers() {
+        // calculate distance from player
+        var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
+            
+        // close timer
+        if (distance < closeRadius) {
+            timeCloseToPlayer += Time.deltaTime;
+            Debug.Log("timeCloseToPlayer = " + timeCloseToPlayer);
+                
+            if (timeCloseToPlayer >= maxTimeCloseToPlayer) {
+                timeCloseToPlayer = 0;
+                timeFarFromPlayer = 0;
+                currentCommand = DirectorCommand.BackOff;
+                CommandGiven = true;
+            }
         }
 
-        if (directorCommandGiven == false) {
-            var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
-            if (distance < closeRadius) {
-                timeCloseToPlayer += Time.deltaTime;
-                timeFarFromPlayer = 0;
-                Debug.Log("timeCloseToPlayer = " + timeCloseToPlayer);
-            }
-            else if (distance > farRadius) {
-                timeFarFromPlayer += Time.deltaTime;
+        // far timer
+        if (distance > farRadius) {
+            timeFarFromPlayer += Time.deltaTime;
+            Debug.Log("timeFarFromPlayer = " + timeFarFromPlayer);
+                
+            if (timeFarFromPlayer >= maxTimeFarFromPlayer) {
                 timeCloseToPlayer = 0;
-                Debug.Log("timeFarFromPlayer = " + timeFarFromPlayer);
+                timeFarFromPlayer = 0;
+                currentCommand = DirectorCommand.ApproachPlayer;
+                CommandGiven = true;
             }
         }
     }
 
-    public Vector3 GetFarthestAreaNodeFromPlayer() {
+    private void CheckApproachPlayerCondition() {
+        var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
+        if (distance <= closeRadius) {
+            CompleteCommand();
+        }
+    }
+
+    private void CheckBackOffCondition() {
+        var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
+        if (distance >= farRadius) {
+            CompleteCommand();
+        }
+    }
+
+    public void CompleteCommand() {
+        currentCommand = DirectorCommand.None;
+        CommandGiven = false;
+        TargetPosition = transform.position;
+    }
+    
+    private Vector3 GetFarthestAreaNodeFromPlayer() {
         float maxDistance = 0;
         Vector3 farthestPosition = Vector3.zero;
         foreach (var node in areaNodes) {
@@ -55,17 +98,6 @@ public class TorbalanDirector : MonoBehaviour {
             }
         }
         return farthestPosition;
-    }
-
-    public bool GaveCommand() {
-        return directorCommandGiven;
-    }
-    
-    public void CompleteCommand() {
-        directorCommandGiven = false;
-        timeCloseToPlayer = 0;
-        timeFarFromPlayer = 0;
-        TargetPosition = transform.position;
     }
 
     private void OnDrawGizmosSelected() {

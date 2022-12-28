@@ -45,11 +45,13 @@ public class GameManager : MonoBehaviour {
     }
     
     public void GameOver(bool playerSurvived = true) {
-        currentDay++;
-        PlayerPrefs.SetInt("CurrentDay", currentDay);
-        
-        InteractableManager.Instance.SaveAllData();
-        
+        if (playerSurvived) {
+            currentDay++;
+            PlayerPrefs.SetInt("CurrentDay", currentDay);
+            
+            InteractableManager.Instance.SaveAllData();
+        }
+
         Pause(true);
 
         OnGameOver(playerSurvived);

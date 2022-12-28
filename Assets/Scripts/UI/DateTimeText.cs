@@ -2,15 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Experimental.TerrainAPI;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class DateTimeText : MonoBehaviour {
     private TextMeshProUGUI text;
     
     // constants
-    public int startingHour;
+    // public int startingHour;
     
     // state
     private bool showNightPrompt;
@@ -38,8 +36,8 @@ public class DateTimeText : MonoBehaviour {
     private void UpdateText(int secondsElapsed) {
         string uiText = "Day " + PlayerPrefs.GetInt("CurrentDay", 1);
         
-        float additionalSeconds = startingHour * 60f;
-        uiText += "\n" + Util.FormatTimer(additionalSeconds + secondsElapsed);
+        // float additionalSeconds = startingHour * 60f;
+        uiText += "\n" + Util.FormatTimer(secondsElapsed);
 
         if (showNightPrompt) {
             uiText += "\n";
