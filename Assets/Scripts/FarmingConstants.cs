@@ -18,6 +18,7 @@ public class FarmingConstants : ScriptableObject {
 
     [Header("Crops")] 
     public float baseThirstyTime;
+    public float baseGrowthTime;
     public SerializedDictionary<Crop.GrowthStage, float> growthTimeByStage;
     public List<float> consecutiveTimerMultipliers;
 }

@@ -18,6 +18,7 @@ MonoBehaviour:
   maxFertilizerLevel: 2
   maxCrops: 2
   baseThirstyTime: 300
+  baseGrowthTime: 150
   growthTimeByStage:
     keys: 00000000010000000200000003000000
     values:

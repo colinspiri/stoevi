@@ -247,7 +247,7 @@ public class FirstPersonMovement : MonoBehaviour
 
 	private void CameraMovement() {
 		// change rotation and pitch based on mouse movement
-		var look = inputActions.Gameplay.Look.ReadValue<Vector2>();
+		var look = InputHandler.Instance.look;
 		if (look.sqrMagnitude >= threshold) {
 			// Don't multiply mouse input by Time.deltaTime
 			float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;

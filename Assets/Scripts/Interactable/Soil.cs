@@ -110,8 +110,6 @@ public class Soil : Interactable {
     }
 
     public void LoadData() {
-        Debug.Log("LoadData()");
-        
         DestroyInstantiatedCrops();
 
         soilData.LoadDataFromFile();

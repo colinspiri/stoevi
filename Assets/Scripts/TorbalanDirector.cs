@@ -43,7 +43,6 @@ public class TorbalanDirector : MonoBehaviour {
         // close timer
         if (distance < closeRadius) {
             timeCloseToPlayer += Time.deltaTime;
-            Debug.Log("timeCloseToPlayer = " + timeCloseToPlayer);
                 
             if (timeCloseToPlayer >= maxTimeCloseToPlayer) {
                 timeCloseToPlayer = 0;
@@ -56,7 +55,6 @@ public class TorbalanDirector : MonoBehaviour {
         // far timer
         if (distance > farRadius) {
             timeFarFromPlayer += Time.deltaTime;
-            Debug.Log("timeFarFromPlayer = " + timeFarFromPlayer);
                 
             if (timeFarFromPlayer >= maxTimeFarFromPlayer) {
                 timeCloseToPlayer = 0;

@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class InputHandler : MonoBehaviour {
     public static InputHandler Instance;
     
-    [Header("Character Input Values")]
+    [Header("Input Values")]
     public Vector2 move;
     public Vector2 look;
     public bool run;
@@ -29,6 +29,7 @@ public class InputHandler : MonoBehaviour {
     [Header("Mouse Cursor Settings")]
     public bool cursorLocked = true;
     public bool cursorInputForLook = true;
+    public float sensitivity = 1;
 
     private void Awake() {
         Instance = this;
@@ -49,7 +50,7 @@ public class InputHandler : MonoBehaviour {
     }
     public void OnLook(InputValue value) {
         if(cursorInputForLook) {
-            look = value.Get<Vector2>();
+            look = sensitivity * value.Get<Vector2>();
         }
     }
     public void OnRun(InputValue value) {

@@ -20,7 +20,9 @@ public class VolumeControl : MonoBehaviour {
         slider.onValueChanged.AddListener(value => {
             if(AudioManager.Instance) AudioManager.Instance.SetVolume(mixerChannel, value);
         });
+        
         slider.value = PlayerPrefs.GetFloat(mixerChannel, slider.value);
+        if(AudioManager.Instance) AudioManager.Instance.SetVolume(mixerChannel, slider.value);
     }
 
     public void PlaySFXTestSound()

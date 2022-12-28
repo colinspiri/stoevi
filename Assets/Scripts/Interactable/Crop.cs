@@ -150,7 +150,7 @@ public class Crop : Interactable {
     private void StartGrowing() {
         state = State.Growing;
 
-        float growthTimeByStage = farmingConstants.growthTimeByStage[stage];
+        /*float growthTimeByStage = farmingConstants.growthTimeByStage[stage];
 
         // get multiplier
         var index = timesGrownToday >= farmingConstants.consecutiveTimerMultipliers.Count
@@ -160,6 +160,9 @@ public class Crop : Interactable {
 
         // set growth timer
         growthTime = growthTimeByStage * multiplier;
+        growthTimer = growthTime;*/
+
+        growthTime = farmingConstants.baseGrowthTime;
         growthTimer = growthTime;
 
         // Debug.Log("growth time is " + growthTime + " (" + growthTimeByStage + " * " + multiplier + ")");
@@ -168,7 +171,7 @@ public class Crop : Interactable {
     private void StartThirsty() {
         state = State.NeedsWater;
 
-        // get multiplier
+        /*// get multiplier
         var index = timesGrownToday >= farmingConstants.consecutiveTimerMultipliers.Count
             ? farmingConstants.consecutiveTimerMultipliers.Count - 1
             : timesGrownToday;
@@ -176,6 +179,9 @@ public class Crop : Interactable {
         
         // set thirsty timer
         thirstyTime = farmingConstants.baseThirstyTime * multiplier;
+        thirstyTimer = thirstyTime;*/
+        
+        thirstyTime = farmingConstants.baseThirstyTime;
         thirstyTimer = thirstyTime;
         
         // Debug.Log("thirsty time is " + thirstyTime + " (" + farmingConstants.baseThirstyTime + " * " + multiplier + ")");
