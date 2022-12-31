@@ -361,9 +361,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7557208376370848537, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 1147392b0f71a124596f5e42edb434a3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 84ac5f6e5255f7843a3ced72664ae582, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -622,10 +622,10 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
   mainMenuScene:
     sceneAsset: {fileID: 102900000, guid: 6dd513305e2b80642a43c3ad87d60f9e, type: 3}
-    scenePath: Assets/Scenes/MainMenu.unity
+    scenePath: Assets/Scenes/_MainMenu.unity
   gameScene:
     sceneAsset: {fileID: 102900000, guid: 8177ba1438c10794697df8015df5e37e, type: 3}
-    scenePath: Assets/Scenes/Day2.unity
+    scenePath: Assets/Scenes/_Day2.unity
   mainMenuMusic: {fileID: 4667785578077348750}
   detectedStinger: {fileID: 11400000, guid: eec1939c3a1db0843b90cd7a012995d7, type: 2}
   chaseStinger: {fileID: 11400000, guid: e4bde46a542f65246afab909d98aeffb, type: 2}
@@ -683,7 +683,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7930902516760894136, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
   m_audioClip: {fileID: 8300000, guid: dd49153911bbdcc49a88131ed787c3b8, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -808,9 +808,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7557208376370848537, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 38b39b9185cb54f44ac97a618885fb74, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 764ee4e07a8e6c74cb2f9c49a63e77fc, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0

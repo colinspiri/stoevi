@@ -5,11 +5,10 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class Cowbell : MonoBehaviour {
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     private AudioSource cowbell;
 
     private void Awake() {
-        agent = GetComponent<NavMeshAgent>();
         cowbell = GetComponent<AudioSource>();
     }
 

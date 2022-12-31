@@ -67,7 +67,6 @@ public class Crop : Interactable {
         // DEBUG: shorten growth timer
         #if UNITY_EDITOR
         if (state == State.Growing) {
-            growthTimer = 2f;
             return true;
         }
         #endif
@@ -121,7 +120,7 @@ public class Crop : Interactable {
             return;
         }
         // DEBUG: shorten growth timer
-#if UNITY_EDITOR
+        #if UNITY_EDITOR
         else if (state == State.Growing) {
             growthTimer = 2f;
             return;

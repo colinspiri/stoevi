@@ -265,6 +265,21 @@ public class FirstPersonMovement : MonoBehaviour
 			transform.Rotate(Vector3.up * rotationVelocity);
 		}
 		
+		// get base camera height
+		Vector3 cameraPos = transform.position;
+		float cameraRot = 0;
+		if (crouching) cameraPos += crouchHeight * transform.up;
+		else cameraPos += normalHeight * transform.up;
+		
+		// bob head while moving
+		if (moveState != MoveState.Still) {
+			bobCycle += currentSpeed * bobFrequency * Time.deltaTime;
+			bobCycle %= 2 * Mathf.PI;
+			var magnitude = crouching ? bobMagnitudeCrouching : bobMagnitude;
+			cameraPos.y += Mathf.Sin(bobCycle) * magnitude;
+		}
+		else bobCycle = 0;
+		
 		// get peeking direction
 		if (InputHandler.Instance.peek) {
 			var directionInput = inputActions.Gameplay.Move.ReadValue<Vector2>();
@@ -281,13 +296,7 @@ public class FirstPersonMovement : MonoBehaviour
 		}
 		else peekState = PeekState.None;
 
-		// lerp camera position for crouching & peeking
-		// get base height
-		Vector3 cameraPos = transform.position;
-		float cameraRot = 0;
-		if (crouching) cameraPos += crouchHeight * transform.up;
-		else cameraPos += normalHeight * transform.up;
-		// if peeking, add offset
+		// if peeking, add offset to camera pos
 		if (peekState != PeekState.None) {
 			switch (peekState) {
 				case PeekState.PeekLeft:
@@ -309,18 +318,6 @@ public class FirstPersonMovement : MonoBehaviour
 		}
 		LerpCameraPosition(cameraPos, 0.5f);
 		LerpCameraRotation(cameraRot, 0.5f);
-
-		// bob head while moving
-		if (moveState != MoveState.Still && !cameraPositionLerping) {
-			bobCycle += currentSpeed * bobFrequency * Time.deltaTime;
-			bobCycle %= 2 * Mathf.PI;
-			var baseHeight = crouching ? crouchHeight : normalHeight;
-			var magnitude = crouching ? bobMagnitudeCrouching : bobMagnitude;
-			float newCameraY = transform.position.y + baseHeight + Mathf.Sin(bobCycle) * magnitude;
-			cameraTarget.transform.position = new Vector3(cameraTarget.transform.position.x, newCameraY,
-				cameraTarget.transform.position.z);
-		}
-		else bobCycle = 0;
 	}
 
 	#region Helper Functions
