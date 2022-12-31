@@ -315,8 +315,10 @@ public class Crop : Interactable {
     }
 
     public override string GetObjectDescription() {
-        string uiText = "";
+        if (stage == GrowthStage.Bare) return "";
         
+        string uiText = "";
+
         switch (health) {
             case Health.Dead:
                 uiText += "dead";
