@@ -128,9 +128,9 @@ public class FirstPersonMovement : MonoBehaviour
 		if(moveState == MoveState.Running) StaminaController.Instance.ConsumeStamina();
 		
 		// report sound
-		if (TorbalanSenses.Instance != null && !breath.holdingBreath) {
-			if(moveState == MoveState.Running) TorbalanSenses.Instance.ReportSound(transform.position, runLoudness);
-			else if(moveState == MoveState.Walking) TorbalanSenses.Instance.ReportSound(transform.position, walkLoudness);
+		if (TorbalanHearing.Instance != null && !breath.holdingBreath) {
+			if(moveState == MoveState.Running) TorbalanHearing.Instance.ReportSound(transform.position, runLoudness);
+			else if(moveState == MoveState.Walking) TorbalanHearing.Instance.ReportSound(transform.position, walkLoudness);
 		}
 	}
 

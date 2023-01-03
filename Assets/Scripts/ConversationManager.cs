@@ -37,8 +37,8 @@ public class ConversationManager : MonoBehaviour {
         if (nextConversation >= conversations.Count) return;
         if (conversationPlaying) return;
 
-        if (TorbalanSenses.Instance != null) {
-            distanceFromTorbalan = Vector3.Distance(FirstPersonMovement.Instance.transform.position, TorbalanSenses.Instance.transform.position);
+        if (TorbalanHearing.Instance != null) {
+            distanceFromTorbalan = Vector3.Distance(FirstPersonMovement.Instance.transform.position, TorbalanHearing.Instance.transform.position);
             if (distanceFromTorbalan < distanceThreshold) return;
         }
 

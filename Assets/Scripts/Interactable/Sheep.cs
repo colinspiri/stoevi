@@ -61,8 +61,8 @@ public class Sheep : Interactable {
         bleat.Play3D(transform);
 
         // report sound to torbalan
-        if (TorbalanSenses.Instance) {
-            TorbalanSenses.Instance.ReportSound(transform.position, bleatLoudness);
+        if (TorbalanHearing.Instance) {
+            TorbalanHearing.Instance.ReportSound(transform.position, bleatLoudness);
         }
     }
 

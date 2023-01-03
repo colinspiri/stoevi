@@ -7,7 +7,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class AwarenessUI : MonoBehaviour {
     private Slider slider;
-    public TorbalanSenses senses;
+    public TorbalanVision vision;
 
     private void Awake() {
         slider = GetComponent<Slider>();
@@ -15,6 +15,6 @@ public class AwarenessUI : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        slider.value = senses.Awareness;
+        slider.value = vision.Awareness;
     }
 }

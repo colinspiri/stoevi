@@ -585,6 +585,7 @@ GameObject:
   - component: {fileID: 789039114618768143}
   - component: {fileID: 789039114618768136}
   - component: {fileID: 978921249338958145}
+  - component: {fileID: 6240433948082032128}
   - component: {fileID: 4625671584228454852}
   - component: {fileID: 7967770628958072520}
   - component: {fileID: 789039114618768141}
@@ -665,6 +666,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deaf: 0
   heardTime: 2
+--- !u!114 &6240433948082032128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789039114618768132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e002d42e6f5b76e49bcabfef4e2153a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   blind: 0
   targetMask:
     serializedVersion: 2
@@ -672,7 +685,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
-  eyesOffset: {x: 0, y: 4.05, z: 0}
+  eyesOffset: {x: 0, y: 4.02, z: 0}
   targetOffset: {x: 0, y: 2, z: 0}
   viewRadius: 20
   viewAngle: 105
@@ -741,22 +754,22 @@ MonoBehaviour:
       variableStartIndex: 
       JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(381.5,122.783249)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(1.499939,162.1859)"},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(1.56187248,138.705719)"},"ID":2,"Name":"Selector","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-1234.62207,317.045471)"},"ID":3,"Name":"Chase
         Player","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.Math.FloatComparison","NodeData":{"Offset":"(-251.893921,179.358521)"},"ID":4,"Name":"Awareness
-        >= 1","Instant":true,"Operationoperation":"GreaterThanOrEqualTo","SharedFloatfloat1":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Awareness","IsShared":true,"PropertyMapping":"TorbalanSenses/Awareness","PropertyMappingOwner":0,"SinglemValue":0},"SharedFloatfloat2":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}},{"Type":"PlayChaseStinger","NodeData":{"Offset":"(-100.780563,178.447632)"},"ID":5,"Name":"Play
+        >= 1","Instant":true,"Operationoperation":"GreaterThanOrEqualTo","SharedFloatfloat1":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Awareness","IsShared":true,"PropertyMapping":"TorbalanVision/Awareness","PropertyMappingOwner":0,"SinglemValue":0},"SharedFloatfloat2":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":1}},{"Type":"PlayChaseStinger","NodeData":{"Offset":"(-100.780563,178.447632)"},"ID":5,"Name":"Play
         Chase Stinger","Instant":true},{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.Seek","NodeData":{"Offset":"(54.9816055,177.855591)"},"ID":6,"Name":"Seek
-        Player","Instant":true,"SharedGameObjecttarget":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"Player","IsShared":true},"SharedCroptargetCrop":{"Type":"SharedCrop","Name":null},"SharedVector3targetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Last
-        Known Position","IsShared":true,"PropertyMapping":"TorbalanSenses/LastKnownPosition","PropertyMappingOwner":1,"Vector3mValue":"(0,0,0)"},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Chase
+        Player","Instant":true,"SharedGameObjecttarget":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedCroptargetCrop":{"Type":"SharedCrop","Name":null},"SharedVector3targetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Last
+        Seen Position","IsShared":true,"PropertyMapping":"TorbalanVision/LastSeenPosition","PropertyMappingOwner":1,"Vector3mValue":"(0,0,0)"},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Chase
         Speed","IsShared":true,"SinglemValue":12},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive
         Distance","IsShared":true,"SinglemValue":3},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"KillPlayer","NodeData":{"Offset":"(193.916153,183.916153)"},"ID":7,"Name":"Kill
         Player","Instant":true}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-724.6654,338.407)"},"ID":8,"Name":"Search
-        For Player","Instant":true,"AbortTypeabortType":"LowerPriority","Children":[{"Type":"HeardPlayer","NodeData":{"Offset":"(-145.228729,167.603)"},"ID":9,"Name":"Heard
-        Player","Instant":true,"TorbalanSensessenses":2},{"Type":"PlaySearchStinger","NodeData":{"Offset":"(1.04318237,158.8739)"},"ID":10,"Name":"Play
+        For Player","Instant":true,"AbortTypeabortType":"LowerPriority","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.ComparePropertyValue","NodeData":{"Offset":"(-159.975647,159.503479)"},"ID":9,"Name":"Heard
+        Recently?","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null,"GameObjectmValue":2},"SharedStringcomponentName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"TorbalanHearing"},"SharedStringpropertyName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"HeardRecently"},"SharedVariablecompareValue":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"PlaySearchStinger","NodeData":{"Offset":"(1.04318237,158.8739)"},"ID":10,"Name":"Play
         Search Stinger","Instant":true},{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.Seek","NodeData":{"Offset":"(150.7687,165.55928)"},"ID":11,"Name":"Go
         To Sound Origin","Instant":true,"SharedGameObjecttarget":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedCroptargetCrop":{"Type":"SharedCrop","Name":null},"SharedVector3targetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Last
-        Known Position","IsShared":true,"PropertyMapping":"TorbalanSenses/LastKnownPosition","PropertyMappingOwner":3,"Vector3mValue":"(0,0,0)"},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
+        Heard Position","IsShared":true,"PropertyMapping":"TorbalanHearing/LastHeardLocation","PropertyMappingOwner":3,"Vector3mValue":"(0,0,0)"},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
         Speed","IsShared":true,"SinglemValue":2},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive
         Distance","IsShared":true,"SinglemValue":3},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.MoveRandomlyWithinRadius","NodeData":{"Offset":"(299.081543,174.929626)"},"ID":12,"Name":"Search
         Nearby Area","Instant":true,"SharedVector3center":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Last
-        Known Position","IsShared":true,"PropertyMapping":"TorbalanSenses/LastKnownPosition","PropertyMappingOwner":4,"Vector3mValue":"(0,0,0)"},"SharedFloatradius":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":10},"SharedBoolmoveForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatmaximumTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":20},"SharedFloatminPauseDuration":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0},"SharedFloatmaxPauseDuration":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
+        Heard Position","IsShared":true,"PropertyMapping":"TorbalanHearing/LastHeardLocation","PropertyMappingOwner":4,"Vector3mValue":"(0,0,0)"},"SharedFloatradius":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":10},"SharedBoolmoveForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"SharedFloatmaximumTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":20},"SharedFloatminPauseDuration":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0},"SharedFloatmaxPauseDuration":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
         Speed","IsShared":true,"SinglemValue":2},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-47.8034058,341.193665)"},"ID":13,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.CompareFieldValue","NodeData":{"Offset":"(-82.78583,155.639221)"},"ID":14,"Name":"Director
         Approach Player","Instant":true,"SharedGameObjecttargetGameObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null,"GameObjectmValue":5},"SharedStringcomponentName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"TorbalanDirector"},"SharedStringfieldName":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"CommandGiven"},"SharedVariablecompareValue":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.Seek","NodeData":{"Offset":"(109.32338,161.193665)"},"ID":15,"Name":"Seek
         Director Target","Instant":true,"SharedGameObjecttarget":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedCroptargetCrop":{"Type":"SharedCrop","Name":null},"SharedVector3targetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"DirectorTargetPosition","IsShared":true,"PropertyMapping":"TorbalanDirector/TargetPosition","PropertyMappingOwner":6,"Vector3mValue":"(0,0,0)"},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
@@ -764,31 +777,29 @@ MonoBehaviour:
         Distance","IsShared":true,"SinglemValue":3},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(533.744263,332.046051)"},"ID":16,"Name":"Steal
         Nearest Crop","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.StackedConditional","NodeData":{"Offset":"(-181.2898,167.508057)"},"ID":17,"Name":"Crop
         Nearby AND Player Nearby","Instant":true,"Conditional[]conditionals":[{"Type":"FindNearestCrop","Value":{"SharedCroptargetCrop":{"Type":"SharedCrop","Name":"Target
-        Crop","IsShared":true,"PropertyMapping":"TorbalanSenses/NearestCrop","PropertyMappingOwner":7},"BooleanonlyLookWithinRadius":true,"SharedFloatradius":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":30}}},{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.WithinDistance","Value":{"BooleanusePhysics2D":false,"SharedGameObjecttargetObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"Player","IsShared":true},"SharedStringtargetTag":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null},"LayerMaskobjectLayerMask":247,"Int32maxCollisionCount":200,"SharedFloatmagnitude":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":40},"SharedBoollineOfSight":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"LayerMaskignoreLayerMask":4,"SharedVector3offset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,1,0)"},"SharedVector3targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,1,0)"},"SharedBooldrawDebugRay":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedGameObjectreturnedObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null}}}],"ComparisonTypecomparisonType":"Sequence","BooleangraphLabel":true},{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.Seek","NodeData":{"Offset":"(4.651841,169.151428)"},"ID":18,"Name":"Seek","Instant":true,"SharedGameObjecttarget":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedCroptargetCrop":{"Type":"SharedCrop","Name":"Target
-        Crop","IsShared":true,"PropertyMapping":"TorbalanSenses/NearestCrop","PropertyMappingOwner":8},"SharedVector3targetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,0,0)"},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
+        Crop","IsShared":true},"BooleanonlyLookWithinRadius":true,"SharedFloatradius":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":30}}},{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.WithinDistance","Value":{"BooleanusePhysics2D":false,"SharedGameObjecttargetObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"Player","IsShared":true,"PropertyMapping":"FirstPersonMovement/gameObject"},"SharedStringtargetTag":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null},"LayerMaskobjectLayerMask":247,"Int32maxCollisionCount":200,"SharedFloatmagnitude":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":40},"SharedBoollineOfSight":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"LayerMaskignoreLayerMask":4,"SharedVector3offset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,1,0)"},"SharedVector3targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,1,0)"},"SharedBooldrawDebugRay":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedGameObjectreturnedObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null}}}],"ComparisonTypecomparisonType":"Sequence","BooleangraphLabel":true},{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.Seek","NodeData":{"Offset":"(4.651841,169.151428)"},"ID":18,"Name":"Seek","Instant":true,"SharedGameObjecttarget":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedCroptargetCrop":{"Type":"SharedCrop","Name":"Target
+        Crop","IsShared":true},"SharedVector3targetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,0,0)"},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
         Speed","IsShared":true,"SinglemValue":2},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive
         Distance","IsShared":true,"SinglemValue":3},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"StealCrop","NodeData":{"Offset":"(154.383423,174.18634)"},"ID":19,"Name":"Steal
         Crop","Instant":true,"SharedCroptargetCrop":{"Type":"SharedCrop","Name":"Target
-        Crop","IsShared":true,"PropertyMapping":"TorbalanSenses/NearestCrop","PropertyMappingOwner":9},"SinglestealTime":5,"Animatoranimator":10}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.MoveRandomlyWithinRadius","NodeData":{"Offset":"(897.9916,335.3767)"},"ID":20,"Name":"Move
+        Crop","IsShared":true},"SinglestealTime":5,"Animatoranimator":7}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.MoveRandomlyWithinRadius","NodeData":{"Offset":"(897.9916,335.3767)"},"ID":20,"Name":"Move
         Randomly Within Radius","Instant":true,"SharedVector3center":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Torbalan
-        Position","IsShared":true,"PropertyMapping":"UnityEngine.Transform/position","PropertyMappingOwner":11,"Vector3mValue":"(0,0,0)"},"SharedFloatradius":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":20},"SharedBoolmoveForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedFloatmaximumTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0},"SharedFloatminPauseDuration":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0},"SharedFloatmaxPauseDuration":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
+        Position","IsShared":true,"PropertyMapping":"UnityEngine.Transform/position","PropertyMappingOwner":8,"Vector3mValue":"(0,0,0)"},"SharedFloatradius":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":20},"SharedBoolmoveForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedFloatmaximumTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0},"SharedFloatminPauseDuration":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0},"SharedFloatmaxPauseDuration":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
         Speed","IsShared":true,"SinglemValue":2},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive
         Distance","IsShared":true,"SinglemValue":3},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
         Speed","IsShared":true,"SinglemValue":2},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Chase
         Speed","IsShared":true,"SinglemValue":12},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive
         Distance","IsShared":true,"SinglemValue":3},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Last
-        Known Position","IsShared":true,"PropertyMapping":"TorbalanSenses/LastKnownPosition","PropertyMappingOwner":12,"Vector3mValue":"(0,0,0)"},{"Type":"SharedCrop","Name":"Target
-        Crop","IsShared":true,"PropertyMapping":"TorbalanSenses/NearestCrop","PropertyMappingOwner":13},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Torbalan
-        Position","IsShared":true,"PropertyMapping":"UnityEngine.Transform/position","PropertyMappingOwner":14,"Vector3mValue":"(0,0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":"Player","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"DirectorTargetPosition","IsShared":true,"PropertyMapping":"TorbalanDirector/TargetPosition","PropertyMappingOwner":15,"Vector3mValue":"(0,0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Awareness","IsShared":true,"PropertyMapping":"TorbalanSenses/Awareness","PropertyMappingOwner":16,"SinglemValue":0}]}'
+        Seen Position","IsShared":true,"PropertyMapping":"TorbalanVision/LastSeenPosition","PropertyMappingOwner":9,"Vector3mValue":"(0,0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Last
+        Heard Position","IsShared":true,"PropertyMapping":"TorbalanHearing/LastHeardLocation","PropertyMappingOwner":10,"Vector3mValue":"(0,0,0)"},{"Type":"SharedCrop","Name":"Target
+        Crop","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Torbalan
+        Position","IsShared":true,"PropertyMapping":"UnityEngine.Transform/position","PropertyMappingOwner":11,"Vector3mValue":"(0,0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"DirectorTargetPosition","IsShared":true,"PropertyMapping":"TorbalanDirector/TargetPosition","PropertyMappingOwner":12,"Vector3mValue":"(0,0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Awareness","IsShared":true,"PropertyMapping":"TorbalanVision/Awareness","PropertyMappingOwner":13,"SinglemValue":0}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
         startIndex: 
         dataPosition: 
         unityObjects:
-        - {fileID: 789039114618768132}
-        - {fileID: 789039114618768132}
-        - {fileID: 978921249338958145}
         - {fileID: 789039114618768132}
         - {fileID: 789039114618768132}
         - {fileID: 789039114618768132}
@@ -1303,7 +1314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d147edd36caea458afac19df692123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  senses: {fileID: 978921249338958145}
+  vision: {fileID: 6240433948082032128}
 --- !u!1 &2494817490271932799
 GameObject:
   m_ObjectHideFlags: 0

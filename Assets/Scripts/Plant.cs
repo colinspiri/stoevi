@@ -10,7 +10,7 @@ public class Plant : MonoBehaviour {
         // play audio TODO
         
         // report sound
-        TorbalanSenses.Instance.ReportSound(FirstPersonMovement.Instance.transform.position, loudness);
+        TorbalanHearing.Instance.ReportSound(FirstPersonMovement.Instance.transform.position, loudness);
     }
 
     private void OnTriggerStay(Collider other) {

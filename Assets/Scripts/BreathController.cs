@@ -54,8 +54,8 @@ public class BreathController : MonoBehaviour {
         }
         
         // report sound
-        if (TorbalanSenses.Instance != null && !holdingBreath) {
-            TorbalanSenses.Instance.ReportSound(transform.position, breatheLoudness);
+        if (TorbalanHearing.Instance != null && !holdingBreath) {
+            TorbalanHearing.Instance.ReportSound(transform.position, breatheLoudness);
         }
     }
 
@@ -73,8 +73,8 @@ public class BreathController : MonoBehaviour {
         exhaleSound.Play();
         
         // report sound
-        if (TorbalanSenses.Instance != null) {
-            TorbalanSenses.Instance.ReportSound(transform.position, exhaleLoudness);
+        if (TorbalanHearing.Instance != null) {
+            TorbalanHearing.Instance.ReportSound(transform.position, exhaleLoudness);
         }
     }
 }
