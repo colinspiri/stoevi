@@ -687,9 +687,24 @@ MonoBehaviour:
     m_Bits: 64
   eyesOffset: {x: 0, y: 4.02, z: 0}
   targetOffset: {x: 0, y: 2, z: 0}
-  viewRadius: 20
+  viewRadius: 30
   viewAngle: 105
-  baseAwarenessSpeed: 0.5
+  baseAwarenessTime: 5
+  awarenessDecayTime: 10
+  closeThreshold: 10
+  farThreshold: 20
+  closeFactor: 0.2
+  mediumFactor: 1
+  farFactor: 2
+  sideThreshold: 60
+  frontFactor: 1
+  sideFactor: 2
+  standingFactor: 1
+  crouchedFactor: 2
+  stillFactor: 1
+  crouchWalkingFactor: 0.9
+  walkingFactor: 0.6
+  runningFactor: 0.2
 --- !u!114 &4625671584228454852
 MonoBehaviour:
   m_ObjectHideFlags: 0

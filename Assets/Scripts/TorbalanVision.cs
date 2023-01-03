@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Numerics;
 using BehaviorDesigner.Runtime;
 using UnityEditor;
@@ -10,8 +11,6 @@ using UnityEngine.Events;
 using Vector3 = UnityEngine.Vector3;
 
 public class TorbalanVision : MonoBehaviour {
-    public static TorbalanVision Instance;
-    
     // synced with behavior tree
     public Vector3 LastSeenPosition { get; set; }
     public float Awareness { get; set; }
@@ -24,25 +23,91 @@ public class TorbalanVision : MonoBehaviour {
     public Vector3 targetOffset;
     public float viewRadius;
     [Range(0, 360)] public float viewAngle;
-    public float baseAwarenessSpeed;
+
+    [Header("Awareness")] 
+    public float baseAwarenessTime;
+    public float awarenessDecayTime;
+    [Space]
+    public float closeThreshold;
+    public float farThreshold;
+    public float closeFactor;
+    public float mediumFactor;
+    public float farFactor;
+    [Space] 
+    public float sideThreshold;
+    public float frontFactor;
+    public float sideFactor;
+    [Space] 
+    public float standingFactor;
+    public float crouchedFactor;
+    [Space] 
+    public float stillFactor;
+    public float crouchWalkingFactor;
+    public float walkingFactor;
+    public float runningFactor;
     
     // state
     private bool playerWithinSight;
     
 
-    private void Awake() {
-        Instance = this;
-    }
-
     private void Update() {
         LookForPlayer();
 
         if (playerWithinSight) {
-            Awareness += baseAwarenessSpeed * Time.deltaTime;
-            if (Awareness > 1) Awareness = 1;
+            IncreaseAwareness();
         }
-        else if (Awareness > 0) Awareness -= baseAwarenessSpeed * Time.deltaTime;
+        else if (Awareness > 0) Awareness -= Time.deltaTime / awarenessDecayTime;
         else Awareness = 0;
+    }
+
+    private void IncreaseAwareness() {
+        float multiplier = 1f;
+        Vector3 eyesPosition = transform.position + eyesOffset;
+        Vector3 targetPosition = FirstPersonMovement.Instance.transform.position + targetOffset;
+        
+        // check distance
+        float distance = Vector3.Distance(eyesPosition, targetPosition);
+        if (distance < closeThreshold) multiplier *= closeFactor;
+        else if (distance > farThreshold) multiplier *= farFactor;
+        else multiplier *= mediumFactor;
+
+        // check angle
+        Vector3 directionToTarget = (targetPosition - eyesPosition).normalized;
+        float angle = Vector3.Angle(transform.forward, directionToTarget);
+        if (angle > sideThreshold) multiplier *= sideFactor;
+        else multiplier *= frontFactor;
+        
+        // check player stance
+        if (FirstPersonMovement.Instance.crouching) multiplier *= crouchedFactor;
+        else multiplier *= standingFactor;
+
+        // check player motion
+        switch (FirstPersonMovement.Instance.moveState) {
+            case FirstPersonMovement.MoveState.Still:
+                multiplier *= stillFactor;
+                break;
+            case FirstPersonMovement.MoveState.CrouchWalking:
+                multiplier *= crouchWalkingFactor;
+                break;
+            case FirstPersonMovement.MoveState.Walking:
+                multiplier *= walkingFactor;
+                break;
+            case FirstPersonMovement.MoveState.Running:
+                multiplier *= runningFactor;
+                break;
+        }
+        
+        // calculate awareness time
+        float awarenessTime = baseAwarenessTime * multiplier;
+        Debug.Log("awareness time = " + awarenessTime + " (multiplier " + multiplier + ")");
+        
+        // calculate speed
+        float speed = 1 / awarenessTime;
+
+        // increment awareness
+        Debug.Log("awareness delta = " + speed * Time.deltaTime);
+        Awareness += speed * Time.deltaTime;
+        if (Awareness > 1) Awareness = 1;
     }
 
     private void LookForPlayer() {

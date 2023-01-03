@@ -331,6 +331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minutesUntilEvening: 4
   minutesUntilDark: 3
+  timer: 0
 --- !u!1001 &2081909844
 PrefabInstance:
   m_ObjectHideFlags: 0

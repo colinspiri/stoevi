@@ -11,7 +11,7 @@ public class DayManager : MonoBehaviour {
     private float timeUntilDark;
     
     // state
-    private float timer;
+    [SerializeField] private float timer;
     
     // callbacks
     public static event Action<int> OnSecondTick = delegate { };

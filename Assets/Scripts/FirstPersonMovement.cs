@@ -70,7 +70,7 @@ public class FirstPersonMovement : MonoBehaviour
 
 	#region State Variables
 	// camera
-	private bool crouching;
+	public bool crouching { get; private set; }
 	private float cameraTargetPitch;
 	private float normalHeight;
 	private float bobCycle;
