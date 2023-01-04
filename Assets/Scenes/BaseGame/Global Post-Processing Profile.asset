@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3152738259132916060
+--- !u!114 &-3337892138023107836
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16,40 +16,40 @@ MonoBehaviour:
   m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 5
+    m_Value: 1
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 1
     min: 0
   scatter:
-    m_OverrideState: 1
-    m_Value: 1
+    m_OverrideState: 0
+    m_Value: 0.7
     min: 0
     max: 1
   clamp:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 65472
     min: 0
   tint:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
   highQualityFiltering:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   skipIterations:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 1
     min: 0
     max: 16
   dirtTexture:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {fileID: 0}
   dirtIntensity:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
     min: 0
 --- !u!114 &-1139891491485027560
@@ -98,8 +98,8 @@ MonoBehaviour:
   - {fileID: -1139891491485027560}
   - {fileID: 5744877097365319335}
   - {fileID: 254130761719312384}
-  - {fileID: -3152738259132916060}
   - {fileID: 7915867092742677884}
+  - {fileID: -3337892138023107836}
 --- !u!114 &254130761719312384
 MonoBehaviour:
   m_ObjectHideFlags: 3
