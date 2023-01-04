@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,12 +15,17 @@ public class TorbalanDirector : MonoBehaviour {
     // behavior tree variables
     public Vector3 TargetPosition { get; set; }
     public bool CommandGiven;
+    public GameObject Player { get; set; }
     
     // state
     public enum DirectorCommand { None, ApproachPlayer, BackOff }
     private DirectorCommand currentCommand = DirectorCommand.None;
     private float timeCloseToPlayer;
     private float timeFarFromPlayer;
+
+    private void Start() {
+        Player = FirstPersonMovement.Instance.gameObject;
+    }
 
     // Update is called once per frame
     void Update() {

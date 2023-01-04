@@ -71,19 +71,22 @@ public class TorbalanVision : MonoBehaviour {
         float intensity;
         float minIntensity = 20f;
         float maxIntensity = 80f;
-        if (Awareness <= 0) {
-            color = Color.yellow;
-            intensity = minIntensity;
-        }
-        else if (Awareness >= 1) {
+        if (Awareness >= 1) {
             color = Color.red;
             intensity = maxIntensity;
         }
-        else {
-            color = Color.Lerp(Color.yellow, Color.red, Awareness);
-            intensity = Mathf.Lerp(minIntensity, maxIntensity, Awareness);
+        else if (Awareness >= 0.5f) {
+            color = Color.red;
+            intensity = Mathf.Lerp(minIntensity, maxIntensity, (Awareness - 0.5f) * 2f);
         }
-        Debug.Log("intensity = " + intensity);
+        else if (Awareness > 0) {
+            color = Color.Lerp(Color.yellow, Color.red, Awareness * 2f);
+            intensity = minIntensity;
+        }
+        else {
+            color = Color.yellow;
+            intensity = minIntensity;
+        }
         eyesMaterial.SetColor("_EmissionColor", color * Mathf.GammaToLinearSpace(intensity));
     }
 
@@ -126,13 +129,11 @@ public class TorbalanVision : MonoBehaviour {
         
         // calculate awareness time
         float awarenessTime = baseAwarenessTime * multiplier;
-        Debug.Log("awareness time = " + awarenessTime + " (multiplier " + multiplier + ")");
         
         // calculate speed
         float speed = 1 / awarenessTime;
 
         // increment awareness
-        Debug.Log("awareness delta = " + speed * Time.deltaTime);
         Awareness += speed * Time.deltaTime;
         if (Awareness > 1) Awareness = 1;
     }
