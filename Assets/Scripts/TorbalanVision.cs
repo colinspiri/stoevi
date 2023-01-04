@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using BehaviorDesigner.Runtime;
 using UnityEditor;
 using UnityEngine;
@@ -11,6 +12,9 @@ using UnityEngine.Events;
 using Vector3 = UnityEngine.Vector3;
 
 public class TorbalanVision : MonoBehaviour {
+    // components
+    public Material eyesMaterial;
+    
     // synced with behavior tree
     public Vector3 LastSeenPosition { get; set; }
     public float Awareness { get; set; }
@@ -48,7 +52,7 @@ public class TorbalanVision : MonoBehaviour {
     
     // state
     private bool playerWithinSight;
-    
+
 
     private void Update() {
         LookForPlayer();
@@ -58,6 +62,29 @@ public class TorbalanVision : MonoBehaviour {
         }
         else if (Awareness > 0) Awareness -= Time.deltaTime / awarenessDecayTime;
         else Awareness = 0;
+
+        UpdateEyesMaterial();
+    }
+
+    private void UpdateEyesMaterial() {
+        Color color;
+        float intensity;
+        float minIntensity = 20f;
+        float maxIntensity = 80f;
+        if (Awareness <= 0) {
+            color = Color.yellow;
+            intensity = minIntensity;
+        }
+        else if (Awareness >= 1) {
+            color = Color.red;
+            intensity = maxIntensity;
+        }
+        else {
+            color = Color.Lerp(Color.yellow, Color.red, Awareness);
+            intensity = Mathf.Lerp(minIntensity, maxIntensity, Awareness);
+        }
+        Debug.Log("intensity = " + intensity);
+        eyesMaterial.SetColor("_EmissionColor", color * Mathf.GammaToLinearSpace(intensity));
     }
 
     private void IncreaseAwareness() {

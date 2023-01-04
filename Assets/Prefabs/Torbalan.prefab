@@ -581,6 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e002d42e6f5b76e49bcabfef4e2153a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eyesMaterial: {fileID: 2100000, guid: be07603211ad6254db38fa919379f750, type: 2}
   blind: 0
   targetMask:
     serializedVersion: 2
@@ -649,7 +650,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789039114618768132}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d7b55c7ecdb49a4a89fa5e6f9022861, type: 3}
   m_Name: 
