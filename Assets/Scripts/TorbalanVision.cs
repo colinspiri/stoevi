@@ -25,8 +25,15 @@ public class TorbalanVision : MonoBehaviour {
     public LayerMask obstacleMask;
     public Vector3 eyesOffset;
     public Vector3 targetOffset;
-    public float viewRadius;
-    [Range(0, 360)] public float viewAngle;
+    [Header("Normal Vision")]
+    public float normalVisionDistance; //25
+    [Range(0, 360)] public float normalVisionAngle; // 105
+    [Header("Peripheral Vision")]
+    public float peripheralVisionDistance;
+    [Range(0, 360)] public float peripheralVisionAngle;
+    [Header("Close Vision")]
+    public float closeVisionDistance;
+    [Range(0, 360)] public float closeVisionAngle;
 
     [Header("Awareness")] 
     public float baseAwarenessTime;
@@ -51,13 +58,15 @@ public class TorbalanVision : MonoBehaviour {
     public float runningFactor;
     
     // state
-    private bool playerWithinSight;
+    private bool playerWithinNormalVision;
+    private bool playerWithinPeripheralVision;
+    private bool playerWithinCloseVision;
 
 
     private void Update() {
         LookForPlayer();
 
-        if (playerWithinSight) {
+        if (playerWithinNormalVision || playerWithinPeripheralVision || playerWithinCloseVision) {
             IncreaseAwareness();
         }
         else if (Awareness > 0) Awareness -= Time.deltaTime / awarenessDecayTime;
@@ -140,15 +149,21 @@ public class TorbalanVision : MonoBehaviour {
 
     private void LookForPlayer() {
         if (blind) {
-            playerWithinSight = false;
+            playerWithinNormalVision = false;
+            playerWithinPeripheralVision = false;
+            playerWithinCloseVision = false;
             return;
         }
-        
-        playerWithinSight = false;
 
+        playerWithinNormalVision = CheckIfPlayerWithinCone(normalVisionDistance, normalVisionAngle);
+        playerWithinPeripheralVision = CheckIfPlayerWithinCone(peripheralVisionDistance, peripheralVisionAngle);
+        playerWithinCloseVision = CheckIfPlayerWithinCone(closeVisionDistance, closeVisionAngle);
+    }
+
+    private bool CheckIfPlayerWithinCone(float distance, float angle) {
         Vector3 eyesPosition = transform.position + eyesOffset;
         
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(eyesPosition, viewRadius, targetMask);
+        Collider[] targetsInViewRadius = Physics.OverlapSphere(eyesPosition, distance, targetMask);
         
         // search through all targets in the radius
         foreach (var t in targetsInViewRadius) {
@@ -157,15 +172,15 @@ public class TorbalanVision : MonoBehaviour {
             float distanceToTarget = Vector3.Distance(eyesPosition, targetPosition);
 
             // check if within view angle
-            if (Vector3.Angle(transform.forward, directionToTarget) > viewAngle / 2) continue;
+            if (Vector3.Angle(transform.forward, directionToTarget) > angle / 2) continue;
             
             // check if obstacles between self and player
             if (Physics.Raycast(eyesPosition, directionToTarget, distanceToTarget, obstacleMask)) continue;
-            
-            playerWithinSight = true;
-            LastSeenPosition = targetPosition;
-            return;
+
+            return true;
         }
+
+        return false;
     }
 
     private Vector3 DirectionFromAngle(float angleInDegrees, bool angleIsGlobal) {
@@ -176,18 +191,26 @@ public class TorbalanVision : MonoBehaviour {
     }
 
     private void OnDrawGizmos() {
-        Vector3 eyesPosition = transform.position + eyesOffset;
-        
-        Vector3 viewAngleA = DirectionFromAngle(-viewAngle / 2, false);
-        Vector3 viewAngleB = DirectionFromAngle(viewAngle / 2, false);
-        
-        Gizmos.color = Color.white;
-        Gizmos.DrawLine(eyesPosition, eyesPosition + viewAngleA * viewRadius);
-        Gizmos.DrawLine(eyesPosition, eyesPosition + viewAngleB * viewRadius);
+        DrawVisionCone(normalVisionDistance, normalVisionAngle, Color.white);
+        DrawVisionCone(peripheralVisionDistance, peripheralVisionAngle, Color.blue);
+        DrawVisionCone(closeVisionDistance, closeVisionAngle, Color.magenta);
 
+        // if seen, line to player
         Gizmos.color = Color.red;
-        if (playerWithinSight) {
+        if (playerWithinNormalVision) {
+            Vector3 eyesPosition = transform.position + eyesOffset;
             Gizmos.DrawLine(eyesPosition, FirstPersonMovement.Instance.transform.position + targetOffset);
         }
+    }
+
+    private void DrawVisionCone(float distance, float angle, Color color) {
+        Vector3 eyesPosition = transform.position + eyesOffset;
+        
+        Vector3 viewAngleA = DirectionFromAngle(-angle / 2, false);
+        Vector3 viewAngleB = DirectionFromAngle(angle / 2, false);
+        
+        Gizmos.color = color;
+        Gizmos.DrawLine(eyesPosition, eyesPosition + viewAngleA * distance);
+        Gizmos.DrawLine(eyesPosition, eyesPosition + viewAngleB * distance);
     }
 }
