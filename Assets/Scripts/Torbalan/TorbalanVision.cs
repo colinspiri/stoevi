@@ -16,7 +16,7 @@ public class TorbalanVision : MonoBehaviour {
     public Material eyesMaterial;
     
     // synced with behavior tree
-    public Vector3 LastSeenPosition { get; set; }
+    public bool PlayerWithinVision { get; set; }
     public float Awareness { get; set; }
 
     // constants
@@ -66,7 +66,7 @@ public class TorbalanVision : MonoBehaviour {
     private void Update() {
         LookForPlayer();
 
-        if (playerWithinNormalVision || playerWithinPeripheralVision || playerWithinCloseVision) {
+        if (PlayerWithinVision) {
             IncreaseAwareness();
         }
         else if (Awareness > 0) Awareness -= Time.deltaTime / awarenessDecayTime;
@@ -158,6 +158,8 @@ public class TorbalanVision : MonoBehaviour {
         playerWithinNormalVision = CheckIfPlayerWithinCone(normalVisionDistance, normalVisionAngle);
         playerWithinPeripheralVision = CheckIfPlayerWithinCone(peripheralVisionDistance, peripheralVisionAngle);
         playerWithinCloseVision = CheckIfPlayerWithinCone(closeVisionDistance, closeVisionAngle);
+
+        PlayerWithinVision = playerWithinNormalVision || playerWithinPeripheralVision || playerWithinCloseVision;
     }
 
     private bool CheckIfPlayerWithinCone(float distance, float angle) {

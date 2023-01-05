@@ -10,8 +10,10 @@ using UnityEngine.Events;
 using Vector3 = UnityEngine.Vector3;
 
 public class TorbalanHearing : MonoBehaviour {
+    // components
     public static TorbalanHearing Instance;
-    
+    public BehaviorTree behavior;
+
     // synced with behavior tree
     public Vector3 LastHeardLocation { get; set; }
     public bool HeardRecently { get; set; }
@@ -45,6 +47,7 @@ public class TorbalanHearing : MonoBehaviour {
         if (length <= loudness) {
             heardTimer = heardTime;
             LastHeardLocation = soundOrigin;
+            behavior.SetVariableValue("Last Known Position", FirstPersonMovement.Instance.transform.position);
         }
     }
 
