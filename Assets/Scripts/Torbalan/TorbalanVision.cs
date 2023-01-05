@@ -58,9 +58,9 @@ public class TorbalanVision : MonoBehaviour {
     public float runningFactor;
     
     // state
-    private bool playerWithinNormalVision;
-    private bool playerWithinPeripheralVision;
-    private bool playerWithinCloseVision;
+    private bool playerInNormalVision;
+    private bool playerInPeripheralVision;
+    private bool playerInCloseVision;
 
 
     private void Update() {
@@ -149,17 +149,42 @@ public class TorbalanVision : MonoBehaviour {
 
     private void LookForPlayer() {
         if (blind) {
-            playerWithinNormalVision = false;
-            playerWithinPeripheralVision = false;
-            playerWithinCloseVision = false;
+            playerInNormalVision = false;
+            playerInPeripheralVision = false;
+            playerInCloseVision = false;
             return;
         }
 
-        playerWithinNormalVision = CheckIfPlayerWithinCone(normalVisionDistance, normalVisionAngle);
-        playerWithinPeripheralVision = CheckIfPlayerWithinCone(peripheralVisionDistance, peripheralVisionAngle);
-        playerWithinCloseVision = CheckIfPlayerWithinCone(closeVisionDistance, closeVisionAngle);
+        playerInNormalVision = CheckIfPlayerWithinCone(normalVisionDistance, normalVisionAngle);
+        playerInPeripheralVision = CheckIfPlayerWithinCone(peripheralVisionDistance, peripheralVisionAngle);
+        playerInCloseVision = CheckIfPlayerWithinCone(closeVisionDistance, closeVisionAngle);
 
-        PlayerWithinVision = playerWithinNormalVision || playerWithinPeripheralVision || playerWithinCloseVision;
+        PlayerWithinVision = playerInNormalVision || playerInPeripheralVision || playerInCloseVision;
+    }
+
+    public bool CanSeePoint(Vector3 point) {
+        bool pointInNormalVision = CheckIfPointWithinCone(point, normalVisionDistance / 2, normalVisionAngle);
+        // bool pointInPeripheralVision = CheckIfPointWithinCone(point, peripheralVisionDistance, peripheralVisionAngle);
+        bool pointInCloseVision = CheckIfPointWithinCone(point, closeVisionDistance, closeVisionAngle);
+
+        return pointInNormalVision || pointInCloseVision;
+    }
+
+    private bool CheckIfPointWithinCone(Vector3 point, float distance, float angle) {
+        Vector3 eyesPosition = transform.position + eyesOffset;
+        Vector3 directionToTarget = (point - eyesPosition).normalized;
+        
+        // check if within distance
+        float distanceToTarget = Vector3.Distance(eyesPosition, point);
+        if (distanceToTarget > distance) return false;
+
+        // check if within view angle
+        if (Vector3.Angle(transform.forward, directionToTarget) > angle / 2) return false;
+        
+        // check if obstacles between self and point
+        if (Physics.Raycast(eyesPosition, directionToTarget, distanceToTarget, obstacleMask)) return false;
+
+        return true;
     }
 
     private bool CheckIfPlayerWithinCone(float distance, float angle) {
@@ -199,7 +224,7 @@ public class TorbalanVision : MonoBehaviour {
 
         // if seen, line to player
         Gizmos.color = Color.red;
-        if (playerWithinNormalVision) {
+        if (playerInNormalVision) {
             Vector3 eyesPosition = transform.position + eyesOffset;
             Gizmos.DrawLine(eyesPosition, FirstPersonMovement.Instance.transform.position + targetOffset);
         }
