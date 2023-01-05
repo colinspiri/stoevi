@@ -54,20 +54,14 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement {
         private void StartMoving() {
             currentState = State.Moving;
 
-            SetDestination(GetRandomPosition());
+            Vector3 randomPoint = Util.RandomPointInRadius(center.Value, radius.Value);
+            SetDestination(randomPoint);
         }
 
         private void StartPause() {
             currentState = State.Paused;
 
             pauseTimer = Random.Range(minPauseDuration.Value, maxPauseDuration.Value);
-        }
-
-        private Vector3 GetRandomPosition() {
-            Vector2 randForward = Random.insideUnitCircle.normalized;
-            float randDist = Random.value * radius.Value;
-            Vector3 targetPos = center.Value + (new Vector3(randForward.x, 0, randForward.y) * randDist);
-            return targetPos;
         }
     }
 }
