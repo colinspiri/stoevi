@@ -162,12 +162,20 @@ public class TorbalanVision : MonoBehaviour {
         PlayerWithinVision = playerInNormalVision || playerInPeripheralVision || playerInCloseVision;
     }
 
-    public bool CanSeePoint(Vector3 point) {
+    public bool CanSeePointInFocusedVision(Vector3 point) {
         bool pointInNormalVision = CheckIfPointWithinCone(point, normalVisionDistance / 2, normalVisionAngle);
         // bool pointInPeripheralVision = CheckIfPointWithinCone(point, peripheralVisionDistance, peripheralVisionAngle);
         bool pointInCloseVision = CheckIfPointWithinCone(point, closeVisionDistance, closeVisionAngle);
 
         return pointInNormalVision || pointInCloseVision;
+    }
+
+    public bool CanSeePointInAnyVision(Vector3 point) {
+        bool pointInNormalVision = CheckIfPointWithinCone(point, normalVisionDistance, normalVisionAngle);
+        bool pointInPeripheralVision = CheckIfPointWithinCone(point, peripheralVisionDistance, peripheralVisionAngle);
+        bool pointInCloseVision = CheckIfPointWithinCone(point, closeVisionDistance, closeVisionAngle);
+
+        return pointInNormalVision || pointInPeripheralVision || pointInCloseVision;
     }
 
     private bool CheckIfPointWithinCone(Vector3 point, float distance, float angle) {

@@ -7,6 +7,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
     {
         [Tooltip("The speed of the agent")]
         public SharedFloat speed = 10;
+        [Tooltip("Faster speed of the agent for running")]
+        public SharedFloat fastSpeed = 20;
         [Tooltip("The angular speed of the agent")]
         public SharedFloat angularSpeed = 120;
         [Tooltip("The agent has arrived when the destination is less than the specified amount. This distance should be greater than or equal to the NavMeshAgent StoppingDistance.")]
@@ -105,6 +107,14 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
             }
 
             return remainingDistance <= arriveDistance.Value;
+        }
+
+        /// <summary>
+        /// Sets the agent's speed to its normal speed or fast speed
+        /// </summary>
+        /// <param name="value">Whether to use fast speed or not</param>
+        protected void SetFast(bool value) {
+            navMeshAgent.speed = value ? fastSpeed.Value : speed.Value;
         }
 
         /// <summary>

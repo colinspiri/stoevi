@@ -12,6 +12,7 @@ using Vector3 = UnityEngine.Vector3;
 public class TorbalanHearing : MonoBehaviour {
     // components
     public static TorbalanHearing Instance;
+    public NavMeshAgent agent;
     public BehaviorTree behavior;
 
     // synced with behavior tree
@@ -40,10 +41,10 @@ public class TorbalanHearing : MonoBehaviour {
         if (deaf) return;
         
         var path = new NavMeshPath();
-        bool pathFound = NavMesh.CalculatePath(transform.position, soundOrigin, NavMesh.AllAreas, path);
-        if (!pathFound) return;
+        bool pathFound = agent.CalculatePath(soundOrigin, path);
+        if (!pathFound || path.status == NavMeshPathStatus.PathPartial || path.status == NavMeshPathStatus.PathInvalid) return;
         var length = GetPathLength(path);
-
+        
         if (length <= loudness) {
             heardTimer = heardTime;
             LastHeardLocation = soundOrigin;
