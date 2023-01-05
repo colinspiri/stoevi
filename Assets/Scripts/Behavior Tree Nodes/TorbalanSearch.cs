@@ -11,7 +11,7 @@ public class TorbalanSearch : NavMeshMovement {
     public override void OnStart() {
         base.OnStart();
         
-        Debug.Log("TorbalanSearch.OnStart()");
+        
     }
 
     public override TaskStatus OnUpdate() {
