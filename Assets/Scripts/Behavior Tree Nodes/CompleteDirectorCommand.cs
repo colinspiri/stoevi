@@ -6,7 +6,6 @@ public class CompleteDirectorCommand : Action {
     public TorbalanDirector director;
 
     public override TaskStatus OnUpdate() {
-        director.CompleteCommand();
         return TaskStatus.Success;
     }
 }

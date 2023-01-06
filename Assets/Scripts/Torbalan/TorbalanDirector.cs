@@ -1,112 +1,164 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 public class TorbalanDirector : MonoBehaviour {
     // constants
-    public float closeRadius;
-    public float farRadius;
-    public float maxTimeCloseToPlayer;
-    public float maxTimeFarFromPlayer;
     public List<Transform> areaNodes;
+    
+    [Header("Backstage")]
+    public float backstageDistance;
+    public float maxBackstageTime;
+
+    [Header("Frontstage")] 
+    public float frontstageDistance;
+    public float maxFrontstageTime;
+
+    public float intensityRadius;
+    public float maxIntensity;
     
     // behavior tree variables
     public Vector3 TargetPosition { get; set; }
-    public bool CommandGiven;
     public GameObject Player { get; set; }
+    public bool Frontstage { get; set; }
+    public float FrontstageDistance => frontstageDistance;
+    public bool Backstage { get; set; }
+    public float BackstageDistance => backstageDistance;
     
     // state
-    public enum DirectorCommand { None, ApproachPlayer, BackOff }
-    private DirectorCommand currentCommand = DirectorCommand.None;
-    private float timeCloseToPlayer;
-    private float timeFarFromPlayer;
+    private enum DirectorState { None, Frontstage, Backstage }
+    private DirectorState directorState { get; set; }
+    private float intensity;
+    private float frontstageTimer;
+    private float backstageTimer;
 
     private void Start() {
         Player = FirstPersonMovement.Instance.gameObject;
+        SetDirectorState(DirectorState.Backstage);
     }
 
     // Update is called once per frame
     void Update() {
-        if (currentCommand == DirectorCommand.None) {
-            CountTimers();
+        SetTargetPosition();
+
+        if (directorState == DirectorState.Frontstage) {
+            CountFrontstageTimer();
+            CountIntensity();
         }
-        else if (currentCommand == DirectorCommand.ApproachPlayer) {
-            TargetPosition = FirstPersonMovement.Instance.transform.position;
-            CheckApproachPlayerCondition();
+        else if (directorState == DirectorState.Backstage) {
+            CountBackstageTimer();
         }
-        else if (currentCommand == DirectorCommand.BackOff) {
-            TargetPosition = GetFarthestAreaNodeFromPlayer();
-            CheckBackOffCondition();
+        else if (directorState == DirectorState.None) {
+            CountIntensity();
+            CheckIfBackstage();
         }
     }
 
-    private void CountTimers() {
+    private void CountIntensity() {
         // calculate distance from player
         var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
+        
+        // if close enough, count intensity timer
+        if (distance < intensityRadius) {
+            intensity += Time.deltaTime;
             
-        // close timer
-        if (distance < closeRadius) {
-            timeCloseToPlayer += Time.deltaTime;
-                
-            if (timeCloseToPlayer >= maxTimeCloseToPlayer) {
-                timeCloseToPlayer = 0;
-                timeFarFromPlayer = 0;
-                currentCommand = DirectorCommand.BackOff;
-                CommandGiven = true;
-            }
-        }
-
-        // far timer
-        if (distance > farRadius) {
-            timeFarFromPlayer += Time.deltaTime;
-                
-            if (timeFarFromPlayer >= maxTimeFarFromPlayer) {
-                timeCloseToPlayer = 0;
-                timeFarFromPlayer = 0;
-                currentCommand = DirectorCommand.ApproachPlayer;
-                CommandGiven = true;
+            if (intensity >= maxIntensity) {
+                intensity = 0;
+                SetDirectorState(DirectorState.Backstage);
             }
         }
     }
 
-    private void CheckApproachPlayerCondition() {
+    private void CountFrontstageTimer() {
         var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
-        if (distance <= closeRadius) {
-            CompleteCommand();
+
+        if (distance < frontstageDistance) {
+            frontstageTimer += Time.deltaTime;
+        }
+        
+        if (frontstageTimer >= maxFrontstageTime) {
+            frontstageTimer = 0;
+            SetDirectorState(DirectorState.None);
         }
     }
 
-    private void CheckBackOffCondition() {
+    private void CountBackstageTimer() {
         var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
-        if (distance >= farRadius) {
-            CompleteCommand();
+
+        if (distance > backstageDistance) {
+            backstageTimer += Time.deltaTime;
+        }
+        
+        if (backstageTimer >= maxBackstageTime) {
+            backstageTimer = 0;
+            SetDirectorState(DirectorState.Frontstage);
         }
     }
 
-    public void CompleteCommand() {
-        currentCommand = DirectorCommand.None;
-        CommandGiven = false;
-        TargetPosition = transform.position;
+    private void CheckIfBackstage() {
+        // calculate distance from player
+        var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
+        
+        // if already far enough, go into backstage
+        if (distance > backstageDistance) {
+            SetDirectorState(DirectorState.Backstage);
+        }
+    }
+
+    private void SetDirectorState(DirectorState newState) {
+        directorState = newState;
+
+        Frontstage = directorState == DirectorState.Frontstage;
+        Backstage = directorState == DirectorState.Backstage;
+        
+        SetTargetPosition();
+    }
+    
+    private void SetTargetPosition() {
+        if (directorState == DirectorState.Frontstage) {
+            TargetPosition = GetClosestAreaNodeToPlayer();
+        }
+        else if (directorState == DirectorState.Backstage) {
+            TargetPosition = GetFarthestAreaNodeFromPlayer();
+        }
+        else if (directorState == DirectorState.None) {
+            TargetPosition = transform.position;
+        }
+    }
+
+    private Vector3 GetClosestAreaNodeToPlayer() {
+        float minDistance = float.MaxValue;
+        Vector3 closestNode = Vector3.zero;
+        foreach (var node in areaNodes) {
+            var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, node.position);
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestNode = node.position;
+            }
+        }
+        return closestNode;
     }
     
     private Vector3 GetFarthestAreaNodeFromPlayer() {
         float maxDistance = 0;
-        Vector3 farthestPosition = Vector3.zero;
+        Vector3 farthestNode = Vector3.zero;
         foreach (var node in areaNodes) {
             var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, node.position);
             if (distance > maxDistance) {
-                distance = maxDistance;
-                farthestPosition = node.position;
+                maxDistance = distance;
+                farthestNode = node.position;
             }
         }
-        return farthestPosition;
+        return farthestNode;
     }
 
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, closeRadius);
-        Gizmos.DrawWireSphere(transform.position, farRadius);
+        Gizmos.DrawWireSphere(transform.position, intensityRadius);
+        Gizmos.DrawWireSphere(transform.position, backstageDistance);
     }
 }
