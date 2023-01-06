@@ -37,7 +37,7 @@ public class TorbalanSearch : NavMeshMovement {
     }
 
     public override TaskStatus OnUpdate() {
-        if(visitedCenter) CheckIfPointsInVision();
+        CheckIfPointsInVision();
         
         if (searchPositions.Count == 0) return TaskStatus.Success;
         
