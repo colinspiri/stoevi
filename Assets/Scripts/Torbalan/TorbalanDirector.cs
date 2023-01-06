@@ -7,27 +7,17 @@ using UnityEngine.AI;
 using UnityEngine.Serialization;
 
 public class TorbalanDirector : MonoBehaviour {
-    // constants
+    // components
     public List<Transform> areaNodes;
-    
-    [Header("Backstage")]
-    public float backstageDistance;
-    public float maxBackstageTime;
+    public TorbalanDirectorSettings settings;
 
-    [Header("Frontstage")] 
-    public float frontstageDistance;
-    public float maxFrontstageTime;
-
-    public float intensityRadius;
-    public float maxIntensity;
-    
     // behavior tree variables
     public Vector3 TargetPosition { get; set; }
     public GameObject Player { get; set; }
     public bool Frontstage { get; set; }
-    public float FrontstageDistance => frontstageDistance;
+    public float FrontstageDistance => settings.frontstageDistance;
     public bool Backstage { get; set; }
-    public float BackstageDistance => backstageDistance;
+    public float BackstageDistance => settings.backstageDistance;
     
     // state
     private enum DirectorState { None, Frontstage, Backstage }
@@ -63,10 +53,10 @@ public class TorbalanDirector : MonoBehaviour {
         var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
         
         // if close enough, count intensity timer
-        if (distance < intensityRadius) {
+        if (distance < settings.intensityRadius) {
             intensity += Time.deltaTime;
             
-            if (intensity >= maxIntensity) {
+            if (intensity >= settings.maxIntensity) {
                 intensity = 0;
                 SetDirectorState(DirectorState.Backstage);
             }
@@ -76,11 +66,11 @@ public class TorbalanDirector : MonoBehaviour {
     private void CountFrontstageTimer() {
         var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
 
-        if (distance < frontstageDistance) {
+        if (distance < settings.frontstageDistance) {
             frontstageTimer += Time.deltaTime;
         }
         
-        if (frontstageTimer >= maxFrontstageTime) {
+        if (frontstageTimer >= settings.maxFrontstageTime) {
             frontstageTimer = 0;
             SetDirectorState(DirectorState.None);
         }
@@ -89,11 +79,11 @@ public class TorbalanDirector : MonoBehaviour {
     private void CountBackstageTimer() {
         var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
 
-        if (distance > backstageDistance) {
+        if (distance > settings.backstageDistance) {
             backstageTimer += Time.deltaTime;
         }
         
-        if (backstageTimer >= maxBackstageTime) {
+        if (backstageTimer >= settings.maxBackstageTime) {
             backstageTimer = 0;
             SetDirectorState(DirectorState.Frontstage);
         }
@@ -104,7 +94,7 @@ public class TorbalanDirector : MonoBehaviour {
         var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
         
         // if already far enough, go into backstage
-        if (distance > backstageDistance) {
+        if (distance > settings.backstageDistance) {
             SetDirectorState(DirectorState.Backstage);
         }
     }
@@ -158,7 +148,7 @@ public class TorbalanDirector : MonoBehaviour {
 
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, intensityRadius);
-        Gizmos.DrawWireSphere(transform.position, backstageDistance);
+        Gizmos.DrawWireSphere(transform.position, settings.intensityRadius);
+        Gizmos.DrawWireSphere(transform.position, settings.backstageDistance);
     }
 }

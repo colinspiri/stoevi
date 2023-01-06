@@ -624,12 +624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaNodes: []
-  backstageDistance: 50
-  maxBackstageTime: 30
-  frontstageDistance: 30
-  maxFrontstageTime: 60
-  intensityRadius: 20
-  maxIntensity: 60
+  settings: {fileID: 11400000, guid: 4a7c60559b7c96c4fb3357a96e5afc14, type: 2}
 --- !u!114 &7967770628958072520
 MonoBehaviour:
   m_ObjectHideFlags: 0
