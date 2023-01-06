@@ -17,6 +17,7 @@ public class TorbalanSearch : NavMeshMovement {
     public SharedVector3 lastKnownPosition;
     public SharedInt searchPositionsToGenerate;
     public SharedFloat searchRadius;
+    public SharedFloat searchRadiusBulge;
     public SharedFloat minPauseDuration;
     public SharedFloat maxPauseDuration;
 
@@ -29,9 +30,7 @@ public class TorbalanSearch : NavMeshMovement {
 
     public override void OnStart() {
         base.OnStart();
-        
-        SetFast(true);
-        
+
         GenerateSearchPositions();
         
         Owner.RegisterEvent("LastKnownPositionUpdated", GenerateSearchPositions);
@@ -48,7 +47,7 @@ public class TorbalanSearch : NavMeshMovement {
             if (HasArrived()) {
                 searchPositions.RemoveAt(0);
                 visitedCenter = true;
-                // SetFast(false);
+                SetFast(false);
                 
                 StartPause();
             }
@@ -68,6 +67,7 @@ public class TorbalanSearch : NavMeshMovement {
     public override void OnEnd() {
         base.OnEnd();
         
+        searchPositions.Clear();
         Owner.UnregisterEvent("LastKnownPositionUpdated", GenerateSearchPositions);
     }
     
@@ -75,7 +75,7 @@ public class TorbalanSearch : NavMeshMovement {
         currentState = State.Moving;
         pauseTimer = 0;
 
-        SetDestination(searchPositions[0]);
+        if(searchPositions.Count > 0) SetDestination(searchPositions[0]);
     }
 
     private void StartPause() {
@@ -87,12 +87,12 @@ public class TorbalanSearch : NavMeshMovement {
     private void CheckIfPointsInVision() {
         int maxPoints = searchPositions.Count;
         for (int i = 0; i < maxPoints; i++) {
-            if (vision.CanSeePointInFocusedVision(searchPositions[i])) {
-                Debug.Log("can see point " + i + ", removing");
-                Debug.Log("searchPositions left = " + (searchPositions.Count - 1));
+            if (visitedCenter) continue; // don't skip visiting the center
+            if (vision.CanSeePointInAnyVision(searchPositions[i])) {
                 searchPositions.RemoveAt(i);
                 i--;
                 maxPoints--;
+                StartMoving();
             }
         }
     }
@@ -105,7 +105,19 @@ public class TorbalanSearch : NavMeshMovement {
         // add center
         searchPositions.Add(lastKnownPosition.Value);
         visitedCenter = false;
-        // SetFast(true);
+        SetFast(true);
+        
+        // get forward vector to determine dot products
+        Vector3 forwardVec;
+        float playerFacingTorbalanDot = Vector3.Dot(FirstPersonMovement.Instance.transform.forward, transform.forward);
+        // if player saw Torbalan, use Torbalan forward
+        if (playerFacingTorbalanDot < 0) {
+            forwardVec = transform.forward;
+        }
+        // if player running away, use player forward
+        else {
+            forwardVec = FirstPersonMovement.Instance.transform.forward;
+        }
 
         // generate random points
         List<Vector3> randomPoints = new List<Vector3>();
@@ -114,33 +126,50 @@ public class TorbalanSearch : NavMeshMovement {
             Vector3 point;
             NavMeshHit hit;
             do {
-                point = Util.RandomPointInRadius(lastKnownPosition.Value, searchRadius.Value);
+                Vector2 randomDirection2D = Random.insideUnitCircle.normalized;
+                Vector3 randomDirection = new Vector3(randomDirection2D.x, 0, randomDirection2D.y);
+                float dot = -Vector3.Dot(randomDirection, forwardVec);
+
+                // max radius is larger if in direction of player facing
+                float maxRadius = searchRadius.Value;
+                float bulgeDisplacement = -dot * searchRadiusBulge.Value;
+                float radius = Random.Range(0, maxRadius + bulgeDisplacement);
+
+                point = lastKnownPosition.Value + randomDirection * radius;
             } while (!NavMesh.SamplePosition(point, out hit, 1.0f, NavMesh.AllAreas));
-            
+
             // add to list
             randomPoints.Add(point);
         }
-        
-        // sort by distance to torbalan
-        randomPoints = randomPoints.OrderBy(x => Vector3.Distance(x, transform.position)).ToList();
 
-        // if not visible, search those points first
-        int maxPoints = randomPoints.Count;
-        for (int i = 0; i < maxPoints; i++) {
-            if (!vision.CanSeePointInAnyVision(randomPoints[i])) {
-                searchPositions.Add(randomPoints[i]);
-                randomPoints.RemoveAt(i);
-                i--;
-                maxPoints--;
-            }
-        }
-        
+        // sort by dot product
+        randomPoints = randomPoints.OrderBy(point => {
+            Vector3 toPoint = (point - lastKnownPosition.Value).normalized;
+            float dot = -Vector3.Dot(toPoint, forwardVec);
+            return dot;
+        }).ToList();
+
         // add the rest of the points to search positions
         foreach (var point in randomPoints) {
             searchPositions.Add(point);
         }
-        
+
         // start moving
         StartMoving();
+    }
+
+    public override void OnDrawGizmos() {
+        base.OnDrawGizmos();
+
+        if (!Application.isPlaying) return;
+
+        if (searchPositions == null) return;
+        
+        for (int i = 0; i < searchPositions.Count; i++) {
+            if(i == 0) Gizmos.color = Color.blue;
+            else Gizmos.color = Color.Lerp(Color.red, Color.yellow, (float)i / searchPositions.Count);
+            
+            Gizmos.DrawSphere(searchPositions[i], Mathf.Lerp(1f, 0.1f, (float)i/searchPositions.Count));
+        }
     }
 }

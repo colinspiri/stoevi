@@ -585,21 +585,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eyesMaterial: {fileID: 2100000, guid: be07603211ad6254db38fa919379f750, type: 2}
   blind: 0
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 256
+  eyesOffset: {x: 0, y: 4.02, z: 0}
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
-  eyesOffset: {x: 0, y: 4.02, z: 0}
-  targetOffset: {x: 0, y: 2, z: 0}
   normalVisionDistance: 25
   normalVisionAngle: 90
   peripheralVisionDistance: 11
   peripheralVisionAngle: 160
   closeVisionDistance: 4
   closeVisionAngle: 360
-  baseAwarenessTime: 3
+  baseAwarenessTime: 5
   awarenessDecayTime: 10
   closeThreshold: 12
   farThreshold: 20
@@ -709,9 +705,9 @@ MonoBehaviour:
         Last Known Pos == 0","Instant":true,"SharedVector3variable":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Last
         Known Position","IsShared":true,"Vector3mValue":"(0,0,0)"},"SharedVector3compareTo":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,0,0)"}}]},{"Type":"TorbalanSearch","NodeData":{"Offset":"(4.12398529,163.32019)"},"ID":22,"Name":"Torbalan
         Search","Instant":true,"TorbalanVisionvision":11,"SharedVector3lastKnownPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Last
-        Known Position","IsShared":true,"Vector3mValue":"(0,0,0)"},"SharedIntsearchPositionsToGenerate":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":30},"SharedFloatsearchRadius":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":20},"SharedFloatminPauseDuration":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":2},"SharedFloatmaxPauseDuration":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
+        Known Position","IsShared":true,"Vector3mValue":"(0,0,0)"},"SharedIntsearchPositionsToGenerate":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":100},"SharedFloatsearchRadius":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":30},"SharedFloatsearchRadiusBulge":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":20},"SharedFloatminPauseDuration":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0},"SharedFloatmaxPauseDuration":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":0.2},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
         Speed","IsShared":true,"SinglemValue":2},"SharedFloatfastSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Hustle
-        Speed","IsShared":true,"SinglemValue":4},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive
+        Speed","IsShared":true,"SinglemValue":5},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive
         Distance","IsShared":true,"SinglemValue":3},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"BehaviorDesigner.Runtime.Tasks.Unity.SharedVariables.SetSharedVector3","NodeData":{"Offset":"(150.706116,163.786987)"},"ID":23,"Name":"Last
         Known Pos = 0","Instant":true,"SharedVector3targetValue":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,0,0)"},"SharedVector3targetVariable":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Last
         Known Position","IsShared":true,"Vector3mValue":"(0,0,0)"}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-47.8034058,341.193665)"},"ID":24,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.CompareFieldValue","NodeData":{"Offset":"(-82.78583,155.639221)"},"ID":25,"Name":"Director
@@ -723,8 +719,8 @@ MonoBehaviour:
         Nearest Crop","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.StackedConditional","NodeData":{"Offset":"(-181.2898,167.508057)"},"ID":28,"Name":"Crop
         Nearby AND Player Nearby","Instant":true,"Conditional[]conditionals":[{"Type":"FindNearestCrop","Value":{"SharedCroptargetCrop":{"Type":"SharedCrop","Name":"Target
         Crop","IsShared":true},"BooleanonlyLookWithinRadius":true,"SharedFloatradius":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":30}}},{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.WithinDistance","Value":{"BooleanusePhysics2D":false,"SharedGameObjecttargetObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedStringtargetTag":{"Type":"BehaviorDesigner.Runtime.SharedString","Name":null,"StringmValue":"Player"},"LayerMaskobjectLayerMask":247,"Int32maxCollisionCount":200,"SharedFloatmagnitude":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":40},"SharedBoollineOfSight":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":false},"LayerMaskignoreLayerMask":4,"SharedVector3offset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,1,0)"},"SharedVector3targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,1,0)"},"SharedBooldrawDebugRay":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedGameObjectreturnedObject":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null}}}],"ComparisonTypecomparisonType":"Sequence","BooleangraphLabel":true},{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.Seek","NodeData":{"Offset":"(4.651841,169.151428)"},"ID":29,"Name":"Seek","Instant":true,"SharedGameObjecttarget":{"Type":"BehaviorDesigner.Runtime.SharedGameObject","Name":null},"SharedCroptargetCrop":{"Type":"SharedCrop","Name":"Target
-        Crop","IsShared":true},"SharedVector3targetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,0,0)"},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Hustle
-        Speed","IsShared":true,"SinglemValue":4},"SharedFloatfastSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":20},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive
+        Crop","IsShared":true},"SharedVector3targetPosition":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":null,"Vector3mValue":"(0,0,0)"},"SharedFloatspeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
+        Speed","IsShared":true,"SinglemValue":2},"SharedFloatfastSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":20},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive
         Distance","IsShared":true,"SinglemValue":3},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}},{"Type":"StealCrop","NodeData":{"Offset":"(122.125374,174.18634)"},"ID":30,"Name":"Steal
         Crop","Instant":true,"SharedCroptargetCrop":{"Type":"SharedCrop","Name":"Target
         Crop","IsShared":true},"SinglestealTime":5,"Animatoranimator":14}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Movement.MoveRandomlyWithinRadius","NodeData":{"Offset":"(897.9916,335.3767)"},"ID":31,"Name":"Move
@@ -733,7 +729,7 @@ MonoBehaviour:
         Speed","IsShared":true,"SinglemValue":2},"SharedFloatfastSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":20},"SharedFloatangularSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},"SharedFloatarriveDistance":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive
         Distance","IsShared":true,"SinglemValue":3},"SharedBoolstopOnTaskEnd":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolupdateRotation":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true}}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Walk
         Speed","IsShared":true,"SinglemValue":2},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Hustle
-        Speed","IsShared":true,"SinglemValue":4},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Run
+        Speed","IsShared":true,"SinglemValue":5},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Run
         Speed","IsShared":true,"SinglemValue":12},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Rotation","IsShared":true,"SinglemValue":360},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Arrive
         Distance","IsShared":true,"SinglemValue":3},{"Type":"SharedCrop","Name":"Target
         Crop","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Torbalan
