@@ -30,6 +30,8 @@ public class TorbalanSearch : NavMeshMovement {
     public override void OnStart() {
         base.OnStart();
         
+        SetFast(true);
+        
         GenerateSearchPositions();
         
         Owner.RegisterEvent("LastKnownPositionUpdated", GenerateSearchPositions);
@@ -46,7 +48,7 @@ public class TorbalanSearch : NavMeshMovement {
             if (HasArrived()) {
                 searchPositions.RemoveAt(0);
                 visitedCenter = true;
-                SetFast(false);
+                // SetFast(false);
                 
                 StartPause();
             }
@@ -103,7 +105,7 @@ public class TorbalanSearch : NavMeshMovement {
         // add center
         searchPositions.Add(lastKnownPosition.Value);
         visitedCenter = false;
-        SetFast(true);
+        // SetFast(true);
 
         // generate random points
         List<Vector3> randomPoints = new List<Vector3>();

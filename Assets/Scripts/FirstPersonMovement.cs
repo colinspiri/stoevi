@@ -266,10 +266,8 @@ public class FirstPersonMovement : MonoBehaviour
 		}
 		
 		// get base camera height
-		Vector3 cameraPos = transform.position;
+		Vector3 cameraPos = GetBaseCameraPosition();
 		float cameraRot = 0;
-		if (crouching) cameraPos += crouchHeight * transform.up;
-		else cameraPos += normalHeight * transform.up;
 		
 		// bob head while moving
 		if (moveState != MoveState.Still) {
@@ -320,7 +318,18 @@ public class FirstPersonMovement : MonoBehaviour
 		LerpCameraRotation(cameraRot, 0.5f);
 	}
 
+	public Vector3 GetRaycastTarget() {
+		return GetBaseCameraPosition();
+	}
+
 	#region Helper Functions
+
+	private Vector3 GetBaseCameraPosition() {
+		Vector3 cameraPos = transform.position;
+		if (crouching) cameraPos += crouchHeight * transform.up;
+		else cameraPos += normalHeight * transform.up;
+		return cameraPos;
+	}
 	private void LerpCameraPosition(Vector3 newCameraPosition, float duration) {
 		if (newCameraPosition == cameraTargetPosition) return;
 		

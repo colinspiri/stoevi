@@ -21,13 +21,11 @@ public class TorbalanVision : MonoBehaviour {
 
     // constants
     public bool blind;
-    public LayerMask targetMask;
-    public LayerMask obstacleMask;
     public Vector3 eyesOffset;
-    public Vector3 targetOffset;
+    public LayerMask obstacleMask;
     [Header("Normal Vision")]
-    public float normalVisionDistance; //25
-    [Range(0, 360)] public float normalVisionAngle; // 105
+    public float normalVisionDistance;
+    [Range(0, 360)] public float normalVisionAngle;
     [Header("Peripheral Vision")]
     public float peripheralVisionDistance;
     [Range(0, 360)] public float peripheralVisionAngle;
@@ -102,7 +100,7 @@ public class TorbalanVision : MonoBehaviour {
     private void IncreaseAwareness() {
         float multiplier = 1f;
         Vector3 eyesPosition = transform.position + eyesOffset;
-        Vector3 targetPosition = FirstPersonMovement.Instance.transform.position + targetOffset;
+        Vector3 targetPosition = FirstPersonMovement.Instance.GetRaycastTarget();
         
         // check distance
         float distance = Vector3.Distance(eyesPosition, targetPosition);
@@ -178,11 +176,16 @@ public class TorbalanVision : MonoBehaviour {
         return pointInNormalVision || pointInPeripheralVision || pointInCloseVision;
     }
 
+    private bool CheckIfPlayerWithinCone(float distance, float angle) {
+        Vector3 targetPosition = FirstPersonMovement.Instance.GetRaycastTarget();
+        return CheckIfPointWithinCone(targetPosition, distance, angle);
+    }
+    
     private bool CheckIfPointWithinCone(Vector3 point, float distance, float angle) {
         Vector3 eyesPosition = transform.position + eyesOffset;
-        Vector3 directionToTarget = (point - eyesPosition).normalized;
         
         // check if within distance
+        Vector3 directionToTarget = (point - eyesPosition).normalized;
         float distanceToTarget = Vector3.Distance(eyesPosition, point);
         if (distanceToTarget > distance) return false;
 
@@ -190,32 +193,9 @@ public class TorbalanVision : MonoBehaviour {
         if (Vector3.Angle(transform.forward, directionToTarget) > angle / 2) return false;
         
         // check if obstacles between self and point
-        if (Physics.Raycast(eyesPosition, directionToTarget, distanceToTarget, obstacleMask)) return false;
+        if (Physics.Raycast(eyesPosition, directionToTarget, distanceToTarget, obstacleMask, QueryTriggerInteraction.Collide)) return false;
 
         return true;
-    }
-
-    private bool CheckIfPlayerWithinCone(float distance, float angle) {
-        Vector3 eyesPosition = transform.position + eyesOffset;
-        
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(eyesPosition, distance, targetMask);
-        
-        // search through all targets in the radius
-        foreach (var t in targetsInViewRadius) {
-            Vector3 targetPosition = t.transform.position + targetOffset;
-            Vector3 directionToTarget = (targetPosition - eyesPosition).normalized;
-            float distanceToTarget = Vector3.Distance(eyesPosition, targetPosition);
-
-            // check if within view angle
-            if (Vector3.Angle(transform.forward, directionToTarget) > angle / 2) continue;
-            
-            // check if obstacles between self and player
-            if (Physics.Raycast(eyesPosition, directionToTarget, distanceToTarget, obstacleMask)) continue;
-
-            return true;
-        }
-
-        return false;
     }
 
     private Vector3 DirectionFromAngle(float angleInDegrees, bool angleIsGlobal) {
@@ -234,7 +214,7 @@ public class TorbalanVision : MonoBehaviour {
         Gizmos.color = Color.red;
         if (playerInNormalVision) {
             Vector3 eyesPosition = transform.position + eyesOffset;
-            Gizmos.DrawLine(eyesPosition, FirstPersonMovement.Instance.transform.position + targetOffset);
+            Gizmos.DrawLine(eyesPosition, FirstPersonMovement.Instance.GetRaycastTarget());
         }
     }
 
