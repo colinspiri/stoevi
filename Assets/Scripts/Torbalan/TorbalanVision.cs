@@ -14,6 +14,7 @@ using Vector3 = UnityEngine.Vector3;
 public class TorbalanVision : MonoBehaviour {
     // components
     public Material eyesMaterial;
+    public Light eyeLight;
     
     // synced with behavior tree
     public bool PlayerWithinVision { get; set; }
@@ -70,31 +71,42 @@ public class TorbalanVision : MonoBehaviour {
         else if (Awareness > 0) Awareness -= Time.deltaTime / awarenessDecayTime;
         else Awareness = 0;
 
-        UpdateEyesMaterial();
+        UpdateEyeLights();
     }
 
-    private void UpdateEyesMaterial() {
+    private void UpdateEyeLights() {
         Color color;
         float intensity;
         float minIntensity = 20f;
         float maxIntensity = 80f;
+        float brightness;
+        float minBrightness = 50f;
+        float maxBrightness = 100f;
         if (Awareness >= 1) {
             color = Color.red;
             intensity = maxIntensity;
+            brightness = maxBrightness;
         }
         else if (Awareness >= 0.5f) {
             color = Color.red;
-            intensity = Mathf.Lerp(minIntensity, maxIntensity, (Awareness - 0.5f) * 2f);
+            float t = (Awareness - 0.5f) * 2f;
+            intensity = Mathf.Lerp(minIntensity, maxIntensity, t);
+            brightness = Mathf.Lerp(minBrightness, maxBrightness, t);
         }
         else if (Awareness > 0) {
-            color = Color.Lerp(Color.yellow, Color.red, Awareness * 2f);
+            float t = Awareness * 2f;
+            color = Color.Lerp(Color.yellow, Color.red, t);
             intensity = minIntensity;
+            brightness = minBrightness;
         }
         else {
             color = Color.yellow;
             intensity = minIntensity;
+            brightness = minBrightness;
         }
         eyesMaterial.SetColor("_EmissionColor", color * Mathf.GammaToLinearSpace(intensity));
+        eyeLight.color = color;
+        eyeLight.intensity = brightness;
     }
 
     private void IncreaseAwareness() {
