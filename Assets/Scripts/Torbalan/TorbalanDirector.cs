@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 
 public class TorbalanDirector : MonoBehaviour {
     // components
+    public static TorbalanDirector Instance;
     public List<Transform> areaNodes;
     public TorbalanDirectorSettings settings;
 
@@ -15,20 +16,32 @@ public class TorbalanDirector : MonoBehaviour {
     public Vector3 TargetPosition { get; set; }
     public GameObject Player { get; set; }
     public bool Frontstage { get; set; }
-    public float FrontstageDistance => settings.frontstageDistance;
+    public float FrontstagePatrolRadius => settings.frontstagePatrolRadius;
     public bool Backstage { get; set; }
-    public float BackstageDistance => settings.backstageDistance;
     
     // state
+    private int aggressionLevel;
     private enum DirectorState { None, Frontstage, Backstage }
     private DirectorState directorState { get; set; }
     private float intensity;
     private float frontstageTimer;
     private float backstageTimer;
 
+    private void Awake() {
+        Instance = this;
+    }
+
     private void Start() {
         Player = FirstPersonMovement.Instance.gameObject;
         SetDirectorState(DirectorState.Backstage);
+        aggressionLevel = settings.maxAggressionLevel;
+    }
+
+    private void OnEnable() {
+        DayManager.OnNight += SetAggressionMaximum;
+    }
+    private void OnDisable() {
+        DayManager.OnNight -= SetAggressionMaximum;
     }
 
     // Update is called once per frame
@@ -48,15 +61,26 @@ public class TorbalanDirector : MonoBehaviour {
         }
     }
 
+    public void IncrementAggression() {
+        aggressionLevel++;
+        if (aggressionLevel > settings.maxAggressionLevel) aggressionLevel = settings.maxAggressionLevel;
+        Debug.Log("aggression level increased to " + aggressionLevel);
+    }
+    private void SetAggressionMaximum() {
+        aggressionLevel = settings.maxAggressionLevel;
+        Debug.Log("aggression level maxed to " + aggressionLevel);
+    }
+
     private void CountIntensity() {
         // calculate distance from player
         var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
         
         // if close enough, count intensity timer
-        if (distance < settings.intensityRadius) {
+        if (distance < settings.intensityDistance) {
             intensity += Time.deltaTime;
+            Debug.Log("intensity = " + Mathf.Floor(intensity) + "/" + settings.GetMaxIntensity(aggressionLevel));
             
-            if (intensity >= settings.maxIntensity) {
+            if (intensity >= settings.GetMaxIntensity(aggressionLevel)) {
                 intensity = 0;
                 SetDirectorState(DirectorState.Backstage);
             }
@@ -68,9 +92,10 @@ public class TorbalanDirector : MonoBehaviour {
 
         if (distance < settings.frontstageDistance) {
             frontstageTimer += Time.deltaTime;
+            Debug.Log("frontstage = " + Mathf.Floor(frontstageTimer) + "/" + settings.GetFrontstageTime(aggressionLevel));
         }
         
-        if (frontstageTimer >= settings.maxFrontstageTime) {
+        if (frontstageTimer >= settings.GetFrontstageTime(aggressionLevel)) {
             frontstageTimer = 0;
             SetDirectorState(DirectorState.None);
         }
@@ -81,9 +106,10 @@ public class TorbalanDirector : MonoBehaviour {
 
         if (distance > settings.backstageDistance) {
             backstageTimer += Time.deltaTime;
+            Debug.Log("backstage = " + Mathf.Floor(backstageTimer) + "/" + settings.GetBackstageTime(aggressionLevel));
         }
         
-        if (backstageTimer >= settings.maxBackstageTime) {
+        if (backstageTimer >= settings.GetBackstageTime(aggressionLevel)) {
             backstageTimer = 0;
             SetDirectorState(DirectorState.Frontstage);
         }
@@ -148,7 +174,12 @@ public class TorbalanDirector : MonoBehaviour {
 
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, settings.intensityRadius);
+        Gizmos.DrawWireSphere(transform.position, settings.intensityDistance);
         Gizmos.DrawWireSphere(transform.position, settings.backstageDistance);
+
+        if (Application.isPlaying) {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawSphere(TargetPosition, 1f);
+        }
     }
 }

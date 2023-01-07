@@ -125,6 +125,10 @@ public class InteractableManager : MonoBehaviour {
         holdTimer = 0;
     }
 
+    public List<Crop> GetAllCrops() {
+        return allCrops;
+    }
+
     public Crop GetClosestHarvestableCropTo(Vector3 position, float maxDistance = float.MaxValue) {
         float closestDistance = float.MaxValue;
         Crop closestCrop = null;

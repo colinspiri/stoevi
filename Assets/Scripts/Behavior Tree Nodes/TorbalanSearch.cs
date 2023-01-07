@@ -40,6 +40,10 @@ public class TorbalanSearch : NavMeshMovement {
         CheckIfPointsInVision();
         
         if (searchPositions.Count == 0) return TaskStatus.Success;
+
+        var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
+        bool playerIsFar = distance > searchRadius.Value + searchRadiusBulge.Value;
+        SetFast(!visitedCenter || playerIsFar);
         
         // moving
         if (currentState == State.Moving) {
@@ -47,8 +51,7 @@ public class TorbalanSearch : NavMeshMovement {
             if (HasArrived()) {
                 searchPositions.RemoveAt(0);
                 visitedCenter = true;
-                SetFast(false);
-                
+
                 StartPause();
             }
         }
@@ -67,6 +70,7 @@ public class TorbalanSearch : NavMeshMovement {
     public override void OnEnd() {
         base.OnEnd();
         
+        TorbalanDirector.Instance.IncrementAggression();
         searchPositions.Clear();
         Owner.UnregisterEvent("LastKnownPositionUpdated", GenerateSearchPositions);
     }
@@ -105,7 +109,6 @@ public class TorbalanSearch : NavMeshMovement {
         // add center
         searchPositions.Add(lastKnownPosition.Value);
         visitedCenter = false;
-        SetFast(true);
         
         // get forward vector to determine dot products
         Vector3 forwardVec;
