@@ -34,7 +34,7 @@ public class TorbalanDirector : MonoBehaviour {
     private void Start() {
         Player = FirstPersonMovement.Instance.gameObject;
         SetDirectorState(DirectorState.Backstage);
-        aggressionLevel = settings.maxAggressionLevel;
+        aggressionLevel = 0;
     }
 
     private void OnEnable() {

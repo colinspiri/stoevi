@@ -239,7 +239,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7930902516760894136, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
   m_audioClip: {fileID: 8300000, guid: ee37fc75be7885d429b93b7f391b408c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -248,7 +248,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 15
-  MaxDistance: 30
+  MaxDistance: 45
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 789039114618768136}
   behavior: {fileID: 789039114618768141}
-  deaf: 1
+  deaf: 0
   heardTime: 2
 --- !u!114 &6240433948082032128
 MonoBehaviour:
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eyesMaterial: {fileID: 2100000, guid: be07603211ad6254db38fa919379f750, type: 2}
-  blind: 1
+  blind: 0
   eyesOffset: {x: 0, y: 4.02, z: 0}
   obstacleMask:
     serializedVersion: 2
