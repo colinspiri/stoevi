@@ -105,6 +105,22 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ToggleDebug"",
+                    ""type"": ""Button"",
+                    ""id"": ""30d9ca6d-8972-4627-acc7-11f0d01d100b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Return"",
+                    ""type"": ""Button"",
+                    ""id"": ""ccaea758-dede-415d-ad5d-2fc3b33dc336"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -496,7 +512,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0c99789d-1ea9-4ff3-8386-c8514166b853"",
-                    ""path"": ""<Keyboard>/g"",
+                    ""path"": ""<Keyboard>/equals"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -534,6 +550,28 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""HoldBreath"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""52a627d0-313d-43fc-a00a-d817a9404e64"",
+                    ""path"": ""<Keyboard>/backquote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse;Xbox;Playstation"",
+                    ""action"": ""ToggleDebug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""42ee67b9-4008-413c-8101-36a0fdcad0e2"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse;Xbox;Playstation"",
+                    ""action"": ""Return"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1210,6 +1248,8 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Gameplay_ToggleHUD = m_Gameplay.FindAction("ToggleHUD", throwIfNotFound: true);
         m_Gameplay_Peek = m_Gameplay.FindAction("Peek", throwIfNotFound: true);
         m_Gameplay_HoldBreath = m_Gameplay.FindAction("HoldBreath", throwIfNotFound: true);
+        m_Gameplay_ToggleDebug = m_Gameplay.FindAction("ToggleDebug", throwIfNotFound: true);
+        m_Gameplay_Return = m_Gameplay.FindAction("Return", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1282,6 +1322,8 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_ToggleHUD;
     private readonly InputAction m_Gameplay_Peek;
     private readonly InputAction m_Gameplay_HoldBreath;
+    private readonly InputAction m_Gameplay_ToggleDebug;
+    private readonly InputAction m_Gameplay_Return;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -1297,6 +1339,8 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @ToggleHUD => m_Wrapper.m_Gameplay_ToggleHUD;
         public InputAction @Peek => m_Wrapper.m_Gameplay_Peek;
         public InputAction @HoldBreath => m_Wrapper.m_Gameplay_HoldBreath;
+        public InputAction @ToggleDebug => m_Wrapper.m_Gameplay_ToggleDebug;
+        public InputAction @Return => m_Wrapper.m_Gameplay_Return;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1339,6 +1383,12 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @HoldBreath.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHoldBreath;
                 @HoldBreath.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHoldBreath;
                 @HoldBreath.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHoldBreath;
+                @ToggleDebug.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnToggleDebug;
+                @ToggleDebug.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnToggleDebug;
+                @ToggleDebug.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnToggleDebug;
+                @Return.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReturn;
+                @Return.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReturn;
+                @Return.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReturn;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1376,6 +1426,12 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @HoldBreath.started += instance.OnHoldBreath;
                 @HoldBreath.performed += instance.OnHoldBreath;
                 @HoldBreath.canceled += instance.OnHoldBreath;
+                @ToggleDebug.started += instance.OnToggleDebug;
+                @ToggleDebug.performed += instance.OnToggleDebug;
+                @ToggleDebug.canceled += instance.OnToggleDebug;
+                @Return.started += instance.OnReturn;
+                @Return.performed += instance.OnReturn;
+                @Return.canceled += instance.OnReturn;
             }
         }
     }
@@ -1525,6 +1581,8 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnToggleHUD(InputAction.CallbackContext context);
         void OnPeek(InputAction.CallbackContext context);
         void OnHoldBreath(InputAction.CallbackContext context);
+        void OnToggleDebug(InputAction.CallbackContext context);
+        void OnReturn(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

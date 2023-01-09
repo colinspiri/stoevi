@@ -78,6 +78,11 @@ public class ResourceManager : MonoBehaviour {
     public bool SeedsFull() {
         return CurrentSeeds == maxSeeds;
     }
+    public void SetSeeds(int value) {
+        CurrentSeeds = value;
+        if (CurrentSeeds > maxSeeds) CurrentSeeds = maxSeeds;
+        onSeedsChange?.Invoke(CurrentSeeds);
+    }
 
     public void PickUpFertilizer() {
         carryingFertilizer = true;

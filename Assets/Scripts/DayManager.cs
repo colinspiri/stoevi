@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DayManager : MonoBehaviour {
+    // components
+    public static DayManager Instance;
+    
     // constants
     public float minutesUntilEvening;
     public float minutesUntilDark;
@@ -16,6 +19,10 @@ public class DayManager : MonoBehaviour {
     // callbacks
     public static event Action<int> OnSecondTick = delegate { };
     public static event Action OnNight = delegate { };
+
+    private void Awake() {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start() {
@@ -42,5 +49,15 @@ public class DayManager : MonoBehaviour {
             float lightPercent = (timer - timeUntilEvening) / timeUntilDark;
             LightManager.Instance.UpdateLighting(lightPercent);
         }
+    }
+
+    public void SetDay() {
+        timer = 0;
+    }
+    public void SetEvening() {
+        timer = timeUntilEvening;
+    }
+    public void SetNight() {
+        timer = timeUntilEvening + timeUntilDark;
     }
 }

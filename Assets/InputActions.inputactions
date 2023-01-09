@@ -92,6 +92,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ToggleDebug",
+                    "type": "Button",
+                    "id": "30d9ca6d-8972-4627-acc7-11f0d01d100b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Return",
+                    "type": "Button",
+                    "id": "ccaea758-dede-415d-ad5d-2fc3b33dc336",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -483,7 +499,7 @@
                 {
                     "name": "",
                     "id": "0c99789d-1ea9-4ff3-8386-c8514166b853",
-                    "path": "<Keyboard>/g",
+                    "path": "<Keyboard>/equals",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -521,6 +537,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "HoldBreath",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "52a627d0-313d-43fc-a00a-d817a9404e64",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;Xbox;Playstation",
+                    "action": "ToggleDebug",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42ee67b9-4008-413c-8101-36a0fdcad0e2",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;Xbox;Playstation",
+                    "action": "Return",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

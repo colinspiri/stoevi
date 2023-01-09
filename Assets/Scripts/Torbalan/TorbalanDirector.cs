@@ -64,11 +64,11 @@ public class TorbalanDirector : MonoBehaviour {
     public void IncrementAggression() {
         aggressionLevel++;
         if (aggressionLevel > settings.maxAggressionLevel) aggressionLevel = settings.maxAggressionLevel;
-        Debug.Log("aggression level increased to " + aggressionLevel);
+        // Debug.Log("aggression level increased to " + aggressionLevel);
     }
     private void SetAggressionMaximum() {
         aggressionLevel = settings.maxAggressionLevel;
-        Debug.Log("aggression level maxed to " + aggressionLevel);
+        // Debug.Log("aggression level maxed to " + aggressionLevel);
     }
 
     private void CountIntensity() {
@@ -78,7 +78,7 @@ public class TorbalanDirector : MonoBehaviour {
         // if close enough, count intensity timer
         if (distance < settings.intensityDistance) {
             intensity += Time.deltaTime;
-            Debug.Log("intensity = " + Mathf.Floor(intensity) + "/" + settings.GetMaxIntensity(aggressionLevel));
+            // Debug.Log("intensity = " + Mathf.Floor(intensity) + "/" + settings.GetMaxIntensity(aggressionLevel));
             
             if (intensity >= settings.GetMaxIntensity(aggressionLevel)) {
                 intensity = 0;
@@ -92,7 +92,7 @@ public class TorbalanDirector : MonoBehaviour {
 
         if (distance < settings.frontstageDistance) {
             frontstageTimer += Time.deltaTime;
-            Debug.Log("frontstage = " + Mathf.Floor(frontstageTimer) + "/" + settings.GetFrontstageTime(aggressionLevel));
+            // Debug.Log("frontstage = " + Mathf.Floor(frontstageTimer) + "/" + settings.GetFrontstageTime(aggressionLevel));
         }
         
         if (frontstageTimer >= settings.GetFrontstageTime(aggressionLevel)) {
@@ -106,7 +106,7 @@ public class TorbalanDirector : MonoBehaviour {
 
         if (distance > settings.backstageDistance) {
             backstageTimer += Time.deltaTime;
-            Debug.Log("backstage = " + Mathf.Floor(backstageTimer) + "/" + settings.GetBackstageTime(aggressionLevel));
+            // Debug.Log("backstage = " + Mathf.Floor(backstageTimer) + "/" + settings.GetBackstageTime(aggressionLevel));
         }
         
         if (backstageTimer >= settings.GetBackstageTime(aggressionLevel)) {
