@@ -70,7 +70,6 @@ public class TorbalanSearch : NavMeshMovement {
     public override void OnEnd() {
         base.OnEnd();
         
-        TorbalanDirector.Instance.IncrementAggression();
         searchPositions.Clear();
         Owner.UnregisterEvent("LastKnownPositionUpdated", GenerateSearchPositions);
     }
@@ -91,12 +90,11 @@ public class TorbalanSearch : NavMeshMovement {
     private void CheckIfPointsInVision() {
         int maxPoints = searchPositions.Count;
         for (int i = 0; i < maxPoints; i++) {
-            if (visitedCenter) continue; // don't skip visiting the center
+            if (!visitedCenter) continue; // don't skip visiting the center
             if (vision.CanSeePointInAnyVision(searchPositions[i])) {
                 searchPositions.RemoveAt(i);
                 i--;
                 maxPoints--;
-                StartMoving();
             }
         }
     }

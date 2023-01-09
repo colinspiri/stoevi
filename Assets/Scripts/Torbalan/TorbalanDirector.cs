@@ -130,6 +130,10 @@ public class TorbalanDirector : MonoBehaviour {
 
         Frontstage = directorState == DirectorState.Frontstage;
         Backstage = directorState == DirectorState.Backstage;
+
+        if (directorState == DirectorState.Backstage) {
+            IncrementAggression();
+        }
         
         SetTargetPosition();
     }
