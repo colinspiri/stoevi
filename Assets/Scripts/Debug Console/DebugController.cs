@@ -18,13 +18,15 @@ public class DebugController : MonoBehaviour {
     private Vector2 scroll;
 
     // commands
-    public List<object> commandList;
-    public static DebugCommand KILL_PLAYER;
-    public static DebugCommand END_DAY;
-    public static DebugCommand<int> SET_SEEDS;
-    public static DebugCommand SET_DAY;
-    public static DebugCommand SET_EVENING;
-    public static DebugCommand SET_NIGHT;
+    private List<DebugCommandBase> commandList;
+    private static DebugCommand KILL_PLAYER;
+    private static DebugCommand END_DAY;
+    private static DebugCommand<int> SET_SEEDS;
+    private static DebugCommand SET_DAY;
+    private static DebugCommand SET_EVENING;
+    private static DebugCommand SET_NIGHT;
+    private static DebugCommand<bool> SET_DEAF;
+    private static DebugCommand<bool> SET_BLIND;
 
 
     private void Awake() {
@@ -34,32 +36,35 @@ public class DebugController : MonoBehaviour {
     }
 
     private void Start() {
-        KILL_PLAYER = new DebugCommand("kill_player", "Kills player.", "kill_player", () => {
-            GameManager.Instance.GameOver(false);
+        KILL_PLAYER = new DebugCommand("kill_player", "Kills player.", "kill_player",
+            () => { GameManager.Instance.GameOver(false); });
+        END_DAY = new DebugCommand("end_day", "Ends the current day.", "end_day",
+            () => { GameManager.Instance.GameOver(true); });
+        SET_SEEDS = new DebugCommand<int>("set_seeds", "Sets the number of seeds", "set_seeds <seed_number>",
+            x => { ResourceManager.Instance.SetSeeds(x); });
+        SET_DAY = new DebugCommand("set_day", "Sets the time to day.", "set_day",
+            () => { DayManager.Instance.SetDay(); });
+        SET_EVENING = new DebugCommand("set_evening", "Sets the time to evening.", "set_evening",
+            () => { DayManager.Instance.SetEvening(); });
+        SET_NIGHT = new DebugCommand("set_night", "Sets the time to night.", "set_night",
+            () => { DayManager.Instance.SetNight(); });
+        SET_DEAF = new DebugCommand<bool>("set_deaf", "Sets Torbalan deaf state.", "set_deaf <bool>", value => {
+            TorbalanHearing.Instance.SetDeaf(value);
         });
-        END_DAY = new DebugCommand("end_day", "Ends the current day.", "end_day", () => {
-            GameManager.Instance.GameOver(true);
+        SET_BLIND = new DebugCommand<bool>("set_blind", "Sets Torbalan blind state.", "set_blind <bool>", value => {
+            TorbalanVision.Instance.SetBlind(value);
         });
-        SET_SEEDS = new DebugCommand<int>("set_seeds", "Sets the number of seeds", "set_seeds <seed_number>", x => {
-            ResourceManager.Instance.SetSeeds(x);
-        });
-        SET_DAY = new DebugCommand("set_day", "Sets the time to day.", "set_day", () => {
-            DayManager.Instance.SetDay();
-        });
-        SET_EVENING = new DebugCommand("set_evening", "Sets the time to evening.", "set_evening", () => {
-            DayManager.Instance.SetEvening();
-        });
-        SET_NIGHT = new DebugCommand("set_night", "Sets the time to night.", "set_night", () => {
-            DayManager.Instance.SetNight();
-        });
-        commandList = new List<object> {
+
+    commandList = new List<DebugCommandBase> {
             KILL_PLAYER,
             END_DAY,
             SET_SEEDS,
             SET_DAY,
             SET_EVENING,
-            SET_NIGHT
-        };
+            SET_NIGHT,
+            SET_DEAF,
+            SET_BLIND,
+    };
         
         // start disabled
         consoleVisible = false;
@@ -117,15 +122,22 @@ public class DebugController : MonoBehaviour {
 
     private void HandleInput() {
         string[] properties = input.Split(' ');
-        for (int i = 0; i < commandList.Count; i++) {
-            DebugCommandBase commandBase = commandList[i] as DebugCommandBase;
+        foreach (DebugCommandBase commandBase in commandList) {
             if (input.Contains(commandBase.commandID)) {
-                if (commandList[i] as DebugCommand != null) {
-                    // cast to this type and invoke the command
-                    (commandList[i] as DebugCommand).Invoke();
-                }
-                else if (commandList[i] as DebugCommand<int> != null) {
-                    (commandList[i] as DebugCommand<int>).Invoke(int.Parse(properties[1]));
+                switch (commandBase) {
+                    case DebugCommand command:
+                        command.Invoke();
+                        break;
+                    case DebugCommand<int> commandInt: {
+                        int argInt = int.Parse(properties[1]);
+                        commandInt.Invoke(argInt);
+                        break;
+                    }
+                    case DebugCommand<bool> commandBool: {
+                        bool argBool = bool.Parse(properties[1]);
+                        commandBool.Invoke(argBool);
+                        break;
+                    }
                 }
             }
         }

@@ -63,4 +63,8 @@ public class TorbalanHearing : MonoBehaviour {
 
         return length;
     }
+
+    public void SetDeaf(bool value) {
+        deaf = value;
+    }
 }

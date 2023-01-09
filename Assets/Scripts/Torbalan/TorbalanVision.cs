@@ -13,6 +13,7 @@ using Vector3 = UnityEngine.Vector3;
 
 public class TorbalanVision : MonoBehaviour {
     // components
+    public static TorbalanVision Instance;
     public Material eyesMaterial;
     public Light eyeLight;
     
@@ -61,6 +62,9 @@ public class TorbalanVision : MonoBehaviour {
     private bool playerInPeripheralVision;
     private bool playerInCloseVision;
 
+    private void Awake() {
+        Instance = this;
+    }
 
     private void Update() {
         LookForPlayer();
@@ -215,6 +219,10 @@ public class TorbalanVision : MonoBehaviour {
             angleInDegrees += transform.eulerAngles.y;
         }
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+    }
+
+    public void SetBlind(bool value) {
+        blind = value;
     }
 
     private void OnDrawGizmos() {

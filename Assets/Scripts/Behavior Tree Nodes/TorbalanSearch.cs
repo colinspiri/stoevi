@@ -20,6 +20,7 @@ public class TorbalanSearch : NavMeshMovement {
     public SharedFloat searchRadiusBulge;
     public SharedFloat minPauseDuration;
     public SharedFloat maxPauseDuration;
+    public SharedFloat maxSearchTime;
 
     // state
     private List<Vector3> searchPositions;
@@ -27,6 +28,7 @@ public class TorbalanSearch : NavMeshMovement {
     private enum State { Moving, Paused }
     private State currentState;
     private float pauseTimer;
+    private float searchTimer;
 
     public override void OnStart() {
         base.OnStart();
@@ -63,6 +65,13 @@ public class TorbalanSearch : NavMeshMovement {
                 StartMoving();
             }
         }
+        
+        // count timer
+        searchTimer += Time.deltaTime;
+        if (searchTimer >= maxSearchTime.Value) {
+            return TaskStatus.Success;
+        }
+        Debug.Log("searchTimer = " + searchTimer);
 
         return TaskStatus.Running;
     }
@@ -107,6 +116,7 @@ public class TorbalanSearch : NavMeshMovement {
         // add center
         searchPositions.Add(lastKnownPosition.Value);
         visitedCenter = false;
+        searchTimer = 0;
         
         // get forward vector to determine dot products
         Vector3 forwardVec;
