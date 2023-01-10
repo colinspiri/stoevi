@@ -3,20 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class SeedUI : MonoBehaviour
 {
     // components
     public TextMeshProUGUI counterText;
+    public IntReference seeds;
     
-    private void Start() {
-        if (ResourceManager.Instance) {
-            UpdateText(ResourceManager.Instance.CurrentSeeds);
-            ResourceManager.Instance.onSeedsChange.AddListener(UpdateText);
+    // state
+    private int previousCount = -1;
+
+    private void OnEnable() {
+        UpdateText();
+    }
+
+    private void Update() {
+        if (previousCount != seeds.Value) {
+            UpdateText();
+            previousCount = seeds.Value;
         }
     }
 
-    private void UpdateText(int value) {
-        counterText.text = value + "/" + ResourceManager.Instance.maxSeeds;
+    private void UpdateText() {
+        counterText.text = seeds.Value.ToString();
     }
 }

@@ -19,9 +19,8 @@ public class ResourceManager : MonoBehaviour {
     public UnityEvent<int> playerHarvestedTomato;
     
     // seeds
-    public int maxSeeds;
-    public int CurrentSeeds { get; private set; }
-    public UnityEvent<int> onSeedsChange;
+    public IntReference startingSeeds;
+    public IntVariable seeds;
     
     // fertilizer
     public bool carryingFertilizer { get; private set; }
@@ -34,7 +33,7 @@ public class ResourceManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         currentWater = maxWater;
-        CurrentSeeds = maxSeeds;
+        seeds.SetValue(startingSeeds.Value);
     }
 
     public void UseWater() {
@@ -65,23 +64,13 @@ public class ResourceManager : MonoBehaviour {
     }
 
     public void UseSeed() {
-        CurrentSeeds--;
-        onSeedsChange?.Invoke(CurrentSeeds);
-    }
-    public void RefillSeeds() {
-        CurrentSeeds = maxSeeds;
-        onSeedsChange?.Invoke(CurrentSeeds);
+        seeds.ApplyChange(-1);
     }
     public bool HasSeedsLeft() {
-        return CurrentSeeds > 0;
-    }
-    public bool SeedsFull() {
-        return CurrentSeeds == maxSeeds;
+        return seeds.Value > 0;
     }
     public void SetSeeds(int value) {
-        CurrentSeeds = value;
-        if (CurrentSeeds > maxSeeds) CurrentSeeds = maxSeeds;
-        onSeedsChange?.Invoke(CurrentSeeds);
+        seeds.SetValue(value);
     }
 
     public void PickUpFertilizer() {

@@ -50,8 +50,8 @@ MonoBehaviour:
   playerHarvestedTomato:
     m_PersistentCalls:
       m_Calls: []
-  maxSeeds: 7
-  onSeedsChange:
-    m_PersistentCalls:
-      m_Calls: []
+  startingSeeds:
+    UseConstant: 1
+    ConstantValue: 1
+  seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   fertilizerPrefab: {fileID: 1433479246987159136, guid: bbc628e78fbd4e24797aba1a744dc2b6, type: 3}

@@ -5,11 +5,11 @@ using UnityEngine;
 public class RefillSeeds : Interactable
 {
     public override bool IsInteractable() {
-        return ResourceManager.Instance.SeedsFull() == false;
+        return false;
     }
 
     public override void Interact() {
-        ResourceManager.Instance.RefillSeeds();
+        
     }
 
     public override string GetObjectName() {
@@ -21,6 +21,6 @@ public class RefillSeeds : Interactable
     }
 
     public override string GetButtonPrompt() {
-        return ResourceManager.Instance.SeedsFull() ? "seeds already full" : "E to refill seeds";
+        return "temporarily disabled";
     }
 }
