@@ -7,10 +7,11 @@ using StarterAssets;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
 
 public class AudioManager : MonoBehaviour {
     public static AudioManager Instance;
-    public AudioMixer mixer;
+    public AudioSettings audioSettings;
 
     [Header("Scenes")]
     public SceneReference mainMenuScene;
@@ -50,7 +51,10 @@ public class AudioManager : MonoBehaviour {
     private void Start() {
         mainMenuMusic.ignoreListenerPause = true;
         farmAmbience.ignoreListenerPause = true;
+        
+        audioSettings.Initialize();
 
+        // play sounds on scene start
         SceneManager.activeSceneChanged += (oldScene, newScene) => PlaySoundsOnSceneStart(newScene);
         PlaySoundsOnSceneStart(SceneManager.GetActiveScene());
     }
@@ -78,11 +82,6 @@ public class AudioManager : MonoBehaviour {
     public void ResumeGameSound() {
         AudioListener.pause = false;
         farmAmbience.DOFade(0.3f, 1).SetUpdate(true);
-    }
-    
-    public void SetVolume(string mixerChannel, float value) {
-        mixer.SetFloat(mixerChannel, Mathf.Log10(value) * 20f);
-        PlayerPrefs.SetFloat(mixerChannel, value);
     }
 
     private void Update() {

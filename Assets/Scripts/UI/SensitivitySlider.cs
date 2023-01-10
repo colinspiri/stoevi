@@ -17,16 +17,12 @@ public class SensitivitySlider : MonoBehaviour {
     void Start() {
         slider.onValueChanged.AddListener(value => {
             if (InputHandler.Instance) InputHandler.Instance.sensitivity = value;
+            PlayerPrefs.SetFloat("Sensitivity", slider.value);
         });
-        slider.value = PlayerPrefs.GetFloat("Sensitivity", slider.value);
         if (InputHandler.Instance) InputHandler.Instance.sensitivity = slider.value;
     }
 
     private void OnEnable() {
-        slider.value = PlayerPrefs.GetFloat("Sensitivity", slider.value);
-    }
-
-    private void OnDisable() {
-        PlayerPrefs.SetFloat("Sensitivity", slider.value);
+        slider.value = PlayerPrefs.GetFloat("Sensitivity", InputHandler.Instance.defaultSensitivity);
     }
 }

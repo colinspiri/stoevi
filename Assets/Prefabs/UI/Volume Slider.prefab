@@ -402,6 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1d3a07f57a21a48823f9b09bf7bd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSettings: {fileID: 11400000, guid: 5e6cc2760af1bcb4b83a0893ca39df94, type: 2}
   mixerChannel: 
 --- !u!114 &2626561624527552319
 MonoBehaviour:

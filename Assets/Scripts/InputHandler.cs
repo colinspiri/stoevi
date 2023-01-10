@@ -27,10 +27,16 @@ public class InputHandler : MonoBehaviour {
     [Header("Mouse Cursor Settings")]
     public bool cursorLocked = true;
     public bool cursorInputForLook = true;
-    public float sensitivity = 1;
+    public float defaultSensitivity;
+    public float sensitivity;
 
     private void Awake() {
         Instance = this;
+    }
+
+    private void Start() {
+        // initialize sensitivity
+        sensitivity = PlayerPrefs.GetFloat("Sensitivity", defaultSensitivity);
     }
 
     private void Update() {

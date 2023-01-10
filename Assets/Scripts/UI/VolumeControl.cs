@@ -7,9 +7,12 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
 public class VolumeControl : MonoBehaviour {
-    public string mixerChannel;
-
+    // components
     private Slider slider;
+    public AudioSettings audioSettings;
+
+    // constants
+    public string mixerChannel;
 
     private void Awake() {
         slider = GetComponent<Slider>();
@@ -18,23 +21,15 @@ public class VolumeControl : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         slider.onValueChanged.AddListener(value => {
-            if(AudioManager.Instance) AudioManager.Instance.SetVolume(mixerChannel, value);
+            audioSettings.ChangeVolume(mixerChannel, value);
         });
-        
-        slider.value = PlayerPrefs.GetFloat(mixerChannel, slider.value);
-        if(AudioManager.Instance) AudioManager.Instance.SetVolume(mixerChannel, slider.value);
     }
 
-    public void PlaySFXTestSound()
-    {
+    public void PlaySFXTestSound() {
         if(AudioManager.Instance) AudioManager.Instance.PlaySelectSound();
     }
 
     private void OnEnable() {
-        slider.value = PlayerPrefs.GetFloat(mixerChannel, slider.value);
-    }
-
-    private void OnDisable() {
-        PlayerPrefs.SetFloat(mixerChannel, slider.value);
+        slider.value = audioSettings.GetVolume(mixerChannel);
     }
 }
