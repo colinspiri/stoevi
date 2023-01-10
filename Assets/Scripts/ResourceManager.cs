@@ -63,16 +63,6 @@ public class ResourceManager : MonoBehaviour {
         TorbalanTomatoes++;
     }
 
-    public void UseSeed() {
-        seeds.ApplyChange(-1);
-    }
-    public bool HasSeedsLeft() {
-        return seeds.Value > 0;
-    }
-    public void SetSeeds(int value) {
-        seeds.SetValue(value);
-    }
-
     public void PickUpFertilizer() {
         carryingFertilizer = true;
     }

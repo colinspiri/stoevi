@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8888c1b74c7c247289d87c19195e903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offsetInDegrees: 0
 --- !u!1 &8152074468222590108
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,13 +144,12 @@ MonoBehaviour:
   InteractionDistance: 3
   InteractionTime: 1
   spriteRenderer: {fileID: 8152074468140001967}
-  farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   soil: {fileID: 0}
-  maxTomatoes: 3
-  minTomatoes: 1
-  growTime: 5
+  farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
+  seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   stage: 0
   fertilized: 0
+  tomatoesYielded: 0
 --- !u!65 &3906466082723591610
 BoxCollider:
   m_ObjectHideFlags: 0

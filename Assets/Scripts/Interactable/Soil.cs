@@ -12,7 +12,8 @@ public class Soil : Interactable {
 
     // constants
     public FarmingConstants farmingConstants;
-    
+    public IntVariable seeds;
+
     // state
     public List<Crop> crops = new List<Crop>();
     // private bool tilled;
@@ -34,7 +35,7 @@ public class Soil : Interactable {
             return true;
         }*/
         // can plant crops
-        else if(crops.Count < farmingConstants.maxCrops && ResourceManager.Instance.HasSeedsLeft()) {
+        else if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
             return true;
         }
         return false;
@@ -50,11 +51,11 @@ public class Soil : Interactable {
             tilled = true;
         }*/
         // plant crops
-        else if(crops.Count < farmingConstants.maxCrops && ResourceManager.Instance.HasSeedsLeft()) {
+        else if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
             var lookPosition = CameraRaycast.Instance.GetCurrentHitPosition();
             SpawnCrop(lookPosition);
             
-            ResourceManager.Instance.UseSeed();
+            seeds.ApplyChange(-1);
         }
     }
 
@@ -96,7 +97,7 @@ public class Soil : Interactable {
         }
         // plant 
         else if (crops.Count < farmingConstants.maxCrops) {
-            if (ResourceManager.Instance.HasSeedsLeft()) return "E to plant seed";
+            if (seeds.Value > 0) return "E to plant seed";
             return "out of seeds";
         }
         // no more space

@@ -481,6 +481,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 569451351}
   soil: {fileID: 185996816}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
+  seeds: {fileID: 0}
   stage: 4
   fertilized: 0
   tomatoesYielded: 0
@@ -613,6 +614,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 544299501}
   soil: {fileID: 1498087099}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
+  seeds: {fileID: 0}
   stage: 0
   fertilized: 0
   tomatoesYielded: 0
@@ -1346,6 +1348,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 406691378}
   soil: {fileID: 767682544}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
+  seeds: {fileID: 0}
   stage: 3
   fertilized: 0
   tomatoesYielded: 0
@@ -2818,6 +2821,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 314134412}
   soil: {fileID: 185996816}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
+  seeds: {fileID: 0}
   stage: 4
   fertilized: 0
   tomatoesYielded: 0

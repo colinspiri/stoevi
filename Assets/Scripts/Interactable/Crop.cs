@@ -15,6 +15,7 @@ public class Crop : Interactable {
 
     // constants
     public FarmingConstants farmingConstants;
+    public IntVariable seeds;
 
     // state
     public enum GrowthStage { Seed, Sprout, Intermediate, Unripe, Ripe, Bare }
@@ -24,7 +25,6 @@ public class Crop : Interactable {
     private enum Health { Fair, Poor, Dead }
     private Health health;
     // growth
-    private int timesGrownToday;
     private float growthTime;
     private float growthTimer;
     // watering
@@ -88,7 +88,6 @@ public class Crop : Interactable {
                     health = Health.Poor;
                     UpdateSprite();
                     
-                    timesGrownToday++;
                     StartThirsty();
                 }
                 else if (health == Health.Poor) {
@@ -102,6 +101,7 @@ public class Crop : Interactable {
     public override void Interact() {
         // can be removed
         if (stage == GrowthStage.Bare || health == Health.Dead) {
+            seeds.ApplyChange(1);
             Destroy(gameObject);
             return;
         }
@@ -149,41 +149,15 @@ public class Crop : Interactable {
     private void StartGrowing() {
         state = State.Growing;
 
-        /*float growthTimeByStage = farmingConstants.growthTimeByStage[stage];
-
-        // get multiplier
-        var index = timesGrownToday >= farmingConstants.consecutiveTimerMultipliers.Count
-            ? farmingConstants.consecutiveTimerMultipliers.Count - 1
-            : timesGrownToday;
-        float multiplier = farmingConstants.consecutiveTimerMultipliers[index];
-
-        // set growth timer
-        growthTime = growthTimeByStage * multiplier;
-        growthTimer = growthTime;*/
-
         growthTime = farmingConstants.baseGrowthTime;
         growthTimer = growthTime;
-
-        // Debug.Log("growth time is " + growthTime + " (" + growthTimeByStage + " * " + multiplier + ")");
     }
 
     private void StartThirsty() {
         state = State.NeedsWater;
 
-        /*// get multiplier
-        var index = timesGrownToday >= farmingConstants.consecutiveTimerMultipliers.Count
-            ? farmingConstants.consecutiveTimerMultipliers.Count - 1
-            : timesGrownToday;
-        float multiplier = farmingConstants.consecutiveTimerMultipliers[index];
-        
-        // set thirsty timer
-        thirstyTime = farmingConstants.baseThirstyTime * multiplier;
-        thirstyTimer = thirstyTime;*/
-        
         thirstyTime = farmingConstants.baseThirstyTime;
         thirstyTimer = thirstyTime;
-        
-        // Debug.Log("thirsty time is " + thirstyTime + " (" + farmingConstants.baseThirstyTime + " * " + multiplier + ")");
     }
 
     private void Harvest() {
@@ -203,8 +177,6 @@ public class Crop : Interactable {
     }
 
     private void Grow() {
-        timesGrownToday++;
-        
         // check if fertilized
         if (stage == GrowthStage.Seed || stage == GrowthStage.Sprout) {
             if (soil != null && soil.ConsumeFertilizer()) {

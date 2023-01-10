@@ -11,6 +11,7 @@ public class DebugController : MonoBehaviour {
     private InputActions inputActions;
     public GameObject consolePanel;
     public TextMeshProUGUI inputText;
+    public IntVariable seeds;
     
     // state
     private bool consoleVisible;
@@ -41,7 +42,7 @@ public class DebugController : MonoBehaviour {
         END_DAY = new DebugCommand("end_day", "Ends the current day.", "end_day",
             () => { GameManager.Instance.GameOver(true); });
         SET_SEEDS = new DebugCommand<int>("set_seeds", "Sets the number of seeds", "set_seeds <seed_number>",
-            x => { ResourceManager.Instance.SetSeeds(x); });
+            x => { seeds.SetValue(x); });
         SET_DAY = new DebugCommand("set_day", "Sets the time to day.", "set_day",
             () => { DayManager.Instance.SetDay(); });
         SET_EVENING = new DebugCommand("set_evening", "Sets the time to evening.", "set_evening",
