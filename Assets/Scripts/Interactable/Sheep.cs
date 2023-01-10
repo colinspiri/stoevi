@@ -54,6 +54,7 @@ public class Sheep : Interactable {
 
     public override void Interact() {
         sheep_hit.Play3D(transform);
+        CameraShake.Instance.Shake();
         
         BecomeScared();
     }
