@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 public class Sheep : Interactable {
     // components
     public ASoundContainer bleat;
+    public ASoundContainer sheep_hit;
     
     // behavior tree shared variables
     public GameObject player { get; set; }
@@ -52,14 +53,14 @@ public class Sheep : Interactable {
     }
 
     public override void Interact() {
-        // TODO: play hit sound
+        sheep_hit.Play3D(transform);
+        
         BecomeScared();
     }
 
     public void BecomeScared() {
         scared = true;
-        bleat.Play3D(transform);
-
+        
         // report sound to torbalan
         if (TorbalanHearing.Instance) {
             TorbalanHearing.Instance.ReportSound(transform.position, bleatLoudness);
