@@ -102,6 +102,7 @@ public class Crop : Interactable {
         // can be removed
         if (stage == GrowthStage.Bare || health == Health.Dead) {
             seeds.ApplyChange(1);
+            AudioManager.Instance.PlayHarvestSound();
             Destroy(gameObject);
             return;
         }
