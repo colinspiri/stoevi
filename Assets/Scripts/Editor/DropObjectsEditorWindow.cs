@@ -96,7 +96,7 @@ public class DropObjectsEditorWindow : EditorWindow
             
             // calculate offset based on settings
             float yOffset = 0f;
-            Bounds bounds = go.GetComponent<Collider>().bounds;
+            Bounds bounds = go.GetComponent<Renderer>().bounds;
             switch (Method)
             {
                 case "Bottom":
