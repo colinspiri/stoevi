@@ -706,6 +706,7 @@ MonoBehaviour:
   crouchWalkingFactor: 0.9
   walkingFactor: 0.6
   runningFactor: 0.2
+  torbalanAwareness: {fileID: 11400000, guid: 69474ae2da2567b4ca7d56037c4daf59, type: 2}
 --- !u!114 &4625671584228454852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1325,7 +1326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7948452214072338593}
   - component: {fileID: 6223790473223579609}
-  - component: {fileID: 2635698969614260051}
+  - component: {fileID: 3080916150924047636}
   m_Layer: 9
   m_Name: Awareness UI
   m_TagString: Untagged
@@ -1405,7 +1406,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2635698969614260051
+--- !u!114 &3080916150924047636
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1414,10 +1415,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 2490260991235807152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d147edd36caea458afac19df692123, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a9f05c72ac844e4a278ca775714d5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vision: {fileID: 6240433948082032128}
+  slider: {fileID: 6223790473223579609}
+  currentValue:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 69474ae2da2567b4ca7d56037c4daf59, type: 2}
+  maxValue:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  minValue:
+    UseConstant: 1
+    ConstantValue: 1
+    Variable: {fileID: 0}
+  sliderLerpTime: 0
 --- !u!1 &2494817490271932799
 GameObject:
   m_ObjectHideFlags: 0

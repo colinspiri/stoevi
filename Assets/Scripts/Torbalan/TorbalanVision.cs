@@ -19,7 +19,7 @@ public class TorbalanVision : MonoBehaviour {
     
     // synced with behavior tree
     public bool PlayerWithinVision { get; set; }
-    public float Awareness { get; set; }
+    public float Awareness => torbalanAwareness.Value;
 
     // constants
     public bool blind;
@@ -58,6 +58,7 @@ public class TorbalanVision : MonoBehaviour {
     public float runningFactor;
     
     // state
+    public FloatVariable torbalanAwareness;
     private bool playerInNormalVision;
     private bool playerInPeripheralVision;
     private bool playerInCloseVision;
@@ -66,14 +67,18 @@ public class TorbalanVision : MonoBehaviour {
         Instance = this;
     }
 
+    private void Start() {
+        torbalanAwareness.SetValue(0);
+    }
+
     private void Update() {
         LookForPlayer();
 
         if (PlayerWithinVision) {
             IncreaseAwareness();
         }
-        else if (Awareness > 0) Awareness -= Time.deltaTime / awarenessDecayTime;
-        else Awareness = 0;
+        else if (torbalanAwareness.Value > 0) torbalanAwareness.ApplyChange(-Time.deltaTime / awarenessDecayTime);
+        else torbalanAwareness.SetValue(0);
 
         UpdateEyeLights();
     }
@@ -86,19 +91,19 @@ public class TorbalanVision : MonoBehaviour {
         float brightness;
         float minBrightness = 50f;
         float maxBrightness = 100f;
-        if (Awareness >= 1) {
+        if (torbalanAwareness.Value >= 1) {
             color = Color.red;
             intensity = maxIntensity;
             brightness = maxBrightness;
         }
-        else if (Awareness >= 0.5f) {
+        else if (torbalanAwareness.Value >= 0.5f) {
             color = Color.red;
-            float t = (Awareness - 0.5f) * 2f;
+            float t = (torbalanAwareness.Value - 0.5f) * 2f;
             intensity = Mathf.Lerp(minIntensity, maxIntensity, t);
             brightness = Mathf.Lerp(minBrightness, maxBrightness, t);
         }
-        else if (Awareness > 0) {
-            float t = Awareness * 2f;
+        else if (torbalanAwareness.Value > 0) {
+            float t = torbalanAwareness.Value * 2f;
             color = Color.Lerp(Color.yellow, Color.red, t);
             intensity = minIntensity;
             brightness = minBrightness;
@@ -157,8 +162,8 @@ public class TorbalanVision : MonoBehaviour {
         float speed = 1 / awarenessTime;
 
         // increment awareness
-        Awareness += speed * Time.deltaTime;
-        if (Awareness > 1) Awareness = 1;
+        torbalanAwareness.ApplyChange(speed * Time.deltaTime);
+        if (torbalanAwareness.Value > 1) torbalanAwareness.SetValue(1);
     }
 
     private void LookForPlayer() {
