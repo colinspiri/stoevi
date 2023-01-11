@@ -36,6 +36,13 @@ public abstract class Interactable : MonoBehaviour {
         return true;
     }
 
+    public virtual void OnStartInteracting() {
+        
+    }
+    public virtual void OnStopInteracting() {
+        
+    }
+
     protected virtual void OnDestroy() {
         InteractableManager.Instance.RemoveInteractable(this);
     }

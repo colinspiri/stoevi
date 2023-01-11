@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using SpookuleleAudio;
 using UnityEngine;
 using Yarn.Compiler;
 
 public class Soil : Interactable {
     // components
     public GameObject seedPrefab;
+    public ASoundContainer crop_plant;
     public SoilData soilData;
 
     // constants
@@ -56,6 +58,11 @@ public class Soil : Interactable {
             
             seeds.ApplyChange(-1);
         }
+    }
+
+    public override void OnStartInteracting() {
+        base.OnStartInteracting();
+        crop_plant.Play3D(transform);
     }
 
     public bool ConsumeFertilizer() {

@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractionDistance: 3
   InteractionTime: 4
+  well: {fileID: 11400000, guid: 2a377a8ed42e7d24d93ea7c8ffe073b8, type: 2}
   maxWater: {fileID: 11400000, guid: 06a0b5d3a063b8840b3a258a13543825, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
 --- !u!114 &4980170945403390725

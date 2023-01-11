@@ -20,7 +20,7 @@ public class SliderValueSetterInt : MonoBehaviour
     private int previousValue = -1;
 
     private void OnEnable() {
-        LerpSliderValue();
+        slider.value = GetSliderValue();
     }
 
     private void Update() {
@@ -31,7 +31,11 @@ public class SliderValueSetterInt : MonoBehaviour
     }
 
     private void LerpSliderValue() {
-        float sliderValue = Mathf.Clamp01(Mathf.InverseLerp(minValue.Value, maxValue.Value, currentValue.Value));
+        float sliderValue = GetSliderValue();
         slider.DOValue(sliderValue, sliderLerpTime);
+    }
+
+    private float GetSliderValue() {
+        return Mathf.Clamp01(Mathf.InverseLerp(minValue.Value, maxValue.Value, currentValue.Value));
     }
 }

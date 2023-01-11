@@ -37,10 +37,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf5380c8dc84054c94b889db9c9c408, type: 3}
   m_Name: sfx_sheep_hit
   m_EditorClassIdentifier: 
-  PitchRangeEnabled: 0
-  PitchRange: {x: 1, y: 1}
-  VolumeRangeEnabled: 0
-  VolumeRange: {x: 1, y: 1}
+  PitchRangeEnabled: 1
+  PitchRange: {x: 0.8, y: 1.2}
+  VolumeRangeEnabled: 1
+  VolumeRange: {x: 0.5, y: 0.8}
   AudioGroupEnabled: 1
   AudioGroup: {fileID: 7557208376370848537, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
   LoopingEnabled: 0

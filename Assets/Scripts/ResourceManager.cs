@@ -9,7 +9,7 @@ public class ResourceManager : MonoBehaviour {
     public static ResourceManager Instance;
     
     // water
-    public IntVariable maxWater; // 5
+    public IntVariable maxWater;
     public IntVariable currentWater;
     
     // tomatoes

@@ -117,11 +117,13 @@ public class InteractableManager : MonoBehaviour {
 
     private void StartInteracting() {
         interactionState = InteractionState.Interacting;
+        selectedObject.OnStartInteracting();
         holdTimer = 0;
     }
 
     private void StopInteracting() {
         interactionState = InteractionState.Selecting;
+        selectedObject.OnStopInteracting();
         holdTimer = 0;
     }
 
