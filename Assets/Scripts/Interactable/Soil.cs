@@ -98,12 +98,12 @@ public class Soil : Interactable {
     public override string GetButtonPrompt() {
         // fertilize
         if(ResourceManager.Instance.carryingFertilizer) {
-            if (fertilizerLevel < farmingConstants.maxFertilizerLevel) return "E to fertilize";
+            if (fertilizerLevel < farmingConstants.maxFertilizerLevel) return GetInteractButton() + " to fertilize";
             return "already fertilized";
         }
         // plant 
         else if (crops.Count < farmingConstants.maxCrops) {
-            if (seeds.Value > 0) return "E to plant seed";
+            if (seeds.Value > 0) return GetInteractButton() + " to plant seed";
             return "out of seeds";
         }
         // no more space

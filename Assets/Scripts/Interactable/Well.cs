@@ -30,7 +30,7 @@ public class Well : Interactable {
     }
 
     public override string GetButtonPrompt() {
-        return (currentWater.Value == maxWater.Value) ? "water is already full" : "E to refill water";
+        return (currentWater.Value == maxWater.Value) ? "water is already full" : GetInteractButton() + " to refill water";
     }
 
     public override bool IsInteractable() {

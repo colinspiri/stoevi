@@ -42,6 +42,9 @@ public abstract class Interactable : MonoBehaviour {
     public virtual void OnStopInteracting() {
         
     }
+    protected string GetInteractButton() {
+        return "LMB";
+    }
 
     protected virtual void OnDestroy() {
         InteractableManager.Instance.RemoveInteractable(this);

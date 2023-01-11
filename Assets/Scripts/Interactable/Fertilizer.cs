@@ -25,6 +25,6 @@ public class Fertilizer : Interactable {
         if (ResourceManager.Instance.carryingFertilizer) {
             return "already carrying fertilizer";
         }
-        return "E to pick up fertilizer";    
+        return GetInteractButton() + " to pick up fertilizer";    
     }
 }

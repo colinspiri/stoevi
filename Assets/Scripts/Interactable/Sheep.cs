@@ -80,7 +80,7 @@ public class Sheep : Interactable {
     }
 
     public override string GetButtonPrompt() {
-        return "E to hit sheep";
+        return GetInteractButton() + " to hit sheep";
     }
 
     protected override void OnDestroy() {

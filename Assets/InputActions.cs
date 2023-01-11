@@ -59,6 +59,22 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""Peek"",
+                    ""type"": ""Value"",
+                    ""id"": ""26fa44d9-2d1e-430b-96bd-733405da5160"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""HoldBreath"",
+                    ""type"": ""Value"",
+                    ""id"": ""189203f5-b33f-4c6e-a744-88f2e7a30a7f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Menu"",
                     ""type"": ""Button"",
                     ""id"": ""e5620687-d87f-4187-8f4e-706337ecef67"",
@@ -86,22 +102,6 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""name"": ""ToggleHUD"",
                     ""type"": ""Button"",
                     ""id"": ""34c374f7-86f6-4ad3-9e9b-098d43cf9754"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Peek"",
-                    ""type"": ""Value"",
-                    ""id"": ""26fa44d9-2d1e-430b-96bd-733405da5160"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""HoldBreath"",
-                    ""type"": ""Value"",
-                    ""id"": ""189203f5-b33f-4c6e-a744-88f2e7a30a7f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -533,28 +533,6 @@ public class @InputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2073ab49-7e2a-4b50-a942-a5f7e0fbad0d"",
-                    ""path"": ""<Keyboard>/leftCtrl"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Peek"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""391a99dc-4889-42f9-8fdb-f49e20b656fa"",
-                    ""path"": ""<Keyboard>/j"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""HoldBreath"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""52a627d0-313d-43fc-a00a-d817a9404e64"",
                     ""path"": ""<Keyboard>/backquote"",
                     ""interactions"": """",
@@ -572,6 +550,28 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse;Xbox;Playstation"",
                     ""action"": ""Return"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2073ab49-7e2a-4b50-a942-a5f7e0fbad0d"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Peek"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""391a99dc-4889-42f9-8fdb-f49e20b656fa"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""HoldBreath"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1242,12 +1242,12 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_Run = m_Gameplay.FindAction("Run", throwIfNotFound: true);
         m_Gameplay_Crouch = m_Gameplay.FindAction("Crouch", throwIfNotFound: true);
+        m_Gameplay_Peek = m_Gameplay.FindAction("Peek", throwIfNotFound: true);
+        m_Gameplay_HoldBreath = m_Gameplay.FindAction("HoldBreath", throwIfNotFound: true);
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         m_Gameplay_Back = m_Gameplay.FindAction("Back", throwIfNotFound: true);
         m_Gameplay_DebugGameOver = m_Gameplay.FindAction("DebugGameOver", throwIfNotFound: true);
         m_Gameplay_ToggleHUD = m_Gameplay.FindAction("ToggleHUD", throwIfNotFound: true);
-        m_Gameplay_Peek = m_Gameplay.FindAction("Peek", throwIfNotFound: true);
-        m_Gameplay_HoldBreath = m_Gameplay.FindAction("HoldBreath", throwIfNotFound: true);
         m_Gameplay_ToggleDebug = m_Gameplay.FindAction("ToggleDebug", throwIfNotFound: true);
         m_Gameplay_Return = m_Gameplay.FindAction("Return", throwIfNotFound: true);
         // UI
@@ -1316,12 +1316,12 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Interact;
     private readonly InputAction m_Gameplay_Run;
     private readonly InputAction m_Gameplay_Crouch;
+    private readonly InputAction m_Gameplay_Peek;
+    private readonly InputAction m_Gameplay_HoldBreath;
     private readonly InputAction m_Gameplay_Menu;
     private readonly InputAction m_Gameplay_Back;
     private readonly InputAction m_Gameplay_DebugGameOver;
     private readonly InputAction m_Gameplay_ToggleHUD;
-    private readonly InputAction m_Gameplay_Peek;
-    private readonly InputAction m_Gameplay_HoldBreath;
     private readonly InputAction m_Gameplay_ToggleDebug;
     private readonly InputAction m_Gameplay_Return;
     public struct GameplayActions
@@ -1333,12 +1333,12 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputAction @Run => m_Wrapper.m_Gameplay_Run;
         public InputAction @Crouch => m_Wrapper.m_Gameplay_Crouch;
+        public InputAction @Peek => m_Wrapper.m_Gameplay_Peek;
+        public InputAction @HoldBreath => m_Wrapper.m_Gameplay_HoldBreath;
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputAction @Back => m_Wrapper.m_Gameplay_Back;
         public InputAction @DebugGameOver => m_Wrapper.m_Gameplay_DebugGameOver;
         public InputAction @ToggleHUD => m_Wrapper.m_Gameplay_ToggleHUD;
-        public InputAction @Peek => m_Wrapper.m_Gameplay_Peek;
-        public InputAction @HoldBreath => m_Wrapper.m_Gameplay_HoldBreath;
         public InputAction @ToggleDebug => m_Wrapper.m_Gameplay_ToggleDebug;
         public InputAction @Return => m_Wrapper.m_Gameplay_Return;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
@@ -1365,6 +1365,12 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Crouch.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCrouch;
                 @Crouch.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCrouch;
                 @Crouch.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnCrouch;
+                @Peek.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
+                @Peek.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
+                @Peek.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
+                @HoldBreath.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHoldBreath;
+                @HoldBreath.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHoldBreath;
+                @HoldBreath.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHoldBreath;
                 @Menu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
                 @Menu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
                 @Menu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
@@ -1377,12 +1383,6 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @ToggleHUD.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnToggleHUD;
                 @ToggleHUD.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnToggleHUD;
                 @ToggleHUD.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnToggleHUD;
-                @Peek.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
-                @Peek.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
-                @Peek.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
-                @HoldBreath.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHoldBreath;
-                @HoldBreath.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHoldBreath;
-                @HoldBreath.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHoldBreath;
                 @ToggleDebug.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnToggleDebug;
                 @ToggleDebug.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnToggleDebug;
                 @ToggleDebug.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnToggleDebug;
@@ -1408,6 +1408,12 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Crouch.started += instance.OnCrouch;
                 @Crouch.performed += instance.OnCrouch;
                 @Crouch.canceled += instance.OnCrouch;
+                @Peek.started += instance.OnPeek;
+                @Peek.performed += instance.OnPeek;
+                @Peek.canceled += instance.OnPeek;
+                @HoldBreath.started += instance.OnHoldBreath;
+                @HoldBreath.performed += instance.OnHoldBreath;
+                @HoldBreath.canceled += instance.OnHoldBreath;
                 @Menu.started += instance.OnMenu;
                 @Menu.performed += instance.OnMenu;
                 @Menu.canceled += instance.OnMenu;
@@ -1420,12 +1426,6 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @ToggleHUD.started += instance.OnToggleHUD;
                 @ToggleHUD.performed += instance.OnToggleHUD;
                 @ToggleHUD.canceled += instance.OnToggleHUD;
-                @Peek.started += instance.OnPeek;
-                @Peek.performed += instance.OnPeek;
-                @Peek.canceled += instance.OnPeek;
-                @HoldBreath.started += instance.OnHoldBreath;
-                @HoldBreath.performed += instance.OnHoldBreath;
-                @HoldBreath.canceled += instance.OnHoldBreath;
                 @ToggleDebug.started += instance.OnToggleDebug;
                 @ToggleDebug.performed += instance.OnToggleDebug;
                 @ToggleDebug.canceled += instance.OnToggleDebug;
@@ -1575,12 +1575,12 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
+        void OnPeek(InputAction.CallbackContext context);
+        void OnHoldBreath(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
         void OnDebugGameOver(InputAction.CallbackContext context);
         void OnToggleHUD(InputAction.CallbackContext context);
-        void OnPeek(InputAction.CallbackContext context);
-        void OnHoldBreath(InputAction.CallbackContext context);
         void OnToggleDebug(InputAction.CallbackContext context);
         void OnReturn(InputAction.CallbackContext context);
     }

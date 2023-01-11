@@ -310,16 +310,16 @@ public class Crop : Interactable {
 
     public override string GetButtonPrompt() {
         if (stage == GrowthStage.Bare || health == Health.Dead) {
-            return "E to dig up";
+            return GetInteractButton() + " to dig up";
         }
         else if (timeOfDay.IsNight()) {
             return "";
         }
         else if (state == State.NeedsWater) {
-            return currentWater.Value <= 0 ? "out of water" : "E to water";
+            return currentWater.Value <= 0 ? "out of water" : GetInteractButton() + " to water";
         }
         else if (stage == GrowthStage.Ripe) {
-            return "E to harvest tomato";
+            return GetInteractButton() + " to harvest tomato";
         }
         return "";
     }

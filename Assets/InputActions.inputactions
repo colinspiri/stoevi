@@ -46,6 +46,22 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Peek",
+                    "type": "Value",
+                    "id": "26fa44d9-2d1e-430b-96bd-733405da5160",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "HoldBreath",
+                    "type": "Value",
+                    "id": "189203f5-b33f-4c6e-a744-88f2e7a30a7f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Menu",
                     "type": "Button",
                     "id": "e5620687-d87f-4187-8f4e-706337ecef67",
@@ -73,22 +89,6 @@
                     "name": "ToggleHUD",
                     "type": "Button",
                     "id": "34c374f7-86f6-4ad3-9e9b-098d43cf9754",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Peek",
-                    "type": "Value",
-                    "id": "26fa44d9-2d1e-430b-96bd-733405da5160",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "HoldBreath",
-                    "type": "Value",
-                    "id": "189203f5-b33f-4c6e-a744-88f2e7a30a7f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -520,28 +520,6 @@
                 },
                 {
                     "name": "",
-                    "id": "2073ab49-7e2a-4b50-a942-a5f7e0fbad0d",
-                    "path": "<Keyboard>/leftCtrl",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Peek",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "391a99dc-4889-42f9-8fdb-f49e20b656fa",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "HoldBreath",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "52a627d0-313d-43fc-a00a-d817a9404e64",
                     "path": "<Keyboard>/backquote",
                     "interactions": "",
@@ -559,6 +537,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse;Xbox;Playstation",
                     "action": "Return",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2073ab49-7e2a-4b50-a942-a5f7e0fbad0d",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Peek",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "391a99dc-4889-42f9-8fdb-f49e20b656fa",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "HoldBreath",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

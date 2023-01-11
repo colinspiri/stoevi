@@ -17,6 +17,6 @@ public class Gate : Interactable {
     }
 
     public override string GetButtonPrompt() {
-        return "E to go home";
+        return GetInteractButton() + " to go home";
     }
 }
