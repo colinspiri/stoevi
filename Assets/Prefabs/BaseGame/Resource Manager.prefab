@@ -45,9 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxWater: {fileID: 11400000, guid: 06a0b5d3a063b8840b3a258a13543825, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
-  onWaterValueChange:
-    m_PersistentCalls:
-      m_Calls: []
+  playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
+  torbalanTomatoes: {fileID: 11400000, guid: 96c2ef51504db3d4b9ea5f0eef1c580a, type: 2}
   playerHarvestedTomato:
     m_PersistentCalls:
       m_Calls: []

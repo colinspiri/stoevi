@@ -13,8 +13,8 @@ public class ResourceManager : MonoBehaviour {
     public IntVariable currentWater;
     
     // tomatoes
-    public int PlayerTomatoes { get; private set; }
-    public int TorbalanTomatoes { get; private set; }
+    public IntVariable playerTomatoes;
+    public IntVariable torbalanTomatoes;
     public UnityEvent<int> playerHarvestedTomato;
     
     // seeds
@@ -43,11 +43,11 @@ public class ResourceManager : MonoBehaviour {
     }
 
     public void PlayerHarvestedTomato() {
-        PlayerTomatoes++;
-        playerHarvestedTomato?.Invoke(PlayerTomatoes);
+        playerTomatoes.ApplyChange(1);
+        playerHarvestedTomato?.Invoke(playerTomatoes.Value);
     }
     public void TorbalanStoleTomato() {
-        TorbalanTomatoes++;
+        torbalanTomatoes.ApplyChange(1);
     }
 
     public void PickUpFertilizer() {
