@@ -147,6 +147,7 @@ MonoBehaviour:
   soil: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
+  currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   stage: 0
   fertilized: 0
   tomatoesYielded: 0

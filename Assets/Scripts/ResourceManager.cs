@@ -9,9 +9,8 @@ public class ResourceManager : MonoBehaviour {
     public static ResourceManager Instance;
     
     // water
-    public int maxWater; // 4
-    private int currentWater;
-    public UnityEvent<float> onWaterValueChange;
+    public IntVariable maxWater; // 5
+    public IntVariable currentWater;
     
     // tomatoes
     public int PlayerTomatoes { get; private set; }
@@ -32,27 +31,15 @@ public class ResourceManager : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        currentWater = maxWater;
+        currentWater.SetValue(maxWater.Value);
         seeds.SetValue(startingSeeds.Value);
     }
 
     public void UseWater() {
-        currentWater--;
-        onWaterValueChange?.Invoke((float)currentWater/maxWater);
+        currentWater.ApplyChange(-1);
     }
     public void RefillWater() {
-        currentWater = maxWater;
-        onWaterValueChange?.Invoke((float)currentWater/maxWater);
-    }
-
-    public bool HasWater() {
-        return currentWater > 0; 
-    }
-    public bool IsWaterEmpty() {
-        return currentWater <= 0;
-    }
-    public bool IsWaterFull() {
-        return currentWater == maxWater;
+        currentWater.SetValue(maxWater);
     }
 
     public void PlayerHarvestedTomato() {

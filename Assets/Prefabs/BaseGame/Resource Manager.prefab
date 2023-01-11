@@ -43,7 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff01215cfe3f4ee4abee70411a4f224a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxWater: 5
+  maxWater: {fileID: 11400000, guid: 06a0b5d3a063b8840b3a258a13543825, type: 2}
+  currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   onWaterValueChange:
     m_PersistentCalls:
       m_Calls: []
@@ -53,5 +54,6 @@ MonoBehaviour:
   startingSeeds:
     UseConstant: 1
     ConstantValue: 1
+    Variable: {fileID: 0}
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   fertilizerPrefab: {fileID: 1433479246987159136, guid: bbc628e78fbd4e24797aba1a744dc2b6, type: 3}

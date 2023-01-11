@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8888c1b74c7c247289d87c19195e903c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offsetInDegrees: 0
 --- !u!1 &4980170945403390727
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractionDistance: 3
   InteractionTime: 4
+  maxWater: {fileID: 11400000, guid: 06a0b5d3a063b8840b3a258a13543825, type: 2}
+  currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
 --- !u!114 &4980170945403390725
 MonoBehaviour:
   m_ObjectHideFlags: 0

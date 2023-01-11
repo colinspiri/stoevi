@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Well : Interactable {
+    // shared state
+    public IntVariable maxWater;
+    public IntVariable currentWater;
     
     public override void Interact() {
         ResourceManager.Instance.RefillWater();
@@ -18,10 +21,10 @@ public class Well : Interactable {
     }
 
     public override string GetButtonPrompt() {
-        return ResourceManager.Instance.IsWaterFull() ? "water is already full" : "E to refill water";
+        return (currentWater.Value == maxWater.Value) ? "water is already full" : "E to refill water";
     }
 
     public override bool IsInteractable() {
-        return ResourceManager.Instance.IsWaterFull() == false;
+        return currentWater.Value < maxWater.Value;
     }
 }

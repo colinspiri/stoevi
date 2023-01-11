@@ -113,3 +113,5 @@ MonoBehaviour:
   seedPrefab: {fileID: 8152074468222590108, guid: cf601c7ebcdc140edbc2ae712d330c05, type: 3}
   soilData: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
+  seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
+  crops: []

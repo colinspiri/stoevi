@@ -15,7 +15,10 @@ public class Crop : Interactable {
 
     // constants
     public FarmingConstants farmingConstants;
+    
+    // shared state
     public IntVariable seeds;
+    public IntVariable currentWater;
 
     // state
     public enum GrowthStage { Seed, Sprout, Intermediate, Unripe, Ripe, Bare }
@@ -53,7 +56,7 @@ public class Crop : Interactable {
         if (stage == GrowthStage.Bare || health == Health.Dead) return true;
         
         // can be watered
-        if (enoughLightToGrow && state == State.NeedsWater && ResourceManager.Instance.HasWater() &&
+        if (enoughLightToGrow && state == State.NeedsWater && currentWater.Value > 0 &&
             (stage == GrowthStage.Seed ||
              stage == GrowthStage.Sprout ||
              stage == GrowthStage.Intermediate ||
@@ -112,7 +115,7 @@ public class Crop : Interactable {
             return;
         }
         // can be watered
-        else if (enoughLightToGrow && state == State.NeedsWater && ResourceManager.Instance.HasWater() && 
+        else if (enoughLightToGrow && state == State.NeedsWater && currentWater.Value > 0 && 
                  (stage == GrowthStage.Seed || 
                   stage == GrowthStage.Sprout || 
                   stage == GrowthStage.Intermediate ||
@@ -315,7 +318,7 @@ public class Crop : Interactable {
             return "";
         }
         else if (state == State.NeedsWater) {
-            return ResourceManager.Instance.IsWaterEmpty() ? "out of water" : "E to water";
+            return currentWater.Value <= 0 ? "out of water" : "E to water";
         }
         else if (stage == GrowthStage.Ripe) {
             return "E to harvest tomato";
