@@ -7,7 +7,6 @@ using UnityEngine.Serialization;
 
 public class Sheep : Interactable {
     // components
-    public ASoundContainer bleat;
     public ASoundContainer sheep_hit;
     
     // behavior tree shared variables

@@ -16,7 +16,6 @@ public class Soil : Interactable {
 
     // state
     public List<Crop> crops = new List<Crop>();
-    // private bool tilled;
     private int fertilizerLevel;
 
     protected override void Start() {
