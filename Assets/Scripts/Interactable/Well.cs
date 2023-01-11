@@ -9,7 +9,7 @@ public class Well : Interactable {
     public IntVariable currentWater;
     
     public override void Interact() {
-        ResourceManager.Instance.RefillWater();
+        currentWater.SetValue(maxWater);
     }
 
     public override string GetObjectName() {

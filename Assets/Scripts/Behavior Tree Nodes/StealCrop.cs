@@ -6,6 +6,7 @@ public class StealCrop : Action {
      public SharedCrop targetCrop;
      public float stealTime;
      public Animator animator;
+     public IntVariable torbalanTomatoes;
 
      private float stealTimer;
      
@@ -27,7 +28,8 @@ public class StealCrop : Action {
           }
           
           // steal crop
-          ResourceManager.Instance.TorbalanStoleTomato();
+          torbalanTomatoes.ApplyChange(1);
+          
           targetCrop.Value.RemoveRipeTomatoes();
           
           return TaskStatus.Success;

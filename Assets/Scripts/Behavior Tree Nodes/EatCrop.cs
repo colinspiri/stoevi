@@ -6,6 +6,7 @@ public class EatCrop : Action {
     public SharedCrop targetCrop;
     public SheepSpriteManager spriteManager;
     public float eatTime;
+    public IntVariable torbalanTomatoes;
 
     private float eatTimer;
 
@@ -26,7 +27,8 @@ public class EatCrop : Action {
             return TaskStatus.Running;
         }
         
-        ResourceManager.Instance.TorbalanStoleTomato();
+        torbalanTomatoes.ApplyChange(1);
+        
         targetCrop.Value.RemoveRipeTomatoes();
         
         return TaskStatus.Success;

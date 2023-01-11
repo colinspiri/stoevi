@@ -15,7 +15,6 @@ public class ResourceManager : MonoBehaviour {
     // tomatoes
     public IntVariable playerTomatoes;
     public IntVariable torbalanTomatoes;
-    public UnityEvent<int> playerHarvestedTomato;
     
     // seeds
     public IntReference startingSeeds;
@@ -33,21 +32,8 @@ public class ResourceManager : MonoBehaviour {
     void Start() {
         currentWater.SetValue(maxWater.Value);
         seeds.SetValue(startingSeeds.Value);
-    }
-
-    public void UseWater() {
-        currentWater.ApplyChange(-1);
-    }
-    public void RefillWater() {
-        currentWater.SetValue(maxWater);
-    }
-
-    public void PlayerHarvestedTomato() {
-        playerTomatoes.ApplyChange(1);
-        playerHarvestedTomato?.Invoke(playerTomatoes.Value);
-    }
-    public void TorbalanStoleTomato() {
-        torbalanTomatoes.ApplyChange(1);
+        playerTomatoes.SetValue(0);
+        torbalanTomatoes.SetValue(0);
     }
 
     public void PickUpFertilizer() {

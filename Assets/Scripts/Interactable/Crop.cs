@@ -19,6 +19,7 @@ public class Crop : Interactable {
     // shared state
     public IntVariable seeds;
     public IntVariable currentWater;
+    public IntVariable playerTomatoes;
 
     // state
     public enum GrowthStage { Seed, Sprout, Intermediate, Unripe, Ripe, Bare }
@@ -133,7 +134,8 @@ public class Crop : Interactable {
     }
 
     private void Water() {
-        ResourceManager.Instance.UseWater();
+        currentWater.ApplyChange(-1);
+        
         AudioManager.Instance.PlayWaterSound();
 
         // if already watered, don't do anything (TODO: over-water?)
@@ -165,7 +167,7 @@ public class Crop : Interactable {
     }
 
     private void Harvest() {
-        ResourceManager.Instance.PlayerHarvestedTomato();
+        playerTomatoes.ApplyChange(1);
         AudioManager.Instance.PlayHarvestSound();
         RemoveRipeTomatoes();
     }
