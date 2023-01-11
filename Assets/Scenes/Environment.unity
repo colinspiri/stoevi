@@ -704,7 +704,7 @@ GameObject:
   - component: {fileID: 462567208}
   - component: {fileID: 462567211}
   m_Layer: 6
-  m_Name: Plant Bed
+  m_Name: Plant Bed (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2836,8 +2836,9 @@ GameObject:
   - component: {fileID: 1234558566}
   - component: {fileID: 1234558565}
   - component: {fileID: 1234558568}
+  - component: {fileID: 1234558569}
   m_Layer: 6
-  m_Name: Plant Bed (2)
+  m_Name: Plant Cover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2865,7 +2866,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1234558563}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -2935,6 +2936,19 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!114 &1234558569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234558563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91610814907554cbdcdc281b322e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1001 &1235027644
 PrefabInstance:
   m_ObjectHideFlags: 0

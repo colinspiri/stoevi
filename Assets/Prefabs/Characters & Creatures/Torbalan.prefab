@@ -697,13 +697,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e002d42e6f5b76e49bcabfef4e2153a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eyesMaterial: {fileID: 2100000, guid: be07603211ad6254db38fa919379f750, type: 2}
-  eyeLight: {fileID: 5156514537432273314}
   blind: 0
   eyesOffset: {x: 0, y: 4.02, z: 0}
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 64
   normalVisionDistance: 25
   normalVisionAngle: 90
   peripheralVisionDistance: 11
@@ -720,6 +715,7 @@ MonoBehaviour:
   sideThreshold: 30
   frontFactor: 1
   sideFactor: 2
+  sparseCoverFactor: 3
   standingFactor: 1
   crouchedFactor: 2
   stillFactor: 1

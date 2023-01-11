@@ -12,7 +12,6 @@ public class TorbalanVision : MonoBehaviour {
     // constants
     public bool blind;
     public Vector3 eyesOffset;
-    public LayerMask obstacleMask;
     [Header("Normal Vision")]
     public float normalVisionDistance;
     [Range(0, 360)] public float normalVisionAngle;
@@ -37,6 +36,8 @@ public class TorbalanVision : MonoBehaviour {
     public float frontFactor;
     public float sideFactor;
     [Space] 
+    public float sparseCoverFactor;
+    [Space] 
     public float standingFactor;
     public float crouchedFactor;
     [Space] 
@@ -45,8 +46,10 @@ public class TorbalanVision : MonoBehaviour {
     public float walkingFactor;
     public float runningFactor;
     
+    
     // state
     public FloatVariable torbalanAwareness;
+    private bool playerBehindSparseCover;
     private bool playerInNormalVision;
     private bool playerInPeripheralVision;
     private bool playerInCloseVision;
@@ -86,9 +89,16 @@ public class TorbalanVision : MonoBehaviour {
         if (angle > sideThreshold) multiplier *= sideFactor;
         else multiplier *= frontFactor;
         
-        // check player stance
-        if (FirstPersonMovement.Instance.crouching) multiplier *= crouchedFactor;
-        else multiplier *= standingFactor;
+        // check cover
+        if (playerBehindSparseCover) {
+            multiplier *= sparseCoverFactor;
+        }
+        // OR check player stance
+        else {
+            if (FirstPersonMovement.Instance.crouching) multiplier *= crouchedFactor;
+            else multiplier *= standingFactor;
+        }
+        
 
         // check player motion
         switch (FirstPersonMovement.Instance.moveState) {
@@ -105,7 +115,7 @@ public class TorbalanVision : MonoBehaviour {
                 multiplier *= runningFactor;
                 break;
         }
-        
+
         // calculate awareness time
         float awarenessTime = baseAwarenessTime * multiplier;
         
@@ -118,6 +128,7 @@ public class TorbalanVision : MonoBehaviour {
     }
 
     private void LookForPlayer() {
+        playerBehindSparseCover = false;
         if (blind) {
             playerInNormalVision = false;
             playerInPeripheralVision = false;
@@ -150,24 +161,81 @@ public class TorbalanVision : MonoBehaviour {
 
     private bool CheckIfPlayerWithinCone(float distance, float angle) {
         Vector3 targetPosition = FirstPersonMovement.Instance.GetRaycastTarget();
-        return CheckIfPointWithinCone(targetPosition, distance, angle);
+        
+        // distance
+        bool withinDistance = PointWithinDistance(targetPosition, distance);
+        if (!withinDistance) return false;
+
+        // view angle
+        bool withinAngle = PointWithinAngle(targetPosition, angle);
+        if (!withinAngle) return false;
+        
+        // cover
+        bool behindCompleteCover = PointBehindCover(targetPosition);
+        if (behindCompleteCover) return false;
+        
+        bool behindSparseCover = PointBehindCover(targetPosition, true);
+        if (behindSparseCover) {
+            playerBehindSparseCover = true;
+            return true;
+        }
+
+        return true;
     }
     
     private bool CheckIfPointWithinCone(Vector3 point, float distance, float angle) {
-        Vector3 eyesPosition = transform.position + eyesOffset;
-        
-        // check if within distance
-        Vector3 directionToTarget = (point - eyesPosition).normalized;
-        float distanceToTarget = Vector3.Distance(eyesPosition, point);
-        if (distanceToTarget > distance) return false;
+        // distance
+        bool withinDistance = PointWithinDistance(point, distance);
+        if (!withinDistance) return false;
 
-        // check if within view angle
-        if (Vector3.Angle(transform.forward, directionToTarget) > angle / 2) return false;
+        // view angle
+        bool withinAngle = PointWithinAngle(point, angle);
+        if (!withinAngle) return false;
         
-        // check if obstacles between self and point
-        if (Physics.Raycast(eyesPosition, directionToTarget, distanceToTarget, obstacleMask, QueryTriggerInteraction.Collide)) return false;
+        // cover
+        bool behindCover = PointBehindCover(point);
+        if (behindCover) return false;
 
         return true;
+    }
+
+    private bool PointWithinDistance(Vector3 point, float distance) {
+        Vector3 eyesPosition = transform.position + eyesOffset;
+        float distanceToTarget = Vector3.Distance(eyesPosition, point);
+
+        return distanceToTarget < distance;
+    }
+
+    private bool PointWithinAngle(Vector3 point, float angle) {
+        Vector3 eyesPosition = transform.position + eyesOffset;
+        Vector3 directionToTarget = (point - eyesPosition).normalized;
+        
+        return Vector3.Angle(transform.forward, directionToTarget) < angle / 2;
+    }
+
+    private bool PointBehindCover(Vector3 point, bool countSparseCover = false) {
+        Vector3 eyesPosition = transform.position + eyesOffset;
+        Vector3 directionToTarget = (point - eyesPosition).normalized;
+        float distanceToTarget = Vector3.Distance(eyesPosition, point);
+
+        RaycastHit[] hits = Physics.RaycastAll(eyesPosition, directionToTarget, distanceToTarget,
+            Physics.DefaultRaycastLayers, QueryTriggerInteraction.Collide);
+        
+        foreach (var hit in hits) {
+            Cover cover = hit.transform.GetComponent<Cover>();
+            if (cover != null) {
+                if (cover.type == Cover.CoverType.Complete) {
+                    return true;
+                }
+
+                if (cover.type == Cover.CoverType.Sparse && countSparseCover) {
+                    return true;
+                }
+            }
+        }
+
+        // no cover found, point is not behind cover
+        return false;
     }
 
     private Vector3 DirectionFromAngle(float angleInDegrees, bool angleIsGlobal) {
