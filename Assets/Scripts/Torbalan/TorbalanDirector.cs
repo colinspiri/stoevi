@@ -37,13 +37,6 @@ public class TorbalanDirector : MonoBehaviour {
         aggressionLevel = 0;
     }
 
-    private void OnEnable() {
-        DayManager.OnNight += SetAggressionMaximum;
-    }
-    private void OnDisable() {
-        DayManager.OnNight -= SetAggressionMaximum;
-    }
-
     // Update is called once per frame
     void Update() {
         SetTargetPosition();
@@ -66,7 +59,7 @@ public class TorbalanDirector : MonoBehaviour {
         if (aggressionLevel > settings.maxAggressionLevel) aggressionLevel = settings.maxAggressionLevel;
         // Debug.Log("aggression level increased to " + aggressionLevel);
     }
-    private void SetAggressionMaximum() {
+    public void SetAggressionMaximum() {
         aggressionLevel = settings.maxAggressionLevel;
         // Debug.Log("aggression level maxed to " + aggressionLevel);
     }

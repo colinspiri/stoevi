@@ -6,40 +6,18 @@ using UnityEngine;
 
 public class DateTimeText : MonoBehaviour {
     private TextMeshProUGUI text;
-    
-    // constants
-    // public int startingHour;
-    
-    // state
-    private bool showNightPrompt;
+    public TimeOfDay timeOfDay;
 
     private void Awake() {
         text = GetComponent<TextMeshProUGUI>();
     }
 
-    private void Start() {
-        showNightPrompt = false;
-        UpdateText(0);
-        DayManager.OnNight += () => {
-            showNightPrompt = true;
-        };
-    }
-
-    private void OnEnable() {
-        DayManager.OnSecondTick += UpdateText;
-    }
-
-    private void OnDisable() {
-        DayManager.OnSecondTick -= UpdateText;
-    }
-
-    private void UpdateText(int secondsElapsed) {
+    private void Update() {
         string uiText = "Day " + PlayerPrefs.GetInt("CurrentDay", 1);
         
-        // float additionalSeconds = startingHour * 60f;
-        uiText += "\n" + Util.FormatTimer(secondsElapsed);
+        uiText += "\n" + Util.FormatTimer(timeOfDay.SecondsElapsed);
 
-        if (showNightPrompt) {
+        if (timeOfDay.IsNight()) {
             uiText += "\n";
             uiText += "return to gate to go home";
         }

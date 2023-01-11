@@ -981,6 +981,7 @@ MonoBehaviour:
   consolePanel: {fileID: 147768282}
   inputText: {fileID: 1037992801}
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
+  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
 --- !u!1 &188790591
 GameObject:
   m_ObjectHideFlags: 0
@@ -2436,6 +2437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1720d42a6cfae459ef3d2afeb43bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
 --- !u!1 &1107441611
 GameObject:
   m_ObjectHideFlags: 0

@@ -586,6 +586,7 @@ GameObject:
   - component: {fileID: 4625671584228454852}
   - component: {fileID: 7967770628958072520}
   - component: {fileID: 789039114618768141}
+  - component: {fileID: 6511629802379944270}
   m_Layer: 9
   m_Name: Torbalan
   m_TagString: Untagged
@@ -893,6 +894,34 @@ MonoBehaviour:
       Version: 1.7.3
   gizmoViewMode: 2
   showBehaviorDesignerGizmo: 1
+--- !u!114 &6511629802379944270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789039114618768132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad77c354c02943909dfacf45a5309c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: f0da2e717e7bb6145a9a22d81299e26f, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4625671584228454852}
+        m_TargetAssemblyTypeName: TorbalanDirector, Assembly-CSharp
+        m_MethodName: SetAggressionMaximum
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &791403610251435121
 GameObject:
   m_ObjectHideFlags: 0

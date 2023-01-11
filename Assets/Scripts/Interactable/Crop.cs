@@ -20,6 +20,7 @@ public class Crop : Interactable {
     public IntVariable seeds;
     public IntVariable currentWater;
     public IntVariable playerTomatoes;
+    public TimeOfDay timeOfDay;
 
     // state
     public enum GrowthStage { Seed, Sprout, Intermediate, Unripe, Ripe, Bare }
@@ -39,17 +40,12 @@ public class Crop : Interactable {
     // harvesting
     public int tomatoesYielded;
     private int tomatoesLeft;
-    // nighttime
-    private bool enoughLightToGrow;
     
 
     protected override void Start() {
         base.Start();
 
         ChangeCropStage(stage);
-        
-        enoughLightToGrow = true;
-        DayManager.OnNight += () => enoughLightToGrow = false;
     }
 
     public override bool IsInteractable() {
@@ -57,7 +53,7 @@ public class Crop : Interactable {
         if (stage == GrowthStage.Bare || health == Health.Dead) return true;
         
         // can be watered
-        if (enoughLightToGrow && state == State.NeedsWater && currentWater.Value > 0 &&
+        if (!timeOfDay.IsNight() && state == State.NeedsWater && currentWater.Value > 0 &&
             (stage == GrowthStage.Seed ||
              stage == GrowthStage.Sprout ||
              stage == GrowthStage.Intermediate ||
@@ -80,12 +76,12 @@ public class Crop : Interactable {
 
     private void Update() {
         // growth timer
-        if (state == State.Growing && enoughLightToGrow) {
+        if (state == State.Growing && !timeOfDay.IsNight()) {
             growthTimer -= Time.deltaTime;
             if(growthTimer <= 0) Grow();
         }
         // thirsty timer
-        else if (state == State.NeedsWater && enoughLightToGrow) {
+        else if (state == State.NeedsWater && !timeOfDay.IsNight()) {
             thirstyTimer -= Time.deltaTime;
             if (thirstyTimer <= 0) {
                 if (health == Health.Fair) {
@@ -116,7 +112,7 @@ public class Crop : Interactable {
             return;
         }
         // can be watered
-        else if (enoughLightToGrow && state == State.NeedsWater && currentWater.Value > 0 && 
+        else if (!timeOfDay.IsNight() && state == State.NeedsWater && currentWater.Value > 0 && 
                  (stage == GrowthStage.Seed || 
                   stage == GrowthStage.Sprout || 
                   stage == GrowthStage.Intermediate ||
@@ -316,7 +312,7 @@ public class Crop : Interactable {
         if (stage == GrowthStage.Bare || health == Health.Dead) {
             return "E to dig up";
         }
-        else if (!enoughLightToGrow) {
+        else if (timeOfDay.IsNight()) {
             return "";
         }
         else if (state == State.NeedsWater) {
@@ -329,19 +325,19 @@ public class Crop : Interactable {
     }
 
     public override float GetTimerValue() {
-        if (!enoughLightToGrow) return 0;
+        if (timeOfDay.IsNight()) return 0;
         if(state == State.Growing) return 1 - (growthTimer / growthTime);
         if (state == State.NeedsWater) return 1 - (thirstyTimer / thirstyTime);
         return 0;
     }
     public override float GetTimerTime() {
-        if (!enoughLightToGrow) return 0;
+        if (timeOfDay.IsNight()) return 0;
         if (state == State.Growing) return growthTimer;
         if (state == State.NeedsWater) return thirstyTimer;
         return 0;
     }
     public override InteractableUI.TimerIcon GetTimerIcon() {
-        if (!enoughLightToGrow) return InteractableUI.TimerIcon.None;
+        if (timeOfDay.IsNight()) return InteractableUI.TimerIcon.None;
         if (state == State.Growing) {
             if (stage == GrowthStage.Unripe) return InteractableUI.TimerIcon.Ripe;
             else return InteractableUI.TimerIcon.Growth;

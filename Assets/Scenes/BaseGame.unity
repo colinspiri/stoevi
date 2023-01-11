@@ -296,6 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1143326337}
   - component: {fileID: 1143326338}
+  - component: {fileID: 1143326339}
   m_Layer: 0
   m_Name: Day Manager
   m_TagString: Untagged
@@ -329,9 +330,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 111a4b52fc75434459fa46f139127d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minutesUntilEvening: 4
-  minutesUntilDark: 3
-  timer: 0
+  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+--- !u!114 &1143326339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143326336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad77c354c02943909dfacf45a5309c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: f0da2e717e7bb6145a9a22d81299e26f, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+        m_TargetAssemblyTypeName: TimeOfDay, Assembly-CSharp
+        m_MethodName: SetNight
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &2081909844
 PrefabInstance:
   m_ObjectHideFlags: 0

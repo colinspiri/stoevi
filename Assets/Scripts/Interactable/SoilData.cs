@@ -2,11 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Net;
-using BehaviorDesigner.Runtime.Tasks.Unity.UnityParticleSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Rendering;
 using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "NewSoilData", menuName = "SoilData")]

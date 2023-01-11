@@ -6,17 +6,13 @@ using UnityEngine;
 [ExecuteAlways]
 public class LightManager : MonoBehaviour {
     // components
-    public static LightManager Instance;
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
     private Camera Camera;
 
     // state
+    public TimeOfDay timeOfDay;
     [SerializeField, Range(0, 1)] private float TimePercent;
-
-    private void Awake() {
-        Instance = this;
-    }
 
     private void Start() {
         TryGetComponents();
@@ -30,9 +26,12 @@ public class LightManager : MonoBehaviour {
         if (!Application.isPlaying) {
             UpdateLighting(TimePercent);
         }
+        else {
+            UpdateLighting(timeOfDay.GetTimePercent());
+        }
     }
 
-    public void UpdateLighting(float timePercent) {
+    private void UpdateLighting(float timePercent) {
         TryGetComponents();
         
         RenderSettings.ambientLight = Preset.AmbientColor.Evaluate(timePercent);
