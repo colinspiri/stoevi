@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6311581177238853005}
   - component: {fileID: 5156514537432273314}
+  - component: {fileID: 4269142792762546804}
   m_Layer: 9
   m_Name: Spot Light
   m_TagString: Untagged
@@ -124,6 +125,24 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &4269142792762546804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173302107118771425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b92ffa43833454da437c89f19661bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torbalanAwareness:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 69474ae2da2567b4ca7d56037c4daf59, type: 2}
+  minBrightness: 50
+  maxBrightness: 100
 --- !u!1 &223420932281499327
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,6 +629,7 @@ Transform:
   - {fileID: 7592778819962166286}
   - {fileID: 1358115061037670232}
   - {fileID: 6311581177238853005}
+  - {fileID: 2129962409839747529}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -2357,6 +2377,56 @@ Transform:
   m_Father: {fileID: 3241041026366842453}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5120573358464941061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2129962409839747529}
+  - component: {fileID: 8046762845117481032}
+  m_Layer: 9
+  m_Name: Eye Color
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2129962409839747529
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5120573358464941061}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 789039114618768139}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8046762845117481032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5120573358464941061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa30e61e62936c4f8aa92d4fd39600a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyesMaterial: {fileID: 2100000, guid: be07603211ad6254db38fa919379f750, type: 2}
+  torbalanAwareness:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 69474ae2da2567b4ca7d56037c4daf59, type: 2}
+  minIntensity: 20
+  maxIntensity: 80
 --- !u!1 &5145033155992201427
 GameObject:
   m_ObjectHideFlags: 0

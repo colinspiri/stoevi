@@ -1,21 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Numerics;
-using System.Runtime.CompilerServices;
-using BehaviorDesigner.Runtime;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.Events;
 using Vector3 = UnityEngine.Vector3;
 
 public class TorbalanVision : MonoBehaviour {
     // components
     public static TorbalanVision Instance;
-    public Material eyesMaterial;
-    public Light eyeLight;
     
     // synced with behavior tree
     public bool PlayerWithinVision { get; set; }
@@ -79,43 +67,6 @@ public class TorbalanVision : MonoBehaviour {
         }
         else if (torbalanAwareness.Value > 0) torbalanAwareness.ApplyChange(-Time.deltaTime / awarenessDecayTime);
         else torbalanAwareness.SetValue(0);
-
-        UpdateEyeLights();
-    }
-
-    private void UpdateEyeLights() {
-        Color color;
-        float intensity;
-        float minIntensity = 20f;
-        float maxIntensity = 80f;
-        float brightness;
-        float minBrightness = 50f;
-        float maxBrightness = 100f;
-        if (torbalanAwareness.Value >= 1) {
-            color = Color.red;
-            intensity = maxIntensity;
-            brightness = maxBrightness;
-        }
-        else if (torbalanAwareness.Value >= 0.5f) {
-            color = Color.red;
-            float t = (torbalanAwareness.Value - 0.5f) * 2f;
-            intensity = Mathf.Lerp(minIntensity, maxIntensity, t);
-            brightness = Mathf.Lerp(minBrightness, maxBrightness, t);
-        }
-        else if (torbalanAwareness.Value > 0) {
-            float t = torbalanAwareness.Value * 2f;
-            color = Color.Lerp(Color.yellow, Color.red, t);
-            intensity = minIntensity;
-            brightness = minBrightness;
-        }
-        else {
-            color = Color.yellow;
-            intensity = minIntensity;
-            brightness = minBrightness;
-        }
-        eyesMaterial.SetColor("_EmissionColor", color * Mathf.GammaToLinearSpace(intensity));
-        eyeLight.color = color;
-        eyeLight.intensity = brightness;
     }
 
     private void IncreaseAwareness() {
