@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using PlasticGui;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.ShaderGraph.Internal;
 
 [CustomEditor(typeof(PlantInterior))]
 public class PlantInteriorEditor : Editor
@@ -36,28 +37,32 @@ public class PlantInteriorEditor : Editor
         
         // along X
         float startingX = plantInterior.transform.position.x - bounds.extents.x + borderWallOffset;
-        CreateWall(startingX, 0, true);
-        
         float endingX = plantInterior.transform.position.x + bounds.extents.x - borderWallOffset;
-        CreateWall(endingX, 0, true);
+        Vector3 alongX = new Vector3(endingX - startingX, 0, 0).normalized;
+        float dot = Vector3.Dot(plantInterior.transform.forward, alongX);
+        bool flipX = dot < 0.5f;
+
+        CreateWall(startingX, 0, flipX);
+        
+        CreateWall(endingX, 0, flipX);
         
         int wallsAlongX = Mathf.FloorToInt((endingX - startingX) / plantInterior.interiorWallDistance);
         float evenDistanceX = (endingX - startingX) / wallsAlongX;
         for (float wallX = startingX; wallX < endingX; wallX += evenDistanceX) {
-            CreateWall(wallX, 0, true);
+            CreateWall(wallX, 0, flipX);
         }
         
         // along X
         float startingZ = plantInterior.transform.position.z - bounds.extents.z + borderWallOffset;
-        CreateWall(0, startingZ);
+        CreateWall(0, startingZ, !flipX);
         
         float endingZ = plantInterior.transform.position.z + bounds.extents.z - borderWallOffset;
-        CreateWall(0, endingZ);
+        CreateWall(0, endingZ, !flipX);
         
         int wallsAlongZ = Mathf.FloorToInt((endingZ - startingZ) / plantInterior.interiorWallDistance);
         float evenDistanceZ = (endingZ - startingZ) / wallsAlongZ;
         for (float wallZ = startingZ; wallZ < endingZ; wallZ += evenDistanceZ) {
-            CreateWall( 0, wallZ);
+            CreateWall( 0, wallZ, !flipX);
         }
     }
 
@@ -67,11 +72,10 @@ public class PlantInteriorEditor : Editor
         if (position.z == 0) position.z = plantInterior.transform.position.z;
         GameObject wall = PrefabUtility.InstantiatePrefab(plantInterior.interiorWallPrefab, plantInterior.transform) as GameObject;
         wall.transform.position = position;
-        wall.transform.rotation = plantInterior.transform.rotation;
 
-        // Util.PlaceGameObjectOnTerrain(wall, "Bottom");
-        
-        if(perpendicular) wall.transform.Rotate(Vector3.up, 90);
+        if (perpendicular) {
+            wall.transform.Rotate(Vector3.up, 90);
+        }
     } 
 
     //Force unity to save changes or Unity may not save when we have instantiated/removed prefabs despite pressing save button
