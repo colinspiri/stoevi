@@ -7,11 +7,11 @@ using UnityEngine;
 public class Rustle : MonoBehaviour {
     public ASoundContainer soundToPlay;
     
-    private static float crouchWalkingSoundDelayTime = 0.5f;
-    private static float walkingSoundDelayTime = 0.25f;
-    private static float runningSoundDelayTime = 0.1f;
+    private static float crouchWalkingSoundDelayMultiplier = 2f;
+    private static float runningSoundDelayMultiplier = 0.4f;
     
     // constants
+    public float baseSoundDelayTime;
     public FloatReference loudnessIncrease;
     public FloatReference breatheLoudness;
     public FloatReference walkLoudness;
@@ -33,10 +33,10 @@ public class Rustle : MonoBehaviour {
                 // play audio
                 if (soundDelayTimer <= 0) {
                     soundToPlay.Play();
-                    soundDelayTimer = FirstPersonMovement.Instance.moveState switch {
-                        FirstPersonMovement.MoveState.CrouchWalking => crouchWalkingSoundDelayTime,
-                        FirstPersonMovement.MoveState.Walking => walkingSoundDelayTime,
-                        FirstPersonMovement.MoveState.Running => runningSoundDelayTime,
+                    soundDelayTimer = baseSoundDelayTime * FirstPersonMovement.Instance.moveState switch {
+                        FirstPersonMovement.MoveState.CrouchWalking => crouchWalkingSoundDelayMultiplier,
+                        FirstPersonMovement.MoveState.Walking => 1,
+                        FirstPersonMovement.MoveState.Running => runningSoundDelayMultiplier,
                         _ => 0
                     };
                 }

@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
+  baseSoundDelayTime: 0.7
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
