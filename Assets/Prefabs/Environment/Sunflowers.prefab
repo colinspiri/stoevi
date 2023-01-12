@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9061780796740596486}
   - component: {fileID: 9061780796740596485}
   - component: {fileID: 2680136700092269865}
+  - component: {fileID: 3577673092306017519}
   m_Layer: 6
   m_Name: Sunflowers
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 230510c7b4c6d8345a0fc64848ba47bd, type: 2}
+  - {fileID: 2100000, guid: cc5bfe7b430722f479334e698cc7d7c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91,7 +92,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9061780796740596484}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -112,3 +113,16 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!114 &3577673092306017519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9061780796740596484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91610814907554cbdcdc281b322e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
