@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9061780796740596485}
   - component: {fileID: 2680136700092269865}
   - component: {fileID: 3577673092306017519}
+  - component: {fileID: 2609816073214822406}
   m_Layer: 6
   m_Name: Sunflowers
   m_TagString: Untagged
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cc5bfe7b430722f479334e698cc7d7c0, type: 2}
+  - {fileID: 2100000, guid: 8a189f70e910dd145b5ff5a465b98bd6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,3 +127,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+--- !u!114 &2609816073214822406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9061780796740596484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29cc196d37a775442872de225cb8004c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interiorWallPrefab: {fileID: 1642986201645481353, guid: 304b5637b5b91c54b91beca4cb99ec92, type: 3}
+  interiorWallDistance: 3

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7603266987921784209}
   - component: {fileID: 7603266987921784208}
   - component: {fileID: 8018839745192154857}
+  - component: {fileID: 7744822456385680094}
   m_Layer: 6
   m_Name: Plant Cover
   m_TagString: Untagged
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cc5bfe7b430722f479334e698cc7d7c0, type: 2}
+  - {fileID: 2100000, guid: 2157da05826d6114fa09eac955ebf014, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -156,3 +157,17 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: ec3e68f9427e71d4c8ff326e202aa3dc, type: 2}
+--- !u!114 &7744822456385680094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7603266987921784218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29cc196d37a775442872de225cb8004c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interiorWallPrefab: {fileID: 1642986201645481353, guid: 18b020bf07dc3b1469a3169a98b4f792, type: 3}
+  interiorWallDistance: 1.5
