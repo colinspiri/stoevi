@@ -1,18 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using SpookuleleAudio;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class BreathController : MonoBehaviour {
     // components
     public ASoundContainer inhaleSound;
     public ASoundContainer exhaleSound;
     
-    // public variables
-    public float breatheLoudness;
-    public float exhaleLoudness;
+    // constants
+    public FloatReference breatheLoudness;
+    public FloatReference exhaleLoudness;
     
     // state
     public bool holdingBreath { get; private set; }

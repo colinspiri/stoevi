@@ -32,8 +32,8 @@ public class FirstPersonMovement : MonoBehaviour
 	public float speedChangeRate = 10.0f;
 
 	[Header("Sounds")] 
-	public float walkLoudness;
-	public float runLoudness;
+	public FloatReference walkLoudness;
+	public FloatReference runLoudness;
 
 	[Header("Player Grounded")]
 	[Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
@@ -67,7 +67,7 @@ public class FirstPersonMovement : MonoBehaviour
 	
 	private const float threshold = 0.01f;
 	#endregion
-
+	
 	#region State Variables
 	// camera
 	public bool crouching { get; private set; }

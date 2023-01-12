@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: sfx_crop_harvest
   m_EditorClassIdentifier: 
   PitchRangeEnabled: 1
-  PitchRange: {x: 0.8684211, y: 1.2236842}
+  PitchRange: {x: 0.6977611, y: 1.3190298}
   VolumeRangeEnabled: 0
   VolumeRange: {x: 1, y: 1}
   AudioGroupEnabled: 1

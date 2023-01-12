@@ -102,8 +102,14 @@ MonoBehaviour:
   crouchSpeed: 1.5
   interactingSpeed: 0.3
   speedChangeRate: 10
-  walkLoudness: 20
-  runLoudness: 35
+  walkLoudness:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: d97b7f28813db504eb231388b78470da, type: 2}
+  runLoudness:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: ec3e68f9427e71d4c8ff326e202aa3dc, type: 2}
   gravity: -15
   fallTimeout: 0.15
   grounded: 1
@@ -172,5 +178,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inhaleSound: {fileID: 11400000, guid: eb6aa65653bb3eb4c84b2480d81a2ea6, type: 2}
   exhaleSound: {fileID: 11400000, guid: 5cfcc74b32ca7414681573dc7a9d9fb2, type: 2}
-  breatheLoudness: 5
-  exhaleLoudness: 10
+  breatheLoudness:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
+  exhaleLoudness:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: bfe9282466f140b47bb6a8b430d501ec, type: 2}
