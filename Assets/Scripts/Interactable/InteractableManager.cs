@@ -57,30 +57,26 @@ public class InteractableManager : MonoBehaviour {
         
         // see if camera is pointing at an object
         RaycastHit hitInfo;
-        GameObject obj = CameraRaycast.Instance.GetCurrentObject(out hitInfo);
-        if (obj == null) {
-            Deselect();
-            return;
-        }
-
-        // check if object is interactable
-        var interactable = obj.GetComponent<Interactable>();
+        Interactable interactable = CameraRaycast.Instance.GetCurrentInteractable(out hitInfo);
+        
+        // if no object, deselect
         if (interactable == null) {
             Deselect();
             return;
         }
         
-        // check if selectable
-        if (!interactable.IsSelectable()) {
-            Deselect();
-            return;
-        }
         // check if within distance
         if (!interactable.PlayerWithinInteractionDistance(hitInfo.point)) {
             Deselect();
             return;
         }
-        
+
+        // check if selectable
+        if (!interactable.IsSelectable()) {
+            Deselect();
+            return;
+        }
+
         // if not already selected, select it
         if (interactable != selectedObject) SelectObject(interactable);
         

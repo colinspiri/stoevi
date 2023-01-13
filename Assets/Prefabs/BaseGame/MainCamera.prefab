@@ -165,3 +165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRaycastDistance: 500
+  ignoreLayers:
+    serializedVersion: 2
+    m_Bits: 2048
