@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7844313069492588859}
   - component: {fileID: 7171280061934054548}
   - component: {fileID: 3239870219924299488}
+  - component: {fileID: 7166567784377925129}
   - component: {fileID: 8918777048991086442}
   m_Layer: 7
   m_Name: Cover
@@ -28,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603433725071574024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 0, y: 1.75, z: 0}
+  m_LocalScale: {x: 3, y: 3.5, z: 3}
   m_Children: []
   m_Father: {fileID: 8152074468222590109}
   m_RootOrder: 0
@@ -49,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603433725071574024}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -96,7 +97,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8918777048991086442
+--- !u!114 &7166567784377925129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,6 +105,19 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603433725071574024}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91610814907554cbdcdc281b322e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+--- !u!114 &8918777048991086442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603433725071574024}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
@@ -271,8 +285,13 @@ MonoBehaviour:
   InteractionDistance: 3
   InteractionTime: 1
   spriteRenderer: {fileID: 8152074468140001967}
+  cover: {fileID: 603433725071574024}
   soil: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
+  seedHeight: 0.2
+  sproutHeight: 0.3
+  halfHeight: 0.5
+  fullHeight: 1
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}

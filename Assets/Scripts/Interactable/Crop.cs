@@ -11,10 +11,16 @@ using Yarn.Compiler;
 public class Crop : Interactable {
     // components
     public SpriteRenderer spriteRenderer;
+    public GameObject cover;
     public Soil soil;
 
     // constants
     public FarmingConstants farmingConstants;
+    private float baseHeight;
+    public float seedHeight;
+    public float sproutHeight;
+    public float halfHeight;
+    public float fullHeight;
     
     // shared state
     public IntVariable seeds;
@@ -40,7 +46,10 @@ public class Crop : Interactable {
     // harvesting
     public int tomatoesYielded;
     private int tomatoesLeft;
-    
+
+    private void Awake() {
+        baseHeight = transform.localScale.y;
+    }
 
     protected override void Start() {
         base.Start();
@@ -87,12 +96,14 @@ public class Crop : Interactable {
                 if (health == Health.Fair) {
                     health = Health.Poor;
                     UpdateSprite();
+                    UpdateCover();
                     
                     StartThirsty();
                 }
                 else if (health == Health.Poor) {
                     health = Health.Dead;
                     UpdateSprite();
+                    UpdateCover();
                 }
             }
         }
@@ -146,6 +157,7 @@ public class Crop : Interactable {
         
         // update sprite
         UpdateSprite();
+        UpdateCover();
     }
 
     private void StartGrowing() {
@@ -224,6 +236,7 @@ public class Crop : Interactable {
         
         // update sprite
         UpdateSprite();
+        UpdateCover();
 
         // set tomatoes left
         if (stage == GrowthStage.Ripe && tomatoesYielded == 0) {
@@ -281,6 +294,27 @@ public class Crop : Interactable {
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+    private void UpdateCover() {
+        float newHeight = stage switch {
+            GrowthStage.Seed => seedHeight,
+            GrowthStage.Sprout => sproutHeight,
+            GrowthStage.Intermediate => halfHeight,
+            GrowthStage.Unripe => fullHeight,
+            GrowthStage.Ripe => fullHeight,
+            GrowthStage.Bare => fullHeight,
+            _ => 1f
+        };
+
+        Debug.Log("current scale = " + transform.localScale);
+        transform.localScale = new Vector3(transform.localScale.x, (1/soil.transform.localScale.y) * newHeight, transform.localScale.z);
+        Debug.Log("new scale = " + transform.localScale);
+
+        // disable cover for seeds or sprouts
+        if (stage == GrowthStage.Seed || stage == GrowthStage.Sprout) {
+            cover.SetActive(false);
+        }
+        else cover.SetActive(true);
     }
     
     public override string GetObjectName() {
