@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1437667837136497452}
   - component: {fileID: 1437667837136497453}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 1437667837186800703}
   - component: {fileID: 1437667837186800688}
   - component: {fileID: 1437667837186800689}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Lantern
   m_TagString: Untagged
   m_Icon: {fileID: 0}

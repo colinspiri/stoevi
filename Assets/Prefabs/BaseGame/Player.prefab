@@ -117,7 +117,7 @@ MonoBehaviour:
   groundedRadius: 0.5
   groundLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   cameraTarget: {fileID: 4135013735270702863}
   topClamp: 90
   bottomClamp: -90

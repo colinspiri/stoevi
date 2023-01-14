@@ -9,7 +9,6 @@ public class CameraRaycast : MonoBehaviour {
 
     // The maximum distance that the raycast should check for an object
     public float maxRaycastDistance;
-    public LayerMask ignoreLayers;
 
     private void Awake() {
         Instance = this;
