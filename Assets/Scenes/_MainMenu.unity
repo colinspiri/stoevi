@@ -954,7 +954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 2
-  m_AspectRatio: 1.16
+  m_AspectRatio: 1.33
 --- !u!114 &653361673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2189,6 +2189,22 @@ PrefabInstance:
     - target: {fileID: 4356240515465427804, guid: 38f66fb66e76a424a99c3056d919322c, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400581361507007449, guid: 38f66fb66e76a424a99c3056d919322c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400581361507007449, guid: 38f66fb66e76a424a99c3056d919322c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400581361507007449, guid: 38f66fb66e76a424a99c3056d919322c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400581361507007449, guid: 38f66fb66e76a424a99c3056d919322c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5400581362116273013, guid: 38f66fb66e76a424a99c3056d919322c, type: 3}
       propertyPath: m_AnchorMax.x
