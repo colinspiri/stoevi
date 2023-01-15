@@ -10,13 +10,12 @@ using Yarn.Compiler;
 
 public class Crop : Interactable {
     // components
-    public SpriteRenderer spriteRenderer;
+    public List<SpriteRenderer> spriteRenderers;
     public GameObject cover;
     public Soil soil;
 
     // constants
     public FarmingConstants farmingConstants;
-    private float baseHeight;
     public float seedHeight;
     public float sproutHeight;
     public float halfHeight;
@@ -46,11 +45,7 @@ public class Crop : Interactable {
     // harvesting
     public int tomatoesYielded;
     private int tomatoesLeft;
-
-    private void Awake() {
-        baseHeight = transform.localScale.y;
-    }
-
+    
     protected override void Start() {
         base.Start();
 
@@ -272,28 +267,36 @@ public class Crop : Interactable {
     }
 
     private void UpdateSprite() {
+        Sprite newSprite = null;
+        
         if (health == Health.Dead) {
-            spriteRenderer.sprite = farmingConstants.emptySprite;
-            return;
+            newSprite = farmingConstants.emptySprite;
+        }
+        else {
+            switch (stage) {
+                case GrowthStage.Seed:
+                case GrowthStage.Sprout:
+                case GrowthStage.Intermediate:
+                case GrowthStage.Unripe:
+                    if (state == State.NeedsWater) newSprite = farmingConstants.emptySprite;
+                    else if (state == State.Growing) newSprite = farmingConstants.waterSprite;
+                    break;
+                case GrowthStage.Ripe:
+                    newSprite = farmingConstants.harvestSprite;
+                    break;
+                case GrowthStage.Bare:
+                    newSprite = farmingConstants.emptySprite;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
-        switch (stage) {
-            case GrowthStage.Seed:
-            case GrowthStage.Sprout:
-            case GrowthStage.Intermediate:
-            case GrowthStage.Unripe:
-                if (state == State.NeedsWater) spriteRenderer.sprite = farmingConstants.emptySprite;
-                else if (state == State.Growing) spriteRenderer.sprite = farmingConstants.waterSprite;
-                break;
-            case GrowthStage.Ripe:
-                spriteRenderer.sprite = farmingConstants.harvestSprite;
-                break;
-            case GrowthStage.Bare:
-                spriteRenderer.sprite = farmingConstants.emptySprite;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
+        // set all renderers
+        foreach (var spriteRenderer in spriteRenderers) {
+            spriteRenderer.sprite = newSprite;
         }
+        
     }
     private void UpdateCover() {
         float newHeight = stage switch {
