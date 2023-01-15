@@ -48,7 +48,7 @@ public class Rustle : MonoBehaviour {
                     FirstPersonMovement.MoveState.Running => runLoudness,
                 };
                 Debug.Log(gameObject.name + " reported sound w loudness = " + loudness);
-                TorbalanHearing.Instance.ReportSound(FirstPersonMovement.Instance.transform.position, loudness);
+                if(TorbalanHearing.Instance) TorbalanHearing.Instance.ReportSound(FirstPersonMovement.Instance.transform.position, loudness);
             }
         }
     }
