@@ -46,9 +46,7 @@ public class Crop : Interactable {
     public int tomatoesYielded;
     private int tomatoesLeft;
     
-    protected override void Start() {
-        base.Start();
-
+    protected void Start() {
         ChangeCropStage(stage);
     }
 
@@ -383,8 +381,7 @@ public class Crop : Interactable {
         return InteractableUI.TimerIcon.None;
     }
 
-    protected override void OnDestroy() {
-        base.OnDestroy();
+    protected void OnDestroy() {
         soil.RemoveCrop(this);
     }
 }

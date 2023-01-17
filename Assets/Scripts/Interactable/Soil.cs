@@ -20,9 +20,7 @@ public class Soil : Interactable {
     public List<Crop> crops = new List<Crop>();
     private int fertilizerLevel;
 
-    protected override void Start() {
-        base.Start();
-        // tilled = false;
+    protected void Start() {
         LoadData();
     }
 

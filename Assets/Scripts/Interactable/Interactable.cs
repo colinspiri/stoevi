@@ -9,11 +9,6 @@ public abstract class Interactable : MonoBehaviour {
     [FormerlySerializedAs("interactionDistance")] public float InteractionDistance = 5f;
     [FormerlySerializedAs("interactionTime")] public float InteractionTime = 1f;
 
-    // Start is called before the first frame update
-    protected virtual void Start() {
-        InteractableManager.Instance.AddInteractable(this);
-    }
-
     public abstract void Interact();
 
     public abstract string GetObjectName();
@@ -42,11 +37,7 @@ public abstract class Interactable : MonoBehaviour {
     public virtual void OnStopInteracting() {
         
     }
-    protected string GetInteractButton() {
+    public static string GetInteractButton() {
         return "LMB";
-    }
-
-    protected virtual void OnDestroy() {
-        InteractableManager.Instance.RemoveInteractable(this);
     }
 }

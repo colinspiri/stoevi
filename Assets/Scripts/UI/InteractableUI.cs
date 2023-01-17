@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class InteractableUI : MonoBehaviour {
     // components
+    public HeldItem heldItem;
+    
     [Header("Object Info")]
     public GameObject objectInfo;
     public TextMeshProUGUI objectName;
@@ -41,19 +43,18 @@ public class InteractableUI : MonoBehaviour {
     }
 
     private void UpdateUI() {
+        if (heldItem.HoldingItem()) {
+            objectInfo.SetActive(false);
+            progressSlider.value = 0;
+            buttonPrompt.gameObject.SetActive(true);
+            buttonPrompt.text = Interactable.GetInteractButton() + " to drop " + heldItem.heldItem.itemName;
+            return;
+        }
+        
         switch (InteractableManager.Instance.interactionState)
         {
             case InteractableManager.InteractionState.None:
-                // carrying fertilizer special case
-                if (ResourceManager.Instance && ResourceManager.Instance.carryingFertilizer) {
-                    objectInfo.SetActive(false);
-                    progressSlider.value = 0;
-                    buttonPrompt.gameObject.SetActive(true);
-                    buttonPrompt.text = "E to drop fertilizer";
-                }
-                else {
-                    HideInteractableUI();
-                }
+                HideInteractableUI();
                 break;
             case InteractableManager.InteractionState.Selecting:
                 ShowSelectedObject();

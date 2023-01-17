@@ -11,9 +11,9 @@ public class InteractableManager : MonoBehaviour {
     // components
     public static InteractableManager Instance;
     public InputActions inputActions;
+    public HeldItem heldItem;
 
     // all interactables
-    private List<Interactable> allInteractables = new List<Interactable>();
     private List<Crop> allCrops = new List<Crop>();
     private List<Soil> allSoil = new List<Soil>();
     
@@ -21,7 +21,7 @@ public class InteractableManager : MonoBehaviour {
     public enum InteractionState { None, Selecting, Interacting }
     public InteractionState interactionState { get; private set; }
     public Interactable selectedObject { get; private set; }
-    private float holdTimer;
+    private float interactingTimer;
 
     private void Awake() {
         Instance = this;
@@ -35,23 +35,53 @@ public class InteractableManager : MonoBehaviour {
         selectedObject = null;
 
         InputHandler.OnInteractPressed += () => {
-            if (interactionState == InteractionState.None && ResourceManager.Instance.carryingFertilizer) {
-                ResourceManager.Instance.DropFertilizer();
+            // drop item
+            if (heldItem.HoldingItem()) {
+                heldItem.DropItem();
+            }
+            // tap to interact
+            else if (interactionState == InteractionState.Selecting) {
+                if(selectedObject.InteractionTime == 0) selectedObject.Interact();
             }
         };
     }
 
     private void Update() {
-        // receive input
-        if (InputHandler.Instance.interact) {
-            if (interactionState == InteractionState.Selecting && selectedObject.IsInteractable()) {
-                StartInteracting();
-            }
-        }
-        else if (interactionState == InteractionState.Interacting) {
-            StopInteracting();
+        // holding item
+        if (heldItem.HoldingItem()) {
+            return;
         }
         
+        // look for object to select
+        LookForObjectToSelect();
+        
+        // selecting object
+        if (interactionState == InteractionState.Selecting) {
+            // hold to interact
+            if (InputHandler.Instance.interact) {
+                if(selectedObject.InteractionTime > 0) StartInteracting();
+            }
+        }
+        // interacting with object
+        else if (interactionState == InteractionState.Interacting) {
+            // if no longer interactable or button released, stop interacting
+            if (!selectedObject.IsInteractable() || !InputHandler.Instance.interact) {
+                StopInteracting();
+            }
+            
+            // count up hold timer
+            interactingTimer += Time.deltaTime;
+            
+            // if holding for long enough, call interact
+            if (interactingTimer >= selectedObject.InteractionTime) {
+                selectedObject.Interact();
+                StopInteracting();
+                InputHandler.Instance.ResetInteractInput();
+            }
+        }
+    }
+
+    private void LookForObjectToSelect() {
         // if game is stopped
         if (GameManager.Instance && GameManager.Instance.gameStopped) return;
         
@@ -79,48 +109,30 @@ public class InteractableManager : MonoBehaviour {
 
         // if not already selected, select it
         if (interactable != selectedObject) SelectObject(interactable);
-        
-        // count up hold timer while interacting
-        if (interactionState == InteractionState.Interacting) {
-            // if no longer interactable, stop interacting
-            if (!selectedObject.IsInteractable()) {
-                StopInteracting();
-            }
-            
-            // count up hold timer
-            holdTimer += Time.deltaTime;
-            
-            // if holding for long enough, call interact
-            if (holdTimer >= selectedObject.InteractionTime) {
-                selectedObject.Interact();
-                StopInteracting();
-                InputHandler.Instance.ResetInteractInput();
-            }
-        }
     }
 
     private void Deselect() {
         selectedObject = null;
         interactionState = InteractionState.None;
-        holdTimer = 0;
+        interactingTimer = 0;
     }
 
     private void SelectObject(Interactable interactable) {
         selectedObject = interactable;
         interactionState = InteractionState.Selecting;
-        holdTimer = 0;
+        interactingTimer = 0;
     }
 
     private void StartInteracting() {
         interactionState = InteractionState.Interacting;
         selectedObject.OnStartInteracting();
-        holdTimer = 0;
+        interactingTimer = 0;
     }
 
     private void StopInteracting() {
         interactionState = InteractionState.Selecting;
         selectedObject.OnStopInteracting();
-        holdTimer = 0;
+        interactingTimer = 0;
     }
 
     public List<Crop> GetAllCrops() {
@@ -151,20 +163,7 @@ public class InteractableManager : MonoBehaviour {
         }
     }
 
-    public void AddInteractable(Interactable interactable) {
-        allInteractables.Add(interactable);
-        if(interactable is Crop crop) allCrops.Add(crop);
-        if(interactable is Soil soil) allSoil.Add(soil);
-    }
-    public void RemoveInteractable(Interactable interactable) {
-        allInteractables.Remove(interactable);
-        if (interactable is Crop crop) allCrops.Remove(crop);
-        if (interactable is Soil soil) allSoil.Remove(soil);
-        // if selected
-        if (selectedObject == interactable) Deselect();
-    }
-
     public float GetInteractingFloat() {
-        return holdTimer / selectedObject.InteractionTime;
+        return interactingTimer / selectedObject.InteractionTime;
     }
 }

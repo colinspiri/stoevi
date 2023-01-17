@@ -126,8 +126,7 @@ GameObject:
   - component: {fileID: 1433479246987159141}
   - component: {fileID: 1433479246987159142}
   - component: {fileID: 1433479246987159143}
-  - component: {fileID: 1433479246987159163}
-  - component: {fileID: 3762643669059212275}
+  - component: {fileID: 7769092356885190349}
   m_Layer: 7
   m_Name: Fertilizer
   m_TagString: Untagged
@@ -212,7 +211,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1433479246987159163
+--- !u!114 &7769092356885190349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,24 +220,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1433479246987159136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cf84251040233a4c8f12d987ef8304f, type: 3}
+  m_Script: {fileID: 11500000, guid: bad767fc745d44f9abade53d930dab1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   InteractionDistance: 5
-  InteractionTime: 1
---- !u!65 &3762643669059212275
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1433479246987159136}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  InteractionTime: 0
+  item: {fileID: 11400000, guid: 85983f702c9dc3f4488ed85b9939e4b4, type: 2}
+  heldItem: {fileID: 11400000, guid: 8988f3e596c2bc7489050653c24d4f9d, type: 2}
 --- !u!1 &8769054161337242627
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,8 +23,7 @@ public class Sheep : Interactable {
     // state
     private float sneakTimer;
 
-    protected override void Start() {
-        base.Start();
+    protected void Start() {
         SheepManager.Instance.AddSheep(this);
     }
 
@@ -83,8 +82,7 @@ public class Sheep : Interactable {
         return GetInteractButton() + " to hit sheep";
     }
 
-    protected override void OnDestroy() {
-        base.OnDestroy();
+    protected void OnDestroy() {
         SheepManager.Instance.RemoveSheep(this);
     }
 }
