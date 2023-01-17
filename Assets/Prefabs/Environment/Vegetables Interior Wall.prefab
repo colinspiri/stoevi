@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1439822855889178097}
   - component: {fileID: 898490692576674760}
   m_Layer: 6
-  m_Name: Plant Cover Interior Wall
+  m_Name: Vegetables Interior Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

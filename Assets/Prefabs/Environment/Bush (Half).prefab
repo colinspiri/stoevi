@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8018839745192154857}
   - component: {fileID: 7744822456385680094}
   m_Layer: 6
-  m_Name: Plant Cover
+  m_Name: Bush (Half)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 7603266987921784218}
   m_LocalRotation: {x: -0, y: -0, z: -0.026016807, w: 0.9996615}
   m_LocalPosition: {x: 18.299995, y: 4.7222176, z: 0.9500122}
-  m_LocalScale: {x: 5.8533483, y: 2.5, z: 6.957741}
+  m_LocalScale: {x: 5.8533483, y: 1.5, z: 6.957741}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df91610814907554cbdcdc281b322e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
 --- !u!114 &8018839745192154857
 MonoBehaviour:
   m_ObjectHideFlags: 0
