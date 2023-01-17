@@ -51,7 +51,7 @@ public class Soil : Interactable {
         }*/
         // plant crops
         else if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
-            var lookPosition = CameraRaycast.Instance.GetCurrentHitPosition();
+            var lookPosition = CameraRaycast.Instance.GetCurrentInteractableHitPosition();
             SpawnCrop(lookPosition);
             
             seeds.ApplyChange(-1);

@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a010078d48d24097852b263f96e5fcb2, type: 3}
   m_Name: HeldItem
   m_EditorClassIdentifier: 
+  dropItemDistance: 5
