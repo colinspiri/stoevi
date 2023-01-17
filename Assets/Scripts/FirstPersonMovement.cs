@@ -20,6 +20,7 @@ public class FirstPersonMovement : MonoBehaviour
 	private CharacterController controller;
 	private InputActions inputActions;
 	private BreathController breath;
+	public HeldItem heldItem;
 	#endregion
 	
 	#region Public Constants
@@ -205,6 +206,10 @@ public class FirstPersonMovement : MonoBehaviour
 		else {
 			targetSpeed = walkSpeed;
 			moveState = MoveState.Walking;
+		}
+		// modify target speed by held item modifier
+		if (heldItem.HoldingItem()) {
+			targetSpeed *= heldItem.heldItem.speedModifier;
 		}
 
 		// a reference to the players current horizontal velocity

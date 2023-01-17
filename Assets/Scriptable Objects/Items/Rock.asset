@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02fae89fde1247e5a3a3060dcb3ed9e2, type: 3}
-  m_Name: Fertilizer
+  m_Name: Rock
   m_EditorClassIdentifier: 
-  itemName: fertilizer
-  pickupPrefab: {fileID: 1433479246987159136, guid: bbc628e78fbd4e24797aba1a744dc2b6, type: 3}
-  speedModifier: 0.8
+  itemName: rock
+  pickupPrefab: {fileID: 5709627125781470314, guid: 8faa6d126d3542146bfb27308c9a6142, type: 3}
+  speedModifier: 1

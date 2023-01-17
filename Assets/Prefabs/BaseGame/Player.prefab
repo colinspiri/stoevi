@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
+  heldItem: {fileID: 11400000, guid: 8988f3e596c2bc7489050653c24d4f9d, type: 2}
   walkSpeed: 4
   runSpeed: 8
   crouchSpeed: 1.5
