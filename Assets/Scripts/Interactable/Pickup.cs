@@ -5,7 +5,13 @@ public class Pickup : Interactable {
     public HeldItem heldItem;
 
     public override void Interact() {
+        // if holding something, first drop it
+        if (heldItem.HoldingItem()) {
+            heldItem.DropItem(transform);
+        }
+        // pick up item
         heldItem.PickUpItem(item);
+        // destroy self
         Destroy(gameObject);
     }
 

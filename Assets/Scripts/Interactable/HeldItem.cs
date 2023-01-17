@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.ProBuilder;
 
 [CreateAssetMenu(fileName = "NewHeldItem", menuName = "HeldItem", order = 0)]
 public class HeldItem : ScriptableObject {
@@ -10,12 +11,17 @@ public class HeldItem : ScriptableObject {
     public void PickUpItem(Item item) {
         heldItem = item;
     }
-    public void DropItem() {
+    public void DropItem(Transform dropTransform = null) {
         // spawn prefab
-        Vector3 dropPosition = FirstPersonMovement.Instance.transform.position +
-                               2 * FirstPersonMovement.Instance.transform.forward;
-        Instantiate(heldItem.pickupPrefab, dropPosition, Quaternion.identity);
-        
+        if (dropTransform != null) {
+            Instantiate(heldItem.pickupPrefab, dropTransform.position, dropTransform.rotation);
+        }
+        else {
+            Vector3 dropPosition = FirstPersonMovement.Instance.transform.position +
+                                2 * FirstPersonMovement.Instance.transform.forward;
+            Instantiate(heldItem.pickupPrefab, dropPosition, Quaternion.identity);
+        }
+
         // change state
         heldItem = null;
     }

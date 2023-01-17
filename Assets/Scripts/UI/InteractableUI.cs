@@ -43,18 +43,15 @@ public class InteractableUI : MonoBehaviour {
     }
 
     private void UpdateUI() {
-        if (heldItem.HoldingItem()) {
-            objectInfo.SetActive(false);
-            progressSlider.value = 0;
-            buttonPrompt.gameObject.SetActive(true);
-            buttonPrompt.text = Interactable.GetInteractButton() + " to drop " + heldItem.heldItem.itemName;
-            return;
-        }
-        
         switch (InteractableManager.Instance.interactionState)
         {
             case InteractableManager.InteractionState.None:
-                HideInteractableUI();
+                if (heldItem.HoldingItem()) {
+                    ShowHeldItem();
+                }
+                else {
+                    HideInteractableUI();
+                }
                 break;
             case InteractableManager.InteractionState.Selecting:
                 ShowSelectedObject();
@@ -66,12 +63,19 @@ public class InteractableUI : MonoBehaviour {
     }
 
     private void HideInteractableUI() {
-        progressSlider.value = 0;
         objectInfo.SetActive(false);
+        progressSlider.value = 0;
         buttonPrompt.text = "";
         
         // timer
         timerPanel.gameObject.SetActive(false);
+    }
+
+    private void ShowHeldItem() {
+        objectInfo.SetActive(false);
+        progressSlider.value = 0;
+        buttonPrompt.gameObject.SetActive(true);
+        buttonPrompt.text = Interactable.GetInteractButton() + " to drop " + heldItem.heldItem.itemName;
     }
 
     private void ShowSelectedObject() {

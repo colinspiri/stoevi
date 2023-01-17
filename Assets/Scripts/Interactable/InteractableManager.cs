@@ -35,32 +35,28 @@ public class InteractableManager : MonoBehaviour {
         selectedObject = null;
 
         InputHandler.OnInteractPressed += () => {
-            // drop item
-            if (heldItem.HoldingItem()) {
-                heldItem.DropItem();
-            }
-            // tap to interact
-            else if (interactionState == InteractionState.Selecting) {
+            if (interactionState == InteractionState.Selecting) {
+                // tap to interact
                 if(selectedObject.InteractionTime == 0) selectedObject.Interact();
+                // hold to interact
+                else StartInteracting();
+            }
+            else if (interactionState == InteractionState.None) {
+                // drop item
+                if (heldItem.HoldingItem()) {
+                    heldItem.DropItem();
+                }
             }
         };
     }
 
     private void Update() {
-        // holding item
-        if (heldItem.HoldingItem()) {
-            return;
-        }
-        
         // look for object to select
         LookForObjectToSelect();
         
         // selecting object
         if (interactionState == InteractionState.Selecting) {
-            // hold to interact
-            if (InputHandler.Instance.interact) {
-                if(selectedObject.InteractionTime > 0) StartInteracting();
-            }
+            
         }
         // interacting with object
         else if (interactionState == InteractionState.Interacting) {
