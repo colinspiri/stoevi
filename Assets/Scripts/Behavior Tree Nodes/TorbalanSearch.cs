@@ -44,8 +44,8 @@ public class TorbalanSearch : NavMeshMovement {
         if (searchPositions.Count == 0) return TaskStatus.Success;
 
         var distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position, transform.position);
-        bool playerIsFar = distance > searchRadius.Value + searchRadiusBulge.Value;
-        SetFast(!visitedCenter || playerIsFar);
+        bool playerIsFar = distance > searchRadius.Value;
+        SetFast(playerIsFar);
         
         // moving
         if (currentState == State.Moving) {
@@ -71,7 +71,6 @@ public class TorbalanSearch : NavMeshMovement {
         if (searchTimer >= maxSearchTime.Value) {
             return TaskStatus.Success;
         }
-        Debug.Log("searchTimer = " + searchTimer);
 
         return TaskStatus.Running;
     }

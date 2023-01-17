@@ -307,9 +307,7 @@ public class Crop : Interactable {
             _ => 1f
         };
 
-        Debug.Log("current scale = " + transform.localScale);
         transform.localScale = new Vector3(transform.localScale.x, (1/soil.transform.localScale.y) * newHeight, transform.localScale.z);
-        Debug.Log("new scale = " + transform.localScale);
 
         // disable cover for seeds or sprouts
         if (stage == GrowthStage.Seed || stage == GrowthStage.Sprout) {

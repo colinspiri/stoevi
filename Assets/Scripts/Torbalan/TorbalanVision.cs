@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -68,8 +69,10 @@ public class TorbalanVision : MonoBehaviour {
         if (PlayerWithinVision) {
             IncreaseAwareness();
         }
-        else if (torbalanAwareness.Value > 0) torbalanAwareness.ApplyChange(-Time.deltaTime / awarenessDecayTime);
-        else torbalanAwareness.SetValue(0);
+        else {
+            if (torbalanAwareness.Value > 0) torbalanAwareness.ApplyChange(-Time.deltaTime / awarenessDecayTime);
+            else torbalanAwareness.SetValue(0);
+        }
     }
 
     private void IncreaseAwareness() {
@@ -99,7 +102,6 @@ public class TorbalanVision : MonoBehaviour {
             else multiplier *= standingFactor;
         }
         
-
         // check player motion
         switch (FirstPersonMovement.Instance.moveState) {
             case FirstPersonMovement.MoveState.Still:
@@ -125,6 +127,8 @@ public class TorbalanVision : MonoBehaviour {
         // increment awareness
         torbalanAwareness.ApplyChange(speed * Time.deltaTime);
         if (torbalanAwareness.Value > 1) torbalanAwareness.SetValue(1);
+        
+        Debug.Log("awarenessTime = " + awarenessTime + " (" + multiplier + ")");
     }
 
     private void LookForPlayer() {
