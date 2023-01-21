@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8104655260012500841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: huff4
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 1
+  AudioGroup: {fileID: 7557208376370848537, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: 65b71a629ca09394b8cd1044f77dcc2a, type: 3}
+--- !u!114 &-1696048086736866671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: huff1
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 1
+  AudioGroup: {fileID: 7557208376370848537, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: 10103416123108049895d05b453efdbb, type: 3}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf5380c8dc84054c94b889db9c9c408, type: 3}
+  m_Name: sfx_torbalan_huff
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 1
+  AudioGroup: {fileID: 7557208376370848537, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 0}
+  PreviewStartTime: 0
+  SoundContainers:
+  - {fileID: 7359869505547025074}
+  - {fileID: -8104655260012500841}
+  - {fileID: -1696048086736866671}
+  - {fileID: 4183938459228975985}
+  NoRepeats: 1
+--- !u!114 &4183938459228975985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: huff2
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 1
+  AudioGroup: {fileID: 7557208376370848537, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: 66bf3e14c8422d143a0025a0db9452e7, type: 3}
+--- !u!114 &7359869505547025074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: huff3
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 1
+  AudioGroup: {fileID: 7557208376370848537, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: 32ec22af0a4b0b041b9b9b60384445bd, type: 3}
