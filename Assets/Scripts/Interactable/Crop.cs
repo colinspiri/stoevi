@@ -48,7 +48,8 @@ public class Crop : Interactable {
     public int tomatoesYielded;
     private int tomatoesLeft;
     
-    protected void Start() {
+    protected override void Start() {
+        base.Start();
         ChangeCropStage(stage);
     }
 
@@ -146,8 +147,6 @@ public class Crop : Interactable {
     private void Water() {
         currentWater.ApplyChange(-1);
         
-        AudioManager.Instance.PlayWaterSound();
-
         // if already watered, don't do anything (TODO: over-water?)
         if (state != State.NeedsWater) return;
 

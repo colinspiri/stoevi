@@ -23,7 +23,8 @@ public class Sheep : Interactable {
     // state
     private float sneakTimer;
 
-    protected void Start() {
+    protected override void Start() {
+        base.Start();
         SheepManager.Instance.AddSheep(this);
     }
 

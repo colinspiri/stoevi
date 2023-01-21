@@ -149,6 +149,17 @@ public class InteractableManager : MonoBehaviour {
 
         return closestCrop;
     }
+    
+    public void AddInteractable(Interactable interactable) {
+        if(interactable is Crop crop) allCrops.Add(crop);
+        if(interactable is Soil soil) allSoil.Add(soil);
+    }
+    public void RemoveInteractable(Interactable interactable) {
+        if (interactable is Crop crop) allCrops.Remove(crop);
+        if (interactable is Soil soil) allSoil.Remove(soil);
+        // if selected
+        if (selectedObject == interactable) Deselect();
+    }
 
     public void SaveAllData() {
         foreach (var crop in allCrops) {

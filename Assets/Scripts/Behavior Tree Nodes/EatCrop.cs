@@ -7,13 +7,16 @@ public class EatCrop : Action {
     public SheepSpriteManager spriteManager;
     public float eatTime;
     public IntVariable torbalanTomatoes;
+    public AudioSource sheep_eat;
 
     private float eatTimer;
 
     public override void OnStart() {
         base.OnStart();
+        
         eatTimer = 0;
         spriteManager.ShowEating();
+        sheep_eat.Play();
     }
 
     public override TaskStatus OnUpdate() {
@@ -38,5 +41,6 @@ public class EatCrop : Action {
         base.OnEnd();
         
         spriteManager.ShowIdle();
+        sheep_eat.Stop();
     }
 }

@@ -9,6 +9,10 @@ public abstract class Interactable : MonoBehaviour {
     [FormerlySerializedAs("interactionDistance")] public float InteractionDistance = 5f;
     [FormerlySerializedAs("interactionTime")] public float InteractionTime = 1f;
 
+    protected virtual void Start() {
+        InteractableManager.Instance.AddInteractable(this);
+    }
+
     public abstract void Interact();
 
     public abstract string GetObjectName();
@@ -39,5 +43,9 @@ public abstract class Interactable : MonoBehaviour {
     }
     public static string GetInteractButton() {
         return "LMB";
+    }
+
+    private void OnDestroy() {
+        InteractableManager.Instance.RemoveInteractable(this);
     }
 }

@@ -30,6 +30,7 @@ public class FindNearestCrop : Conditional {
         Crop nearestValidCrop = null;
         float nearestDistance = float.MaxValue;
         foreach (var candidate in crops) {
+            if (candidate == null) continue;
             if (candidate.stage != Crop.GrowthStage.Ripe) continue;
             
             // calculate distance
