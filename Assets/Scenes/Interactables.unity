@@ -358,6 +358,7 @@ MonoBehaviour:
   - {fileID: 1064943490}
   cover: {fileID: 125005727}
   soil: {fileID: 1757605428}
+  crop_water: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -744,16 +745,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.5
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0
@@ -1036,6 +1031,7 @@ MonoBehaviour:
   - {fileID: 69966199}
   cover: {fileID: 2097439088}
   soil: {fileID: 1661961402}
+  crop_water: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -1194,16 +1190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.5
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0
@@ -1339,16 +1329,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.5
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0
@@ -3607,6 +3591,7 @@ MonoBehaviour:
   - {fileID: 315122974}
   cover: {fileID: 912943797}
   soil: {fileID: 1489388637}
+  crop_water: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -3741,16 +3726,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.5
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0
@@ -4209,6 +4188,7 @@ MonoBehaviour:
   - {fileID: 441454875}
   cover: {fileID: 152056586}
   soil: {fileID: 1661961402}
+  crop_water: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -4268,16 +4248,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.5
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0
@@ -4428,6 +4402,7 @@ MonoBehaviour:
   - {fileID: 986690735}
   cover: {fileID: 966256779}
   soil: {fileID: 736041857}
+  crop_water: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -4507,6 +4482,7 @@ MonoBehaviour:
   - {fileID: 882227333}
   cover: {fileID: 1209144753}
   soil: {fileID: 1063984115}
+  crop_water: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -4566,16 +4542,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.5
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0
@@ -5379,16 +5349,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.5
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0
@@ -5827,16 +5791,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.5
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0
@@ -5967,16 +5925,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.5
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0
@@ -6220,6 +6172,7 @@ MonoBehaviour:
   - {fileID: 500412441}
   cover: {fileID: 2014245311}
   soil: {fileID: 1757605428}
+  crop_water: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -6511,6 +6464,7 @@ MonoBehaviour:
   - {fileID: 2052647708}
   cover: {fileID: 2095826551}
   soil: {fileID: 1215185815}
+  crop_water: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -6863,16 +6817,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.5
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0
@@ -7210,16 +7158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.5
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0
@@ -7892,6 +7834,7 @@ MonoBehaviour:
   - {fileID: 426942352}
   cover: {fileID: 1325095117}
   soil: {fileID: 1316005138}
+  crop_water: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -7942,6 +7885,7 @@ MonoBehaviour:
   - {fileID: 896164314}
   cover: {fileID: 1421896166}
   soil: {fileID: 618928618}
+  crop_water: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -8239,6 +8183,7 @@ MonoBehaviour:
   - {fileID: 102875670}
   cover: {fileID: 818279211}
   soil: {fileID: 1040556269}
+  crop_water: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -8704,6 +8649,7 @@ MonoBehaviour:
   - {fileID: 413942775}
   cover: {fileID: 1207217430}
   soil: {fileID: 1729701609}
+  crop_water: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -8853,6 +8799,7 @@ MonoBehaviour:
   - {fileID: 1532620284}
   cover: {fileID: 140980259}
   soil: {fileID: 1040556269}
+  crop_water: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -9175,16 +9122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.5
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0
@@ -9509,16 +9450,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.5
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0
@@ -9635,16 +9570,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.5
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0
@@ -9891,6 +9820,7 @@ MonoBehaviour:
   - {fileID: 2028247254}
   cover: {fileID: 1077594430}
   soil: {fileID: 618928618}
+  crop_water: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3

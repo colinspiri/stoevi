@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using BehaviorDesigner.Runtime.Tasks.Movement;
 using BehaviorDesigner.Runtime.Tasks.Unity.UnityString;
+using SpookuleleAudio;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ public class Crop : Interactable {
     public List<SpriteRenderer> spriteRenderers;
     public GameObject cover;
     public Soil soil;
+    public ASoundContainer crop_water;
 
     // constants
     public FarmingConstants farmingConstants;
@@ -131,6 +133,14 @@ public class Crop : Interactable {
             return;
         }
         #endif
+    }
+    
+    public override void OnStartInteracting() {
+        base.OnStartInteracting();
+        // if starting to water
+        if (!timeOfDay.IsNight() && state == State.NeedsWater && currentWater.Value > 0) {
+            crop_water.Play3D(transform);
+        }
     }
 
     private void Water() {

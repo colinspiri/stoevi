@@ -384,13 +384,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractionDistance: 3
-  InteractionTime: 1
+  InteractionTime: 1.5
   spriteRenderers:
   - {fileID: 295842264901877763}
   - {fileID: 328295769968569548}
   - {fileID: 1994935605066420765}
   cover: {fileID: 603433725071574024}
   soil: {fileID: 0}
+  crop_water: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3

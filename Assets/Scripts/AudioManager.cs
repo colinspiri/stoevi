@@ -33,6 +33,7 @@ public class AudioManager : MonoBehaviour {
     public AudioSource playerBreathing;
     public AudioSource playerTiredBreathing;
     public ASoundContainer torbalanInhale;
+    public AudioSource rustle;
 
     [Header("UI")]
     public ASoundContainer backSound;
@@ -109,6 +110,10 @@ public class AudioManager : MonoBehaviour {
     public void SetTiredBreathingSound(bool value) {
         if (value && !playerTiredBreathing.isPlaying) playerTiredBreathing.Play();
         if(playerTiredBreathing.isPlaying && !value) playerTiredBreathing.Stop();
+    }
+    public void SetRustle(bool value) {
+        if (value && !rustle.isPlaying) rustle.Play();
+        if(rustle.isPlaying && !value) rustle.Stop();
     }
 
     public void PlayWaterSound() { waterSound.Play(); }

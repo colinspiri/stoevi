@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
   m_Name: sfx_crop_water
   m_EditorClassIdentifier: 
-  PitchRangeEnabled: 1
-  PitchRange: {x: 0.74013156, y: 1.0855262}
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
   VolumeRangeEnabled: 0
   VolumeRange: {x: 1, y: 1}
   AudioGroupEnabled: 1
@@ -24,4 +24,4 @@ MonoBehaviour:
   IgnoreListenerPause: 0
   ParentContainer: {fileID: 0}
   PreviewStartTime: 0
-  AudioClip: {fileID: 8300000, guid: 370f119999bd841ac93621dcd6865995, type: 3}
+  AudioClip: {fileID: 8300000, guid: 711b4a23eb63794469177ef08aacbf66, type: 3}
