@@ -8,6 +8,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class SensitivitySlider : MonoBehaviour {
     private Slider slider;
+    public FloatReference defaultSensitivity;
 
     private void Awake() {
         slider = GetComponent<Slider>();
@@ -23,6 +24,6 @@ public class SensitivitySlider : MonoBehaviour {
     }
 
     private void OnEnable() {
-        slider.value = PlayerPrefs.GetFloat("Sensitivity", InputHandler.Instance.defaultSensitivity);
+        slider.value = PlayerPrefs.GetFloat("Sensitivity", defaultSensitivity);
     }
 }

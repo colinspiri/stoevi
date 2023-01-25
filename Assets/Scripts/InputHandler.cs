@@ -27,7 +27,7 @@ public class InputHandler : MonoBehaviour {
     [Header("Mouse Cursor Settings")]
     public bool cursorLocked = true;
     public bool cursorInputForLook = true;
-    public float defaultSensitivity;
+    public FloatReference defaultSensitivity;
     public float sensitivity;
 
     private void Awake() {
