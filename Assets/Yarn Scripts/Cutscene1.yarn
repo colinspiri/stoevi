@@ -4,7 +4,7 @@ tags:
 // Rumen's donkey and cart pulls up
 Rumen: Dimo! How are you doing?
 Dimo: Rumen.
-Rumen: Where's Petrov?
+Rumen: Where's Petrov? Nobody was home.
 Dimo: Left with his wife last month.
 Rumen: So, last man standing, huh.
 Dimo: Mhm...
@@ -13,13 +13,34 @@ Dimo: Mhm...
 title: Cutscene1AfterShop
 tags:
 ---
-Rumen: Why do you stay here?
+Rumen: Why do you stay here, Dimo?
 // Dimo's tone changes to stern
-Dimo: My property is not for sale.
-Rumen: I don't want your farm. I just worry for you.
-Dimo: I've survived worse.
-Rumen: Dimo, it's dangerous. An old man living alone-
-Dimo: I am not alone.
+Dimo: My farm is not for sale.
+Rumen: I'm worried about you. An old man living alone-
+Dimo: I'm not alone. And you're older than me.
+Rumen: Two kids went missing in Peshtera last week. FATHERNAME's kids.
+Dimo: FIRSTNAME and FIRSTNAME?
+Rumen: Yeah. They're saying it was <i>mango</i>.
+Dimo: Who said that?
+Rumen: Everyone's been saying it. You know how they operate, <i>mango</i>.
+Rumen: Move into our villages, steal our shit, and kidnap children for their religion.
+Dimo: Hm.
+Rumen: Peshtera is a dead place, Dimo. Levnik is dying. Let's leave this place, together.
+Rumen: Come with me, to Plovdiv. There's a guy there who wants to hire me. Food service, tourist stuff.
+Dimo: And you get a bonus if you bring me?
+Rumen: What's your plan? Gonna spend the rest of your life in an empty village?
+Dimo: I like the quiet.
+Rumen: Still saving up for Germany?
+Dimo: I'm close, Rumen.
+Rumen: Is that what you tell Ana?
+Dimo: You know nothing about my children.
+Dimo: I will not run away with you to Plovdiv.
+Rumen: Think about it, Dimo. I'll be back soon.
+
+Thieves, <i>mango</i>.
+ Kidnappings, robberies, you know how they operate.
+Peshtera is dead now. And Levnik's dying.
+
 Rumen: It's getting worse, Dimo. Thieves, homeless, ...<i>mango</i>.
 Dimo: They're in Peshtera now?
 Rumen: Two kids went missing last week.
