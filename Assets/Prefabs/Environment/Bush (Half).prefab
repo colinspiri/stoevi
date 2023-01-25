@@ -140,16 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.25
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 10
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0
