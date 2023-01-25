@@ -252,6 +252,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8708ddff44d75740bfa15d8e48fcc9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultSensitivity:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 4b6a253546189fd479825bec38c999f6, type: 2}
 --- !u!114 &285684600330865509
 MonoBehaviour:
   m_ObjectHideFlags: 0

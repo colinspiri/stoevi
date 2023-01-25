@@ -128,7 +128,7 @@ public class TorbalanVision : MonoBehaviour {
         torbalanAwareness.ApplyChange(speed * Time.deltaTime);
         if (torbalanAwareness.Value > 1) torbalanAwareness.SetValue(1);
         
-        Debug.Log("awarenessTime = " + awarenessTime + " (" + multiplier + ")");
+        //Debug.Log("awarenessTime = " + awarenessTime + " (" + multiplier + ")");
     }
 
     private void LookForPlayer() {

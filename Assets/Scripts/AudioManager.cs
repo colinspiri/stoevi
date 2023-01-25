@@ -15,10 +15,12 @@ public class AudioManager : MonoBehaviour {
 
     [Header("Scenes")]
     public SceneReference mainMenuScene;
+    public SceneReference introCutscene;
     public SceneReference gameScene;
     
     [Header("Music")]
     public AudioSource mainMenuMusic;
+    public AudioSource introCutsceneMusic;
     public ASoundContainer detectedStinger;
     public ASoundContainer chaseStinger;
 
@@ -69,11 +71,12 @@ public class AudioManager : MonoBehaviour {
             mainMenuMusic.Play();
         }
         else mainMenuMusic.Stop();
-        
+
         // game scene
         if (newScene.path == gameScene.ScenePath) {
             if (!farmAmbience.isPlaying) farmAmbience.Play();
         }
+        else farmAmbience.Stop();
     }
 
     public void PauseGameSound() {
@@ -101,6 +104,10 @@ public class AudioManager : MonoBehaviour {
                 if(!runningSound.isPlaying) runningSound.Play();
             }
         }
+    }
+
+    public void PlayIntroCutsceneMusic() {
+        introCutsceneMusic.Play();
     }
 
     public void SetBreathingSound(bool value) {

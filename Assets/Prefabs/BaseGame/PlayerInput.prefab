@@ -168,5 +168,8 @@ MonoBehaviour:
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
-  defaultSensitivity: 0.5
+  defaultSensitivity:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 4b6a253546189fd479825bec38c999f6, type: 2}
   sensitivity: 1
