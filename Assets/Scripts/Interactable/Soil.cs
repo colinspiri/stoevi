@@ -11,9 +11,11 @@ public class Soil : Interactable {
     public GameObject seedPrefab;
     public ASoundContainer crop_plant;
     public SoilData soilData;
+    public HeldItem heldItem;
 
     // constants
     public FarmingConstants farmingConstants;
+    public Item fertilizer;
     public IntVariable seeds;
 
     // state
@@ -27,7 +29,7 @@ public class Soil : Interactable {
 
     public override bool IsInteractable() {
         // can be fertilized
-        if (ResourceManager.Instance.carryingFertilizer && fertilizerLevel < farmingConstants.maxFertilizerLevel) {
+        if (fertilizerLevel < farmingConstants.maxFertilizerLevel && heldItem.heldItem == fertilizer) {
             return true;
         }
         // can be tilled
@@ -43,7 +45,7 @@ public class Soil : Interactable {
 
     public override void Interact() {
         // fertilize
-        if (ResourceManager.Instance.carryingFertilizer && fertilizerLevel < farmingConstants.maxFertilizerLevel) {
+        if (fertilizerLevel < farmingConstants.maxFertilizerLevel && heldItem.heldItem == fertilizer) {
             fertilizerLevel = farmingConstants.maxFertilizerLevel;
         }
         // till
@@ -96,7 +98,7 @@ public class Soil : Interactable {
 
     public override string GetButtonPrompt() {
         // fertilize
-        if(ResourceManager.Instance.carryingFertilizer) {
+        if(heldItem.heldItem == fertilizer) {
             if (fertilizerLevel < farmingConstants.maxFertilizerLevel) return GetInteractButton() + " to fertilize";
             return "already fertilized";
         }

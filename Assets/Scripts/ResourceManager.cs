@@ -19,10 +19,6 @@ public class ResourceManager : MonoBehaviour {
     // seeds
     public IntReference startingSeeds;
     public IntVariable seeds;
-    
-    // fertilizer
-    public bool carryingFertilizer { get; private set; }
-    public GameObject fertilizerPrefab;
 
     private void Awake() {
         Instance = this;
@@ -34,13 +30,5 @@ public class ResourceManager : MonoBehaviour {
         seeds.SetValue(startingSeeds.Value);
         playerTomatoes.SetValue(0);
         torbalanTomatoes.SetValue(0);
-    }
-
-    public void PickUpFertilizer() {
-        carryingFertilizer = true;
-    }
-    public void DropFertilizer() {
-        carryingFertilizer = false;
-        Instantiate(fertilizerPrefab, FirstPersonMovement.Instance.transform.position + 2*FirstPersonMovement.Instance.transform.forward, Quaternion.identity);
     }
 }
