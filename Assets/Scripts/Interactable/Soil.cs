@@ -20,7 +20,7 @@ public class Soil : Interactable {
 
     // state
     public List<Crop> crops = new List<Crop>();
-    private int fertilizerLevel;
+    public bool fertilized { get; private set; }
 
     protected override void Start() {
         base.Start();
@@ -29,7 +29,7 @@ public class Soil : Interactable {
 
     public override bool IsInteractable() {
         // can be fertilized
-        if (fertilizerLevel < farmingConstants.maxFertilizerLevel && heldItem.heldItem == fertilizer) {
+        if (!fertilized && heldItem.heldItem == fertilizer) {
             return true;
         }
         // can be tilled
@@ -45,8 +45,11 @@ public class Soil : Interactable {
 
     public override void Interact() {
         // fertilize
-        if (fertilizerLevel < farmingConstants.maxFertilizerLevel && heldItem.heldItem == fertilizer) {
-            fertilizerLevel = farmingConstants.maxFertilizerLevel;
+        if (!fertilized && heldItem.heldItem == fertilizer) {
+            fertilized = true;
+            foreach (var crop in crops) {
+                crop.Fertilize();
+            }
         }
         // till
         /*else if (crops.Count < farmingConstants.maxCrops && !tilled) {
@@ -64,14 +67,6 @@ public class Soil : Interactable {
     public override void OnStartInteracting() {
         base.OnStartInteracting();
         crop_plant.Play3D(transform);
-    }
-
-    public bool ConsumeFertilizer() {
-        if (fertilizerLevel <= 0) return false;
-        
-        // has fertilizer, lower level 
-        fertilizerLevel--;
-        return true;
     }
 
     private void SpawnCrop(Vector3 position, Crop.GrowthStage stage = Crop.GrowthStage.Seed) {
@@ -92,15 +87,15 @@ public class Soil : Interactable {
     }
 
     public override string GetObjectDescription() {
-        if (fertilizerLevel > 0) return "fertilized";
+        if (fertilized) return "fertilized";
         else return "";
     }
 
     public override string GetButtonPrompt() {
         // fertilize
         if(heldItem.heldItem == fertilizer) {
-            if (fertilizerLevel < farmingConstants.maxFertilizerLevel) return GetInteractButton() + " to fertilize";
-            return "already fertilized";
+            if(fertilized) return "already fertilized";
+            return GetInteractButton() + " to fertilize";
         }
         // plant 
         else if (crops.Count < farmingConstants.maxCrops) {

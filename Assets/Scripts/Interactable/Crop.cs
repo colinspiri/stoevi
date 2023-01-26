@@ -34,7 +34,7 @@ public class Crop : Interactable {
     public GrowthStage stage;
     private enum State { NeedsWater, Growing, Harvestable }
     private State state;
-    private enum Health { Fair, Poor, Dead }
+    private enum Health { Dead, Poor, Fair, Great }
     private Health health;
     // growth
     private float growthTime;
@@ -42,14 +42,13 @@ public class Crop : Interactable {
     // watering
     private float thirstyTime;
     private float thirstyTimer;
-    // fertilizing
-    public bool fertilized;
     // harvesting
     public int tomatoesYielded;
     private int tomatoesLeft;
     
     protected override void Start() {
         base.Start();
+        health = Health.Fair;
         ChangeCropStage(stage);
     }
 
@@ -103,6 +102,21 @@ public class Crop : Interactable {
                 }
             }
         }
+    }
+
+    public void Fertilize() {
+        // reduce grow timer
+        if (state == State.Growing) {
+            float reductionProportion = (farmingConstants.baseGrowthTime - farmingConstants.fertilizedGrowthTime) / farmingConstants.baseGrowthTime;
+            growthTimer -= growthTimer * reductionProportion;
+        }
+
+        // increase health
+        health = health switch {
+            Health.Dead => Health.Dead,
+            Health.Poor => Health.Fair,
+            Health.Fair => Health.Great,
+        };
     }
 
     public override void Interact() {
@@ -165,14 +179,14 @@ public class Crop : Interactable {
     private void StartGrowing() {
         state = State.Growing;
 
-        growthTime = farmingConstants.baseGrowthTime;
+        growthTime = (soil && soil.fertilized) ? farmingConstants.fertilizedGrowthTime : farmingConstants.baseGrowthTime;
         growthTimer = growthTime;
     }
 
     private void StartThirsty() {
         state = State.NeedsWater;
-
-        thirstyTime = farmingConstants.baseThirstyTime;
+        
+        thirstyTime = (soil && soil.fertilized) ? farmingConstants.fertilizedThirstyTime : farmingConstants.baseThirstyTime;
         thirstyTimer = thirstyTime;
     }
 
@@ -193,15 +207,8 @@ public class Crop : Interactable {
     }
 
     private void Grow() {
-        // check if fertilized
-        if (stage == GrowthStage.Seed || stage == GrowthStage.Sprout) {
-            if (soil != null && soil.ConsumeFertilizer()) {
-                fertilized = true;
-            }
-        }
-        
         // advance to next growth stage
-        if (stage == GrowthStage.Seed && fertilized) {
+        if (stage == GrowthStage.Seed) {
             ChangeCropStage(GrowthStage.Intermediate);
         }
         else {
@@ -244,7 +251,7 @@ public class Crop : Interactable {
         if (stage == GrowthStage.Ripe && tomatoesYielded == 0) {
             tomatoesYielded = 1;
             
-            if (health == Health.Fair && fertilized) {
+            if (health == Health.Great) {
                 float rand = UnityEngine.Random.Range(0f, 1f);
                 // Debug.Log("rand = " + rand);
                 
@@ -269,7 +276,6 @@ public class Crop : Interactable {
             }
 
             tomatoesLeft = tomatoesYielded;
-            // Debug.Log("yielded " + tomatoesYielded + " tomatoes!");
         }
     }
 

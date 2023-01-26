@@ -369,7 +369,6 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   stage: 3
-  fertilized: 0
   tomatoesYielded: 0
 --- !u!65 &90896931
 BoxCollider:
@@ -1042,7 +1041,6 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   stage: 3
-  fertilized: 0
   tomatoesYielded: 0
 --- !u!65 &130670469
 BoxCollider:
@@ -3602,7 +3600,6 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   stage: 4
-  fertilized: 0
   tomatoesYielded: 0
 --- !u!114 &736041857 stripped
 MonoBehaviour:
@@ -4199,7 +4196,6 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   stage: 3
-  fertilized: 0
   tomatoesYielded: 0
 --- !u!1 &912943797
 GameObject:
@@ -4413,7 +4409,6 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   stage: 3
-  fertilized: 0
   tomatoesYielded: 0
 --- !u!1 &934413365
 GameObject:
@@ -4493,7 +4488,6 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   stage: 4
-  fertilized: 0
   tomatoesYielded: 0
 --- !u!1 &966256779
 GameObject:
@@ -6183,7 +6177,6 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   stage: 4
-  fertilized: 0
   tomatoesYielded: 0
 --- !u!1 &1230969847
 GameObject:
@@ -6475,7 +6468,6 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   stage: 3
-  fertilized: 0
   tomatoesYielded: 0
 --- !u!1001 &1303664782
 PrefabInstance:
@@ -7845,7 +7837,6 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   stage: 3
-  fertilized: 0
   tomatoesYielded: 0
 --- !u!1 &1656881431
 GameObject:
@@ -7896,7 +7887,6 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   stage: 3
-  fertilized: 0
   tomatoesYielded: 0
 --- !u!65 &1656881433
 BoxCollider:
@@ -8194,7 +8184,6 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   stage: 3
-  fertilized: 0
   tomatoesYielded: 0
 --- !u!65 &1762389150
 BoxCollider:
@@ -8664,7 +8653,6 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   stage: 3
-  fertilized: 0
   tomatoesYielded: 0
 --- !u!1001 &1881097497
 PrefabInstance:
@@ -8814,7 +8802,6 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   stage: 3
-  fertilized: 0
   tomatoesYielded: 0
 --- !u!1 &1948169039
 GameObject:
@@ -9835,7 +9822,6 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   stage: 3
-  fertilized: 0
   tomatoesYielded: 0
 --- !u!1001 &109883631914304771
 PrefabInstance:
