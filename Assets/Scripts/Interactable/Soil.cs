@@ -10,9 +10,10 @@ public class Soil : Interactable {
     // components
     public GameObject seedPrefab;
     public ASoundContainer crop_plant;
+    public ASoundContainer crop_fertilize;
     public SoilData soilData;
     public HeldItem heldItem;
-
+    
     // constants
     public FarmingConstants farmingConstants;
     public Item fertilizer;
@@ -32,10 +33,6 @@ public class Soil : Interactable {
         if (!fertilized && heldItem.heldItem == fertilizer) {
             return true;
         }
-        // can be tilled
-        /*else if (crops.Count < farmingConstants.maxCrops && !tilled) {
-            return true;
-        }*/
         // can plant crops
         else if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
             return true;
@@ -51,10 +48,6 @@ public class Soil : Interactable {
                 crop.Fertilize();
             }
         }
-        // till
-        /*else if (crops.Count < farmingConstants.maxCrops && !tilled) {
-            tilled = true;
-        }*/
         // plant crops
         else if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
             var lookPosition = CameraRaycast.Instance.GetCurrentInteractableHitPosition();
@@ -66,7 +59,15 @@ public class Soil : Interactable {
 
     public override void OnStartInteracting() {
         base.OnStartInteracting();
-        crop_plant.Play3D(transform);
+        
+        // fertilizing
+        if (!fertilized && heldItem.heldItem == fertilizer) {
+            crop_fertilize.Play3D(transform);
+        }
+        // planting crops
+        else if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
+            crop_plant.Play3D(transform);
+        }
     }
 
     private void SpawnCrop(Vector3 position, Crop.GrowthStage stage = Crop.GrowthStage.Seed) {
