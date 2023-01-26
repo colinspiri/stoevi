@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
   m_Name: select
   m_EditorClassIdentifier: 
-  PitchRangeEnabled: 1
-  PitchRange: {x: 0.7894737, y: 1.1546053}
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
   VolumeRangeEnabled: 0
   VolumeRange: {x: 1, y: 1}
   AudioGroupEnabled: 1
