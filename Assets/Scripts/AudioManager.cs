@@ -23,6 +23,13 @@ public class AudioManager : MonoBehaviour {
     public AudioSource introCutsceneMusic;
     public ASoundContainer detectedStinger;
     public ASoundContainer chaseStinger;
+    [Space]
+    public AudioSource tensionMusic;
+    public float tensionFadeTime;
+    public float tensionFadeInDistance;
+    public float tensionFadeOutDistance;
+    private float tensionVolume;
+    private bool tensionFading;
 
     [Header("Ambience")] 
     public AudioSource farmAmbience;
@@ -54,6 +61,8 @@ public class AudioManager : MonoBehaviour {
     private void Start() {
         mainMenuMusic.ignoreListenerPause = true;
         farmAmbience.ignoreListenerPause = true;
+
+        tensionVolume = tensionMusic.volume;
         
         audioSettings.Initialize();
 
@@ -89,6 +98,7 @@ public class AudioManager : MonoBehaviour {
     }
 
     private void Update() {
+        // walking & running
         if (FirstPersonMovement.Instance) {
             var state = FirstPersonMovement.Instance.moveState;
             if (state == FirstPersonMovement.MoveState.Still || state == FirstPersonMovement.MoveState.CrouchWalking) {
@@ -102,6 +112,29 @@ public class AudioManager : MonoBehaviour {
             else if (state == FirstPersonMovement.MoveState.Running) {
                 walkingSound.Stop();
                 if(!runningSound.isPlaying) runningSound.Play();
+            }
+        }
+        
+        // tension music
+        if (FirstPersonMovement.Instance && TorbalanDirector.Instance) {
+            float distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position,
+                TorbalanDirector.Instance.transform.position);
+
+            if (distance < tensionFadeInDistance && !tensionMusic.isPlaying && !tensionFading) {
+                tensionMusic.Play();
+                tensionMusic.volume = 0;
+                tensionMusic.DOFade(tensionVolume, tensionFadeTime).OnComplete(() => {
+                    tensionFading = false;
+                });
+                tensionFading = true;
+            }
+
+            if (distance > tensionFadeOutDistance && tensionMusic.isPlaying && !tensionFading) {
+                tensionFading = true;
+                tensionMusic.DOFade(0, tensionFadeTime).OnComplete(() => {
+                    tensionMusic.Stop();
+                    tensionFading = false;
+                });
             }
         }
     }

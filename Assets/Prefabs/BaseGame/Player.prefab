@@ -124,8 +124,8 @@ MonoBehaviour:
   bottomClamp: -90
   rotationSpeed: 20
   crouchHeight: 1
-  bobFrequency: 1.5
-  bobMagnitude: 0.25
+  bobFrequency: 1.2
+  bobMagnitude: 0.15
   bobMagnitudeCrouching: 0.08
   peekUpDistance: 1
   peekSideDistance: 1.8
