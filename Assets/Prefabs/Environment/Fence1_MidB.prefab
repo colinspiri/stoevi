@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3733291739270904325}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fence1_MidB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3187622095402532127}
   - component: {fileID: 4971730312133790595}
   - component: {fileID: 4971730312133790594}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fence1_MidB transformed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

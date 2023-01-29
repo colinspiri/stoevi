@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &261310565618744876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4179307479395227301}
+  - component: {fileID: 8447020608787741544}
+  m_Layer: 12
+  m_Name: NavMeshModifier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4179307479395227301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261310565618744876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9061780796740596480}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8447020608787741544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261310565618744876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2777bba7e4e7c6f4681e3ea77eef5438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 1.1, y: 3, z: 1.1}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 3
+  m_AffectedAgents: ffffffff
 --- !u!1 &9061780796740596484
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,7 +80,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0.00084143097, w: 0.99999964}
   m_LocalPosition: {x: 0.8, y: 5.95, z: 8.3}
   m_LocalScale: {x: 14.051444, y: 3.5, z: 6.9279}
-  m_Children: []
+  m_Children:
+  - {fileID: 4179307479395227301}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.775}
@@ -140,16 +188,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acd60caa05b61304fae60df95e620d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundToPlay: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
-  baseSoundDelayTime: 0.7
   loudnessIncrease:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: c39fa45c18fc37a46ac574109d750951, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0

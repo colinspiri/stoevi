@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 857319447776709178}
   - component: {fileID: 4043232187733491184}
   - component: {fileID: 6824584630498111784}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rock_grassy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

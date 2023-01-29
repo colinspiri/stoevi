@@ -13,13 +13,13 @@ TagManager:
   - 
   - Water
   - UI
-  - NavmeshIgnore
+  - NavMeshIgnore
   - SolidObstacle
   - Player
   - Creature
   - PlayerRaycast
   - Terrain
-  - 
+  - Plant
   - 
   - 
   - 
