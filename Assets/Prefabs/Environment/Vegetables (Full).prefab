@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cc196d37a775442872de225cb8004c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interiorWallPrefab: {fileID: 1642986201645481353, guid: 18b020bf07dc3b1469a3169a98b4f792, type: 3}
+  interiorWallPrefab: {fileID: 1642986201645481353, guid: 881baa234b649544c904686aaea59b6e, type: 3}
   interiorWallDistance: 1.5
 --- !u!1 &8893904319092277152
 GameObject:
