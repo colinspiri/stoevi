@@ -4808,7 +4808,7 @@ GameObject:
   - component: {fileID: 732565648}
   - component: {fileID: 732565647}
   - component: {fileID: 732565653}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Statue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
