@@ -1164,6 +1164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayText: {fileID: 1904815851}
+  sheep_bleat: {fileID: 0}
 --- !u!225 &282849920
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1272,6 +1273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayText: {fileID: 889210044}
+  sheep_bleat: {fileID: 0}
 --- !u!225 &459524014
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6085,6 +6087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayText: {fileID: 8971500898176247775}
+  sheep_bleat: {fileID: 11400000, guid: 16b83431b8146a14bb6f8b675a217298, type: 2}
 --- !u!1001 &4638271798170023750
 PrefabInstance:
   m_ObjectHideFlags: 0

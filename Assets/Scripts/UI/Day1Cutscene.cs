@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using SpookuleleAudio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -8,6 +9,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class Day1Cutscene : Cutscene {
+    public ASoundContainer sheep_bleat;
 
     protected override IEnumerator CutsceneCoroutine() {
         dayText.alpha = 0;
@@ -19,7 +21,7 @@ public class Day1Cutscene : Cutscene {
         dayText.alpha = 1;
         
         // play sheep baa 
-        if(AudioManager.Instance) AudioManager.Instance.PlayChaseStinger();
+        sheep_bleat.Play();
 
         yield return new WaitForSecondsRealtime(2);
         

@@ -745,9 +745,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7930902516760894136, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 1e50866d0d416404abb6f6c65ba8cbb9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b7ea88c5c1389d2459a0bb5c7cdd33ed, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1018,7 +1018,7 @@ MonoBehaviour:
   detectedStinger: {fileID: 11400000, guid: eec1939c3a1db0843b90cd7a012995d7, type: 2}
   chaseStinger: {fileID: 11400000, guid: e4bde46a542f65246afab909d98aeffb, type: 2}
   tensionMusic: {fileID: 3967966926868575949}
-  tensionFadeTime: 8
+  tensionFadeTime: 10
   tensionFadeInDistance: 35
   tensionFadeOutDistance: 45
   farmAmbience: {fileID: 7245776395489135222}

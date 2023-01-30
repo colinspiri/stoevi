@@ -21,6 +21,7 @@ MonoBehaviour:
   LoopingEnabled: 0
   LoopBounds: {x: 0, y: 0}
   LoopCount: 0
+  IgnoreListenerPause: 0
   ParentContainer: {fileID: 0}
   PreviewStartTime: 0
   AudioClip: {fileID: 8300000, guid: 72f6095cd95404eb28a881b08a8a2799, type: 3}

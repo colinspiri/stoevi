@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
   m_Name: sfx_crop_harvest
   m_EditorClassIdentifier: 
-  PitchRangeEnabled: 1
-  PitchRange: {x: 0.6977611, y: 1.3190298}
-  VolumeRangeEnabled: 0
-  VolumeRange: {x: 1, y: 1}
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 1
+  VolumeRange: {x: 0.5, y: 0.5}
   AudioGroupEnabled: 1
   AudioGroup: {fileID: 7557208376370848537, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
   LoopingEnabled: 0
@@ -24,4 +24,4 @@ MonoBehaviour:
   IgnoreListenerPause: 0
   ParentContainer: {fileID: 0}
   PreviewStartTime: 0
-  AudioClip: {fileID: 8300000, guid: 831ebcac3a67c42f2b74317dc44c5d61, type: 3}
+  AudioClip: {fileID: 8300000, guid: dd8539824a571a84fad7dd20a8238465, type: 3}
