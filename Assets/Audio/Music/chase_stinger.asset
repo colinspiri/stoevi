@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PitchRangeEnabled: 0
   PitchRange: {x: 1, y: 1}
-  VolumeRangeEnabled: 0
-  VolumeRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 1
+  VolumeRange: {x: 0.3, y: 0.3}
   AudioGroupEnabled: 1
   AudioGroup: {fileID: 7930902516760894136, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
   LoopingEnabled: 0
@@ -24,4 +24,4 @@ MonoBehaviour:
   IgnoreListenerPause: 0
   ParentContainer: {fileID: 0}
   PreviewStartTime: 0
-  AudioClip: {fileID: 8300000, guid: 72f6095cd95404eb28a881b08a8a2799, type: 3}
+  AudioClip: {fileID: 8300000, guid: f70eaac50d0d3164ca079ed8b2a14352, type: 3}

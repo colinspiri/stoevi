@@ -337,23 +337,18 @@ public class Crop : Interactable {
     }
 
     public override string GetObjectDescription() {
-        if (stage == GrowthStage.Bare) return "";
-        
-        string uiText = "";
 
-        switch (health) {
-            case Health.Dead:
-                uiText += "dead";
-                break;
-            case Health.Poor:
-                uiText += "dying";
-                break;
-            case Health.Fair:
-                uiText += "healthy";
-                break;
+        if (health == Health.Dead) {
+            return "dead";
         }
-        
-        return uiText;
+        else if (health == Health.Poor) {
+            return "wilted";
+        }
+        else if (soil && soil.fertilized) {
+            return "fertilized";
+        }
+
+        return "";
     }
 
     public override string GetButtonPrompt() {

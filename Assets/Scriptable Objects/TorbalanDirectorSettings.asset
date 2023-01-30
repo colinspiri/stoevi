@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TorbalanDirectorSettings
   m_EditorClassIdentifier: 
   backstageDistance: 50
-  backstageTimeWhileCalm: 30
-  backstageTimeWhileAggressive: 10
+  backstageTimeWhileCalm: 80
+  backstageTimeWhileAggressive: 5
   frontstageDistance: 35
   frontstagePatrolRadius: 15
   frontstageTimeWhileCalm: 20
