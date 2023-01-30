@@ -768,7 +768,7 @@ RectTransform:
   m_Children:
   - {fileID: 1243934674}
   m_Father: {fileID: 795064642}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1307,8 +1307,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1129842344}
-  - {fileID: 592249946}
   - {fileID: 854026741}
+  - {fileID: 592249946}
   - {fileID: 186521379}
   - {fileID: 1755114238}
   m_Father: {fileID: 1608560115}
@@ -1445,7 +1445,7 @@ RectTransform:
   m_Children:
   - {fileID: 1928346845}
   m_Father: {fileID: 795064642}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2221,7 +2221,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: environment concept art
+  m_text: environment art
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6658cec1d8674cf989670fb5fec9149, type: 2}
   m_sharedMaterial: {fileID: -4372524865951003261, guid: d6658cec1d8674cf989670fb5fec9149, type: 2}
@@ -2469,7 +2469,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3D character art & animation
+  m_text: character modeling & animation
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6658cec1d8674cf989670fb5fec9149, type: 2}
   m_sharedMaterial: {fileID: -4372524865951003261, guid: d6658cec1d8674cf989670fb5fec9149, type: 2}
@@ -2914,7 +2914,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: character concept art
+  m_text: character art
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6658cec1d8674cf989670fb5fec9149, type: 2}
   m_sharedMaterial: {fileID: -4372524865951003261, guid: d6658cec1d8674cf989670fb5fec9149, type: 2}

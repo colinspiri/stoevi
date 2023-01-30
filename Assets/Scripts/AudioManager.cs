@@ -15,7 +15,6 @@ public class AudioManager : MonoBehaviour {
 
     [Header("Scenes")]
     public SceneReference mainMenuScene;
-    public SceneReference introCutscene;
     public SceneReference gameScene;
     
     [Header("Music")]
@@ -74,6 +73,11 @@ public class AudioManager : MonoBehaviour {
     private void PlaySoundsOnSceneStart(Scene newScene) {
         // reset listener pause
         AudioListener.pause = false;
+        
+        // stop misc sounds
+        tensionMusic.Stop();
+        playerBreathing.Stop();
+        playerTiredBreathing.Stop();
 
         // main menu scene
         if (newScene.path == mainMenuScene.ScenePath) {
@@ -156,7 +160,6 @@ public class AudioManager : MonoBehaviour {
         if(rustle.isPlaying && !value) rustle.Stop();
     }
 
-    public void PlayWaterSound() { waterSound.Play(); }
     public void PlayHarvestSound() { harvestSound.Play(); }
 
     public void PlayDetectedStinger() {

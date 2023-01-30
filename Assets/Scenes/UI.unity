@@ -595,7 +595,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 626.39996, y: -674.25}
+  m_AnchoredPosition: {x: 718.2001, y: -674.25}
   m_SizeDelta: {x: 287.6811, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &57895592
@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89670256990c46a4a9b701aae733f6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playInEditor: 1
+  playInEditor: 0
   cutscenes:
   - {fileID: 4414915836664129843}
   - {fileID: 459524013}
@@ -3265,7 +3265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fill: {fileID: 1967478100}
-  recoveringColor: {r: 1, g: 0, b: 0, a: 1}
+  recoveringColor: {r: 0.4811321, g: 0, b: 0, a: 1}
   valueLerpTime: 0.2
   waitTime: 1
   fadeOutTime: 0.5
@@ -4118,7 +4118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.08524092, g: 0.8113208, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5398,7 +5398,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 626.39996, y: -924.75}
+  m_AnchoredPosition: {x: 718.2, y: -924.75}
   m_SizeDelta: {x: 401.7775, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1820060346262465925
