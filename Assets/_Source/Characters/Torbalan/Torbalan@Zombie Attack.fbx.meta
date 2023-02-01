@@ -1,14 +1,12 @@
 fileFormatVersion: 2
-guid: 5e00d311d7282af4ea42963309cbe8d1
+guid: 587049461bc45854eae73aa9caf67fcc
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert2
-    second: {fileID: 2100000, guid: 519e5021ca2d127449f2b0f5c89b4450, type: 2}
+      74: -203655887218126122
+    second: mixamo.com
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -27,7 +25,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 1
+    importConstraints: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -39,7 +37,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 5
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -77,10 +75,8 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - a9097ebdbc18b4b4e9edcba5e79f591a
-  - 587049461bc45854eae73aa9caf67fcc
-  importAnimation: 0
+  referencedClips: []
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human:
@@ -335,167 +331,167 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: joint_Hips
       parentName: joint_Root
-      position: {x: 0, y: 2.1010852, z: 0.10327825}
+      position: {x: 0, y: 0.0042021703, z: 0.00020655649}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_Spine
       parentName: joint_Hips
-      position: {x: -0, y: 0.20275337, z: -0.030520277}
+      position: {x: -0, y: 0.0004055067, z: -0.00006104055}
       rotation: {x: -0.06312723, y: 0, z: -0, w: 0.9980055}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_Spine1
       parentName: joint_Spine
-      position: {x: -0, y: 0.49235526, z: 0.026643429}
+      position: {x: -0, y: 0.0009847104, z: 0.000053286854}
       rotation: {x: -3.970467e-23, y: 0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_Spine2
       parentName: joint_Spine1
-      position: {x: -0, y: 0.2375336, z: -0.01085031}
+      position: {x: -0, y: 0.00047506718, z: -0.00002170062}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_Neck
       parentName: joint_Spine2
-      position: {x: -0, y: 0.42666623, z: 0.008044827}
+      position: {x: -0, y: 0.0008533324, z: 0.000016089652}
       rotation: {x: 0.06312729, y: -0, z: -0, w: 0.9980055}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_Head
       parentName: joint_Neck
-      position: {x: -0, y: 0.23357545, z: 0.019320218}
+      position: {x: -0, y: 0.00046715085, z: 0.00003864043}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_HeadTop_End
       parentName: joint_Head
-      position: {x: -0, y: 0.2593607, z: 0.18213119}
+      position: {x: -0, y: 0.00051872135, z: 0.00036426235}
       rotation: {x: 1.3877788e-17, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_R_Shoulder
       parentName: joint_Spine2
-      position: {x: 0.13891159, y: 0.32064748, z: -0.0033856858}
+      position: {x: 0.00027782316, y: 0.00064129493, z: -0.0000067713713}
       rotation: {x: -0.5637614, y: -0.42258623, z: 0.5785808, w: -0.41089922}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_R_Arm
       parentName: joint_R_Shoulder
-      position: {x: -0.020213204, y: 0.37534577, z: -0.16418211}
+      position: {x: -0.000040426403, y: 0.00075069146, z: -0.0003283642}
       rotation: {x: -0.23597354, y: 0.11840238, z: -0.00474447, w: 0.9645076}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_R_ForeArm
       parentName: joint_R_Arm
-      position: {x: -0.018293947, y: 0.86316955, z: 0.17172371}
+      position: {x: -0.00003658789, y: 0.001726339, z: 0.0003434474}
       rotation: {x: 0.08090475, y: 0.0032931808, z: 0.0405371, w: 0.99589175}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_R_Hand
       parentName: joint_R_ForeArm
-      position: {x: 2.9998656e-10, y: 0.7098275, z: -0.0000000038424006}
+      position: {x: 5.999731e-13, y: 0.0014196548, z: -7.684801e-12}
       rotation: {x: 0.25495017, y: 0.59531033, z: 0.32784253, w: 0.68784106}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_R_HandPinky1
       parentName: joint_R_Hand
-      position: {x: 0.105855055, y: 0.07404028, z: -0.035802465}
+      position: {x: 0.0002117101, y: 0.00014808055, z: -0.000071604925}
       rotation: {x: -0.1038258, y: 0.038084295, z: -0.39745265, w: 0.9109342}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_R_HandPinky2
       parentName: joint_R_HandPinky1
-      position: {x: 0.0020476968, y: 0.118261464, z: 0.005383828}
+      position: {x: 0.0000040953933, y: 0.00023652292, z: 0.000010767656}
       rotation: {x: 0.11757544, y: -0.003074564, z: -0.034567676, w: 0.9924574}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_R_HandPinky3
       parentName: joint_R_HandPinky2
-      position: {x: -0.010795948, y: 0.09740593, z: -0.013360703}
+      position: {x: -0.000021591895, y: 0.00019481186, z: -0.000026721405}
       rotation: {x: 0.13324676, y: -0.00091652933, z: -0.011887499, w: 0.9910112}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_R_HandPinky4
       parentName: joint_R_HandPinky3
-      position: {x: -0.016335277, y: 0.08229434, z: -0.042243984}
+      position: {x: -0.000032670552, y: 0.00016458867, z: -0.00008448796}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_L_Shoulder
       parentName: joint_Spine2
-      position: {x: -0.13891149, y: 0.32064742, z: -0.0033856907}
+      position: {x: -0.00027782295, y: 0.0006412948, z: -0.000006771381}
       rotation: {x: -0.41089925, y: -0.5785808, z: -0.42258626, w: 0.5637614}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_L_Arm
       parentName: joint_L_Shoulder
-      position: {x: 0.020213, y: -0.37534526, z: 0.1641805}
+      position: {x: 0.000040426, y: -0.00075069047, z: 0.00032836097}
       rotation: {x: -0.23597269, y: 0.118402466, z: -0.0047444846, w: 0.9645078}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_L_ForeArm
       parentName: joint_L_Arm
-      position: {x: 0.018293776, y: -0.8631672, z: -0.1717218}
+      position: {x: 0.00003658755, y: -0.0017263343, z: -0.0003434436}
       rotation: {x: 0.08090475, y: 0.0032931736, z: 0.0405371, w: 0.99589175}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_L_Hand
       parentName: joint_L_ForeArm
-      position: {x: 0.000000059383776, y: -0.7098273, z: -0.0000009850011}
+      position: {x: 1.1876754e-10, y: -0.0014196545, z: -0.000000001970002}
       rotation: {x: 0.25494474, y: 0.59531283, z: 0.32783657, w: 0.6878438}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_L_HandPinky1
       parentName: joint_L_Hand
-      position: {x: -0.10585527, y: -0.07404319, z: 0.03580219}
+      position: {x: -0.00021171053, y: -0.00014808637, z: 0.00007160437}
       rotation: {x: -0.10382119, y: 0.038082495, z: -0.397444, w: 0.9109387}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_L_HandPinky2
       parentName: joint_L_HandPinky1
-      position: {x: -0.0020477741, y: -0.11826036, z: -0.0053837732}
+      position: {x: -0.000004095548, y: -0.0002365207, z: -0.000010767546}
       rotation: {x: 0.1175759, y: -0.0030741233, z: -0.034564022, w: 0.99245745}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_L_HandPinky3
       parentName: joint_L_HandPinky2
-      position: {x: 0.010794473, y: -0.09740428, z: 0.013360361}
+      position: {x: 0.000021588945, y: -0.00019480854, z: 0.00002672072}
       rotation: {x: 0.13324915, y: -0.0009184193, z: -0.011894982, w: 0.9910108}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_L_HandPinky4
       parentName: joint_L_HandPinky3
-      position: {x: 0.016336985, y: -0.08229568, z: 0.04224458}
+      position: {x: 0.00003267397, y: -0.00016459134, z: 0.000084489155}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_R_UpLeg
       parentName: joint_Hips
-      position: {x: 0.19863687, y: -0.045795925, z: -0.077372454}
+      position: {x: 0.00039727372, y: -0.00009159184, z: -0.00015474489}
       rotation: {x: -0.006620951, y: -0.054770056, z: 0.99126047, w: -0.11982984}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_R_Leg
       parentName: joint_R_UpLeg
-      position: {x: -0.0064518373, y: 0.8425586, z: 0.24426645}
+      position: {x: -0.000012903673, y: 0.0016851171, z: 0.0004885329}
       rotation: {x: 0.63056886, y: -0.05610019, z: -0.10484248, w: 0.76697046}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_R_Foot
       parentName: joint_R_Leg
-      position: {x: -0.018235916, y: -0.05721329, z: -0.50054234}
+      position: {x: -0.00003647183, y: -0.00011442658, z: -0.0010010846}
       rotation: {x: -0.25979424, y: -0.180395, z: 0.27731398, w: 0.9072274}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_R_ToeBase
       parentName: joint_R_Foot
-      position: {x: 0.14495866, y: 0.6659024, z: -0.29233596}
+      position: {x: 0.0002899173, y: 0.0013318047, z: -0.00058467186}
       rotation: {x: 0.4232346, y: -0.0890481, z: 0.04184502, w: 0.90066195}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_R_Toe_End
       parentName: joint_R_ToeBase
-      position: {x: 0.0045335987, y: 0.026202787, z: -0.3347028}
+      position: {x: 0.0000090671965, y: 0.00005240557, z: -0.0006694055}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_L_UpLeg
       parentName: joint_Hips
-      position: {x: -0.19863698, y: -0.045794792, z: -0.077372454}
+      position: {x: -0.00039727392, y: -0.00009158958, z: -0.00015474489}
       rotation: {x: 0.11982984, y: 0.99126047, z: 0.054770056, w: -0.006620951}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_L_Leg
       parentName: joint_L_UpLeg
-      position: {x: 0.0064515877, y: -0.8425591, z: -0.24426666}
+      position: {x: 0.000012903174, y: -0.0016851181, z: -0.0004885333}
       rotation: {x: 0.6305674, y: -0.05610007, z: -0.10484255, w: 0.76697177}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_L_Foot
       parentName: joint_L_Leg
-      position: {x: 0.01823594, y: 0.057211377, z: 0.50054234}
+      position: {x: 0.00003647188, y: 0.00011442274, z: 0.0010010846}
       rotation: {x: -0.25979245, y: -0.18039556, z: 0.2773136, w: 0.907228}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_L_ToeBase
       parentName: joint_L_Foot
-      position: {x: -0.14495872, y: -0.6659011, z: 0.29233524}
+      position: {x: -0.00028991743, y: -0.0013318021, z: 0.00058467046}
       rotation: {x: 0.4232346, y: -0.0890481, z: 0.04184502, w: 0.90066195}
       scale: {x: 1, y: 1, z: 1}
     - name: joint_L_ToeEnd
       parentName: joint_L_ToeBase
-      position: {x: -0.004533342, y: -0.026202995, z: 0.33470282}
+      position: {x: -0.000009066684, y: -0.000052405987, z: 0.0006694056}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
@@ -505,16 +501,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 5
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 5e00d311d7282af4ea42963309cbe8d1, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
