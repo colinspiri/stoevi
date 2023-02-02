@@ -10484,8 +10484,6 @@ MonoBehaviour:
   Preset: {fileID: 11400000, guid: 227c832ea72d0d84aa7974658c2b0001, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   TimePercent: 0
-  StartingLightDirection: 50
-  EndingLightDirection: 200
 --- !u!4 &1452627950 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1437667837186800702, guid: 35df56a3f92171b45b2a655da26ac421, type: 3}

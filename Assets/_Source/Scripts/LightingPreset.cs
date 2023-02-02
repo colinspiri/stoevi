@@ -12,4 +12,6 @@ public class LightingPreset : ScriptableObject {
     public Gradient FogColor;
     public float FogMaxDistanceDay;
     public float FogMaxDistanceNight;
+    [Range(0, 360)] public float StartingLightDirection;
+    [Range(0, 360)] public float EndingLightDirection;
 }

@@ -154,15 +154,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scenesToLoad:
   - sceneAsset: {fileID: 102900000, guid: e62bb5f624c4e8043b892e63e3ed5d0c, type: 3}
-    scenePath: Assets/_Source/Scenes/BaseGame.unity
+    scenePath: Assets/_Source/Scenes/Component Scenes/BaseGame.unity
   - sceneAsset: {fileID: 102900000, guid: 993e39bf7ac59ff48a2e7d8893d99147, type: 3}
-    scenePath: Assets/_Source/Scenes/Environment.unity
+    scenePath: Assets/_Source/Scenes/Component Scenes/Environment.unity
   - sceneAsset: {fileID: 102900000, guid: ead5d82894feb0740bffcb19c15f008e, type: 3}
-    scenePath: Assets/_Source/Scenes/Interactables.unity
+    scenePath: Assets/_Source/Scenes/Component Scenes/Interactables.unity
   - sceneAsset: {fileID: 102900000, guid: a23ab905d791c68488bc3f83f8fcd630, type: 3}
-    scenePath: Assets/_Source/Scenes/Player.unity
+    scenePath: Assets/_Source/Scenes/Component Scenes/Player.unity
   - sceneAsset: {fileID: 102900000, guid: 094e2805e8fd7194e8788fae9e38f86a, type: 3}
-    scenePath: Assets/_Source/Scenes/UI.unity
+    scenePath: Assets/_Source/Scenes/Component Scenes/UI.unity
 --- !u!4 &1281197024
 Transform:
   m_ObjectHideFlags: 0

@@ -13,8 +13,6 @@ public class LightManager : MonoBehaviour {
     // state
     public TimeOfDay timeOfDay;
     [SerializeField, Range(0, 1)] private float TimePercent;
-    [SerializeField, Range(0, 360)] private float StartingLightDirection;
-    [SerializeField, Range(0, 360)] private float EndingLightDirection;
 
     private void Start() {
         TryGetComponents();
@@ -41,7 +39,7 @@ public class LightManager : MonoBehaviour {
 
         if (DirectionalLight != null) {
             DirectionalLight.color = Preset.DirectionalColor.Evaluate(timePercent);
-            DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3(Mathf.Lerp(StartingLightDirection, EndingLightDirection, timePercent), 170f, 0));
+            DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3(Mathf.Lerp(Preset.StartingLightDirection, Preset.EndingLightDirection, timePercent), 170f, 0));
         }
         
         RenderSettings.fogColor = Preset.FogColor.Evaluate(timePercent);
