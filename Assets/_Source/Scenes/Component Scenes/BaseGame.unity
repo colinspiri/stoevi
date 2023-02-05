@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &337539687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,8 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversations:
-  - Day2Conversation1
-  - Day2Conversation2
+  - Day2Morning
+  - Day2School
+  - Day2Elena
+  - Day2Germany
+  - Day2Weeds
   distanceThreshold: 75
   minWaitTime: 10
   maxWaitTime: 20
