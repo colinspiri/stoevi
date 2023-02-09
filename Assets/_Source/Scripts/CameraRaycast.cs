@@ -41,6 +41,11 @@ public class CameraRaycast : MonoBehaviour {
             
             // hit collider 
             if (hit.collider.isTrigger == false) {
+                // ignore hits against player
+                if (hit.collider.gameObject.CompareTag("Player")) {
+                    continue;
+                }
+                
                 hitInfo = hit;
                 return null;
             }
