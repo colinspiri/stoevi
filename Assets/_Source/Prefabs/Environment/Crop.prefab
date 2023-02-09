@@ -396,7 +396,6 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   stage: 0
-  fertilized: 0
   tomatoesYielded: 0
 --- !u!65 &513989186903755593
 BoxCollider:
