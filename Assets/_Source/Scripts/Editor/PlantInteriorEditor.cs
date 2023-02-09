@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using PlasticGui;
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.ShaderGraph.Internal;
 
 [CustomEditor(typeof(PlantInterior))]
 public class PlantInteriorEditor : Editor

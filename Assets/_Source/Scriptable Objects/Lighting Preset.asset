@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AmbientColor:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
     key1: {r: 0.33383763, g: 0.35315058, b: 0.5849056, a: 1}
     key2: {r: 0.5330188, g: 0.5671882, b: 1, a: 0}
     key3: {r: 0.24313726, g: 0.3137255, b: 0.8784314, a: 0}
