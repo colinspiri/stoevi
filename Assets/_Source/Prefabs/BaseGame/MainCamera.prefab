@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9005220659476430820}
   - component: {fileID: 9018249871969862650}
   - component: {fileID: 254533417848091696}
+  - component: {fileID: 311657947694968861}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -67,7 +68,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: f92334d96dbc24a3bb703293c8440e4e, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -135,3 +136,48 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   maxRaycastDistance: 500
+--- !u!114 &311657947694968861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9005220659476430823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b416fbce5a38cc47a3a1e709f95f5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cfuStatus: PSXEffects v1.18.4 - version ahead?!
+  sections: 01010100
+  customRes: {x: 256, y: 224}
+  resolutionFactor: 1
+  limitFramerate: -1
+  skipFrames: 0
+  affineMapping: 1
+  clampAffine: 1
+  affineBounds: 5
+  polygonalDrawDistance: 0
+  vertexInaccuracy: 50
+  polygonInaccuracy: 2
+  colorDepth: 5
+  scanlines: 0
+  scanlineIntensity: 5
+  ditherTexture: {fileID: 0}
+  dithering: 1
+  ditherThreshold: 1
+  ditherIntensity: 12
+  maxDarkness: 20
+  subtractFade: 0
+  favorRed: 1
+  worldSpaceSnapping: 1
+  postProcessing: 0
+  verticalScanlines: 1
+  shadowIntensity: 0.5
+  downscale: 1
+  snapCamera: 0
+  camInaccuracy: 0.05
+  camSnapping: 1
+  shadowType: 0
+  ditherSky: 0
+  ditherType: 1

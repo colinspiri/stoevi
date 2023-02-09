@@ -152,9 +152,57 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 254533417848091696, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
-      propertyPath: ignoreLayers.m_Bits
-      value: 128
+    - target: {fileID: 311657947694968861, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: favorRed
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 311657947694968861, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: ditherSky
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 311657947694968861, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: dithering
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 311657947694968861, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: scanlines
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311657947694968861, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: colorDepth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 311657947694968861, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: ditherType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 311657947694968861, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: shadowType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311657947694968861, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: camSnapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311657947694968861, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: subtractFade
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 311657947694968861, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: postProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 311657947694968861, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: ditherIntensity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 311657947694968861, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: vertexInaccuracy
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 311657947694968861, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: worldSpaceSnapping
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_RootOrder
@@ -199,34 +247,6 @@ PrefabInstance:
     - target: {fileID: 9005220659476430818, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
-      propertyPath: field of view
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
-      propertyPath: far clip plane
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
-      propertyPath: m_TargetTexture
-      value: 
-      objectReference: {fileID: 8400000, guid: f92334d96dbc24a3bb703293c8440e4e, type: 2}
-    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
-      propertyPath: near clip plane
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.82745105
-      objectReference: {fileID: 0}
-    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.85098046
-      objectReference: {fileID: 0}
-    - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.8705883
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430823, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_Name
