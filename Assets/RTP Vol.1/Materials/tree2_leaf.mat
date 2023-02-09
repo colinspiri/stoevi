@@ -8,15 +8,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: tree2_leaf
-  m_Shader: {fileID: 4800000, guid: 94cb0d6305cd4a743b1d2ec684e277de, type: 3}
-  m_ShaderKeywords: CUTOUT DIFF_VERTEX SPEC_GOURAUD _DIFFMODEL_VERTEX _DRAWDIST_ON
-    _EMISSION _SPECMODEL_GOURAUD
-  m_LightmapFlags: 2
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: CUTOUT DIFF_VERTEX SPEC_GOURAUD _ALPHATEST_ON _DIFFMODEL_VERTEX
+    _DRAWDIST_ON _SPECMODEL_GOURAUD
+  m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 2450
   stringTagMap:
-    RenderType: Opaque
+    RenderType: TransparentCutout
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
