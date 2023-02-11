@@ -8579,7 +8579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 789039114618768139, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 116.17
+      value: 128.18
       objectReference: {fileID: 0}
     - target: {fileID: 789039114618768139, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8607,10 +8607,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 789039114618768139, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 789039114618768141, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4625671584228454852, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
@@ -8670,8 +8666,40 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: red.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: red.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: red.g
+      value: 0.19352518
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: red.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: yellow.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: yellow.g
+      value: 0.43529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: intensity
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: idleIntensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: searchIntensity
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: emissiveIntensity
