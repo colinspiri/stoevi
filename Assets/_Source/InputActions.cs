@@ -67,6 +67,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""Flashlight"",
+                    ""type"": ""Button"",
+                    ""id"": ""b082d8b2-19b8-4c84-8b83-c0137b390ddc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Menu"",
                     ""type"": ""Button"",
                     ""id"": ""e5620687-d87f-4187-8f4e-706337ecef67"",
@@ -553,6 +561,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Peek"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d9577ca8-5e09-4910-876f-d30e92a7efe5"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Flashlight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1224,6 +1243,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Gameplay_Run = m_Gameplay.FindAction("Run", throwIfNotFound: true);
         m_Gameplay_Crouch = m_Gameplay.FindAction("Crouch", throwIfNotFound: true);
         m_Gameplay_Peek = m_Gameplay.FindAction("Peek", throwIfNotFound: true);
+        m_Gameplay_Flashlight = m_Gameplay.FindAction("Flashlight", throwIfNotFound: true);
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         m_Gameplay_Back = m_Gameplay.FindAction("Back", throwIfNotFound: true);
         m_Gameplay_DebugGameOver = m_Gameplay.FindAction("DebugGameOver", throwIfNotFound: true);
@@ -1297,6 +1317,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Run;
     private readonly InputAction m_Gameplay_Crouch;
     private readonly InputAction m_Gameplay_Peek;
+    private readonly InputAction m_Gameplay_Flashlight;
     private readonly InputAction m_Gameplay_Menu;
     private readonly InputAction m_Gameplay_Back;
     private readonly InputAction m_Gameplay_DebugGameOver;
@@ -1313,6 +1334,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @Run => m_Wrapper.m_Gameplay_Run;
         public InputAction @Crouch => m_Wrapper.m_Gameplay_Crouch;
         public InputAction @Peek => m_Wrapper.m_Gameplay_Peek;
+        public InputAction @Flashlight => m_Wrapper.m_Gameplay_Flashlight;
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputAction @Back => m_Wrapper.m_Gameplay_Back;
         public InputAction @DebugGameOver => m_Wrapper.m_Gameplay_DebugGameOver;
@@ -1346,6 +1368,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Peek.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
                 @Peek.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
                 @Peek.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
+                @Flashlight.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFlashlight;
+                @Flashlight.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFlashlight;
+                @Flashlight.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFlashlight;
                 @Menu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
                 @Menu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
                 @Menu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
@@ -1386,6 +1411,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Peek.started += instance.OnPeek;
                 @Peek.performed += instance.OnPeek;
                 @Peek.canceled += instance.OnPeek;
+                @Flashlight.started += instance.OnFlashlight;
+                @Flashlight.performed += instance.OnFlashlight;
+                @Flashlight.canceled += instance.OnFlashlight;
                 @Menu.started += instance.OnMenu;
                 @Menu.performed += instance.OnMenu;
                 @Menu.canceled += instance.OnMenu;
@@ -1548,6 +1576,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnPeek(InputAction.CallbackContext context);
+        void OnFlashlight(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
         void OnDebugGameOver(InputAction.CallbackContext context);

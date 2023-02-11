@@ -54,6 +54,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Flashlight",
+                    "type": "Button",
+                    "id": "b082d8b2-19b8-4c84-8b83-c0137b390ddc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Menu",
                     "type": "Button",
                     "id": "e5620687-d87f-4187-8f4e-706337ecef67",
@@ -540,6 +548,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Peek",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d9577ca8-5e09-4910-876f-d30e92a7efe5",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Flashlight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
