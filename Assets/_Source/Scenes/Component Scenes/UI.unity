@@ -4367,14 +4367,16 @@ MonoBehaviour:
 
     MOUSE - look around
 
-    SHIFT - sprint
+    LMB - interact
+
+    SHIFT -
+    sprint
+
+    CTRL + <direction> - peek
 
     C - crouch
 
-    CTRL
-    + <direction> - peek
-
-    LMB - interact'
+    F - flashlight'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 471b9406ae572be4b876f7c53c0caa8f, type: 2}
   m_sharedMaterial: {fileID: 5125687796235707659, guid: 471b9406ae572be4b876f7c53c0caa8f, type: 2}
