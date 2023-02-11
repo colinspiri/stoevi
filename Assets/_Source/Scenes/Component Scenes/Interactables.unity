@@ -359,6 +359,7 @@ MonoBehaviour:
   cover: {fileID: 125005727}
   soil: {fileID: 1757605428}
   crop_water: {fileID: 0}
+  crop_fertilize: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -367,7 +368,8 @@ MonoBehaviour:
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
-  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  heldItem: {fileID: 0}
+  fertilizer: {fileID: 0}
   stage: 3
   tomatoesYielded: 0
 --- !u!65 &90896931
@@ -1031,6 +1033,7 @@ MonoBehaviour:
   cover: {fileID: 2097439088}
   soil: {fileID: 1661961402}
   crop_water: {fileID: 0}
+  crop_fertilize: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -1039,7 +1042,8 @@ MonoBehaviour:
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
-  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  heldItem: {fileID: 0}
+  fertilizer: {fileID: 0}
   stage: 3
   tomatoesYielded: 0
 --- !u!65 &130670469
@@ -3655,6 +3659,7 @@ MonoBehaviour:
   cover: {fileID: 912943797}
   soil: {fileID: 1489388637}
   crop_water: {fileID: 0}
+  crop_fertilize: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -3663,7 +3668,8 @@ MonoBehaviour:
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
-  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  heldItem: {fileID: 0}
+  fertilizer: {fileID: 0}
   stage: 4
   tomatoesYielded: 0
 --- !u!114 &736041857 stripped
@@ -4251,6 +4257,7 @@ MonoBehaviour:
   cover: {fileID: 152056586}
   soil: {fileID: 1661961402}
   crop_water: {fileID: 0}
+  crop_fertilize: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -4259,7 +4266,8 @@ MonoBehaviour:
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
-  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  heldItem: {fileID: 0}
+  fertilizer: {fileID: 0}
   stage: 3
   tomatoesYielded: 0
 --- !u!1 &912943797
@@ -4464,6 +4472,7 @@ MonoBehaviour:
   cover: {fileID: 966256779}
   soil: {fileID: 736041857}
   crop_water: {fileID: 0}
+  crop_fertilize: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -4472,7 +4481,8 @@ MonoBehaviour:
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
-  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  heldItem: {fileID: 0}
+  fertilizer: {fileID: 0}
   stage: 3
   tomatoesYielded: 0
 --- !u!1 &934413365
@@ -4543,6 +4553,7 @@ MonoBehaviour:
   cover: {fileID: 1209144753}
   soil: {fileID: 1063984115}
   crop_water: {fileID: 0}
+  crop_fertilize: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -4551,7 +4562,8 @@ MonoBehaviour:
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
-  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  heldItem: {fileID: 0}
+  fertilizer: {fileID: 0}
   stage: 4
   tomatoesYielded: 0
 --- !u!1 &966256779
@@ -6293,6 +6305,7 @@ MonoBehaviour:
   cover: {fileID: 2014245311}
   soil: {fileID: 1757605428}
   crop_water: {fileID: 0}
+  crop_fertilize: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -6301,7 +6314,8 @@ MonoBehaviour:
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
-  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  heldItem: {fileID: 0}
+  fertilizer: {fileID: 0}
   stage: 4
   tomatoesYielded: 0
 --- !u!1 &1230969847
@@ -6584,6 +6598,7 @@ MonoBehaviour:
   cover: {fileID: 2095826551}
   soil: {fileID: 1215185815}
   crop_water: {fileID: 0}
+  crop_fertilize: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -6592,7 +6607,8 @@ MonoBehaviour:
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
-  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  heldItem: {fileID: 0}
+  fertilizer: {fileID: 0}
   stage: 3
   tomatoesYielded: 0
 --- !u!1001 &1303664782
@@ -7953,6 +7969,7 @@ MonoBehaviour:
   cover: {fileID: 1325095117}
   soil: {fileID: 1316005138}
   crop_water: {fileID: 0}
+  crop_fertilize: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -7961,7 +7978,8 @@ MonoBehaviour:
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
-  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  heldItem: {fileID: 0}
+  fertilizer: {fileID: 0}
   stage: 3
   tomatoesYielded: 0
 --- !u!1 &1656881431
@@ -8003,6 +8021,7 @@ MonoBehaviour:
   cover: {fileID: 1421896166}
   soil: {fileID: 618928618}
   crop_water: {fileID: 0}
+  crop_fertilize: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -8011,7 +8030,8 @@ MonoBehaviour:
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
-  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  heldItem: {fileID: 0}
+  fertilizer: {fileID: 0}
   stage: 3
   tomatoesYielded: 0
 --- !u!65 &1656881433
@@ -8300,6 +8320,7 @@ MonoBehaviour:
   cover: {fileID: 818279211}
   soil: {fileID: 1040556269}
   crop_water: {fileID: 0}
+  crop_fertilize: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -8308,7 +8329,8 @@ MonoBehaviour:
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
-  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  heldItem: {fileID: 0}
+  fertilizer: {fileID: 0}
   stage: 3
   tomatoesYielded: 0
 --- !u!65 &1762389150
@@ -8565,21 +8587,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torbalan (instance)
       objectReference: {fileID: 0}
+    - target: {fileID: 789039114618768132, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 789039114618768139, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 789039114618768139, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 105.6
+      value: 203.43
       objectReference: {fileID: 0}
     - target: {fileID: 789039114618768139, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.87
+      value: 15.56
       objectReference: {fileID: 0}
     - target: {fileID: 789039114618768139, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 198.7
+      value: 213.29
       objectReference: {fileID: 0}
     - target: {fileID: 789039114618768139, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8664,6 +8690,46 @@ PrefabInstance:
     - target: {fileID: 6311581177238853005, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: red.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: red.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: red.g
+      value: 0.19352518
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: red.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: yellow.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: yellow.g
+      value: 0.43529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: intensity
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: idleIntensity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: searchIntensity
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046762845117481032, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
+      propertyPath: emissiveIntensity
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
@@ -8765,6 +8831,7 @@ MonoBehaviour:
   cover: {fileID: 1207217430}
   soil: {fileID: 1729701609}
   crop_water: {fileID: 0}
+  crop_fertilize: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -8773,7 +8840,8 @@ MonoBehaviour:
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
-  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  heldItem: {fileID: 0}
+  fertilizer: {fileID: 0}
   stage: 3
   tomatoesYielded: 0
 --- !u!1001 &1881097497
@@ -8914,6 +8982,7 @@ MonoBehaviour:
   cover: {fileID: 140980259}
   soil: {fileID: 1040556269}
   crop_water: {fileID: 0}
+  crop_fertilize: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -8922,7 +8991,8 @@ MonoBehaviour:
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
-  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  heldItem: {fileID: 0}
+  fertilizer: {fileID: 0}
   stage: 3
   tomatoesYielded: 0
 --- !u!1 &1948169039
@@ -9934,6 +10004,7 @@ MonoBehaviour:
   cover: {fileID: 1077594430}
   soil: {fileID: 618928618}
   crop_water: {fileID: 0}
+  crop_fertilize: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -9942,7 +10013,8 @@ MonoBehaviour:
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
-  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  heldItem: {fileID: 0}
+  fertilizer: {fileID: 0}
   stage: 3
   tomatoesYielded: 0
 --- !u!1001 &109883631914304771

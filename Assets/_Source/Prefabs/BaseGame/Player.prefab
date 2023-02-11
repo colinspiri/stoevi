@@ -73,8 +73,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
-  m_Range: 42.3
+  m_Intensity: 1
+  m_Range: 25
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -115,7 +115,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 8616685848737228371}
   - component: {fileID: 1978471637655604388}
   - component: {fileID: 4296087176973301087}
-  - component: {fileID: 8394265786811563401}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -253,31 +252,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8930d72322a66475f8775b84e67b47cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStamina: 10
-  pauseTime: 1
+  maxStamina: 7
+  pauseTime: 1.5
   increaseRate: 0.8
-  recoverRate: 0.3
-  recoverThreshold: 5
+  recoverRate: 0.6
+  recoverThreshold: 3.5
   staminaState: 0
---- !u!114 &8394265786811563401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8616685848737228372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20f83a3ecc6164dd58ca0471c04783ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inhaleSound: {fileID: 11400000, guid: eb6aa65653bb3eb4c84b2480d81a2ea6, type: 2}
-  exhaleSound: {fileID: 11400000, guid: 5cfcc74b32ca7414681573dc7a9d9fb2, type: 2}
-  breatheLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 7f3787d6487050c43b9e8f3445ead2d6, type: 2}
-  exhaleLoudness:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: bfe9282466f140b47bb6a8b430d501ec, type: 2}

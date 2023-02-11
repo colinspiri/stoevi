@@ -16,7 +16,7 @@ public class StaminaController : MonoBehaviour {
     public float recoverThreshold;
     
     // state
-    public enum StaminaState { Decreasing, Increasing, Recovering }
+    public enum StaminaState { Maximum, Decreasing, Increasing, Recovering }
     public StaminaState staminaState;
     private float currentStamina;
     private float pauseTimer;
@@ -32,7 +32,7 @@ public class StaminaController : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         currentStamina = maxStamina;
-        staminaState = StaminaState.Increasing;
+        staminaState = StaminaState.Maximum;
     }
 
     // Update is called once per frame
@@ -45,6 +45,10 @@ public class StaminaController : MonoBehaviour {
         }
         else if (staminaState == StaminaState.Recovering) {
            UpdateRecovering();
+        }
+        else if (staminaState == StaminaState.Maximum) {
+            AudioManager.Instance.SetBreathingSound(false);
+            AudioManager.Instance.SetTiredBreathingSound(false);
         }
     }
     
@@ -68,18 +72,30 @@ public class StaminaController : MonoBehaviour {
     private void UpdateDecreasing() {
         pauseTimer -= Time.deltaTime;
         
+        AudioManager.Instance.SetBreathingSound(false);
+        AudioManager.Instance.SetTiredBreathingSound(false);
+
         if (pauseTimer <= 0) {
             ChangeStaminaState(StaminaState.Increasing);
         }
     }
     private void UpdateIncreasing() {
-        if (currentStamina >= maxStamina) return;
+        if (currentStamina >= maxStamina) {
+            ChangeStaminaState(StaminaState.Maximum);
+            return;
+        }
         
+        AudioManager.Instance.SetBreathingSound(true);
+        AudioManager.Instance.SetTiredBreathingSound(false);
+
         ChangeStamina(increaseRate * Time.deltaTime);
     }
 
     private void UpdateRecovering() {
         ChangeStamina(recoverRate * Time.deltaTime);
+        
+        AudioManager.Instance.SetBreathingSound(false);
+        AudioManager.Instance.SetTiredBreathingSound(true);
         
         if (currentStamina > recoverThreshold) {
             ChangeStaminaState(StaminaState.Increasing);

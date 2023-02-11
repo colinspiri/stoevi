@@ -54,9 +54,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "HoldBreath",
-                    "type": "Value",
-                    "id": "189203f5-b33f-4c6e-a744-88f2e7a30a7f",
+                    "name": "Flashlight",
+                    "type": "Button",
+                    "id": "b082d8b2-19b8-4c84-8b83-c0137b390ddc",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -553,12 +553,12 @@
                 },
                 {
                     "name": "",
-                    "id": "391a99dc-4889-42f9-8fdb-f49e20b656fa",
-                    "path": "<Mouse>/rightButton",
+                    "id": "d9577ca8-5e09-4910-876f-d30e92a7efe5",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "HoldBreath",
+                    "action": "Flashlight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

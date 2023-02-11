@@ -15,6 +15,7 @@ public class Crop : Interactable {
     public GameObject cover;
     public Soil soil;
     public ASoundContainer crop_water;
+    public ASoundContainer crop_fertilize;
 
     // constants
     public FarmingConstants farmingConstants;
@@ -27,7 +28,8 @@ public class Crop : Interactable {
     public IntVariable seeds;
     public IntVariable currentWater;
     public IntVariable playerTomatoes;
-    public TimeOfDay timeOfDay;
+    public HeldItem heldItem;
+    public Item fertilizer;
 
     // state
     public enum GrowthStage { Seed, Sprout, Intermediate, Unripe, Ripe, Bare }
@@ -57,7 +59,7 @@ public class Crop : Interactable {
         if (stage == GrowthStage.Bare || health == Health.Dead) return true;
         
         // can be watered
-        if (!timeOfDay.IsNight() && state == State.NeedsWater && currentWater.Value > 0 &&
+        if (state == State.NeedsWater && currentWater.Value > 0 &&
             (stage == GrowthStage.Seed ||
              stage == GrowthStage.Sprout ||
              stage == GrowthStage.Intermediate ||
@@ -68,8 +70,11 @@ public class Crop : Interactable {
         // can be harvested
         if (stage == GrowthStage.Ripe) return true;
         
+        // fertilize
+        if (soil != null && !soil.fertilized && heldItem.heldItem == fertilizer) return true;
+        
         // DEBUG: shorten growth timer
-        #if UNITY_EDITOR
+        #if false
         if (state == State.Growing) {
             return true;
         }
@@ -80,12 +85,12 @@ public class Crop : Interactable {
 
     private void Update() {
         // growth timer
-        if (state == State.Growing && !timeOfDay.IsNight()) {
+        if (state == State.Growing) {
             growthTimer -= Time.deltaTime;
             if(growthTimer <= 0) Grow();
         }
         // thirsty timer
-        else if (state == State.NeedsWater && !timeOfDay.IsNight()) {
+        else if (state == State.NeedsWater) {
             thirstyTimer -= Time.deltaTime;
             if (thirstyTimer <= 0) {
                 if (health == Health.Fair) {
@@ -133,7 +138,7 @@ public class Crop : Interactable {
             return;
         }
         // can be watered
-        else if (!timeOfDay.IsNight() && state == State.NeedsWater && currentWater.Value > 0 && 
+        else if (state == State.NeedsWater && currentWater.Value > 0 && 
                  (stage == GrowthStage.Seed || 
                   stage == GrowthStage.Sprout || 
                   stage == GrowthStage.Intermediate ||
@@ -141,8 +146,13 @@ public class Crop : Interactable {
             Water();
             return;
         }
+        // fertilize
+        if (soil != null && !soil.fertilized && heldItem.heldItem == fertilizer) {
+            soil.Fertilize();
+            return;
+        }
         // DEBUG: shorten growth timer
-        #if UNITY_EDITOR
+        #if false
         else if (state == State.Growing) {
             growthTimer = 2f;
             return;
@@ -152,9 +162,14 @@ public class Crop : Interactable {
     
     public override void OnStartInteracting() {
         base.OnStartInteracting();
+        
         // if starting to water
-        if (!timeOfDay.IsNight() && state == State.NeedsWater && currentWater.Value > 0) {
+        if (state == State.NeedsWater && currentWater.Value > 0) {
             crop_water.Play3D(transform);
+        }
+        // fertilize
+        else if (soil != null && !soil.fertilized && heldItem.heldItem == fertilizer) {
+            crop_fertilize.Play3D(transform);
         }
     }
 
@@ -355,32 +370,30 @@ public class Crop : Interactable {
         if (stage == GrowthStage.Bare || health == Health.Dead) {
             return GetInteractButton() + " to dig up";
         }
-        else if (timeOfDay.IsNight()) {
-            return "";
-        }
         else if (state == State.NeedsWater) {
             return currentWater.Value <= 0 ? "out of water" : GetInteractButton() + " to water";
         }
         else if (stage == GrowthStage.Ripe) {
             return GetInteractButton() + " to harvest tomato";
         }
+        // fertilize
+        else if (soil != null && !soil.fertilized && heldItem.heldItem == fertilizer) {
+            return GetInteractButton() + " to fertilize";
+        }
         return "";
     }
 
     public override float GetTimerValue() {
-        if (timeOfDay.IsNight()) return 0;
         if(state == State.Growing) return 1 - (growthTimer / growthTime);
         if (state == State.NeedsWater) return 1 - (thirstyTimer / thirstyTime);
         return 0;
     }
     public override float GetTimerTime() {
-        if (timeOfDay.IsNight()) return 0;
         if (state == State.Growing) return growthTimer;
         if (state == State.NeedsWater) return thirstyTimer;
         return 0;
     }
     public override InteractableUI.TimerIcon GetTimerIcon() {
-        if (timeOfDay.IsNight()) return InteractableUI.TimerIcon.None;
         if (state == State.Growing) {
             if (stage == GrowthStage.Unripe) return InteractableUI.TimerIcon.Ripe;
             else return InteractableUI.TimerIcon.Growth;

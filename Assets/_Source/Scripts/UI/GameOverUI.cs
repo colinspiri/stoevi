@@ -11,11 +11,6 @@ public class GameOverUI : MonoBehaviour {
     private CanvasGroup canvasGroup;
     public GameObject gameOverPanel;
     public TextMeshProUGUI gameOverMessage;
-    public TextMeshProUGUI gameOverTomatoes;
-    
-    // shared state
-    public IntReference playerTomatoes;
-    public IntReference torbalanTomatoes;
 
     private void Awake() {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -42,15 +37,9 @@ public class GameOverUI : MonoBehaviour {
         if (playerSurvived) {
             gameOverPanel.GetComponent<Image>().color = Color.black;
             gameOverMessage.text = "You survived day " + (GameManager.Instance.currentDay - 1) + ".";
-            
-            gameOverTomatoes.text = "You harvested " + playerTomatoes.Value + " tomatoes.\n" +
-                                    "The Torbalan stole " + torbalanTomatoes.Value + " tomatoes.";
         }
         else {
-            gameOverMessage.text = "You failed.";
-            
-            gameOverTomatoes.text = "The Torbalan stole " + torbalanTomatoes.Value + " tomatoes.\n" +
-                                    "He also stole the " + playerTomatoes.Value + " you harvested.";
+            gameOverMessage.text = "You died.";
         }
     }
 }
