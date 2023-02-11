@@ -10,33 +10,31 @@ public class TorbalanEyeColor : MonoBehaviour {
     // shared state
     public FloatReference torbalanAwareness;
     
-    // constants
-    public float minIntensity; // 20
-    public float maxIntensity; // 80
+    // state
+    public float baseIntensity;
+    public float flashIntensity;
+
+    private const string EMISSIVE = "_EmissionColor";
 
     // Update is called once per frame
     void Update()
     {
         Color color;
-        float intensity;
         if (torbalanAwareness.Value >= 1) {
             color = Color.red;
-            intensity = maxIntensity;
         }
         else if (torbalanAwareness.Value >= 0.5f) {
             color = Color.red;
-            float t = (torbalanAwareness.Value - 0.5f) * 2f;
-            intensity = Mathf.Lerp(minIntensity, maxIntensity, t);
         }
         else if (torbalanAwareness.Value > 0) {
             float t = torbalanAwareness.Value * 2f;
             color = Color.Lerp(Color.yellow, Color.red, t);
-            intensity = minIntensity;
         }
         else {
             color = Color.yellow;
-            intensity = minIntensity;
         }
-        eyesMaterial.SetColor("_EmissionColor", color * Mathf.GammaToLinearSpace(intensity));
+
+        Color emissiveColor = color * Mathf.GammaToLinearSpace(baseIntensity);
+        eyesMaterial.SetColor(EMISSIVE, emissiveColor);
     }
 }
