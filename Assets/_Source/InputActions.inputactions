@@ -54,14 +54,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "HoldBreath",
-                    "type": "Value",
-                    "id": "189203f5-b33f-4c6e-a744-88f2e7a30a7f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Menu",
                     "type": "Button",
                     "id": "e5620687-d87f-4187-8f4e-706337ecef67",
@@ -548,17 +540,6 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Peek",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "391a99dc-4889-42f9-8fdb-f49e20b656fa",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "HoldBreath",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

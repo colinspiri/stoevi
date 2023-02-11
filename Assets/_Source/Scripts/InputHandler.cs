@@ -17,10 +17,7 @@ public class InputHandler : MonoBehaviour {
     
     public bool interact;
     public static event Action OnInteractPressed = delegate { };
-    
-    public bool holdBreath;
-    public static event Action<bool> OnHoldBreathPressed = delegate {  };
-    
+
     [Header("Movement Settings")]
     public bool analogMovement;
 
@@ -79,12 +76,6 @@ public class InputHandler : MonoBehaviour {
     }
     public void ResetInteractInput() {
         interact = false;
-    }
-    
-    public void OnHoldBreath(InputValue value) {
-        holdBreath = value.isPressed;
-        
-        if(!GameManager.Instance.gameStopped) OnHoldBreathPressed(holdBreath);
     }
 
     public void OnToggleDebug(InputValue value) {

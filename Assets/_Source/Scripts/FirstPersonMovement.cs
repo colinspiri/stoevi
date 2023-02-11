@@ -19,7 +19,6 @@ public class FirstPersonMovement : MonoBehaviour
 	public PlayerInput playerInput;
 	private CharacterController controller;
 	private InputActions inputActions;
-	private BreathController breath;
 	public HeldItem heldItem;
 	#endregion
 	
@@ -100,7 +99,6 @@ public class FirstPersonMovement : MonoBehaviour
 	private void Awake() {
 		Instance = this;
 		controller = GetComponent<CharacterController>();
-		breath = GetComponent<BreathController>();
 	}
 
 	private void OnEnable() {
@@ -129,7 +127,7 @@ public class FirstPersonMovement : MonoBehaviour
 		if(moveState == MoveState.Running) StaminaController.Instance.ConsumeStamina();
 		
 		// report sound
-		if (TorbalanHearing.Instance != null && !breath.holdingBreath) {
+		if (TorbalanHearing.Instance != null) {
 			if(moveState == MoveState.Running) TorbalanHearing.Instance.ReportSound(transform.position, runLoudness);
 			else if(moveState == MoveState.Walking) TorbalanHearing.Instance.ReportSound(transform.position, walkLoudness);
 		}

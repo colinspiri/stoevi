@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/InputActions.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/_Source/InputActions.inputactions'
 
 using System;
 using System.Collections;
@@ -62,14 +62,6 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""name"": ""Peek"",
                     ""type"": ""Value"",
                     ""id"": ""26fa44d9-2d1e-430b-96bd-733405da5160"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""HoldBreath"",
-                    ""type"": ""Value"",
-                    ""id"": ""189203f5-b33f-4c6e-a744-88f2e7a30a7f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -561,17 +553,6 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Peek"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""391a99dc-4889-42f9-8fdb-f49e20b656fa"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""HoldBreath"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1243,7 +1224,6 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Gameplay_Run = m_Gameplay.FindAction("Run", throwIfNotFound: true);
         m_Gameplay_Crouch = m_Gameplay.FindAction("Crouch", throwIfNotFound: true);
         m_Gameplay_Peek = m_Gameplay.FindAction("Peek", throwIfNotFound: true);
-        m_Gameplay_HoldBreath = m_Gameplay.FindAction("HoldBreath", throwIfNotFound: true);
         m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
         m_Gameplay_Back = m_Gameplay.FindAction("Back", throwIfNotFound: true);
         m_Gameplay_DebugGameOver = m_Gameplay.FindAction("DebugGameOver", throwIfNotFound: true);
@@ -1317,7 +1297,6 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Run;
     private readonly InputAction m_Gameplay_Crouch;
     private readonly InputAction m_Gameplay_Peek;
-    private readonly InputAction m_Gameplay_HoldBreath;
     private readonly InputAction m_Gameplay_Menu;
     private readonly InputAction m_Gameplay_Back;
     private readonly InputAction m_Gameplay_DebugGameOver;
@@ -1334,7 +1313,6 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @Run => m_Wrapper.m_Gameplay_Run;
         public InputAction @Crouch => m_Wrapper.m_Gameplay_Crouch;
         public InputAction @Peek => m_Wrapper.m_Gameplay_Peek;
-        public InputAction @HoldBreath => m_Wrapper.m_Gameplay_HoldBreath;
         public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
         public InputAction @Back => m_Wrapper.m_Gameplay_Back;
         public InputAction @DebugGameOver => m_Wrapper.m_Gameplay_DebugGameOver;
@@ -1368,9 +1346,6 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Peek.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
                 @Peek.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
                 @Peek.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPeek;
-                @HoldBreath.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHoldBreath;
-                @HoldBreath.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHoldBreath;
-                @HoldBreath.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHoldBreath;
                 @Menu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
                 @Menu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
                 @Menu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
@@ -1411,9 +1386,6 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Peek.started += instance.OnPeek;
                 @Peek.performed += instance.OnPeek;
                 @Peek.canceled += instance.OnPeek;
-                @HoldBreath.started += instance.OnHoldBreath;
-                @HoldBreath.performed += instance.OnHoldBreath;
-                @HoldBreath.canceled += instance.OnHoldBreath;
                 @Menu.started += instance.OnMenu;
                 @Menu.performed += instance.OnMenu;
                 @Menu.canceled += instance.OnMenu;
@@ -1576,7 +1548,6 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnPeek(InputAction.CallbackContext context);
-        void OnHoldBreath(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
         void OnDebugGameOver(InputAction.CallbackContext context);
