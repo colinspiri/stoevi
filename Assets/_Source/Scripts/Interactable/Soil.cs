@@ -29,9 +29,9 @@ public class Soil : Interactable {
     }
 
     public override bool IsInteractable() {
-        // can be fertilized
-        if (!fertilized && heldItem.heldItem == fertilizer) {
-            return true;
+        // player holding fertilizer
+        if (heldItem.heldItem == fertilizer) {
+            return !fertilized;
         }
         // can plant crops
         else if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
@@ -41,12 +41,9 @@ public class Soil : Interactable {
     }
 
     public override void Interact() {
-        // fertilize
-        if (!fertilized && heldItem.heldItem == fertilizer) {
-            fertilized = true;
-            foreach (var crop in crops) {
-                crop.Fertilize();
-            }
+        // player holding fertilizer
+        if (heldItem.heldItem == fertilizer) {
+            if(!fertilized) Fertilize();
         }
         // plant crops
         else if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
@@ -54,6 +51,13 @@ public class Soil : Interactable {
             SpawnCrop(lookPosition);
             
             seeds.ApplyChange(-1);
+        }
+    }
+
+    public void Fertilize() {
+        fertilized = true;
+        foreach (var crop in crops) {
+            crop.Fertilize();
         }
     }
 
@@ -99,14 +103,13 @@ public class Soil : Interactable {
             return GetInteractButton() + " to fertilize";
         }
         // plant 
-        else if (crops.Count < farmingConstants.maxCrops) {
-            if (seeds.Value > 0) return GetInteractButton() + " to plant seed";
+        else if (seeds.Value <= 0) {
             return "out of seeds";
         }
-        // no more space
-        else {
-            return "no more space";
+        else if (crops.Count < farmingConstants.maxCrops) {
+            return GetInteractButton() + " to plant seed";
         }
+        else return "no more space";
     }
 
     public void SaveData() {

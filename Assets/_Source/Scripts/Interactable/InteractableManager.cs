@@ -36,6 +36,9 @@ public class InteractableManager : MonoBehaviour {
 
         InputHandler.OnInteractPressed += () => {
             if (interactionState == InteractionState.Selecting) {
+                // check if interactable
+                if (!selectedObject.IsInteractable()) return;
+                
                 // tap to interact
                 if(selectedObject.InteractionTime == 0) selectedObject.Interact();
                 // hold to interact
