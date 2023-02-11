@@ -1,12 +1,64 @@
-﻿title: Start
-position: 41,-7
+﻿title: Day1Intro
+tags: 
 ---
-Wow!
-My first ever Yarn script in Unity!
+Dimo: Ana, inside.
+Dimo: Ana!
+<<wait 2>>
+Dimo: Ana?
+<<wait 1>>
+// sheep bleats
+// day 1 text appears
+Ana: Coming!
+Dimo: Okay, inside. I'll return after dark.
+// gate opens and closes
+// fade in
+Dimo: There's work to be done.
+===
 
--> Gosh!
--> Incredible!
--> I'm amazed!
+title: Day1Money
+tags:
+---
+Ana: Dimo, I thought about what you told me.
+Dimo: Great, did you make a decision.
+Ana: Yes. I want to have a career and make lots of money.
+Dimo: Which career?
+Ana: I haven't decided yet. I just want a lot of money.
+Ana: Lots of stupid people make easy money from the stock market.
+Dimo: There is no easy way, Ani.
+Dimo: Especially for you.
+Ana: What does that even mean?
 
-Anyway, time to get writing!
+Ana: Learned about the stock market. I think it's really interesting.
+Ana: 
+Dimo: Stock market? That’s a man’s business.
+Ana: (sarcastic) Oh, I didn’t know there were gender restrictions on careers.
+Dimo: (chuckles) Smart girl. But seriously, it’s not easy. Making money is hard.
+Ana: I know. But I want to work hard and be successful.
+Dimo: (nodding) That’s good. But remember, as a woman, your main priority is finding a husband and starting a family.
+Ana: (determined) I don’t want to settle for just being a wife and a mother. I want to be a career woman.
+Dimo: (sighs) You’ll understand when you’re older, Ana. It’s just not realistic for a woman to have a career and a family.
+Ana: (resolute) I disagree, Dad. I’m going to make it work.
+Dimo: (smiling) I have faith in you, Ana. But just remember, your family comes first.
+// door closes.
+// silence.
+===
+
+title: Day1Ivan
+tags:
+---
+Dimo: Almost one year ago.
+===
+
+title: Day1Monument
+tags:
+---
+Dimo: Only thing they ever did for me.
+Dimo: Ugly, too.
+// turns on radio
+Dimo: Ana, can you take down the statue tomorrow?
+Ana: I'm not <i>that</i> strong.
+Dimo: It was a joke.
+Ana: Your delivery sucks.
+Dimo: You know, when I was young, people thought I was very funny.
+Ana: I can tell.
 ===

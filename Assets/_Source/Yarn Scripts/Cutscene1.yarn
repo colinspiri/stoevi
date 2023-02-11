@@ -18,45 +18,55 @@ Rumen: Why do you stay here, Dimo?
 Dimo: My farm is not for sale.
 Rumen: I'm worried about you. An old man living alone-
 Dimo: I'm not alone. And you're older than me.
-Rumen: Two kids went missing in Peshtera last week. FATHERNAME's kids.
-Dimo: FIRSTNAME and FIRSTNAME?
+Rumen: Two kids went missing in Peshtera last week. Stoyan's kids.
+Dimo: Elena and Mariya?
 Rumen: Yeah. They're saying it was <i>mango</i>.
 Dimo: Who said that?
-Rumen: Everyone's been saying it. You know how they operate, <i>mango</i>.
-Rumen: Move into our villages, steal our shit, and kidnap children for their religion.
-Dimo: Hm.
-Rumen: Peshtera is a dead place, Dimo. Levnik is dying. Let's leave this place, together.
-Rumen: Come with me, to Plovdiv. There's a guy there who wants to hire me. Food service, tourist stuff.
-Dimo: And you get a bonus if you bring me?
-Rumen: What's your plan? Gonna spend the rest of your life in an empty village?
+Rumen: Everyone's saying it. You know how they are, <i>mango</i>.
+Rumen: Move into our villages, steal our sheep, and kidnap our children for their religion.
+Rumen: Servants of Satan.
+// Dimo is skeptical
+Dimo: Right.
+Rumen: Peshtera is dead, Dimo. Levnik is dying. Let's leave this place together.
+Rumen: Come with me, to Plovdiv. There's a guy who wants to hire me. Food service, tourist stuff.
+Dimo: You get a bonus if you bring someone else, I assume.
+Rumen: You gonna spend the rest of your life in an empty village?
 Dimo: I like the quiet.
 Rumen: Still saving up for Germany?
 Dimo: I'm close, Rumen.
 Rumen: Is that what you tell Ana?
-Dimo: You know nothing about my children.
+// Dimo's angry, but not yelling
+Dimo: Do not speak about my children.
 Dimo: I will not run away with you to Plovdiv.
-Rumen: Think about it, Dimo. I'll be back soon.
+Rumen: Think about it, Dimo. See you tomorrow.
+===
 
-Thieves, <i>mango</i>.
- Kidnappings, robberies, you know how they operate.
-Peshtera is dead now. And Levnik's dying.
-
-Rumen: It's getting worse, Dimo. Thieves, homeless, ...<i>mango</i>.
-Dimo: They're in Peshtera now?
-Rumen: Two kids went missing last week.
-Dimo: Hm. The <i>mango</i> would do anything for a lev.
-Rumen: That's what people are saying.
-Dimo: I see.
-Rumen: Levnik is dead, Dimo. Peshtera is dying. Let's leave this place, together.
-Rumen: The Party is gone, and we're all that's left. Old men in dying villages.
-Rumen: Come with me, to Plovdiv.
-Dimo: I like the quiet here.
-Rumen: Still thinking about Germany?
-Dimo: I'm close, Rumen.
-Rumen: Is that what you tell Ana?
-// Dimo gets mad
-Dimo: You know nothing about my children. 
-Rumen: What would they want for you?
-Dimo: I will not run away with you to Plovdiv.
-Rumen: Think about it, Dimo. I'll be back soon.
+title: Cutscene1Yoan
+tags:
+---
+// Sound of footsteps approaching.
+// A knock on the door.
+// From inside the house, footsteps approaching.
+// The door creaks open.
+Dimo: Yoan. You didn't write.
+Yoan: Hi Dad. Nice to see you, too.
+Dimo: I thought you were in university?
+Yoan: I am, well, I was. I, uh, I'm taking a gap semester.
+Dimo: A break?
+Yoan: I just needed some time to think, that's all.
+// endearing, worried about his son
+Dimo: Okay, tell me, Vancho. Think about what?
+Yoan: Can we talk tomorrow?
+Dimo: What is there to think about? You have a good life, a good future.
+Dimo: Just one more semester, then dental school. You are lucky.
+Yoan: I know. I just, I've been thinking about other things.
+// Yoan debates telling Dimo that he doesn't wanna go to dental school
+Yoan: Other, uh...things, I don't know.
+// silence
+<<wait 2>>
+Yoan: Can we please talk tomorrow?
+// silence 
+<<wait 2>>
+Dimo: Come inside. Eat.
+// door closes
 ===
