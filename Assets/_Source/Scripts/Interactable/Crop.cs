@@ -16,6 +16,7 @@ public class Crop : Interactable {
     public Soil soil;
     public ASoundContainer crop_water;
     public ASoundContainer crop_fertilize;
+    public ASoundContainer item_pickup;
 
     // constants
     public FarmingConstants farmingConstants;
@@ -128,6 +129,7 @@ public class Crop : Interactable {
         // can be removed
         if (stage == GrowthStage.Bare || health == Health.Dead) {
             seeds.ApplyChange(1);
+            item_pickup.Play();
             AudioManager.Instance.PlayHarvestSound();
             Destroy(gameObject);
             return;

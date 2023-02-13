@@ -439,6 +439,7 @@ MonoBehaviour:
   soil: {fileID: 1757605428}
   crop_water: {fileID: 0}
   crop_fertilize: {fileID: 0}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -1110,6 +1111,7 @@ MonoBehaviour:
   soil: {fileID: 1661961402}
   crop_water: {fileID: 0}
   crop_fertilize: {fileID: 0}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -3733,6 +3735,7 @@ MonoBehaviour:
   soil: {fileID: 1489388637}
   crop_water: {fileID: 0}
   crop_fertilize: {fileID: 0}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -4016,6 +4019,7 @@ MonoBehaviour:
   soil: {fileID: 759568460}
   crop_water: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
   crop_fertilize: {fileID: 11400000, guid: f6a57fa60c9d3c342afab1f502a323d8, type: 2}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -4417,6 +4421,7 @@ MonoBehaviour:
   soil: {fileID: 1661961402}
   crop_water: {fileID: 0}
   crop_fertilize: {fileID: 0}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -4629,6 +4634,7 @@ MonoBehaviour:
   soil: {fileID: 736041857}
   crop_water: {fileID: 0}
   crop_fertilize: {fileID: 0}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -4740,6 +4746,7 @@ MonoBehaviour:
   soil: {fileID: 1063984115}
   crop_water: {fileID: 0}
   crop_fertilize: {fileID: 0}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -6571,6 +6578,7 @@ MonoBehaviour:
   soil: {fileID: 1757605428}
   crop_water: {fileID: 0}
   crop_fertilize: {fileID: 0}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -8583,6 +8591,7 @@ MonoBehaviour:
   soil: {fileID: 1316005138}
   crop_water: {fileID: 0}
   crop_fertilize: {fileID: 0}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -8661,6 +8670,7 @@ MonoBehaviour:
   soil: {fileID: 759568460}
   crop_water: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
   crop_fertilize: {fileID: 11400000, guid: f6a57fa60c9d3c342afab1f502a323d8, type: 2}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -8710,6 +8720,7 @@ MonoBehaviour:
   soil: {fileID: 618928618}
   crop_water: {fileID: 0}
   crop_fertilize: {fileID: 0}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -9173,6 +9184,7 @@ MonoBehaviour:
   soil: {fileID: 1040556269}
   crop_water: {fileID: 0}
   crop_fertilize: {fileID: 0}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -9651,6 +9663,7 @@ MonoBehaviour:
   soil: {fileID: 1215185815}
   crop_water: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
   crop_fertilize: {fileID: 11400000, guid: f6a57fa60c9d3c342afab1f502a323d8, type: 2}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -9759,6 +9772,7 @@ MonoBehaviour:
   soil: {fileID: 1729701609}
   crop_water: {fileID: 0}
   crop_fertilize: {fileID: 0}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -9907,6 +9921,7 @@ MonoBehaviour:
   soil: {fileID: 1040556269}
   crop_water: {fileID: 0}
   crop_fertilize: {fileID: 0}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
@@ -10956,6 +10971,7 @@ MonoBehaviour:
   soil: {fileID: 618928618}
   crop_water: {fileID: 0}
   crop_fertilize: {fileID: 0}
+  item_pickup: {fileID: 0}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seedHeight: 0.2
   sproutHeight: 0.3
