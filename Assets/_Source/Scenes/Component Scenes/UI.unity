@@ -3078,6 +3078,7 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
+  animateOnUpdate: 1
 --- !u!1 &1549051267
 GameObject:
   m_ObjectHideFlags: 0
@@ -4718,6 +4719,7 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
+  animateOnUpdate: 1
 --- !u!222 &2122442280
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7589,6 +7591,7 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
+  animateOnUpdate: 1
 --- !u!114 &7618183038542775740
 MonoBehaviour:
   m_ObjectHideFlags: 0
