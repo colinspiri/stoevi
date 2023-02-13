@@ -3332,8 +3332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fill: {fileID: 1967478100}
   recoveringColor: {r: 0.4811321, g: 0, b: 0, a: 1}
-  valueLerpTime: 0.2
-  waitTime: 1
+  valueLerpTime: 0.1
+  waitTime: 0.2
   fadeOutTime: 0.5
 --- !u!225 &1595337466
 CanvasGroup:

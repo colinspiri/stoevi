@@ -12,7 +12,6 @@ public class StaminaController : MonoBehaviour {
     public float maxStamina;
     public float pauseTime;
     public float increaseRate;
-    public float recoverRate;
     public float recoverThreshold;
     
     // state
@@ -92,12 +91,12 @@ public class StaminaController : MonoBehaviour {
     }
 
     private void UpdateRecovering() {
-        ChangeStamina(recoverRate * Time.deltaTime);
+        ChangeStamina(increaseRate * Time.deltaTime);
         
         AudioManager.Instance.SetBreathingSound(false);
         AudioManager.Instance.SetTiredBreathingSound(true);
         
-        if (currentStamina > recoverThreshold) {
+        if (currentStamina > recoverThreshold * maxStamina) {
             ChangeStaminaState(StaminaState.Increasing);
         }
     }

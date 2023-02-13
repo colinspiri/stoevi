@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using BehaviorDesigner.Runtime;
+using SpookuleleAudio;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,6 +15,7 @@ public class TorbalanHearing : MonoBehaviour {
     public static TorbalanHearing Instance;
     public NavMeshAgent agent;
     public BehaviorTree behavior;
+    public AudioSource torbalan_inhale;
 
     // synced with behavior tree
     public Vector3 LastHeardLocation { get; set; }
@@ -48,6 +50,11 @@ public class TorbalanHearing : MonoBehaviour {
         if (length <= loudness) {
             heardTimer = heardTime;
             LastHeardLocation = soundOrigin;
+
+            if (!torbalan_inhale.isPlaying) {
+                torbalan_inhale.Play();
+            }
+            
             behavior.SetVariableValue("Last Known Position", FirstPersonMovement.Instance.transform.position);
             behavior.SendEvent("LastKnownPositionUpdated");
         }
