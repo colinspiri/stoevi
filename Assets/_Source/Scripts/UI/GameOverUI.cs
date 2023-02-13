@@ -36,7 +36,7 @@ public class GameOverUI : MonoBehaviour {
         
         if (playerSurvived) {
             gameOverPanel.GetComponent<Image>().color = Color.black;
-            gameOverMessage.text = "You survived day " + (GameManager.Instance.currentDay - 1) + ".";
+            gameOverMessage.text = "You survived.";
         }
         else {
             gameOverMessage.text = "You died.";

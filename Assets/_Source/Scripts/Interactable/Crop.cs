@@ -11,7 +11,7 @@ using Yarn.Compiler;
 
 public class Crop : Interactable {
     // components
-    public List<SpriteRenderer> spriteRenderers;
+    public List<MeshRenderer> meshRenderers;
     public GameObject cover;
     public Soil soil;
     public ASoundContainer crop_water;
@@ -95,14 +95,14 @@ public class Crop : Interactable {
             if (thirstyTimer <= 0) {
                 if (health == Health.Fair) {
                     health = Health.Poor;
-                    UpdateSprite();
+                    UpdateMaterial();
                     UpdateCover();
                     
                     StartThirsty();
                 }
                 else if (health == Health.Poor) {
                     health = Health.Dead;
-                    UpdateSprite();
+                    UpdateMaterial();
                     UpdateCover();
                 }
             }
@@ -187,7 +187,7 @@ public class Crop : Interactable {
         
         
         // update sprite
-        UpdateSprite();
+        UpdateMaterial();
         UpdateCover();
     }
 
@@ -236,7 +236,7 @@ public class Crop : Interactable {
             });
         }
         
-        UpdateSprite();
+        UpdateMaterial();
     }
 
     private void ChangeCropStage(GrowthStage newStage) {
@@ -259,7 +259,7 @@ public class Crop : Interactable {
         }
         
         // update sprite
-        UpdateSprite();
+        UpdateMaterial();
         UpdateCover();
 
         // set tomatoes left
@@ -294,11 +294,11 @@ public class Crop : Interactable {
         }
     }
 
-    private void UpdateSprite() {
-        Sprite newSprite = null;
+    private void UpdateMaterial() {
+        Material newMaterial = null;
         
         if (health == Health.Dead) {
-            newSprite = farmingConstants.emptySprite;
+            newMaterial = farmingConstants.emptyMaterial;
         }
         else {
             switch (stage) {
@@ -306,14 +306,14 @@ public class Crop : Interactable {
                 case GrowthStage.Sprout:
                 case GrowthStage.Intermediate:
                 case GrowthStage.Unripe:
-                    if (state == State.NeedsWater) newSprite = farmingConstants.emptySprite;
-                    else if (state == State.Growing) newSprite = farmingConstants.waterSprite;
+                    if (state == State.NeedsWater) newMaterial = farmingConstants.emptyMaterial;
+                    else if (state == State.Growing) newMaterial = farmingConstants.waterMaterial;
                     break;
                 case GrowthStage.Ripe:
-                    newSprite = farmingConstants.harvestSprite;
+                    newMaterial = farmingConstants.harvestMaterial;
                     break;
                 case GrowthStage.Bare:
-                    newSprite = farmingConstants.emptySprite;
+                    newMaterial = farmingConstants.emptyMaterial;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -321,8 +321,8 @@ public class Crop : Interactable {
         }
 
         // set all renderers
-        foreach (var spriteRenderer in spriteRenderers) {
-            spriteRenderer.sprite = newSprite;
+        foreach (var meshRenderer in meshRenderers) {
+            meshRenderer.material = newMaterial;
         }
         
     }
@@ -368,17 +368,17 @@ public class Crop : Interactable {
 
     public override string GetButtonPrompt() {
         if (stage == GrowthStage.Bare || health == Health.Dead) {
-            return GetInteractButton() + " to dig up";
+            return "hold " + GetInteractButton() + " to dig up";
         }
         else if (state == State.NeedsWater) {
-            return currentWater.Value <= 0 ? "out of water" : GetInteractButton() + " to water";
+            return currentWater.Value <= 0 ? "out of water" : "hold " + GetInteractButton() + " to water";
         }
         else if (stage == GrowthStage.Ripe) {
-            return GetInteractButton() + " to harvest tomato";
+            return "hold " + GetInteractButton() + " to harvest tomato";
         }
         // fertilize
         else if (soil != null && !soil.fertilized && heldItem.heldItem == fertilizer) {
-            return GetInteractButton() + " to fertilize";
+            return "hold " + GetInteractButton() + " to fertilize";
         }
         return "";
     }

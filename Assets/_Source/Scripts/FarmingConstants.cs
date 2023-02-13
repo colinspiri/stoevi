@@ -8,9 +8,9 @@ using Yarn.Unity;
 public class FarmingConstants : ScriptableObject {
     
     [Header("Components")]
-    public Sprite waterSprite;
-    public Sprite harvestSprite;
-    public Sprite emptySprite;
+    public Material waterMaterial;
+    public Material harvestMaterial;
+    public Material emptyMaterial;
 
     [Header("Soil")] 
     public int maxCrops;

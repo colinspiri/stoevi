@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3fadacf8b91b242a3baaf88e2a5672, type: 3}
   m_Name: FarmingConstants
   m_EditorClassIdentifier: 
-  waterSprite: {fileID: 21300000, guid: 9cce9914bb2d940718789ce3a1ac6d0b, type: 3}
-  harvestSprite: {fileID: 21300000, guid: 8a72560c3aa7e470c80eb77598e76719, type: 3}
-  emptySprite: {fileID: 21300000, guid: ba6c8846ec1604bc29c073185ad29aef, type: 3}
+  waterMaterial: {fileID: 2100000, guid: df18c3aacc2eeb34fbc3cc72cc70e90a, type: 2}
+  harvestMaterial: {fileID: 2100000, guid: 73aa5ea855e1a2e4cbe943313c929b80, type: 2}
+  emptyMaterial: {fileID: 2100000, guid: b16f374f2d311db4b9a085dd0cb95ed1, type: 2}
   maxCrops: 2
   baseThirstyTime: 300
   baseGrowthTime: 150

@@ -100,14 +100,14 @@ public class Soil : Interactable {
         // fertilize
         if(heldItem.heldItem == fertilizer) {
             if(fertilized) return "already fertilized";
-            return GetInteractButton() + " to fertilize";
+            return "hold " + GetInteractButton() + " to fertilize";
         }
         // plant 
         else if (seeds.Value <= 0) {
             return "out of seeds";
         }
         else if (crops.Count < farmingConstants.maxCrops) {
-            return GetInteractButton() + " to plant seed";
+            return "hold " + GetInteractButton() + " to plant seed";
         }
         else return "no more space";
     }
