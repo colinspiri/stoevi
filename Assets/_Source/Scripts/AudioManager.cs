@@ -34,7 +34,6 @@ public class AudioManager : MonoBehaviour {
     public AudioSource farmAmbience;
 
     [Header("SFX")] 
-    public ASoundContainer waterSound;
     public AudioSource walkingSound;
     public AudioSource runningSound;
     public ASoundContainer harvestSound;
@@ -90,6 +89,10 @@ public class AudioManager : MonoBehaviour {
             if (!farmAmbience.isPlaying) farmAmbience.Play();
         }
         else farmAmbience.Stop();
+    }
+
+    public void StopIntroCutsceneMusic() {
+        introCutsceneMusic.Stop();
     }
 
     public void PauseGameSound() {

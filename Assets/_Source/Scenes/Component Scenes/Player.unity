@@ -232,8 +232,8 @@ MonoBehaviour:
   followObject: {fileID: 1730259098}
   sfx_flashlight: {fileID: 0}
   lerpSpeed: 5
-  minFlickerTime: 2
-  maxFlickerTime: 5
+  minFlickerTime: 10
+  maxFlickerTime: 30
   minFlickerDelay: 0.05
   maxFlickerDelay: 0.5
   flickerOnTime: 0.05
