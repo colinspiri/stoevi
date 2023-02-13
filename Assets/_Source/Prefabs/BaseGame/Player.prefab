@@ -195,7 +195,8 @@ MonoBehaviour:
   runSpeed: 8
   crouchSpeed: 1.5
   interactingSpeed: 0.3
-  speedChangeRate: 10
+  backwardSlowFactor: 0.4
+  speedChangeRate: 5
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0

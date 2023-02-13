@@ -28,6 +28,7 @@ public class FirstPersonMovement : MonoBehaviour
 	public float runSpeed = 1f;
 	public float crouchSpeed = 1f;
 	public float interactingSpeed = 1f;
+	public float backwardSlowFactor = 1f;
 	[Tooltip("Acceleration and deceleration")]
 	public float speedChangeRate = 10.0f;
 
@@ -208,6 +209,10 @@ public class FirstPersonMovement : MonoBehaviour
 		// modify target speed by held item modifier
 		if (heldItem.HoldingItem()) {
 			targetSpeed *= heldItem.heldItem.speedModifier;
+		}
+		// modify target speed if moving backward
+		if (move.y < 0) {
+			targetSpeed *= backwardSlowFactor;
 		}
 
 		// a reference to the players current horizontal velocity
