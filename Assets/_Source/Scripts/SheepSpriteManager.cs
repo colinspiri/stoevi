@@ -4,6 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SheepSpriteManager : SpriteManager {
+    [Header("Idle Materials")] 
+    public Material idleFront;
+    public Material idleBack;
+    public Material idleLeft;
+    public Material idleRight;
+    [Header("Eating Materials")] 
+    public Material eatingFront;
+    public Material eatingBack;
+    public Material eatingLeft;
+    public Material eatingRight;
     [Header("Idle Sprites")]
     public Sprite idleFrontSprite;
     public Sprite idleBackSprite;
@@ -20,9 +30,9 @@ public class SheepSpriteManager : SpriteManager {
     }
 
     public void ShowEating() {
-        ChangeSprites(eatingFrontSprite, eatingBackSprite, eatingLeftSprite, eatingRightSprite);
+        ChangeMaterials(eatingFront, eatingBack, eatingLeft, eatingRight);
     }
     public void ShowIdle() {
-        ChangeSprites(idleFrontSprite, idleBackSprite, idleLeftSprite, idleRightSprite);
+        ChangeMaterials(idleFront, idleBack, idleLeft, idleRight);
     }
 }

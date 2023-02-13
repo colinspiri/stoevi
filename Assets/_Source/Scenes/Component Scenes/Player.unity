@@ -232,11 +232,11 @@ MonoBehaviour:
   followObject: {fileID: 1730259098}
   sfx_flashlight: {fileID: 0}
   lerpSpeed: 5
-  minFlickerTime: 10
-  maxFlickerTime: 30
+  minFlickerTime: 2
+  maxFlickerTime: 5
   minFlickerDelay: 0.05
-  maxFlickerDelay: 1
-  flickerOnTime: 0.1
+  maxFlickerDelay: 0.5
+  flickerOnTime: 0.05
 --- !u!114 &830664296 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}

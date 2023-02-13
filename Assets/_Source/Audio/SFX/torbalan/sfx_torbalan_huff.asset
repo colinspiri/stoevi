@@ -64,8 +64,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PitchRangeEnabled: 0
   PitchRange: {x: 1, y: 1}
-  VolumeRangeEnabled: 0
-  VolumeRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 1
+  VolumeRange: {x: 0.5, y: 1}
   AudioGroupEnabled: 1
   AudioGroup: {fileID: 7557208376370848537, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
   LoopingEnabled: 0

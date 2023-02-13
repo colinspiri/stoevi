@@ -5,13 +5,13 @@ using UnityEngine;
 
 public abstract class SpriteManager : MonoBehaviour {
     // components
-    public SpriteRenderer spriteRenderer;
+    public MeshRenderer meshRenderer;
     
     // state
-    private Sprite frontSprite;
-    private Sprite backSprite;
-    private Sprite leftSprite;
-    private Sprite rightSprite;
+    private Material front;
+    private Material back;
+    private Material left;
+    private Material right;
 
     // Update is called once per frame
     protected void Update() {
@@ -20,21 +20,21 @@ public abstract class SpriteManager : MonoBehaviour {
         float dot = Vector3.Dot(toTarget, transform.forward);
 
         if (dot < -0.75) {
-            spriteRenderer.sprite = backSprite;
+            meshRenderer.material = back;
         }
         else if (dot < 0.75) {
             float angle = Vector3.SignedAngle(toTarget, transform.forward, Vector3.up);
-            spriteRenderer.sprite = angle < 0 ? leftSprite : rightSprite;
+            meshRenderer.material = angle < 0 ? left : right;
         }
         else {
-            spriteRenderer.sprite = frontSprite;
+            meshRenderer.material = front;
         }
     }
 
-    protected void ChangeSprites(Sprite newFront, Sprite newBack, Sprite newLeft, Sprite newRight) {
-        frontSprite = newFront;
-        backSprite = newBack;
-        leftSprite = newLeft;
-        rightSprite = newRight;
+    protected void ChangeMaterials(Material newFront, Material newBack, Material newLeft, Material newRight) {
+        front = newFront;
+        back = newBack;
+        left = newLeft;
+        right = newRight;
     }
 }
