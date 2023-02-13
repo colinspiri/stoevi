@@ -6,17 +6,23 @@ public class PlantInterior : MonoBehaviour {
     public GameObject interiorWallPrefab;
 
     public float interiorWallDistance = 1f;
+
+    public List<GameObject> interiors;
     
     // Kill all children to this gameobject
-    public void KillAllChildren()
+    public void DestroyAllInteriors()
     {
-        //Get an array with all children to this transform
+        /*//Get an array with all children to this transform
         GameObject[] allChildren = GetAllChildren();
 
         //Now destroy them
         foreach (GameObject child in allChildren)
         {
             DestroyImmediate(child);
+        }*/
+
+        foreach (var interior in interiors) {
+            DestroyImmediate(interior);
         }
     }
 
