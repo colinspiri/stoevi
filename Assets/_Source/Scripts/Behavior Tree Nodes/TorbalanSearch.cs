@@ -114,7 +114,7 @@ public class TorbalanSearch : NavMeshMovement {
         int maxPoints = searchPositions.Count;
         for (int i = 0; i < maxPoints; i++) {
             if (!visitedCenter) continue; // don't skip visiting the center
-            if (vision.CanSeePointInAnyVision(searchPositions[i])) {
+            if (vision.CanSeePoint(searchPositions[i])) {
                 searchPositions.RemoveAt(i);
                 i--;
                 maxPoints--;

@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 4980170945403390725}
   - component: {fileID: 9193125086048864193}
   - component: {fileID: 3224153440382969657}
+  - component: {fileID: 6622282681631785403}
   m_Layer: 7
   m_Name: Well
   m_TagString: Untagged
@@ -191,6 +192,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!114 &6622282681631785403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4980170945403390727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91610814907554cbdcdc281b322e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  type: 1
+  playerInside: 0
 --- !u!1 &5579867303364312193
 GameObject:
   m_ObjectHideFlags: 0

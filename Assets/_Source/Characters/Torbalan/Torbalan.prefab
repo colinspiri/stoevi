@@ -248,6 +248,7 @@ MonoBehaviour:
   crouchWalkingFactor: 0.9
   walkingFactor: 0.6
   runningFactor: 0.2
+  allCover: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
   torbalanAwareness: {fileID: 11400000, guid: 69474ae2da2567b4ca7d56037c4daf59, type: 2}
 --- !u!114 &4625671584228454852
 MonoBehaviour:

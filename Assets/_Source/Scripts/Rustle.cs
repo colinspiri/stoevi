@@ -46,6 +46,11 @@ public class Rustle : MonoBehaviour {
         }
     }
 
+    private void OnDestroy() {
+        playerInside = false;
+        AudioManager.Instance.SetRustle(false);
+    }
+
     private void OnDrawGizmosSelected() {
         // loudness radius
         Gizmos.color = Color.yellow;

@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df91610814907554cbdcdc281b322e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
   type: 1
 --- !u!114 &2949478073187016427
 MonoBehaviour:
@@ -162,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interiorWallPrefab: {fileID: 1642986201645481353, guid: 881baa234b649544c904686aaea59b6e, type: 3}
   interiorWallDistance: 1.5
+  interiors: []
 --- !u!1001 &495319937095448540
 PrefabInstance:
   m_ObjectHideFlags: 0

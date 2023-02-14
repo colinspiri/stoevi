@@ -47,8 +47,8 @@ public class TorbalanVision : MonoBehaviour {
     public float walkingFactor;
     public float runningFactor;
     
-    
     // state
+    public CoverSet allCover;
     public FloatVariable torbalanAwareness;
     private bool playerBehindSparseCover;
     private bool playerInNormalVision;
@@ -140,22 +140,14 @@ public class TorbalanVision : MonoBehaviour {
             return;
         }
 
-        playerInNormalVision = CheckIfPlayerWithinCone(normalVisionDistance, normalVisionAngle);
-        playerInPeripheralVision = CheckIfPlayerWithinCone(peripheralVisionDistance, peripheralVisionAngle);
-        playerInCloseVision = CheckIfPlayerWithinCone(closeVisionDistance, closeVisionAngle);
+        playerInNormalVision = CanSeePlayerInCone(normalVisionDistance, normalVisionAngle);
+        playerInPeripheralVision = CanSeePlayerInCone(peripheralVisionDistance, peripheralVisionAngle);
+        playerInCloseVision = CanSeePlayerInCone(closeVisionDistance, closeVisionAngle);
 
         PlayerWithinVision = playerInNormalVision || playerInPeripheralVision || playerInCloseVision;
     }
 
-    public bool CanSeePointInFocusedVision(Vector3 point) {
-        bool pointInNormalVision = CheckIfPointWithinCone(point, normalVisionDistance / 2, normalVisionAngle);
-        // bool pointInPeripheralVision = CheckIfPointWithinCone(point, peripheralVisionDistance, peripheralVisionAngle);
-        bool pointInCloseVision = CheckIfPointWithinCone(point, closeVisionDistance, closeVisionAngle);
-
-        return pointInNormalVision || pointInCloseVision;
-    }
-
-    public bool CanSeePointInAnyVision(Vector3 point) {
+    public bool CanSeePoint(Vector3 point) {
         bool pointInNormalVision = CheckIfPointWithinCone(point, normalVisionDistance, normalVisionAngle);
         bool pointInPeripheralVision = CheckIfPointWithinCone(point, peripheralVisionDistance, peripheralVisionAngle);
         bool pointInCloseVision = CheckIfPointWithinCone(point, closeVisionDistance, closeVisionAngle);
@@ -163,7 +155,13 @@ public class TorbalanVision : MonoBehaviour {
         return pointInNormalVision || pointInPeripheralVision || pointInCloseVision;
     }
 
-    private bool CheckIfPlayerWithinCone(float distance, float angle) {
+    private bool CanSeePlayerInCone(float distance, float angle) {
+        // check if player in complete cover
+        if (allCover.PlayerInCompleteCover()) {
+            Debug.Log("player in complete cover");
+            return false;
+        }
+        
         Vector3 targetPosition = FirstPersonMovement.Instance.GetRaycastTarget();
         
         // distance
@@ -178,7 +176,8 @@ public class TorbalanVision : MonoBehaviour {
         bool behindCompleteCover = PointBehindCover(targetPosition);
         if (behindCompleteCover) return false;
         
-        bool behindSparseCover = PointBehindCover(targetPosition, true);
+        // check if player in sparse cover
+        bool behindSparseCover = allCover.PlayerInSparseCover() || PointBehindCover(targetPosition, true);
         if (behindSparseCover) {
             playerBehindSparseCover = true;
             return true;

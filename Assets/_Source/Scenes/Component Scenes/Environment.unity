@@ -5246,7 +5246,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df91610814907554cbdcdc281b322e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
   type: 1
+  playerInside: 0
 --- !u!1001 &737834637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6509,7 +6511,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df91610814907554cbdcdc281b322e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
   type: 1
+  playerInside: 0
 --- !u!1001 &926683297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9080,7 +9084,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20738
+  m_Name: pb_Mesh20624
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
