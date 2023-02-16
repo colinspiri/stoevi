@@ -159,6 +159,7 @@ public class AudioManager : MonoBehaviour {
         if(playerTiredBreathing.isPlaying && !value) playerTiredBreathing.Stop();
     }
     public void SetRustle(bool value) {
+        if(rustle == null) return;
         if (value && !rustle.isPlaying) rustle.Play();
         if(rustle.isPlaying && !value) rustle.Stop();
     }

@@ -48,7 +48,7 @@ public class Rustle : MonoBehaviour {
 
     private void OnDestroy() {
         playerInside = false;
-        AudioManager.Instance.SetRustle(false);
+        if(AudioManager.Instance) AudioManager.Instance.SetRustle(false);
     }
 
     private void OnDrawGizmosSelected() {
