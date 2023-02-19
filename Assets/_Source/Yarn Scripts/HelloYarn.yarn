@@ -18,27 +18,15 @@ Dimo: There's work to be done.
 title: Day1Money
 tags:
 ---
-Ana: Dimo, I thought about what you told me.
-Dimo: Great, did you make a decision.
-Ana: Yes. I want to have a career and make lots of money.
+Ana: Dad, I thought about what you said.
+Ana: I wanna have a career and make lots of money.
 Dimo: Which career?
-Ana: I haven't decided yet. I just want a lot of money.
-Ana: Lots of stupid people make easy money from the stock market.
-Dimo: There is no easy way, Ani.
-Dimo: Especially for you.
-Ana: What does that even mean?
-
-Ana: Learned about the stock market. I think it's really interesting.
-Ana: 
-Dimo: Stock market? That’s a man’s business.
-Ana: (sarcastic) Oh, I didn’t know there were gender restrictions on careers.
-Dimo: (chuckles) Smart girl. But seriously, it’s not easy. Making money is hard.
-Ana: I know. But I want to work hard and be successful.
-Dimo: (nodding) That’s good. But remember, as a woman, your main priority is finding a husband and starting a family.
-Ana: (determined) I don’t want to settle for just being a wife and a mother. I want to be a career woman.
-Dimo: (sighs) You’ll understand when you’re older, Ana. It’s just not realistic for a woman to have a career and a family.
-Ana: (resolute) I disagree, Dad. I’m going to make it work.
-Dimo: (smiling) I have faith in you, Ana. But just remember, your family comes first.
+Ana: Haven't decided. I just want as much money as I can.
+Ana: People make easy money from the stock market.
+Dimo: There is no easy way, <i>Ani</i>.
+Dimo: And it would not satisfy you.
+Ana: What does that mean?
+Dimo: 
 // door closes.
 // silence.
 ===
@@ -46,7 +34,8 @@ Dimo: (smiling) I have faith in you, Ana. But just remember, your family comes f
 title: Day1Ivan
 tags:
 ---
-Dimo: Almost one year ago.
+Dimo: Dad.
+Dimo: One year ago, today.
 ===
 
 title: Day1Monument
