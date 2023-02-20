@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: rock
   pickupPrefab: {fileID: 5709627125781470314, guid: 8faa6d126d3542146bfb27308c9a6142, type: 3}
-  speedModifier: 1
+  speedModifier: 0.8

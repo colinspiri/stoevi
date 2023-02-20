@@ -255,6 +255,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxStamina: 7
   pauseTime: 1.5
-  increaseRate: 0.6
+  increaseRate: 0.8
   recoverThreshold: 0.4
   staminaState: 0
