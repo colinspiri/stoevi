@@ -158,7 +158,6 @@ public class TorbalanVision : MonoBehaviour {
     private bool CanSeePlayerInCone(float distance, float angle) {
         // check if player in complete cover
         if (allCover.PlayerInCompleteCover()) {
-            Debug.Log("player in complete cover");
             return false;
         }
         
