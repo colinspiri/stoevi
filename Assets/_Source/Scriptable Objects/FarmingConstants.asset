@@ -12,11 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3fadacf8b91b242a3baaf88e2a5672, type: 3}
   m_Name: FarmingConstants
   m_EditorClassIdentifier: 
+  sproutHealthyWater: {fileID: 2100000, guid: 9802d27fd84fbf846bb4ab4cfd284b1d, type: 2}
+  sproutHealthyGrowing: {fileID: 2100000, guid: 9802d27fd84fbf846bb4ab4cfd284b1d, type: 2}
+  sproutWiltedWater: {fileID: 2100000, guid: 9802d27fd84fbf846bb4ab4cfd284b1d, type: 2}
+  sproutWiltedGrowing: {fileID: 2100000, guid: 9802d27fd84fbf846bb4ab4cfd284b1d, type: 2}
+  intermediateHealthyWater: {fileID: 2100000, guid: 7fcbb730f09c31247bb083fcfea7923e, type: 2}
+  intermediateHealthyGrowing: {fileID: 2100000, guid: 7fcbb730f09c31247bb083fcfea7923e, type: 2}
+  intermediateWiltedWater: {fileID: 2100000, guid: 7fcbb730f09c31247bb083fcfea7923e, type: 2}
+  intermediateWiltedGrowing: {fileID: 2100000, guid: 7fcbb730f09c31247bb083fcfea7923e, type: 2}
+  intermediateDead: {fileID: 2100000, guid: b16f374f2d311db4b9a085dd0cb95ed1, type: 2}
+  unripeHealthyWater: {fileID: 2100000, guid: 0955d314479989a44b6b718f53d2fbc0, type: 2}
+  unripeHealthyGrowing: {fileID: 2100000, guid: 0955d314479989a44b6b718f53d2fbc0, type: 2}
+  unripeWiltedWater: {fileID: 2100000, guid: 0955d314479989a44b6b718f53d2fbc0, type: 2}
+  unripeWiltedGrowing: {fileID: 2100000, guid: 0955d314479989a44b6b718f53d2fbc0, type: 2}
+  unripeDead: {fileID: 2100000, guid: 0955d314479989a44b6b718f53d2fbc0, type: 2}
+  ripeHealthy: {fileID: 2100000, guid: 73aa5ea855e1a2e4cbe943313c929b80, type: 2}
+  ripeWilted: {fileID: 2100000, guid: 73aa5ea855e1a2e4cbe943313c929b80, type: 2}
+  bareHealthy: {fileID: 2100000, guid: 7fcbb730f09c31247bb083fcfea7923e, type: 2}
+  bareWilted: {fileID: 2100000, guid: 7fcbb730f09c31247bb083fcfea7923e, type: 2}
   waterMaterial: {fileID: 2100000, guid: df18c3aacc2eeb34fbc3cc72cc70e90a, type: 2}
   harvestMaterial: {fileID: 2100000, guid: 73aa5ea855e1a2e4cbe943313c929b80, type: 2}
   emptyMaterial: {fileID: 2100000, guid: b16f374f2d311db4b9a085dd0cb95ed1, type: 2}
   maxCrops: 2
   baseThirstyTime: 300
-  baseGrowthTime: 150
-  fertilizedThirstyTime: 375
-  fertilizedGrowthTime: 75
+  baseGrowthTime: 120
+  fertilizedThirstyTime: 330
+  fertilizedGrowthTime: 90

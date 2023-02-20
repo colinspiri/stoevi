@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73aa5ea855e1a2e4cbe943313c929b80, type: 2}
+  - {fileID: 2100000, guid: 7fcbb730f09c31247bb083fcfea7923e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -225,7 +225,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73aa5ea855e1a2e4cbe943313c929b80, type: 2}
+  - {fileID: 2100000, guid: 7fcbb730f09c31247bb083fcfea7923e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -306,7 +306,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73aa5ea855e1a2e4cbe943313c929b80, type: 2}
+  - {fileID: 2100000, guid: 7fcbb730f09c31247bb083fcfea7923e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -419,7 +419,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73aa5ea855e1a2e4cbe943313c929b80, type: 2}
+  - {fileID: 2100000, guid: 7fcbb730f09c31247bb083fcfea7923e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -696,7 +696,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73aa5ea855e1a2e4cbe943313c929b80, type: 2}
+  - {fileID: 2100000, guid: 7fcbb730f09c31247bb083fcfea7923e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -777,7 +777,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73aa5ea855e1a2e4cbe943313c929b80, type: 2}
+  - {fileID: 2100000, guid: 7fcbb730f09c31247bb083fcfea7923e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1034,6 +1034,7 @@ GameObject:
   - component: {fileID: 8152074468222590109}
   - component: {fileID: 8152074468222590099}
   - component: {fileID: 513989186903755593}
+  - component: {fileID: 3104623675128616844}
   m_Layer: 7
   m_Name: Crop
   m_TagString: Untagged
@@ -1076,20 +1077,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractionDistance: 5
   InteractionTime: 1.2
-  meshRenderers:
-  - {fileID: 5069278296213629397}
-  - {fileID: 7252571503887017945}
-  - {fileID: 8847333320994909034}
-  - {fileID: 5453515433183604950}
-  - {fileID: 4721174143469715343}
-  - {fileID: 5555137168435561073}
+  textureManager: {fileID: 3104623675128616844}
   cover: {fileID: 603433725071574024}
   soil: {fileID: 0}
   crop_water: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
   crop_fertilize: {fileID: 11400000, guid: f6a57fa60c9d3c342afab1f502a323d8, type: 2}
   item_pickup: {fileID: 11400000, guid: 32862b536d7773245bc2809aabb1604a, type: 2}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
-  seedHeight: 0.2
   sproutHeight: 0.3
   halfHeight: 0.5
   fullHeight: 1
@@ -1113,6 +1107,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 3, z: 1.5}
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!114 &3104623675128616844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152074468222590108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9147553ad083e849b6c29a9fe7f67aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
+  meshRenderers:
+  - {fileID: 5069278296213629397}
+  - {fileID: 7252571503887017945}
+  - {fileID: 8847333320994909034}
+  - {fileID: 5453515433183604950}
+  - {fileID: 4721174143469715343}
+  - {fileID: 5555137168435561073}
 --- !u!1 &8322679501971423285
 GameObject:
   m_ObjectHideFlags: 0

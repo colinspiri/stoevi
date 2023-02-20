@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8829324266678691557
+--- !u!114 &-7640642716448458278
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,17 +20,18 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EyesMat
+  m_Name: CropIntermediate
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: DIFF_VERTEX OPAQUE SPEC_GOURAUD UNLIT _DIFFMODEL_VERTEX _DRAWDIST_ON
-    _EMISSION _EMISSION_MAP _RECEIVE_SHADOWS_OFF _SPECMODEL_GOURAUD
-  m_LightmapFlags: 1
+  m_ShaderKeywords: CUTOUT DIFF_VERTEX SPEC_GOURAUD _ALPHATEST_ON _DIFFMODEL_VERTEX
+    _DRAWDIST_ON _GLOSSYREFLECTIONS_OFF _SPECMODEL_GOURAUD
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_DoubleSidedGI: 1
+  m_CustomRenderQueue: 2450
+  stringTagMap:
+    RenderType: TransparentCutout
   disabledShaderPasses:
-  - FORWARDADD
+  - SHADOWCASTER
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -71,7 +72,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 775dffae963ad0f47a6fc22b7f4451df, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetalMap:
@@ -124,45 +125,44 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cul: 0
     - _Cull: 2
-    - _Cutoff: 0.5
-    - _CutoutThreshold: 0.5
+    - _Cutoff: 0.683
+    - _CutoutThreshold: 0.575
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DiffModel: 0
-    - _DrawDist: 1
+    - _DrawDist: 0
     - _DstBlend: 0
     - _EnableExternalAlpha: 0
     - _EnvironmentReflections: 1
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
+    - _GlossMapScale: 0
+    - _Glossiness: 0
+    - _GlossyReflections: 0
     - _LODAmt: 0
     - _Metallic: 0
-    - _Mode: 0
+    - _Mode: 1
     - _NormalMapDepth: 1
     - _OcclusionStrength: 1
-    - _Parallax: 0.02
+    - _Parallax: 0.005
     - _QueueOffset: 0
-    - _ReceiveShadows: 0
-    - _RenderMode: 0
-    - _SampleGI: 0
+    - _ReceiveShadows: 1
+    - _RenderMode: 2
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecModel: 0
     - _Specular: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Surface: 0
+    - _Surface: 1
     - _UVSec: 0
-    - _Unlit: 1
-    - _VertexInaccuracy: -1
+    - _Unlit: 0
+    - _VertexInaccuracy: 1
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.9176471, b: 0, a: 1}
-    - _Color: {r: 1, g: 0.069118746, b: 0, a: 1}
-    - _Emission: {r: 262.07733, g: 262.07733, b: 0, a: 1}
-    - _EmissionColor: {r: 119.59044, g: 0, b: 0, a: 119.59044}
+    - _BaseColor: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0.3529412}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Emission: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}

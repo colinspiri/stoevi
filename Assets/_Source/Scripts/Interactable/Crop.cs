@@ -11,7 +11,7 @@ using Yarn.Compiler;
 
 public class Crop : Interactable {
     // components
-    public List<MeshRenderer> meshRenderers;
+    public CropTextureManager textureManager;
     public GameObject cover;
     public Soil soil;
     public ASoundContainer crop_water;
@@ -20,8 +20,7 @@ public class Crop : Interactable {
 
     // constants
     public FarmingConstants farmingConstants;
-    public float seedHeight;
-    public float sproutHeight;
+    public float sproutHeight; // 0.2
     public float halfHeight;
     public float fullHeight;
     
@@ -33,11 +32,11 @@ public class Crop : Interactable {
     public Item fertilizer;
 
     // state
-    public enum GrowthStage { Seed, Sprout, Intermediate, Unripe, Ripe, Bare }
+    public enum GrowthStage { Sprout, Intermediate, Unripe, Ripe, Bare }
     public GrowthStage stage;
-    private enum State { NeedsWater, Growing, Harvestable }
+    public enum State { NeedsWater, Growing, Harvestable }
     private State state;
-    private enum Health { Dead, Poor, Fair, Great }
+    public enum Health { Dead, Wilted, Fair, Great }
     private Health health;
     // growth
     private float growthTime;
@@ -48,7 +47,11 @@ public class Crop : Interactable {
     // harvesting
     public int tomatoesYielded;
     private int tomatoesLeft;
-    
+
+    private void Awake() {
+        textureManager = GetComponent<CropTextureManager>();
+    }
+
     protected override void Start() {
         base.Start();
         health = Health.Fair;
@@ -61,8 +64,7 @@ public class Crop : Interactable {
         
         // can be watered
         if (state == State.NeedsWater && currentWater.Value > 0 &&
-            (stage == GrowthStage.Seed ||
-             stage == GrowthStage.Sprout ||
+            (stage == GrowthStage.Sprout ||
              stage == GrowthStage.Intermediate ||
              stage == GrowthStage.Unripe)) {
             return true;
@@ -75,7 +77,7 @@ public class Crop : Interactable {
         if (soil != null && !soil.fertilized && heldItem.heldItem == fertilizer) return true;
         
         // DEBUG: shorten growth timer
-        #if false
+        #if true
         if (state == State.Growing) {
             return true;
         }
@@ -95,15 +97,15 @@ public class Crop : Interactable {
             thirstyTimer -= Time.deltaTime;
             if (thirstyTimer <= 0) {
                 if (health == Health.Fair) {
-                    health = Health.Poor;
-                    UpdateMaterial();
+                    health = Health.Wilted;
+                    textureManager.UpdateTextures(stage, state, health);
                     UpdateCover();
                     
                     StartThirsty();
                 }
-                else if (health == Health.Poor) {
+                else if (health == Health.Wilted) {
                     health = Health.Dead;
-                    UpdateMaterial();
+                    textureManager.UpdateTextures(stage, state, health);
                     UpdateCover();
                 }
             }
@@ -120,7 +122,7 @@ public class Crop : Interactable {
         // increase health
         health = health switch {
             Health.Dead => Health.Dead,
-            Health.Poor => Health.Fair,
+            Health.Wilted => Health.Fair,
             Health.Fair => Health.Great,
         };
     }
@@ -141,8 +143,7 @@ public class Crop : Interactable {
         }
         // can be watered
         else if (state == State.NeedsWater && currentWater.Value > 0 && 
-                 (stage == GrowthStage.Seed || 
-                  stage == GrowthStage.Sprout || 
+                 (stage == GrowthStage.Sprout || 
                   stage == GrowthStage.Intermediate ||
                   stage == GrowthStage.Unripe)) {
             Water();
@@ -154,7 +155,7 @@ public class Crop : Interactable {
             return;
         }
         // DEBUG: shorten growth timer
-        #if false
+        #if true
         else if (state == State.Growing) {
             growthTimer = 2f;
             return;
@@ -182,14 +183,14 @@ public class Crop : Interactable {
         if (state != State.NeedsWater) return;
 
         // start growing
-        if (stage == GrowthStage.Seed || stage == GrowthStage.Sprout || stage == GrowthStage.Intermediate ||
+        if (stage == GrowthStage.Sprout || stage == GrowthStage.Intermediate ||
             stage == GrowthStage.Unripe) {
             StartGrowing();
         }
         
         
         // update sprite
-        UpdateMaterial();
+        textureManager.UpdateTextures(stage, state, health);
         UpdateCover();
     }
 
@@ -224,21 +225,14 @@ public class Crop : Interactable {
     }
 
     private void Grow() {
-        // advance to next growth stage
-        if (stage == GrowthStage.Seed) {
-            ChangeCropStage(GrowthStage.Intermediate);
-        }
-        else {
-            ChangeCropStage(stage switch {
-                GrowthStage.Seed => GrowthStage.Sprout,
-                GrowthStage.Sprout => GrowthStage.Intermediate,
-                GrowthStage.Intermediate => GrowthStage.Unripe,
-                GrowthStage.Unripe => GrowthStage.Ripe,
-                _ => stage
-            });
-        }
+        ChangeCropStage(stage switch {
+            GrowthStage.Sprout => GrowthStage.Intermediate,
+            GrowthStage.Intermediate => GrowthStage.Unripe,
+            GrowthStage.Unripe => GrowthStage.Ripe,
+            _ => stage
+        });
         
-        UpdateMaterial();
+        textureManager.UpdateTextures(stage, state, health);
     }
 
     private void ChangeCropStage(GrowthStage newStage) {
@@ -246,7 +240,6 @@ public class Crop : Interactable {
 
         // set state based on new stage
         switch (stage) {
-            case GrowthStage.Seed:
             case GrowthStage.Sprout:
             case GrowthStage.Intermediate:
             case GrowthStage.Unripe:
@@ -261,7 +254,7 @@ public class Crop : Interactable {
         }
         
         // update sprite
-        UpdateMaterial();
+        textureManager.UpdateTextures(stage, state, health);
         UpdateCover();
 
         // set tomatoes left
@@ -295,42 +288,9 @@ public class Crop : Interactable {
             tomatoesLeft = tomatoesYielded;
         }
     }
-
-    private void UpdateMaterial() {
-        Material newMaterial = null;
-        
-        if (health == Health.Dead) {
-            newMaterial = farmingConstants.emptyMaterial;
-        }
-        else {
-            switch (stage) {
-                case GrowthStage.Seed:
-                case GrowthStage.Sprout:
-                case GrowthStage.Intermediate:
-                case GrowthStage.Unripe:
-                    if (state == State.NeedsWater) newMaterial = farmingConstants.emptyMaterial;
-                    else if (state == State.Growing) newMaterial = farmingConstants.waterMaterial;
-                    break;
-                case GrowthStage.Ripe:
-                    newMaterial = farmingConstants.harvestMaterial;
-                    break;
-                case GrowthStage.Bare:
-                    newMaterial = farmingConstants.emptyMaterial;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-
-        // set all renderers
-        foreach (var meshRenderer in meshRenderers) {
-            meshRenderer.material = newMaterial;
-        }
-        
-    }
+    
     private void UpdateCover() {
         float newHeight = stage switch {
-            GrowthStage.Seed => seedHeight,
             GrowthStage.Sprout => sproutHeight,
             GrowthStage.Intermediate => halfHeight,
             GrowthStage.Unripe => fullHeight,
@@ -341,8 +301,8 @@ public class Crop : Interactable {
 
         transform.localScale = new Vector3(transform.localScale.x, (1/soil.transform.localScale.y) * newHeight, transform.localScale.z);
 
-        // disable cover for seeds or sprouts
-        if (stage == GrowthStage.Seed || stage == GrowthStage.Sprout) {
+        // disable cover for sprouts
+        if (stage == GrowthStage.Sprout) {
             cover.SetActive(false);
         }
         else cover.SetActive(true);
@@ -358,7 +318,7 @@ public class Crop : Interactable {
         if (health == Health.Dead) {
             return "dead";
         }
-        else if (health == Health.Poor) {
+        else if (health == Health.Wilted) {
             return "wilted";
         }
         else if (soil && soil.fertilized) {

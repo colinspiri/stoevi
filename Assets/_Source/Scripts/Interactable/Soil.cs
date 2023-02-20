@@ -59,6 +59,8 @@ public class Soil : Interactable {
         foreach (var crop in crops) {
             crop.Fertilize();
         }
+        
+        heldItem.RemoveItem();
     }
 
     public override void OnStartInteracting() {
@@ -74,7 +76,7 @@ public class Soil : Interactable {
         }
     }
 
-    private void SpawnCrop(Vector3 position, Crop.GrowthStage stage = Crop.GrowthStage.Seed) {
+    private void SpawnCrop(Vector3 position, Crop.GrowthStage stage = Crop.GrowthStage.Sprout) {
         Crop crop = Instantiate(seedPrefab, position, transform.rotation).GetComponent<Crop>();
         crop.transform.parent = transform;
         crop.soil = this;

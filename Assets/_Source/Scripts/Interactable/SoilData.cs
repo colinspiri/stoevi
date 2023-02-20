@@ -57,7 +57,7 @@ public class SoilData : SerializedScriptableObject {
         File.WriteAllText(filePath, "");
     }
 
-    public void AddRandomCrop(Crop.GrowthStage growthStage = Crop.GrowthStage.Seed) {
+    public void AddRandomCrop(Crop.GrowthStage growthStage = Crop.GrowthStage.Sprout) {
         if (cropData.Count >= 2) return;
 
         Vector3 randomPosition = Vector3.zero;

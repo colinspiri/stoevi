@@ -31,4 +31,8 @@ public class HeldItem : ScriptableObject {
         // change state
         heldItem = null;
     }
+
+    public void RemoveItem() {
+        heldItem = null;
+    }
 }
