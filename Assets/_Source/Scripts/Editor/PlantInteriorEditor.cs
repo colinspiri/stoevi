@@ -75,9 +75,6 @@ public class PlantInteriorEditor : Editor
         if (perpendicular) {
             wall.transform.Rotate(Vector3.up, 90);
         }
-        
-        // add to list
-        plantInterior.interiors.Add(wall);
     } 
 
     //Force unity to save changes or Unity may not save when we have instantiated/removed prefabs despite pressing save button

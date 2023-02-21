@@ -7,22 +7,25 @@ public class PlantInterior : MonoBehaviour {
 
     public float interiorWallDistance = 1f;
 
-    public List<GameObject> interiors;
+    // private List<GameObject> interiors;
     
     // Kill all children to this gameobject
     public void DestroyAllInteriors()
     {
-        /*//Get an array with all children to this transform
-        GameObject[] allChildren = GetAllChildren();
+        List<GameObject> interiors = new List<GameObject>();
 
-        //Now destroy them
-        foreach (GameObject child in allChildren)
+        // Find all interiors and store in temp list
+        foreach (Transform child in transform)
         {
-            DestroyImmediate(child);
-        }*/
+            if (child.CompareTag("PlantInterior")) {
+                interiors.Add(child.gameObject);
+            }
+        }
 
-        foreach (var interior in interiors) {
-            DestroyImmediate(interior);
+        // Now destroy them
+        foreach (GameObject child in interiors)
+        {
+            DestroyImmediate(child.gameObject);
         }
     }
 
