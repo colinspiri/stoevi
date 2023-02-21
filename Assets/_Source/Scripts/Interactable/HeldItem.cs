@@ -13,6 +13,9 @@ public class HeldItem : ScriptableObject {
         heldItem = item;
     }
     public void DropItem(Transform dropTransform = null) {
+        // if no item held, return
+        if (heldItem == null) return;
+        
         // transform given
         if (dropTransform != null) {
             Instantiate(heldItem.pickupPrefab, dropTransform.position, dropTransform.rotation);

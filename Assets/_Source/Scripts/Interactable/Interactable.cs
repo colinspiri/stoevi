@@ -44,6 +44,9 @@ public abstract class Interactable : MonoBehaviour {
     public static string GetInteractButton() {
         return "LMB";
     }
+    public static string GetDropButton() {
+        return "RMB";
+    }
 
     private void OnDestroy() {
         InteractableManager.Instance.RemoveInteractable(this);

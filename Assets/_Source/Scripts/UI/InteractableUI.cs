@@ -75,7 +75,7 @@ public class InteractableUI : MonoBehaviour {
         objectInfo.SetActive(false);
         progressSlider.value = 0;
         buttonPrompt.gameObject.SetActive(true);
-        buttonPrompt.text = Interactable.GetInteractButton() + " to drop " + heldItem.heldItem.itemName;
+        buttonPrompt.text = Interactable.GetDropButton() + " to drop " + heldItem.heldItem.itemName;
     }
 
     private void ShowSelectedObject() {

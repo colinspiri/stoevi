@@ -121,6 +121,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Drop"",
+                    ""type"": ""Button"",
+                    ""id"": ""cac4dd47-d83c-4373-abca-72204d59a08f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -572,6 +580,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Flashlight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4129c214-0c87-407b-9228-3a4db2b1c03e"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1250,6 +1269,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Gameplay_ToggleHUD = m_Gameplay.FindAction("ToggleHUD", throwIfNotFound: true);
         m_Gameplay_ToggleDebug = m_Gameplay.FindAction("ToggleDebug", throwIfNotFound: true);
         m_Gameplay_Return = m_Gameplay.FindAction("Return", throwIfNotFound: true);
+        m_Gameplay_Drop = m_Gameplay.FindAction("Drop", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1324,6 +1344,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_ToggleHUD;
     private readonly InputAction m_Gameplay_ToggleDebug;
     private readonly InputAction m_Gameplay_Return;
+    private readonly InputAction m_Gameplay_Drop;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -1341,6 +1362,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @ToggleHUD => m_Wrapper.m_Gameplay_ToggleHUD;
         public InputAction @ToggleDebug => m_Wrapper.m_Gameplay_ToggleDebug;
         public InputAction @Return => m_Wrapper.m_Gameplay_Return;
+        public InputAction @Drop => m_Wrapper.m_Gameplay_Drop;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1389,6 +1411,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Return.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReturn;
                 @Return.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReturn;
                 @Return.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReturn;
+                @Drop.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDrop;
+                @Drop.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDrop;
+                @Drop.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDrop;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1432,6 +1457,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Return.started += instance.OnReturn;
                 @Return.performed += instance.OnReturn;
                 @Return.canceled += instance.OnReturn;
+                @Drop.started += instance.OnDrop;
+                @Drop.performed += instance.OnDrop;
+                @Drop.canceled += instance.OnDrop;
             }
         }
     }
@@ -1583,6 +1611,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnToggleHUD(InputAction.CallbackContext context);
         void OnToggleDebug(InputAction.CallbackContext context);
         void OnReturn(InputAction.CallbackContext context);
+        void OnDrop(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

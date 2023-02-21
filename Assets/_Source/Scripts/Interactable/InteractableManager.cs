@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class InteractableManager : MonoBehaviour {
     // components
     public static InteractableManager Instance;
-    public InputActions inputActions;
+    private InputActions inputActions;
     public HeldItem heldItem;
 
     // all interactables
@@ -28,6 +28,9 @@ public class InteractableManager : MonoBehaviour {
         
         inputActions = new InputActions();
         inputActions.Enable();
+        inputActions.Gameplay.Drop.performed += context => {
+            heldItem.DropItem();
+        };
     }
 
     private void Start() {
@@ -44,12 +47,12 @@ public class InteractableManager : MonoBehaviour {
                 // hold to interact
                 else StartInteracting();
             }
-            else if (interactionState == InteractionState.None) {
+            /*else if (interactionState == InteractionState.None) {
                 // drop item
                 if (heldItem.HoldingItem()) {
                     heldItem.DropItem();
                 }
-            }
+            }*/
         };
     }
 

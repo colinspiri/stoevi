@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eveningTimeInMinutes: 4
   nightTimeInMinutes: 7
-  currentTime: 464.4193
+  currentTime: 9.099862
   onNight: {fileID: 11400000, guid: f0da2e717e7bb6145a9a22d81299e26f, type: 2}
