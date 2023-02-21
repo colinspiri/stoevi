@@ -12,8 +12,9 @@ public class Flashlight : MonoBehaviour
     private InputActions inputActions;
     private Light light;
     public GameObject followObject;
-    public ASoundContainer sfx_flashlight;
-    
+    public ASoundContainer sfx_flashlight_on;
+    public ASoundContainer sfx_flashlight_off;
+
     // constants
     public float lerpSpeed;
     public float minFlickerTime;
@@ -42,11 +43,13 @@ public class Flashlight : MonoBehaviour
                 if (flickerCoroutine != null) {
                     StopCoroutine(flickerCoroutine);
                 }
+                sfx_flashlight_off.Play();
             }
             else {
                 // turn on
                 flashlightOn = true;
                 light.enabled = true;
+                sfx_flashlight_on.Play();
             }
         };
     }

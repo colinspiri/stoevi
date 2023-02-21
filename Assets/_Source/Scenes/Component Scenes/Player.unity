@@ -230,7 +230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followObject: {fileID: 1730259098}
-  sfx_flashlight: {fileID: 0}
+  sfx_flashlight_on: {fileID: 11400000, guid: 210da67414b431e41a94fbb7752d2422, type: 2}
+  sfx_flashlight_off: {fileID: 11400000, guid: cb24185f70630e140afae38e2654617a, type: 2}
   lerpSpeed: 5
   minFlickerTime: 30
   maxFlickerTime: 90

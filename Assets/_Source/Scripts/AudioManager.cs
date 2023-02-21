@@ -31,7 +31,8 @@ public class AudioManager : MonoBehaviour {
     private bool tensionFading;
 
     [Header("Ambience")] 
-    public AudioSource farmAmbience;
+    public AudioSource ambience_day;
+    public AudioSource ambience_night;
 
     [Header("SFX")] 
     public AudioSource walkingSound;
@@ -58,7 +59,8 @@ public class AudioManager : MonoBehaviour {
 
     private void Start() {
         mainMenuMusic.ignoreListenerPause = true;
-        farmAmbience.ignoreListenerPause = true;
+        ambience_day.ignoreListenerPause = true;
+        ambience_night.ignoreListenerPause = true;
 
         tensionVolume = tensionMusic.volume;
         
@@ -86,9 +88,13 @@ public class AudioManager : MonoBehaviour {
 
         // game scene
         if (newScene.path == gameScene.ScenePath) {
-            if (!farmAmbience.isPlaying) farmAmbience.Play();
+            if (!ambience_day.isPlaying) ambience_day.Play();
+            if (ambience_night.isPlaying) ambience_night.Stop();
         }
-        else farmAmbience.Stop();
+        else {
+            ambience_day.Stop();
+            ambience_night.Stop();
+        }
     }
 
     public void StopIntroCutsceneMusic() {
@@ -97,11 +103,13 @@ public class AudioManager : MonoBehaviour {
 
     public void PauseGameSound() {
         AudioListener.pause = true;
-        farmAmbience.DOFade(0.1f, 1).SetUpdate(true);
+        ambience_day.DOFade(0.1f, 1).SetUpdate(true);
+        ambience_night.DOFade(0.05f, 1).SetUpdate(true);
     }
     public void ResumeGameSound() {
         AudioListener.pause = false;
-        farmAmbience.DOFade(0.3f, 1).SetUpdate(true);
+        ambience_day.DOFade(0.3f, 1).SetUpdate(true);
+        ambience_night.DOFade(0.1f, 1).SetUpdate(true);
     }
 
     private void Update() {
@@ -146,6 +154,16 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
+    public void TransitionToNightAmbience() {
+        ambience_day.DOFade(0, 10f).SetUpdate(true).OnComplete(() => {
+            ambience_day.Stop();
+        });
+        
+        ambience_night.Play();
+        ambience_night.volume = 0f;
+        ambience_night.DOFade(0.1f, 10f).SetUpdate(true);
+    }
+
     public void PlayIntroCutsceneMusic() {
         introCutsceneMusic.Play();
     }
@@ -176,6 +194,6 @@ public class AudioManager : MonoBehaviour {
     public void PlaySelectSound() { selectSound.Play(); }
     public void PlaySubmitSound() { submitSound.Play(); }
 
-    public void PlayFarmAmbience() { farmAmbience.Play(); }
+    public void PlayDayAmbience() { ambience_day.Play(); }
     public void PlayWalking() { walkingSound.Play(); }
 }

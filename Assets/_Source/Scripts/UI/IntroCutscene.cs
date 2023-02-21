@@ -73,7 +73,7 @@ public class IntroCutscene : MonoBehaviour {
         
         // setting
         settingPanel.SetActive(true);
-        AudioManager.Instance.PlayFarmAmbience();
+        AudioManager.Instance.PlayDayAmbience();
 
         Tween bulgariaTween = bulgariaText.DOFade(1, fadeTime);
         yield return bulgariaTween.WaitForCompletion();

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 327686631362268359}
   - component: {fileID: 7245776395489135222}
   m_Layer: 0
-  m_Name: farm ambience
+  m_Name: ambience day
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -411,6 +411,7 @@ Transform:
   - {fileID: 1321157524265701109}
   - {fileID: 4754499964824555258}
   - {fileID: 327686631362268359}
+  - {fileID: 4840689157354564003}
   - {fileID: 8626693857489230744}
   m_Father: {fileID: 7371432948786616856}
   m_RootOrder: 0
@@ -494,6 +495,133 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 30d8083bf15251f4999843c50ee437be, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!1 &5246165020030180781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4840689157354564003}
+  - component: {fileID: 340115367846782959}
+  m_Layer: 0
+  m_Name: ambience night
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4840689157354564003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5246165020030180781}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5755293193047003584}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &340115367846782959
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5246165020030180781}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 7930902516760894136, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 3213e1f23b35614448dc73c122aaad0e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -733,7 +861,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5755293193047003584}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &3967966926868575949
 AudioSource:
@@ -968,6 +1096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7371432948786616856}
   - component: {fileID: 7371432948786616857}
+  - component: {fileID: 3228348241645011974}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -1004,6 +1133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSettings: {fileID: 11400000, guid: 5e6cc2760af1bcb4b83a0893ca39df94, type: 2}
+  timeOfDay: {fileID: 0}
   mainMenuScene:
     sceneAsset: {fileID: 102900000, guid: 6dd513305e2b80642a43c3ad87d60f9e, type: 3}
     scenePath: Assets/_Source/Scenes/MainMenu.unity
@@ -1018,8 +1148,8 @@ MonoBehaviour:
   tensionFadeTime: 5
   tensionFadeInDistance: 40
   tensionFadeOutDistance: 55
-  farmAmbience: {fileID: 7245776395489135222}
-  waterSound: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
+  ambience_day: {fileID: 7245776395489135222}
+  ambience_night: {fileID: 340115367846782959}
   walkingSound: {fileID: 715069049970383926}
   runningSound: {fileID: 5148845131223126855}
   harvestSound: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
@@ -1030,6 +1160,34 @@ MonoBehaviour:
   backSound: {fileID: 11400000, guid: 568ef0dbd1cc2bb43959efe8fddd520d, type: 2}
   selectSound: {fileID: 11400000, guid: b406f63ec8aea304e952af77d349595c, type: 2}
   submitSound: {fileID: 11400000, guid: e68f8c3b202904044ab36df3ce91d044, type: 2}
+--- !u!114 &3228348241645011974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7371432948786616860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad77c354c02943909dfacf45a5309c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: f0da2e717e7bb6145a9a22d81299e26f, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7371432948786616857}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: TransitionToNightAmbience
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8642758619218224029
 GameObject:
   m_ObjectHideFlags: 0
