@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89670256990c46a4a9b701aae733f6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playInEditor: 1
+  playInEditor: 0
   cutscenes:
   - {fileID: 4414915836664129843}
   - {fileID: 459524013}

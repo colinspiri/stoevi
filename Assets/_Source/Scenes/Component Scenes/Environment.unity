@@ -2625,8 +2625,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cropsToSpawnByStage:
-    keys: 000000000100000002000000030000000400000005000000
-    values: 0000000000000000000000000a0000000500000000000000
+    keys: 0000000001000000020000000300000004000000
+    values: 0000000000000000000000000000000000000000
   allSoilData:
   - {fileID: 11400000, guid: 903eac2d8ff18b34b98f39990960530c, type: 2}
   - {fileID: 11400000, guid: 6f27a3b2d57fa9f4a8f996b2ed1c7a17, type: 2}
@@ -15351,7 +15351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6841704072877338237, guid: 4146959306006094699e90954e93ed3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -126.4
+      value: -133.4
       objectReference: {fileID: 0}
     - target: {fileID: 6841704072877338237, guid: 4146959306006094699e90954e93ed3b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15359,7 +15359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6841704072877338237, guid: 4146959306006094699e90954e93ed3b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.56
+      value: -17.45
       objectReference: {fileID: 0}
     - target: {fileID: 6841704072877338237, guid: 4146959306006094699e90954e93ed3b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -28678,7 +28678,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh618480
+  m_Name: pb_Mesh871034
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

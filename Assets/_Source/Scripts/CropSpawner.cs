@@ -13,7 +13,6 @@ public class CropSpawner : MonoBehaviour {
     void Awake() {
         int day = PlayerPrefs.GetInt("CurrentDay", 1);
         if (day == 1) {
-            // Debug.Log("CropSpawner spawning crops on day 1");
             ClearAllSoilData();
             SpawnCrops();
         }

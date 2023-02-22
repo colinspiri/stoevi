@@ -34,7 +34,7 @@ MonoBehaviour:
   harvestMaterial: {fileID: 2100000, guid: 73aa5ea855e1a2e4cbe943313c929b80, type: 2}
   emptyMaterial: {fileID: 2100000, guid: b16f374f2d311db4b9a085dd0cb95ed1, type: 2}
   maxCrops: 2
-  baseThirstyTime: 300
-  baseGrowthTime: 120
-  fertilizedThirstyTime: 330
-  fertilizedGrowthTime: 90
+  baseThirstyTime: 240
+  baseGrowthTime: 60
+  fertilizedThirstyTime: 260
+  fertilizedGrowthTime: 40

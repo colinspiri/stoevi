@@ -32,7 +32,7 @@ public class EatCrop : Action {
         
         torbalanTomatoes.ApplyChange(1);
         
-        targetCrop.Value.RemoveRipeTomatoes();
+        targetCrop.Value.Destroy();
         
         return TaskStatus.Success;
     }

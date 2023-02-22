@@ -122,7 +122,7 @@ public class InteractableUI : MonoBehaviour {
 
     private void ShowTimer(Interactable selectedObject) {
         var value = selectedObject.GetTimerValue();
-        if (value != 0) {
+        if (value != 0 && selectedObject.GetTimerIcon() == TimerIcon.Growth || selectedObject.GetTimerIcon() == TimerIcon.Ripe) {
             timerPanel.SetActive(true);
             timerSlider.value = value;
             

@@ -27,7 +27,7 @@ public class FindNearestCrop : Conditional {
         
         // if no requirements on radius
         if (!withinRadiusFromSelf && !withinRadiusFromPlayer && !withinRadiusFromPoint) {
-            targetCrop.Value = InteractableManager.Instance.GetClosestHarvestableCropTo(transform.position);
+            targetCrop.Value = InteractableManager.Instance.GetClosestCrop(new List<Crop.GrowthStage> { Crop.GrowthStage.Ripe , Crop.GrowthStage.Unripe}, transform.position);
             return targetCrop.Value == null ? TaskStatus.Failure : TaskStatus.Success;
         }
         
@@ -37,7 +37,7 @@ public class FindNearestCrop : Conditional {
         float nearestDistance = float.MaxValue;
         foreach (var candidate in crops) {
             if (candidate == null) continue;
-            if (candidate.stage != Crop.GrowthStage.Ripe) continue;
+            if (candidate.stage != Crop.GrowthStage.Ripe && candidate.stage != Crop.GrowthStage.Unripe) continue;
             
             // calculate distance
             var candidateDistance = Vector3.Distance(candidate.transform.position, transform.position);

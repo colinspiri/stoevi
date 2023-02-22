@@ -77,7 +77,7 @@ public class Crop : Interactable {
         if (soil != null && !soil.fertilized && heldItem.heldItem == fertilizer) return true;
         
         // DEBUG: shorten growth timer
-        #if true
+        #if true && UNITY_EDITOR
         if (state == State.Growing) {
             return true;
         }
@@ -155,7 +155,7 @@ public class Crop : Interactable {
             return;
         }
         // DEBUG: shorten growth timer
-        #if true
+        #if true && UNITY_EDITOR
         else if (state == State.Growing) {
             growthTimer = 2f;
             return;
@@ -211,14 +211,16 @@ public class Crop : Interactable {
     private void Harvest() {
         playerTomatoes.ApplyChange(1);
         AudioManager.Instance.PlayHarvestSound();
-        RemoveRipeTomatoes();
-    }
-
-    public void RemoveRipeTomatoes() {
+        
         tomatoesLeft--;
         
         ChangeCropStage(tomatoesLeft <= 0 ? GrowthStage.Bare : GrowthStage.Unripe);
     }
+
+    public void Destroy() {
+        ChangeCropStage(GrowthStage.Bare);
+    }
+
 
     public void AdvanceToNextDay() {
         

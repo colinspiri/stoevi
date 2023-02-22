@@ -141,11 +141,19 @@ public class InteractableManager : MonoBehaviour {
         return allCrops;
     }
 
-    public Crop GetClosestHarvestableCropTo(Vector3 position, float maxDistance = float.MaxValue) {
+    public Crop GetClosestCrop(List<Crop.GrowthStage> growthStages, Vector3 position, float maxDistance = float.MaxValue) {
         float closestDistance = float.MaxValue;
         Crop closestCrop = null;
         foreach (var crop in allCrops) {
-            if (crop.stage != Crop.GrowthStage.Ripe) continue;
+            bool rightStage = false;
+            foreach (var growthStage in growthStages) {
+                if (crop.stage == growthStage) {
+                    rightStage = true;
+                    break;
+                }
+            }
+            if (!rightStage) return null;
+            
             float distance = Vector3.Distance(position, crop.transform.position);
             if (distance < closestDistance && distance < maxDistance) {
                 closestDistance = distance;
