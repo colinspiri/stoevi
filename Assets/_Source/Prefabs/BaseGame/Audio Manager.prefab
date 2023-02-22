@@ -1133,13 +1133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSettings: {fileID: 11400000, guid: 5e6cc2760af1bcb4b83a0893ca39df94, type: 2}
-  timeOfDay: {fileID: 0}
-  mainMenuScene:
-    sceneAsset: {fileID: 102900000, guid: 6dd513305e2b80642a43c3ad87d60f9e, type: 3}
-    scenePath: Assets/_Source/Scenes/MainMenu.unity
-  gameScene:
-    sceneAsset: {fileID: 102900000, guid: 8177ba1438c10794697df8015df5e37e, type: 3}
-    scenePath: Assets/_Source/Scenes/Day2.unity
+  sceneLoader: {fileID: 11400000, guid: 9cdd62927cbfb2d44a15d938c0916e2d, type: 2}
   mainMenuMusic: {fileID: 4667785578077348750}
   introCutsceneMusic: {fileID: 905345456033318744}
   detectedStinger: {fileID: 11400000, guid: eec1939c3a1db0843b90cd7a012995d7, type: 2}

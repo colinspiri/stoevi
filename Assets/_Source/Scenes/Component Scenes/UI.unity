@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89670256990c46a4a9b701aae733f6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playInEditor: 0
+  playInEditor: 1
   cutscenes:
   - {fileID: 4414915836664129843}
   - {fileID: 459524013}
@@ -1102,6 +1102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 6442295116052333941}
   gameOverMessage: {fileID: 7618183037298244447}
+  actionButtonText: {fileID: 844674614}
 --- !u!1 &282849917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,7 +1156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayText: {fileID: 1904815851}
-  sheep_bleat: {fileID: 0}
+  sheep_bleat: {fileID: 11400000, guid: 16b83431b8146a14bb6f8b675a217298, type: 2}
 --- !u!225 &282849920
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1264,7 +1265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayText: {fileID: 889210044}
-  sheep_bleat: {fileID: 0}
+  sheep_bleat: {fileID: 11400000, guid: 16b83431b8146a14bb6f8b675a217298, type: 2}
 --- !u!225 &459524014
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1522,7 +1523,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: restart
+  m_text: continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 471b9406ae572be4b876f7c53c0caa8f, type: 2}
   m_sharedMaterial: {fileID: 5125687796235707659, guid: 471b9406ae572be4b876f7c53c0caa8f, type: 2}

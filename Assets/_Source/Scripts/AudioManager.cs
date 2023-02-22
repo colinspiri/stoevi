@@ -13,9 +13,8 @@ public class AudioManager : MonoBehaviour {
     public static AudioManager Instance;
     public AudioSettings audioSettings;
 
-    [Header("Scenes")]
-    public SceneReference mainMenuScene;
-    public SceneReference gameScene;
+    [Header("Scenes")] 
+    public SceneLoader sceneLoader;
     
     [Header("Music")]
     public AudioSource mainMenuMusic;
@@ -76,25 +75,23 @@ public class AudioManager : MonoBehaviour {
         AudioListener.pause = false;
         
         // stop misc sounds
+        ambience_night.Stop();
         tensionMusic.Stop();
         playerBreathing.Stop();
         playerTiredBreathing.Stop();
 
         // main menu scene
-        if (newScene.path == mainMenuScene.ScenePath) {
+        if (newScene.path == sceneLoader.mainMenuScene.ScenePath) {
             mainMenuMusic.Play();
         }
         else mainMenuMusic.Stop();
 
-        // game scene
-        if (newScene.path == gameScene.ScenePath) {
-            if (!ambience_day.isPlaying) ambience_day.Play();
-            if (ambience_night.isPlaying) ambience_night.Stop();
+        // days 
+        if (newScene.path == sceneLoader.day1Scene.ScenePath ||
+            newScene.path == sceneLoader.day2Scene.ScenePath) {
+            if(!ambience_day.isPlaying) ambience_day.Play();
         }
-        else {
-            ambience_day.Stop();
-            ambience_night.Stop();
-        }
+        else ambience_day.Stop();
     }
 
     public void StopIntroCutsceneMusic() {

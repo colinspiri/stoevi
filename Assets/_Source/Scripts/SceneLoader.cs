@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[CreateAssetMenu(fileName = "ButtonFunctions", menuName = "ButtonFunctions", order = 0)]
-public class ButtonFunctions : ScriptableObject {
+[CreateAssetMenu(fileName = "SceneLoader", menuName = "SceneLoader", order = 0)]
+public class SceneLoader : ScriptableObject {
     public SceneReference introCutscene;
     public SceneReference day1Scene;
     public SceneReference day2Scene;
