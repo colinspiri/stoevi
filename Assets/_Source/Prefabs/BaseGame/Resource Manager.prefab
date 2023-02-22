@@ -47,12 +47,8 @@ MonoBehaviour:
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   torbalanTomatoes: {fileID: 11400000, guid: 96c2ef51504db3d4b9ea5f0eef1c580a, type: 2}
-  playerHarvestedTomato:
-    m_PersistentCalls:
-      m_Calls: []
   startingSeeds:
-    UseConstant: 1
+    UseConstant: 0
     ConstantValue: 1
-    Variable: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 78e9d495e4f690147a4b9876ed2824a9, type: 2}
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
-  fertilizerPrefab: {fileID: 1433479246987159136, guid: bbc628e78fbd4e24797aba1a744dc2b6, type: 3}

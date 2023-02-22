@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using Yarn.Compiler;
+using Random = UnityEngine.Random;
 
 public class Crop : Interactable {
     // components
@@ -20,7 +21,7 @@ public class Crop : Interactable {
 
     // constants
     public FarmingConstants farmingConstants;
-    public float sproutHeight; // 0.2
+    public float sproutHeight;
     public float halfHeight;
     public float fullHeight;
     
@@ -44,9 +45,6 @@ public class Crop : Interactable {
     // watering
     private float thirstyTime;
     private float thirstyTimer;
-    // harvesting
-    public int tomatoesYielded;
-    private int tomatoesLeft;
 
     private void Awake() {
         textureManager = GetComponent<CropTextureManager>();
@@ -137,12 +135,12 @@ public class Crop : Interactable {
             return;
         }
         // can be harvested
-        else if (stage == GrowthStage.Ripe) {
+        if (stage == GrowthStage.Ripe) {
             Harvest();
             return;
         }
         // can be watered
-        else if (state == State.NeedsWater && currentWater.Value > 0 && 
+        if (state == State.NeedsWater && currentWater.Value > 0 && 
                  (stage == GrowthStage.Sprout || 
                   stage == GrowthStage.Intermediate ||
                   stage == GrowthStage.Unripe)) {
@@ -156,7 +154,7 @@ public class Crop : Interactable {
         }
         // DEBUG: shorten growth timer
         #if true && UNITY_EDITOR
-        else if (state == State.Growing) {
+        if (state == State.Growing) {
             growthTimer = 2f;
             return;
         }
@@ -188,7 +186,6 @@ public class Crop : Interactable {
             StartGrowing();
         }
         
-        
         // update sprite
         textureManager.UpdateTextures(stage, state, health);
         UpdateCover();
@@ -209,12 +206,28 @@ public class Crop : Interactable {
     }
 
     private void Harvest() {
-        playerTomatoes.ApplyChange(1);
         AudioManager.Instance.PlayHarvestSound();
         
-        tomatoesLeft--;
+        ChangeCropStage(GrowthStage.Unripe);
         
-        ChangeCropStage(tomatoesLeft <= 0 ? GrowthStage.Bare : GrowthStage.Unripe);
+        // calculate number of tomatoes to produce
+        int minTomatoes = 0;
+        int maxTomatoes = 0;
+        // set min/max tomatoes based on health
+        if (health == Health.Great) {
+            minTomatoes = 2;
+            maxTomatoes = 5;
+        }
+        else if (health == Health.Fair) {
+            minTomatoes = 1;
+            maxTomatoes = 3;
+        }
+        else if (health == Health.Wilted) {
+            minTomatoes = 1;
+            maxTomatoes = 1;
+        }
+        var tomatoesYielded = Random.Range(minTomatoes, maxTomatoes);
+        playerTomatoes.ApplyChange(tomatoesYielded);
     }
 
     public void Destroy() {
@@ -258,37 +271,6 @@ public class Crop : Interactable {
         // update sprite
         textureManager.UpdateTextures(stage, state, health);
         UpdateCover();
-
-        // set tomatoes left
-        if (stage == GrowthStage.Ripe && tomatoesYielded == 0) {
-            tomatoesYielded = 1;
-            
-            if (health == Health.Great) {
-                float rand = UnityEngine.Random.Range(0f, 1f);
-                // Debug.Log("rand = " + rand);
-                
-                if (rand < 0.75f) {
-                    tomatoesYielded = 2;
-                    
-                    float rand2 = UnityEngine.Random.Range(0f, 1f);
-                    // Debug.Log("rand2 = " + rand2);
-                    
-                    if (rand2 < 0.25f) {
-                        tomatoesYielded = 3;
-                    }
-                }
-            }
-            else if (health == Health.Fair) {
-                float rand = UnityEngine.Random.Range(0f, 1f);
-                // Debug.Log("rand = " + rand);
-                
-                if (rand < 0.25f) {
-                    tomatoesYielded = 2;
-                }
-            }
-
-            tomatoesLeft = tomatoesYielded;
-        }
     }
     
     private void UpdateCover() {
@@ -316,7 +298,6 @@ public class Crop : Interactable {
     }
 
     public override string GetObjectDescription() {
-
         if (health == Health.Dead) {
             return "dead";
         }
