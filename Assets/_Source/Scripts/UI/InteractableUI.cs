@@ -14,7 +14,7 @@ public class InteractableUI : MonoBehaviour {
     [Header("Object Info")]
     public GameObject objectInfo;
     public TextMeshProUGUI objectName;
-    public GameObject objectInfoLine;
+    // public GameObject objectInfoLine;
     public TextMeshProUGUI objectDescription;
     
     [Header("Progress Slider")]
@@ -110,12 +110,12 @@ public class InteractableUI : MonoBehaviour {
         objectInfo.SetActive(true);
         objectName.text = selectedObject.GetObjectName();
         if (selectedObject.GetObjectDescription() != "") {
-            objectInfoLine.SetActive(true);
+            // objectInfoLine.SetActive(true);
             objectDescription.gameObject.SetActive(true);
             objectDescription.text = selectedObject.GetObjectDescription();
         }
         else {
-            objectInfoLine.SetActive(false);
+            // objectInfoLine.SetActive(false);
             objectDescription.gameObject.SetActive(false);
         }
     }

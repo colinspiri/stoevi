@@ -26,10 +26,10 @@ public class DateTimeText : MonoBehaviour {
         uiText += "\n" + Util.FormatTimer(timeOfDay.SecondsElapsed);
 
         // return to gate prompt
-        /*if (timeOfDay.IsNight()) {
+        if (timeOfDay.IsNight()) {
             uiText += "\n";
             uiText += "return to gate to go home";
-        }*/
+        }
 
         text.text = uiText;
     }

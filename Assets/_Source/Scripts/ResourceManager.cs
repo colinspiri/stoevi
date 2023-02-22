@@ -6,8 +6,6 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class ResourceManager : MonoBehaviour {
-    public static ResourceManager Instance;
-    
     // water
     public IntVariable maxWater;
     public IntVariable currentWater;
@@ -20,15 +18,15 @@ public class ResourceManager : MonoBehaviour {
     public IntReference startingSeeds;
     public IntVariable seeds;
 
-    private void Awake() {
-        Instance = this;
-    }
-
     // Start is called before the first frame update
     void Start() {
         currentWater.SetValue(maxWater.Value);
-        seeds.SetValue(startingSeeds.Value);
+        
         playerTomatoes.SetValue(0);
         torbalanTomatoes.SetValue(0);
+
+        int day = PlayerPrefs.GetInt("CurrentDay", 1);
+        if(day == 1) seeds.SetValue(startingSeeds.Value);
+
     }
 }

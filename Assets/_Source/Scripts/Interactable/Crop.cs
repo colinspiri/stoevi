@@ -31,6 +31,7 @@ public class Crop : Interactable {
     public IntVariable playerTomatoes;
     public HeldItem heldItem;
     public Item fertilizer;
+    public GameEvent onHarvest;
 
     // state
     public enum GrowthStage { Sprout, Intermediate, Unripe, Ripe, Bare }
@@ -228,6 +229,9 @@ public class Crop : Interactable {
         }
         var tomatoesYielded = Random.Range(minTomatoes, maxTomatoes);
         playerTomatoes.ApplyChange(tomatoesYielded);
+        
+        // callback
+        onHarvest.Raise();
     }
 
     public void Destroy() {

@@ -4447,6 +4447,7 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   heldItem: {fileID: 11400000, guid: 8988f3e596c2bc7489050653c24d4f9d, type: 2}
   fertilizer: {fileID: 11400000, guid: 85983f702c9dc3f4488ed85b9939e4b4, type: 2}
+  onHarvest: {fileID: 0}
   stage: 4
 --- !u!1001 &237091027
 PrefabInstance:
@@ -6981,6 +6982,7 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   heldItem: {fileID: 11400000, guid: 8988f3e596c2bc7489050653c24d4f9d, type: 2}
   fertilizer: {fileID: 11400000, guid: 85983f702c9dc3f4488ed85b9939e4b4, type: 2}
+  onHarvest: {fileID: 0}
   stage: 3
 --- !u!1 &348168820
 GameObject:
@@ -9843,6 +9845,7 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   heldItem: {fileID: 11400000, guid: 8988f3e596c2bc7489050653c24d4f9d, type: 2}
   fertilizer: {fileID: 11400000, guid: 85983f702c9dc3f4488ed85b9939e4b4, type: 2}
+  onHarvest: {fileID: 0}
   stage: 3
 --- !u!1001 &508086654
 PrefabInstance:
@@ -15784,6 +15787,7 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   heldItem: {fileID: 11400000, guid: 8988f3e596c2bc7489050653c24d4f9d, type: 2}
   fertilizer: {fileID: 11400000, guid: 85983f702c9dc3f4488ed85b9939e4b4, type: 2}
+  onHarvest: {fileID: 0}
   stage: 3
 --- !u!114 &696908519
 MonoBehaviour:
@@ -21769,6 +21773,7 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   heldItem: {fileID: 11400000, guid: 8988f3e596c2bc7489050653c24d4f9d, type: 2}
   fertilizer: {fileID: 11400000, guid: 85983f702c9dc3f4488ed85b9939e4b4, type: 2}
+  onHarvest: {fileID: 0}
   stage: 3
 --- !u!1 &977696312
 GameObject:
@@ -28959,7 +28964,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh871034
+  m_Name: pb_Mesh1074292
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36262,6 +36267,7 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   heldItem: {fileID: 11400000, guid: 8988f3e596c2bc7489050653c24d4f9d, type: 2}
   fertilizer: {fileID: 11400000, guid: 85983f702c9dc3f4488ed85b9939e4b4, type: 2}
+  onHarvest: {fileID: 0}
   stage: 3
 --- !u!114 &1603510342
 MonoBehaviour:
@@ -36565,6 +36571,7 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   heldItem: {fileID: 11400000, guid: 8988f3e596c2bc7489050653c24d4f9d, type: 2}
   fertilizer: {fileID: 11400000, guid: 85983f702c9dc3f4488ed85b9939e4b4, type: 2}
+  onHarvest: {fileID: 0}
   stage: 4
 --- !u!1001 &1619555464
 PrefabInstance:
@@ -38974,6 +38981,7 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   heldItem: {fileID: 11400000, guid: 8988f3e596c2bc7489050653c24d4f9d, type: 2}
   fertilizer: {fileID: 11400000, guid: 85983f702c9dc3f4488ed85b9939e4b4, type: 2}
+  onHarvest: {fileID: 0}
   stage: 3
 --- !u!1001 &1721728337
 PrefabInstance:
@@ -40362,6 +40370,7 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   heldItem: {fileID: 11400000, guid: 8988f3e596c2bc7489050653c24d4f9d, type: 2}
   fertilizer: {fileID: 11400000, guid: 85983f702c9dc3f4488ed85b9939e4b4, type: 2}
+  onHarvest: {fileID: 0}
   stage: 3
 --- !u!114 &1777033409
 MonoBehaviour:
