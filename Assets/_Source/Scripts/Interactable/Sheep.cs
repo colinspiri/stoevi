@@ -25,18 +25,19 @@ public class Sheep : Interactable {
 
     protected override void Start() {
         base.Start();
-        SheepManager.Instance.AddSheep(this);
+        if(SheepManager.Instance != null) SheepManager.Instance.AddSheep(this);
     }
 
     private void Update() {
-        player = FirstPersonMovement.Instance.gameObject;
+        player = (FirstPersonMovement.Instance != null) ? FirstPersonMovement.Instance.gameObject : null;
 
         beingChased = CheckIfBeingChased();
     }
 
     private bool CheckIfBeingChased() {
         // if player is nearby & running towards sheep, become scared
-
+        if (player == null) return false;
+        
         // player within radius
         var distance = Vector3.Distance(player.transform.position, transform.position);
         if (distance > playerChaseDistance) return false;
@@ -67,10 +68,6 @@ public class Sheep : Interactable {
         }
     }
 
-    public void CalmDown() {
-        scared = false;
-    }
-
     public override string GetObjectName() {
         return "sheep";
     }
@@ -84,6 +81,6 @@ public class Sheep : Interactable {
     }
 
     protected void OnDestroy() {
-        SheepManager.Instance.RemoveSheep(this);
+        if(SheepManager.Instance != null) SheepManager.Instance.RemoveSheep(this);
     }
 }

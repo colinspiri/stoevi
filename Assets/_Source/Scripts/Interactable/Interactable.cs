@@ -10,7 +10,7 @@ public abstract class Interactable : MonoBehaviour {
     [FormerlySerializedAs("interactionTime")] public float InteractionTime = 1f;
 
     protected virtual void Start() {
-        InteractableManager.Instance.AddInteractable(this);
+        if(InteractableManager.Instance != null) InteractableManager.Instance.AddInteractable(this);
     }
 
     public abstract void Interact();
@@ -49,6 +49,6 @@ public abstract class Interactable : MonoBehaviour {
     }
 
     private void OnDestroy() {
-        InteractableManager.Instance.RemoveInteractable(this);
+        if(InteractableManager.Instance != null) InteractableManager.Instance.RemoveInteractable(this);
     }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e86c51a4d843f64091f6df43aac8650, type: 3}
-  m_Name: Day1Lighting
+  m_Name: Lighting_Day1
   m_EditorClassIdentifier: 
   AmbientColor:
     serializedVersion: 2

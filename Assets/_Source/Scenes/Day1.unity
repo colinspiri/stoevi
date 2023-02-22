@@ -18,13 +18,13 @@ RenderSettings:
   m_FogColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
   m_FogMode: 1
   m_FogDensity: 0.01
-  m_LinearFogStart: 5
-  m_LinearFogEnd: 40
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 70
   m_AmbientSkyColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
-  m_AmbientEquatorColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_AmbientGroundColor: {r: 0.122641504, g: 0.05563045, b: 0, a: 1}
-  m_AmbientIntensity: 2
-  m_AmbientMode: 3
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: a809f6bc09b026d4eaa1daf22f2a8db4, type: 2}
+  m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1281197022
+--- !u!1 &1530356916
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,8 +131,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1281197024}
-  - component: {fileID: 1281197023}
+  - component: {fileID: 1530356918}
+  - component: {fileID: 1530356917}
   m_Layer: 0
   m_Name: Scene Startup Manager
   m_TagString: Untagged
@@ -140,13 +140,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1281197023
+--- !u!114 &1530356917
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281197022}
+  m_GameObject: {fileID: 1530356916}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0da84eb98b168a4d8c44889d87d4c90, type: 3}
@@ -155,21 +155,21 @@ MonoBehaviour:
   _scenesToLoad:
   - sceneAsset: {fileID: 102900000, guid: e62bb5f624c4e8043b892e63e3ed5d0c, type: 3}
     scenePath: Assets/_Source/Scenes/Component Scenes/BaseGame.unity
-  - sceneAsset: {fileID: 102900000, guid: b8621a62ab3dd3047bc4f4a32ef766a1, type: 3}
-    scenePath: Assets/_Source/Scenes/Component Scenes/Day2Stuff.unity
+  - sceneAsset: {fileID: 102900000, guid: e0a1406c0685baf479b63a58be62cb7a, type: 3}
+    scenePath: Assets/_Source/Scenes/Component Scenes/Day1Stuff.unity
   - sceneAsset: {fileID: 102900000, guid: 993e39bf7ac59ff48a2e7d8893d99147, type: 3}
     scenePath: Assets/_Source/Scenes/Component Scenes/Environment.unity
   - sceneAsset: {fileID: 102900000, guid: a23ab905d791c68488bc3f83f8fcd630, type: 3}
     scenePath: Assets/_Source/Scenes/Component Scenes/Player.unity
   - sceneAsset: {fileID: 102900000, guid: 094e2805e8fd7194e8788fae9e38f86a, type: 3}
     scenePath: Assets/_Source/Scenes/Component Scenes/UI.unity
---- !u!4 &1281197024
+--- !u!4 &1530356918
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1281197022}
+  m_GameObject: {fileID: 1530356916}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}

@@ -31,7 +31,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 789039114618768139}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 24.284, y: -3.817, z: -6.601}
+  m_LocalEulerAnglesHint: {x: 0, y: -3.817, z: -6.601}
 --- !u!108 &5156514537432273314
 Light:
   m_ObjectHideFlags: 0
@@ -262,7 +262,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b329a66b0fc01842a630a80e4e1f623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaNodes: []
+  areaNodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   settings: {fileID: 11400000, guid: 4a7c60559b7c96c4fb3357a96e5afc14, type: 2}
 --- !u!114 &7967770628958072520
 MonoBehaviour:
@@ -1007,7 +1019,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.495, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1507,9 +1519,9 @@ MonoBehaviour:
   flashRemainTime: 0.2
   flashDimTime: 0.2
   idleColor: {r: 1, g: 1, b: 0, a: 1}
-  idleIntensity: 2
+  idleIntensity: 3
   searchColor: {r: 1, g: 0.43529412, b: 0, a: 1}
-  searchIntensity: 5
+  searchIntensity: 6
   searchFlashIntensity: 10
   chaseColor: {r: 1, g: 0, b: 0, a: 1}
   chaseIntensity: 10

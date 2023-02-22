@@ -593,8 +593,8 @@ MonoBehaviour:
   everyoneText: {fileID: 41951049}
   exceptText: {fileID: 1142950988}
   day1Scene:
-    sceneAsset: {fileID: 102900000, guid: 8177ba1438c10794697df8015df5e37e, type: 3}
-    scenePath: Assets/_Source/Scenes/Day2.unity
+    sceneAsset: {fileID: 102900000, guid: b2f0725004145404eb4513d60ac70066, type: 3}
+    scenePath: Assets/_Source/Scenes/Day1.unity
 --- !u!1 &377570048
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,8 +787,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene:
-    sceneAsset: {fileID: 102900000, guid: 8177ba1438c10794697df8015df5e37e, type: 3}
-    scenePath: Assets/_Source/Scenes/Day2.unity
+    sceneAsset: {fileID: 102900000, guid: b2f0725004145404eb4513d60ac70066, type: 3}
+    scenePath: Assets/_Source/Scenes/Day1.unity
   skipPrompt: {fileID: 746072142}
   canSkip: 0
 --- !u!1 &592249945

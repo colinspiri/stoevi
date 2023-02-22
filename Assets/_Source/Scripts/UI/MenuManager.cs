@@ -13,12 +13,8 @@ public class MenuManager : MonoBehaviour
     public List<MenuScreen> menuScreens;
     public UnityEvent defaultBackAction;
 
-    public SceneReference introCutscene;
-    public SceneReference dayScene;
-    public SceneReference mainMenuScene;
-
-
     private InputActions inputActions;
+    
     // state
     private List<MenuScreen> menuScreenStack = new List<MenuScreen>();
 
@@ -89,13 +85,18 @@ public class MenuManager : MonoBehaviour
 
     public void NewGame() {
         PlayerPrefs.DeleteKey("CurrentDay");
-        SceneManager.LoadScene(introCutscene.ScenePath);
+        // SceneManager.LoadScene(introCutscene.ScenePath);
     }
 
     public void LoadCurrentDay() {
         int currentDay = PlayerPrefs.GetInt("CurrentDay", 1);
-        // TODO: load scene based on current day
-        SceneManager.LoadScene(dayScene.ScenePath);
+
+        /*if (currentDay == 1) {
+            SceneManager.LoadScene(day1Scene.ScenePath);
+        }
+        else {
+            SceneManager.LoadScene(day2Scene.ScenePath);
+        }*/
     }
 
     public void Restart()
@@ -105,7 +106,7 @@ public class MenuManager : MonoBehaviour
 
     public void MainMenu() {
         Time.timeScale = 1;
-        SceneManager.LoadScene(mainMenuScene.ScenePath);
+        //SceneManager.LoadScene(mainMenuScene.ScenePath);
     }
 
     public void Quit() {

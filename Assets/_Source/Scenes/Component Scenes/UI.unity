@@ -761,8 +761,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 706171712077480921}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+      - m_Target: {fileID: 11400000, guid: 9cdd62927cbfb2d44a15d938c0916e2d, type: 2}
+        m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
         m_MethodName: LoadCurrentDay
         m_Mode: 1
         m_Arguments:
@@ -2506,7 +2506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1720d42a6cfae459ef3d2afeb43bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  timeOfDay_Day1: {fileID: 11400000, guid: d3c088879691b0344b62ed8e5b4c3373, type: 2}
+  timeOfDay_Day2: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
 --- !u!1 &1107441611
 GameObject:
   m_ObjectHideFlags: 0
@@ -4798,15 +4799,6 @@ MonoBehaviour:
   defaultBackAction:
     m_PersistentCalls:
       m_Calls: []
-  introCutscene:
-    sceneAsset: {fileID: 102900000, guid: c24d2e2d55a1fbf40884fdac4fe4fced, type: 3}
-    scenePath: Assets/_Source/Scenes/IntroCutscene.unity
-  dayScene:
-    sceneAsset: {fileID: 102900000, guid: 8177ba1438c10794697df8015df5e37e, type: 3}
-    scenePath: Assets/_Source/Scenes/Day2.unity
-  mainMenuScene:
-    sceneAsset: {fileID: 102900000, guid: 6dd513305e2b80642a43c3ad87d60f9e, type: 3}
-    scenePath: Assets/_Source/Scenes/MainMenu.unity
 --- !u!114 &751427251349256815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5040,8 +5032,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8007000209762590985}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+      - m_Target: {fileID: 11400000, guid: 9cdd62927cbfb2d44a15d938c0916e2d, type: 2}
+        m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -5567,8 +5559,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 706171712077480921}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+      - m_Target: {fileID: 11400000, guid: 9cdd62927cbfb2d44a15d938c0916e2d, type: 2}
+        m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -7917,15 +7909,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  introCutscene:
-    sceneAsset: {fileID: 102900000, guid: c24d2e2d55a1fbf40884fdac4fe4fced, type: 3}
-    scenePath: Assets/_Source/Scenes/IntroCutscene.unity
-  dayScene:
-    sceneAsset: {fileID: 102900000, guid: 8177ba1438c10794697df8015df5e37e, type: 3}
-    scenePath: Assets/_Source/Scenes/Day2.unity
-  mainMenuScene:
-    sceneAsset: {fileID: 102900000, guid: 6dd513305e2b80642a43c3ad87d60f9e, type: 3}
-    scenePath: Assets/_Source/Scenes/MainMenu.unity
 --- !u!1 &8479693092215674048
 GameObject:
   m_ObjectHideFlags: 0
@@ -8287,8 +8270,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8007000209762590985}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+      - m_Target: {fileID: 11400000, guid: 9cdd62927cbfb2d44a15d938c0916e2d, type: 2}
+        m_TargetAssemblyTypeName: ButtonFunctions, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:

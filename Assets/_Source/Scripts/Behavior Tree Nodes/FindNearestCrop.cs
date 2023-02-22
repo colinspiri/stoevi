@@ -19,6 +19,12 @@ public class FindNearestCrop : Conditional {
     public SharedFloat radiusFromPoint;
     
     public override TaskStatus OnUpdate() {
+        // null check
+        if (InteractableManager.Instance == null || InteractableManager.Instance.GetAllCrops() == null || InteractableManager.Instance.GetAllCrops().Count == 0) {
+            targetCrop.Value = null;
+            return TaskStatus.Failure;
+        }
+        
         // if no requirements on radius
         if (!withinRadiusFromSelf && !withinRadiusFromPlayer && !withinRadiusFromPoint) {
             targetCrop.Value = InteractableManager.Instance.GetClosestHarvestableCropTo(transform.position);
