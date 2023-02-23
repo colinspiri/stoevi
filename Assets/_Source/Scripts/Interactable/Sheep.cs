@@ -67,6 +67,10 @@ public class Sheep : Interactable {
             TorbalanHearing.Instance.ReportSound(transform.position, bleatLoudness);
         }
     }
+    
+    public void CalmDown() {
+        scared = false;
+    }
 
     public override string GetObjectName() {
         return "sheep";

@@ -151,23 +151,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cfuStatus: PSXEffects v1.18.4 - version ahead?!
   sections: 01010100
-  customRes: {x: 256, y: 224}
+  customRes: {x: 3840, y: 2160}
   resolutionFactor: 1
-  limitFramerate: -1
+  limitFramerate: 60
   skipFrames: 0
   affineMapping: 1
   clampAffine: 1
   affineBounds: 5
-  polygonalDrawDistance: -1
+  polygonalDrawDistance: 0
   vertexInaccuracy: 30
-  polygonInaccuracy: 2
-  colorDepth: 15
+  polygonInaccuracy: 0
+  colorDepth: 4
   scanlines: 0
   scanlineIntensity: 7
   ditherTexture: {fileID: 0}
   dithering: 1
   ditherThreshold: 3.55
-  ditherIntensity: 9
+  ditherIntensity: 3
   maxDarkness: 20
   subtractFade: 2
   favorRed: 1
@@ -175,8 +175,8 @@ MonoBehaviour:
   postProcessing: 1
   verticalScanlines: 0
   shadowIntensity: 0.5
-  downscale: 1
-  snapCamera: 0
+  downscale: 0
+  snapCamera: 1
   camInaccuracy: 0.05
   camSnapping: 0
   shadowType: 0

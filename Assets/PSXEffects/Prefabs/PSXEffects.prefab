@@ -103,6 +103,8 @@ MonoBehaviour:
   limitFramerate: 60
   skipFrames: 0
   affineMapping: 1
+  clampAffine: 0
+  affineBounds: 0
   polygonalDrawDistance: 0
   vertexInaccuracy: 40
   polygonInaccuracy: 2
