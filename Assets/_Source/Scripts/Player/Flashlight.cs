@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SpookuleleAudio;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Light))]
@@ -35,23 +36,7 @@ public class Flashlight : MonoBehaviour
         
         inputActions = new InputActions();
         inputActions.Enable();
-        inputActions.Gameplay.Flashlight.performed += context => {
-            if (flashlightOn) {
-                // turn off
-                flashlightOn = false;
-                light.enabled = false;
-                if (flickerCoroutine != null) {
-                    StopCoroutine(flickerCoroutine);
-                }
-                sfx_flashlight_off.Play();
-            }
-            else {
-                // turn on
-                flashlightOn = true;
-                light.enabled = true;
-                sfx_flashlight_on.Play();
-            }
-        };
+        inputActions.Gameplay.Flashlight.performed += ToggleFlashlight;
     }
 
     // Start is called before the first frame update
@@ -80,6 +65,24 @@ public class Flashlight : MonoBehaviour
         
     }
 
+    private void ToggleFlashlight(InputAction.CallbackContext context) {
+        if (flashlightOn) {
+            // turn off
+            flashlightOn = false;
+            light.enabled = false;
+            if (flickerCoroutine != null) {
+                StopCoroutine(flickerCoroutine);
+            }
+            sfx_flashlight_off.Play();
+        }
+        else {
+            // turn on
+            flashlightOn = true;
+            light.enabled = true;
+            sfx_flashlight_on.Play();
+        }
+    }
+
     private IEnumerator Flicker() {
         int reps = Random.Range(1, 3);
 
@@ -98,5 +101,9 @@ public class Flashlight : MonoBehaviour
         
         // fade up
         light.enabled = true;
+    }
+
+    private void OnDestroy() {
+        inputActions.Gameplay.Flashlight.performed -= ToggleFlashlight;
     }
 }
