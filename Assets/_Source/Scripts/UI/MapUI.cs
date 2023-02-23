@@ -3,30 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HUDManager : MonoBehaviour {
+public class MapUI : MonoBehaviour {
     // components
     private InputActions inputActions;
     public CanvasGroup canvasGroup;
-
+    
     // state
-    private bool hudEnabled;
+    private bool mapEnabled;
 
     private void Awake() {
         inputActions = new InputActions();
         inputActions.Enable();
-        inputActions.Gameplay.ToggleHUD.performed += context => {
-            SetHUDEnabled(!hudEnabled);
+        inputActions.Gameplay.Map.performed += context => {
+            SetMapEnabled(!mapEnabled);
         };
     }
 
     // Start is called before the first frame update
     void Start() {
-        SetHUDEnabled(true);
+        SetMapEnabled(false);
     }
 
-    public void SetHUDEnabled(bool value) {
-        hudEnabled = value;
+    public void SetMapEnabled(bool value) {
+        mapEnabled = value;
 
-        canvasGroup.alpha = hudEnabled ? 1 : 0;
+        canvasGroup.alpha = mapEnabled ? 1 : 0;
     }
 }

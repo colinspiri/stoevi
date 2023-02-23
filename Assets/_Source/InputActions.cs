@@ -129,6 +129,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Map"",
+                    ""type"": ""Button"",
+                    ""id"": ""e6ff0cda-e907-44e7-b69d-e4331eaff1de"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -591,6 +599,28 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Drop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a520caf4-b75d-4483-a3c3-40a444bfd586"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""07f8882d-1b87-492e-b7fe-a6b5cb5ac71b"",
+                    ""path"": ""<Keyboard>/capsLock"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Map"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1270,6 +1300,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Gameplay_ToggleDebug = m_Gameplay.FindAction("ToggleDebug", throwIfNotFound: true);
         m_Gameplay_Return = m_Gameplay.FindAction("Return", throwIfNotFound: true);
         m_Gameplay_Drop = m_Gameplay.FindAction("Drop", throwIfNotFound: true);
+        m_Gameplay_Map = m_Gameplay.FindAction("Map", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1345,6 +1376,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_ToggleDebug;
     private readonly InputAction m_Gameplay_Return;
     private readonly InputAction m_Gameplay_Drop;
+    private readonly InputAction m_Gameplay_Map;
     public struct GameplayActions
     {
         private @InputActions m_Wrapper;
@@ -1363,6 +1395,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @ToggleDebug => m_Wrapper.m_Gameplay_ToggleDebug;
         public InputAction @Return => m_Wrapper.m_Gameplay_Return;
         public InputAction @Drop => m_Wrapper.m_Gameplay_Drop;
+        public InputAction @Map => m_Wrapper.m_Gameplay_Map;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1414,6 +1447,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Drop.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDrop;
                 @Drop.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDrop;
                 @Drop.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDrop;
+                @Map.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMap;
+                @Map.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMap;
+                @Map.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMap;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1460,6 +1496,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Drop.started += instance.OnDrop;
                 @Drop.performed += instance.OnDrop;
                 @Drop.canceled += instance.OnDrop;
+                @Map.started += instance.OnMap;
+                @Map.performed += instance.OnMap;
+                @Map.canceled += instance.OnMap;
             }
         }
     }
@@ -1612,6 +1651,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnToggleDebug(InputAction.CallbackContext context);
         void OnReturn(InputAction.CallbackContext context);
         void OnDrop(InputAction.CallbackContext context);
+        void OnMap(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

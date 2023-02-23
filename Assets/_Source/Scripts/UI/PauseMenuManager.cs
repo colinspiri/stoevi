@@ -30,7 +30,7 @@ public class PauseMenuManager : MonoBehaviour {
     private void OpenPauseMenu() {
         pauseMenu.SetActive(true);
         
-        hud.SetHUDVisible(false);
+        hud.SetHUDEnabled(false);
         
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -41,7 +41,7 @@ public class PauseMenuManager : MonoBehaviour {
     public void ClosePauseMenu() {
         pauseMenu.SetActive(false);
         
-        hud.SetHUDVisible(true);
+        hud.SetHUDEnabled(true);
         
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
