@@ -4547,7 +4547,7 @@ MonoBehaviour:
   InteractionDistance: 5
   InteractionTime: 1.2
   textureManager: {fileID: 233417373}
-  cover: {fileID: 1971149775}
+  coverManager: {fileID: 0}
   soil: {fileID: 1623814084}
   crop_water: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
   crop_fertilize: {fileID: 11400000, guid: f6a57fa60c9d3c342afab1f502a323d8, type: 2}
@@ -7196,7 +7196,7 @@ MonoBehaviour:
   InteractionDistance: 5
   InteractionTime: 1.2
   textureManager: {fileID: 331704102}
-  cover: {fileID: 2042174522}
+  coverManager: {fileID: 0}
   soil: {fileID: 451055780}
   crop_water: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
   crop_fertilize: {fileID: 11400000, guid: f6a57fa60c9d3c342afab1f502a323d8, type: 2}
@@ -10230,7 +10230,7 @@ MonoBehaviour:
   InteractionDistance: 5
   InteractionTime: 1.2
   textureManager: {fileID: 505660152}
-  cover: {fileID: 565840263}
+  coverManager: {fileID: 0}
   soil: {fileID: 1614263884}
   crop_water: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
   crop_fertilize: {fileID: 11400000, guid: f6a57fa60c9d3c342afab1f502a323d8, type: 2}
@@ -15627,7 +15627,7 @@ MonoBehaviour:
   InteractionDistance: 5
   InteractionTime: 1.2
   textureManager: {fileID: 696908519}
-  cover: {fileID: 372901810}
+  coverManager: {fileID: 0}
   soil: {fileID: 1657608053}
   crop_water: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
   crop_fertilize: {fileID: 11400000, guid: f6a57fa60c9d3c342afab1f502a323d8, type: 2}
@@ -21670,7 +21670,7 @@ MonoBehaviour:
   InteractionDistance: 5
   InteractionTime: 1.2
   textureManager: {fileID: 976833338}
-  cover: {fileID: 683766316}
+  coverManager: {fileID: 0}
   soil: {fileID: 1657608053}
   crop_water: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
   crop_fertilize: {fileID: 11400000, guid: f6a57fa60c9d3c342afab1f502a323d8, type: 2}
@@ -28761,7 +28761,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21586
+  m_Name: pb_Mesh21442
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36335,7 +36335,7 @@ MonoBehaviour:
   InteractionDistance: 5
   InteractionTime: 1.2
   textureManager: {fileID: 1603510342}
-  cover: {fileID: 1429503966}
+  coverManager: {fileID: 0}
   soil: {fileID: 1614263884}
   crop_water: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
   crop_fertilize: {fileID: 11400000, guid: f6a57fa60c9d3c342afab1f502a323d8, type: 2}
@@ -36696,7 +36696,7 @@ MonoBehaviour:
   InteractionDistance: 5
   InteractionTime: 1.2
   textureManager: {fileID: 1617064138}
-  cover: {fileID: 1578099615}
+  coverManager: {fileID: 0}
   soil: {fileID: 670285320}
   crop_water: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
   crop_fertilize: {fileID: 11400000, guid: f6a57fa60c9d3c342afab1f502a323d8, type: 2}
@@ -39163,7 +39163,7 @@ MonoBehaviour:
   InteractionDistance: 5
   InteractionTime: 1.2
   textureManager: {fileID: 1721258952}
-  cover: {fileID: 862180010}
+  coverManager: {fileID: 0}
   soil: {fileID: 430723595}
   crop_water: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
   crop_fertilize: {fileID: 11400000, guid: f6a57fa60c9d3c342afab1f502a323d8, type: 2}
@@ -40324,7 +40324,7 @@ MonoBehaviour:
   InteractionDistance: 5
   InteractionTime: 1.2
   textureManager: {fileID: 1777033409}
-  cover: {fileID: 1452008308}
+  coverManager: {fileID: 0}
   soil: {fileID: 451055780}
   crop_water: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
   crop_fertilize: {fileID: 11400000, guid: f6a57fa60c9d3c342afab1f502a323d8, type: 2}

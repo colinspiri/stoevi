@@ -13,7 +13,7 @@ using Random = UnityEngine.Random;
 public class Crop : Interactable {
     // components
     public CropTextureManager textureManager;
-    public GameObject cover;
+    public CropCoverManager coverManager;
     public Soil soil;
     public ASoundContainer crop_water;
     public ASoundContainer crop_fertilize;
@@ -98,14 +98,14 @@ public class Crop : Interactable {
                 if (health == Health.Fair) {
                     health = Health.Wilted;
                     textureManager.UpdateTextures(stage, state, health);
-                    UpdateCover();
+                    coverManager.UpdateCover(stage);
                     
                     StartThirsty();
                 }
                 else if (health == Health.Wilted) {
                     health = Health.Dead;
                     textureManager.UpdateTextures(stage, state, health);
-                    UpdateCover();
+                    coverManager.UpdateCover(stage);
                 }
             }
         }
@@ -189,7 +189,7 @@ public class Crop : Interactable {
         
         // update sprite
         textureManager.UpdateTextures(stage, state, health);
-        UpdateCover();
+        coverManager.UpdateCover(stage);
     }
 
     private void StartGrowing() {
@@ -274,28 +274,9 @@ public class Crop : Interactable {
         
         // update sprite
         textureManager.UpdateTextures(stage, state, health);
-        UpdateCover();
+        coverManager.UpdateCover(stage);
     }
-    
-    private void UpdateCover() {
-        float newHeight = stage switch {
-            GrowthStage.Sprout => sproutHeight,
-            GrowthStage.Intermediate => halfHeight,
-            GrowthStage.Unripe => fullHeight,
-            GrowthStage.Ripe => fullHeight,
-            GrowthStage.Bare => fullHeight,
-            _ => 1f
-        };
 
-        transform.localScale = new Vector3(transform.localScale.x, (1/soil.transform.localScale.y) * newHeight, transform.localScale.z);
-
-        // disable cover for sprouts
-        if (stage == GrowthStage.Sprout) {
-            cover.SetActive(false);
-        }
-        else cover.SetActive(true);
-    }
-    
     public override string GetObjectName() {
         string uiText = stage.ToString().ToLower();
         return uiText;
