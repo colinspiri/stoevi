@@ -14,6 +14,7 @@ public class Crop : Interactable {
     // components
     public CropTextureManager textureManager;
     public CropCoverManager coverManager;
+    public CropMapIcon mapIcon;
     public Soil soil;
     public ASoundContainer crop_water;
     public ASoundContainer crop_fertilize;
@@ -21,9 +22,6 @@ public class Crop : Interactable {
 
     // constants
     public FarmingConstants farmingConstants;
-    public float sproutHeight;
-    public float halfHeight;
-    public float fullHeight;
     
     // shared state
     public IntVariable seeds;
@@ -90,6 +88,9 @@ public class Crop : Interactable {
         if (state == State.Growing) {
             growthTimer -= Time.deltaTime;
             if(growthTimer <= 0) Grow();
+            
+            // update map icon
+            mapIcon.UpdateTimer(1 - (growthTimer / growthTime));
         }
         // thirsty timer
         else if (state == State.NeedsWater) {
@@ -197,6 +198,8 @@ public class Crop : Interactable {
 
         growthTime = (soil && soil.fertilized) ? farmingConstants.fertilizedGrowthTime : farmingConstants.baseGrowthTime;
         growthTimer = growthTime;
+        
+        mapIcon.UpdateMapIcon(stage, state);
     }
 
     private void StartThirsty() {
@@ -204,6 +207,8 @@ public class Crop : Interactable {
         
         thirstyTime = (soil && soil.fertilized) ? farmingConstants.fertilizedThirstyTime : farmingConstants.baseThirstyTime;
         thirstyTimer = thirstyTime;
+        
+        mapIcon.UpdateMapIcon(stage, state);
     }
 
     private void Harvest() {
@@ -275,6 +280,7 @@ public class Crop : Interactable {
         // update sprite
         textureManager.UpdateTextures(stage, state, health);
         coverManager.UpdateCover(stage);
+        mapIcon.UpdateMapIcon(stage, state);
     }
 
     public override string GetObjectName() {

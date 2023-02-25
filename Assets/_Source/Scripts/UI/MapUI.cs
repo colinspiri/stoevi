@@ -21,6 +21,8 @@ public class MapUI : MonoBehaviour {
     void Start() {
         SetMapEnabled(false);
 
+        inputActions.Gameplay.Map.started += EnableMap;
+        inputActions.Gameplay.Map.canceled += DisableMap;
         inputActions.Gameplay.Map.performed += ToggleMap;
     }
 
@@ -31,10 +33,18 @@ public class MapUI : MonoBehaviour {
     }
 
     private void ToggleMap(InputAction.CallbackContext context) {
-        SetMapEnabled(!mapEnabled);
+        // SetMapEnabled(!mapEnabled);
+    }
+    private void EnableMap(InputAction.CallbackContext context) {
+        SetMapEnabled(true);
+    }
+    private void DisableMap(InputAction.CallbackContext context) {
+        SetMapEnabled(false);
     }
 
     private void OnDestroy() {
+        inputActions.Gameplay.Map.started -= EnableMap;
+        inputActions.Gameplay.Map.canceled -= DisableMap;
         inputActions.Gameplay.Map.performed -= ToggleMap;
     }
 }
