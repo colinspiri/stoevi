@@ -223,7 +223,7 @@ public class Crop : Interactable {
         int maxTomatoes = 0;
         // set min/max tomatoes based on health
         if (health == Health.Great) {
-            minTomatoes = 2;
+            minTomatoes = 3;
             maxTomatoes = 5;
         }
         else if (health == Health.Fair) {
@@ -238,6 +238,7 @@ public class Crop : Interactable {
         playerTomatoes.ApplyChange(tomatoesYielded);
         
         // callback
+        if (TomatoNotification.Instance) TomatoNotification.Instance.tomatoes = tomatoesYielded;
         onHarvest.Raise();
     }
 

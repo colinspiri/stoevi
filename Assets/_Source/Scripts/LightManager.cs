@@ -6,12 +6,12 @@ using UnityEngine;
 [ExecuteAlways]
 public class LightManager : MonoBehaviour {
     // components
-    [SerializeField] private Light DirectionalLight;
-    [SerializeField] private LightingPreset Preset;
     private Camera Camera;
+    private Light DirectionalLight;
+    [SerializeField] private LightingPreset Preset;
 
     // state
-    public TimeOfDay timeOfDay;
+    [SerializeField] private TimeOfDay timeOfDay;
     [SerializeField, Range(0, 1)] private float TimePercent;
 
     private void Start() {
@@ -57,7 +57,7 @@ public class LightManager : MonoBehaviour {
     private void TryGetComponents() {
         // get camera
         if (Camera == null) {
-            Camera = FindObjectOfType<Camera>();
+            Camera = Camera.main;
         }
         
         if (DirectionalLight != null) return;

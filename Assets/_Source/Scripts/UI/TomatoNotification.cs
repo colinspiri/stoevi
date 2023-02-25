@@ -6,13 +6,15 @@ using TMPro;
 using UnityEngine;
 
 public class TomatoNotification : MonoBehaviour {
+    public static TomatoNotification Instance;
+    
     private CanvasGroup canvasGroup;
-    public RectTransform rectTransform;
     public TextMeshProUGUI text;
     
-    public IntReference playerTomatoes;
+    public int tomatoes;
 
     private void Awake() {
+        Instance = this;
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
@@ -22,7 +24,7 @@ public class TomatoNotification : MonoBehaviour {
     }
 
     public void StartTomatoNotification() {
-        text.text = "+" + playerTomatoes.Value;
+        text.text = "+" + tomatoes;
 
         canvasGroup.alpha = 1;
 

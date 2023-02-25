@@ -10,7 +10,7 @@ public class TimeOfDay : ScriptableObject {
     private float NightTime => nightTimeInMinutes * 60f;
     
     // state
-    public float currentTime;
+    private float currentTime;
     public int SecondsElapsed => Mathf.FloorToInt(currentTime);
     
     // events

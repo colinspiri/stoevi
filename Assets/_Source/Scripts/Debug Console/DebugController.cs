@@ -12,7 +12,7 @@ public class DebugController : MonoBehaviour {
     public GameObject consolePanel;
     public TextMeshProUGUI inputText;
     public IntVariable seeds;
-    public TimeOfDay timeOfDay;
+    public List<TimeOfDay> timeOfDays;
     
     // state
     private bool consoleVisible;
@@ -44,11 +44,23 @@ public class DebugController : MonoBehaviour {
         SET_SEEDS = new DebugCommand<int>("set_seeds", "Sets the number of seeds", "set_seeds <seed_number>",
             x => { seeds.SetValue(x); });
         SET_DAY = new DebugCommand("set_day", "Sets the time to day.", "set_day",
-            () => { timeOfDay.ResetCurrentTime(); });
+            () => {
+                foreach (var timeOfDay in timeOfDays) {
+                    timeOfDay.ResetCurrentTime();
+                }
+            });
         SET_EVENING = new DebugCommand("set_evening", "Sets the time to evening.", "set_evening",
-            () => { timeOfDay.SetEvening(); });
+            () => {
+                foreach (var timeOfDay in timeOfDays) {
+                    timeOfDay.SetEvening();
+                }
+            });
         SET_NIGHT = new DebugCommand("set_night", "Sets the time to night.", "set_night",
-            () => { timeOfDay.SetNight(); });
+            () => {
+                foreach (var timeOfDay in timeOfDays) {
+                    timeOfDay.SetNight();
+                }
+            });
         SET_DEAF = new DebugCommand<bool>("set_deaf", "Sets Torbalan deaf state.", "set_deaf <bool>", value => {
             TorbalanHearing.Instance.SetDeaf(value);
         });
