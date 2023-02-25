@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 322217099476333165}
   - component: {fileID: 322217099471962637}
   - component: {fileID: 322217099468742511}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tree A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &322217099478102157
 Transform:
@@ -129,12 +129,12 @@ GameObject:
   - component: {fileID: 322217099475202223}
   - component: {fileID: 322217099476333167}
   - component: {fileID: 322217099471962639}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: leaves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &322217099478102159
 Transform:
@@ -225,12 +225,12 @@ GameObject:
   - component: {fileID: 6184956650576463128}
   - component: {fileID: 8157140473818580984}
   - component: {fileID: 6479717660888976047}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Fixed Tree A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &849164088160006123
 Transform:
@@ -276,7 +276,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849164088160006124}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.7, y: 8.871748, z: 0.7}
@@ -311,7 +311,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7809139789408892409
 Transform:
