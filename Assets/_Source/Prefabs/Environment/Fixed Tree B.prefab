@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3458114889926151753}
   - component: {fileID: 8475416628785932926}
   - component: {fileID: 4504585136571768747}
+  - component: {fileID: 6875292170631410830}
   m_Layer: 6
   m_Name: Fixed Tree B
   m_TagString: Untagged
@@ -83,6 +84,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 7.5078454, z: 0.7}
   m_Center: {x: 0, y: 3.2539227, z: 0.12}
+--- !u!114 &6875292170631410830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3458114889926151755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91610814907554cbdcdc281b322e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  type: 1
+  playerInside: 0
 --- !u!1 &5906827352476626729
 GameObject:
   m_ObjectHideFlags: 0
