@@ -274,7 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Preset: {fileID: 11400000, guid: 227c832ea72d0d84aa7974658c2b0001, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
-  TimePercent: 0.412
+  TimePercent: 1
 --- !u!4 &834831701
 Transform:
   m_ObjectHideFlags: 0
@@ -612,7 +612,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.51529413, g: 0.45466673, b: 0.34581822, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -670,7 +670,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492411801}
-  m_LocalRotation: {x: 0.072170265, y: 0.55850565, z: -0.8249093, w: 0.048862945}
+  m_LocalRotation: {x: 0.08583171, y: -0.17298742, z: -0.98106027, w: -0.015134448}
   m_LocalPosition: {x: 0, y: 109.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
