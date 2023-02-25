@@ -125,6 +125,8 @@ public class Crop : Interactable {
             Health.Wilted => Health.Fair,
             Health.Fair => Health.Great,
         };
+        
+        textureManager.UpdateTextures(stage, state, health);
     }
 
     public override void Interact() {

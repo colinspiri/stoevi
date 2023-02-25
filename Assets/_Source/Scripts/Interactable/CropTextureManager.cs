@@ -6,6 +6,7 @@ using UnityEngine;
 public class CropTextureManager : MonoBehaviour {
     public FarmingConstants farmingConstants;
     public List<MeshRenderer> meshRenderers;
+    public ParticleSystem particles;
 
     public void UpdateTextures(Crop.GrowthStage stage, Crop.State state, Crop.Health health) {
         Material newMaterial = null;
@@ -99,6 +100,12 @@ public class CropTextureManager : MonoBehaviour {
         foreach (var meshRenderer in meshRenderers) {
             meshRenderer.material = newMaterial;
         }
+        
+        // set particle system based on health
+        if (health == Crop.Health.Great) {
+            particles.Play();
+        }
+        else particles.Stop();
         
     }
 }
