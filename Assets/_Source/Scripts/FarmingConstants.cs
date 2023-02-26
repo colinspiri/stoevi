@@ -30,11 +30,6 @@ public class FarmingConstants : ScriptableObject {
     [Space] 
     public Material bareHealthy;
     public Material bareWilted;
-    
-    [Space]
-    public Material waterMaterial;
-    public Material harvestMaterial;
-    public Material emptyMaterial;
 
     [Header("Soil")] 
     public int maxCrops;
