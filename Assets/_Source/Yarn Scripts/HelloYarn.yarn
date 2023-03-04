@@ -1,6 +1,8 @@
 ﻿title: Day1Intro
 tags: 
 ---
+// day ambience fade in
+// Dimo's footsteps approaching gate fade in
 Dimo: Ana, inside.
 Dimo: Ana!
 <<wait 2>>
@@ -11,13 +13,22 @@ Dimo: Ana?
 Ana: Coming!
 Dimo: Okay, inside. I'll return after dark.
 // gate opens and closes
-// fade in
-Dimo: There's work to be done.
+// fade from black
+Dimo: Work must be done.
 ===
 
 title: Day1Money
 tags:
 ---
+Ana: Hey Dad, I found an American book at school today.
+Ana: It's about making money on the stock market. Looks easy.
+Dimo: There is no easy way, <i>Ani</i>.
+Ana: Not true. Rumen didn't do shit and he got rich.
+Dimo: Rumen did not have a husband and kids.
+Ana: Wait, but-
+
+
+Dimo: And he is also a very gullible man.
 Ana: Dad, I thought about what you said.
 Ana: I wanna have a career and make lots of money.
 Dimo: Which career?
@@ -34,8 +45,8 @@ Dimo:
 title: Day1Ivan
 tags:
 ---
-Dimo: Dad.
-Dimo: One year ago, today.
+// triggered when player approaches 
+Dimo: <i>Ivancho, tati.</i>
 ===
 
 title: Day1Monument
@@ -44,10 +55,42 @@ tags:
 Dimo: Only thing they ever did for me.
 Dimo: Ugly, too.
 // turns on radio
-Dimo: Ana, can you take down the statue tomorrow?
+Dimo: Ana, take down the statue tomorrow.
 Ana: I'm not <i>that</i> strong.
 Dimo: It was a joke.
 Ana: Your delivery sucks.
-Dimo: You know, when I was young, people thought I was very funny.
+Dimo: Listen, when I was young, people thought I was very funny.
 Ana: I can tell.
+Dimo: How do you tell?
+===
+
+title: Day1Torbalan1
+tags:
+---
+// triggered when player sees Torbalan and it disappears
+// quietly, to himself
+Dimo: Was that someone?
+===
+
+title: Day1Torbalan2
+tags:
+---
+// triggered when player sees Torbalan
+// talking to the figure in Bulgarian
+Dimo: Hello? <i>Dobar den?</i> <i>Koi ci ti?</i> Who are you?
+===
+
+title: Day1Torbalan2Leave
+tags:
+---
+// triggered when Torbalan leaves player's sight
+Dimo: <i>Mango</i>, probably. Looking for food.
+===
+
+title: Day1Torbalan3
+tags:
+---
+// triggered when player sees Torbalan
+// to himself
+Dimo: He's still here. Watching me.
 ===

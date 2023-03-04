@@ -1,5 +1,26 @@
-title: Cutscene2
+title: Cutscene2BeforeShop
 tags:
 ---
+Rumen: Dimo.
+Dimo: Hello, Rumen.
+===
 
+title: Cutscene2AfterShop
+tags:
+---
+Rumen: Stoyan and his wife left Peshtera today. Last ones.
+Dimo: And their kids?
+Rumen: Authorities are looking, but it's been 10 days.
+Rumen: Peshtera is dead, Dimo. Levnik is dying.
+Rumen: Come with me, to Plovdiv. I have work. Food service, tourist stuff.
+Dimo: They pay you if you bring someone else.
+Rumen: You wanna spend the rest of your life in an empty village?
+Dimo: I like the quiet.
+Rumen: Still saving for Germany?
+Dimo: I'm close, Rumen.
+Rumen: Is that what you tell them?
+// Dimo's angry, but not yelling
+Dimo: Do not speak about my children.
+Dimo: I will not run away with you to Plovdiv.
+Rumen: Think about it, Dimo. See you tomorrow.
 ===
