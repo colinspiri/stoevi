@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EatCrop : Action {
     public SharedCrop targetCrop;
-    public SheepSpriteManager spriteManager;
+    // public SheepSpriteManager spriteManager;
+    public SheepAnimatorController animatorController;
     public float eatTime;
     public IntVariable torbalanTomatoes;
     public AudioSource sheep_eat;
@@ -15,7 +16,8 @@ public class EatCrop : Action {
         base.OnStart();
         
         eatTimer = 0;
-        spriteManager.ShowEating();
+        
+        animatorController.PlayEatingAnimation();
         sheep_eat.Play();
     }
 
@@ -40,7 +42,7 @@ public class EatCrop : Action {
     public override void OnEnd() {
         base.OnEnd();
         
-        spriteManager.ShowIdle();
+        animatorController.StopEatingAnimation();
         sheep_eat.Stop();
     }
 }

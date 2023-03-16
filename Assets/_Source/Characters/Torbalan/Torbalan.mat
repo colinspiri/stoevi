@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Torbalan
   m_Shader: {fileID: 4800000, guid: 94cb0d6305cd4a743b1d2ec684e277de, type: 3}
-  m_ShaderKeywords: DIFF_VERTEX OPAQUE SPEC_GOURAUD _DIFFMODEL_VERTEX _DRAWDIST_ON
+  m_ShaderKeywords: BFC DIFF_VERTEX OPAQUE SPEC_GOURAUD _DIFFMODEL_VERTEX _DRAWDIST_ON
     _EMISSION _GLOSSYREFLECTIONS_OFF _SPECMODEL_GOURAUD _SPECULAR_SETUP
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -104,7 +104,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Cul: 0
+    - _Cul: 2
     - _Cull: 2
     - _Cutoff: 0.088
     - _CutoutThreshold: 0.5
@@ -135,7 +135,7 @@ Material:
     - _Surface: 0
     - _UVSec: 0
     - _Unlit: 0
-    - _VertexInaccuracy: -1
+    - _VertexInaccuracy: 20
     - _WorkflowMode: 0
     - _ZWrite: 1
     m_Colors:

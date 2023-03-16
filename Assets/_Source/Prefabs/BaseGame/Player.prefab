@@ -309,7 +309,6 @@ GameObject:
   - component: {fileID: 8997996947095583982}
   - component: {fileID: 8616685848737228382}
   - component: {fileID: 8616685848737228371}
-  - component: {fileID: 1978471637655604388}
   - component: {fileID: 4296087176973301087}
   m_Layer: 8
   m_Name: Player
@@ -400,23 +399,6 @@ MonoBehaviour:
   peekUpDistance: 1
   peekSideDistance: 1.8
   peekRotation: 20
---- !u!114 &1978471637655604388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8616685848737228372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 909d917d73a63f940ac158d02e936645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pushLayers:
-    serializedVersion: 2
-    m_Bits: 512
-  canPush: 1
-  strength: 1.5
 --- !u!114 &4296087176973301087
 MonoBehaviour:
   m_ObjectHideFlags: 0
