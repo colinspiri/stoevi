@@ -1960,7 +1960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cropsToSpawnByStage:
     keys: 0000000001000000020000000300000004000000
-    values: 0000000000000000000000000000000000000000
+    values: 0300000003000000030000000300000003000000
   allSoilData:
   - {fileID: 11400000, guid: 903eac2d8ff18b34b98f39990960530c, type: 2}
   - {fileID: 11400000, guid: 6f27a3b2d57fa9f4a8f996b2ed1c7a17, type: 2}
@@ -13074,7 +13074,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh292688
+  m_Name: pb_Mesh21208
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
