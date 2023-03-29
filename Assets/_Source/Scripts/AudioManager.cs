@@ -33,14 +33,14 @@ public class AudioManager : MonoBehaviour {
     public AudioSource ambience_day;
     public AudioSource ambience_night;
 
-    [Header("SFX")] 
+    [Header("SFX")] private bool rustle;
     public AudioSource walkingSound;
     public AudioSource runningSound;
-    public ASoundContainer harvestSound;
+    public AudioSource rustleWalking;
+    public AudioSource rustleRunning;
     public AudioSource playerBreathing;
     public AudioSource playerTiredBreathing;
     public ASoundContainer torbalanInhale;
-    public AudioSource rustle;
 
     [Header("UI")]
     public ASoundContainer backSound;
@@ -116,14 +116,34 @@ public class AudioManager : MonoBehaviour {
             if (state == FirstPersonMovement.MoveState.Still || state == FirstPersonMovement.MoveState.CrouchWalking) {
                 walkingSound.Stop();
                 runningSound.Stop();
+                rustleWalking.Stop();
+                rustleRunning.Stop();
             }
             else if (state == FirstPersonMovement.MoveState.Walking) {
-                if (!walkingSound.isPlaying) walkingSound.Play();
+                if (rustle) {
+                    if (!rustleWalking.isPlaying) rustleWalking.Play();
+                    walkingSound.Stop();
+                }
+                else {
+                    if(!walkingSound.isPlaying) walkingSound.Play();
+                    rustleWalking.Stop();
+                }
+                
                 runningSound.Stop();
+                rustleRunning.Stop();
             }
             else if (state == FirstPersonMovement.MoveState.Running) {
+                if (rustle) {
+                    if(!rustleRunning.isPlaying) rustleRunning.Play();
+                    runningSound.Stop();
+                }
+                else {
+                    if(!runningSound.isPlaying) runningSound.Play();
+                    rustleRunning.Stop();
+                }
+
                 walkingSound.Stop();
-                if(!runningSound.isPlaying) runningSound.Play();
+                rustleWalking.Stop();
             }
         }
         
@@ -174,13 +194,9 @@ public class AudioManager : MonoBehaviour {
         if(playerTiredBreathing.isPlaying && !value) playerTiredBreathing.Stop();
     }
     public void SetRustle(bool value) {
-        if(rustle == null) return;
-        if (value && !rustle.isPlaying) rustle.Play();
-        if(rustle.isPlaying && !value) rustle.Stop();
+        rustle = value;
     }
-
-    public void PlayHarvestSound() { harvestSound.Play(); }
-
+    
     public void PlayDetectedStinger() {
         detectedStinger.Play();
         torbalanInhale.Play();

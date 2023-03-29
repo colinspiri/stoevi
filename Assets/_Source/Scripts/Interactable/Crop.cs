@@ -18,6 +18,7 @@ public class Crop : Interactable {
     public Soil soil;
     public ASoundContainer crop_water;
     public ASoundContainer crop_fertilize;
+    public ASoundContainer crop_harvest;
     public ASoundContainer item_pickup;
 
     // constants
@@ -134,7 +135,6 @@ public class Crop : Interactable {
         if (stage == GrowthStage.Bare || health == Health.Dead) {
             seeds.ApplyChange(1);
             item_pickup.Play();
-            AudioManager.Instance.PlayHarvestSound();
             Destroy(gameObject);
             return;
         }
@@ -176,6 +176,10 @@ public class Crop : Interactable {
         else if (soil != null && !soil.fertilized && heldItem.heldItem == fertilizer) {
             crop_fertilize.Play3D(transform);
         }
+        // harvest or dig up bare
+        else if (stage == GrowthStage.Ripe || stage == GrowthStage.Bare || health == Health.Dead) {
+            crop_harvest.Play3D(transform);
+        }
     }
 
     private void Water() {
@@ -214,8 +218,6 @@ public class Crop : Interactable {
     }
 
     private void Harvest() {
-        AudioManager.Instance.PlayHarvestSound();
-        
         ChangeCropStage(GrowthStage.Unripe);
         
         // calculate number of tomatoes to produce

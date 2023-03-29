@@ -1035,7 +1035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89670256990c46a4a9b701aae733f6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playInEditor: 0
+  playInEditor: 1
   cutscenes:
   - {fileID: 4414915836664129843}
   - {fileID: 459524013}
@@ -1159,6 +1159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayText: {fileID: 1904815851}
   sheep_bleat: {fileID: 11400000, guid: 16b83431b8146a14bb6f8b675a217298, type: 2}
+  gate: {fileID: 11400000, guid: b19b42449798f2244833cd911507c418, type: 2}
 --- !u!225 &282849920
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1340,6 +1341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayText: {fileID: 889210044}
   sheep_bleat: {fileID: 11400000, guid: 16b83431b8146a14bb6f8b675a217298, type: 2}
+  gate: {fileID: 11400000, guid: b19b42449798f2244833cd911507c418, type: 2}
 --- !u!225 &459524014
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7088,6 +7090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayText: {fileID: 8971500898176247775}
   sheep_bleat: {fileID: 11400000, guid: 16b83431b8146a14bb6f8b675a217298, type: 2}
+  gate: {fileID: 11400000, guid: b19b42449798f2244833cd911507c418, type: 2}
 --- !u!1001 &4638271798170023750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7209,7 +7212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638271798300311444, guid: ea4a0c68e4d7f064091966f4be7cdb16, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 222.225
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4638271798300311444, guid: ea4a0c68e4d7f064091966f4be7cdb16, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7225,7 +7228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638271798828358899, guid: ea4a0c68e4d7f064091966f4be7cdb16, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 439.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4638271798828358899, guid: ea4a0c68e4d7f064091966f4be7cdb16, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7245,7 +7248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7337047103157784006, guid: ea4a0c68e4d7f064091966f4be7cdb16, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 333.5147
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7337047103157784006, guid: ea4a0c68e4d7f064091966f4be7cdb16, type: 3}
       propertyPath: m_AnchoredPosition.y
