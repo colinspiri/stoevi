@@ -201,7 +201,7 @@ public class Crop : Interactable {
         growthTime = (soil && soil.fertilized) ? farmingConstants.fertilizedGrowthTime : farmingConstants.baseGrowthTime;
         growthTimer = growthTime;
         
-        mapIcon.UpdateMapIcon(stage, state);
+        mapIcon.UpdateMapIcon(stage, state, health);
     }
 
     private void StartThirsty() {
@@ -210,7 +210,7 @@ public class Crop : Interactable {
         thirstyTime = (soil && soil.fertilized) ? farmingConstants.fertilizedThirstyTime : farmingConstants.baseThirstyTime;
         thirstyTimer = thirstyTime;
         
-        mapIcon.UpdateMapIcon(stage, state);
+        mapIcon.UpdateMapIcon(stage, state, health);
     }
 
     private void Harvest() {
@@ -283,7 +283,7 @@ public class Crop : Interactable {
         // update sprite
         textureManager.UpdateTextures(stage, state, health);
         coverManager.UpdateCover(stage);
-        mapIcon.UpdateMapIcon(stage, state);
+        mapIcon.UpdateMapIcon(stage, state, health);
     }
 
     public override string GetObjectName() {
