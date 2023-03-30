@@ -9,12 +9,6 @@ public class TorbalanDay1EncounterManager : MonoBehaviour {
 
     private int encounterIndex;
     private float timer;
-        
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update() {
@@ -25,7 +19,6 @@ public class TorbalanDay1EncounterManager : MonoBehaviour {
         }
         else {
             timer += Time.deltaTime;
-            Debug.Log("timer = " + timer);
         }
     }
 
