@@ -1502,7 +1502,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 39}
-  m_SizeDelta: {x: 1200, y: 1008}
+  m_SizeDelta: {x: 1250, y: 1050}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &761153512
 MonoBehaviour:
@@ -1524,7 +1524,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 4256de79adf980c4390e93ff855bf86c, type: 3}
+  m_Texture: {fileID: 2800000, guid: 5800b18e498e43d45b95da6c5251c286, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3070,7 +3070,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275970984}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
