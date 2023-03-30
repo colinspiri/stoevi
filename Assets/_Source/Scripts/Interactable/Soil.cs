@@ -140,8 +140,9 @@ public class Soil : Interactable {
         }
         crops.Clear();
         
-        // also destroy anything parented but not referenced
+        // also destroy any crops parented but not referenced
         foreach (Transform child in transform) {
+            if (child.GetComponent<Crop>() == null) continue;
             if(Application.isPlaying) Destroy(child.gameObject);
             else DestroyImmediate(child.gameObject);
         }
