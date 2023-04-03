@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
-  m_Name: back
+  m_Name: ui_select
   m_EditorClassIdentifier: 
   PitchRangeEnabled: 0
   PitchRange: {x: 1, y: 1}
@@ -24,4 +24,4 @@ MonoBehaviour:
   IgnoreListenerPause: 1
   ParentContainer: {fileID: 0}
   PreviewStartTime: 0
-  AudioClip: {fileID: 8300000, guid: faa4d64bc4debc543a7ace126b04fd45, type: 3}
+  AudioClip: {fileID: 8300000, guid: c4a9612f473e9cc4fbe83cf3b242d48b, type: 3}

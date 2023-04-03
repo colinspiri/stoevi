@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
-  m_Name: select
+  m_Name: ui_play
   m_EditorClassIdentifier: 
   PitchRangeEnabled: 0
   PitchRange: {x: 1, y: 1}
@@ -21,7 +21,7 @@ MonoBehaviour:
   LoopingEnabled: 0
   LoopBounds: {x: 0, y: 0}
   LoopCount: 0
-  IgnoreListenerPause: 1
+  IgnoreListenerPause: 0
   ParentContainer: {fileID: 0}
   PreviewStartTime: 0
-  AudioClip: {fileID: 8300000, guid: ebc98994a9a7cc74eab12bee60f92c15, type: 3}
+  AudioClip: {fileID: 8300000, guid: 58ba6aeadf2bc5f4c9fa3c538d704f74, type: 3}
