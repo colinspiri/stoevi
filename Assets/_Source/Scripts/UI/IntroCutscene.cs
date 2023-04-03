@@ -14,7 +14,7 @@ public class IntroCutscene : MonoBehaviour {
 
     [Header("Title")]
     public CanvasGroup titlePanel;
-    public TextMeshProUGUI titleText;
+    public GameObject titleText;
 
     [Header("Credits")]
     public CanvasGroup creditsPanel;
@@ -33,7 +33,7 @@ public class IntroCutscene : MonoBehaviour {
     void Start()
     {
         titlePanel.gameObject.SetActive(true);
-        titleText.alpha = 0;
+        titleText.SetActive(false);
 
         creditsPanel.gameObject.SetActive(false);
         creditsPanel.alpha = 0;
@@ -51,7 +51,7 @@ public class IntroCutscene : MonoBehaviour {
         yield return new WaitForSeconds(2);
 
         // title
-        titleText.alpha = 1;
+        titleText.SetActive(true);
         AudioManager.Instance.PlayIntroCutsceneMusic();
 
         yield return new WaitForSeconds(2);
