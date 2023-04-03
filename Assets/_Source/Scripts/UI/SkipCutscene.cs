@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class SkipCutscene : MonoBehaviour {
     // constants
+    public bool callEvent;
     public SceneReference nextScene;
+    public UnityEvent nextEvent;
     public GameObject skipPrompt;
     
     // state
@@ -32,7 +35,13 @@ public class SkipCutscene : MonoBehaviour {
     }
 
     private void Skip() {
-        SceneManager.LoadScene(nextScene);
         AudioManager.Instance.StopIntroCutsceneMusic();
+
+        if (callEvent) {
+            nextEvent.Invoke();
+        }
+        else {
+            SceneManager.LoadScene(nextScene);
+        }
     }
 }

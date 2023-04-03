@@ -38,5 +38,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Source/Scenes/Component Scenes/Day2Stuff.unity
     guid: b8621a62ab3dd3047bc4f4a32ef766a1
+  - enabled: 1
+    path: Assets/_Source/Scenes/Shop.unity
+    guid: c6fc2b1a7c426b64f84a53ff2063d7f3
+  - enabled: 1
+    path: Assets/_Source/Scenes/Cutscene.unity
+    guid: 0399db3bc9a27114482ecacfb9e10a53
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

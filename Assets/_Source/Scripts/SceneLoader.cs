@@ -7,6 +7,8 @@ public class SceneLoader : ScriptableObject {
     public SceneReference day1Scene;
     public SceneReference day2Scene;
     public SceneReference mainMenuScene;
+    public SceneReference shopScene;
+    public SceneReference cutsceneScene;
     
     public void NewGame() {
         PlayerPrefs.DeleteKey("CurrentDay");
@@ -22,6 +24,14 @@ public class SceneLoader : ScriptableObject {
         else {
             SceneManager.LoadScene(day2Scene.ScenePath);
         }
+    }
+
+    public void LoadShop() {
+        SceneManager.LoadScene(shopScene.ScenePath);
+    }
+
+    public void LoadCutscene() {
+        SceneManager.LoadScene(cutsceneScene.ScenePath);
     }
 
     public void Restart()

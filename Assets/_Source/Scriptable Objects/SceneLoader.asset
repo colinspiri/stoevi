@@ -24,3 +24,9 @@ MonoBehaviour:
   mainMenuScene:
     sceneAsset: {fileID: 102900000, guid: 6dd513305e2b80642a43c3ad87d60f9e, type: 3}
     scenePath: Assets/_Source/Scenes/MainMenu.unity
+  shopScene:
+    sceneAsset: {fileID: 102900000, guid: c6fc2b1a7c426b64f84a53ff2063d7f3, type: 3}
+    scenePath: Assets/_Source/Scenes/Shop.unity
+  cutsceneScene:
+    sceneAsset: {fileID: 102900000, guid: 0399db3bc9a27114482ecacfb9e10a53, type: 3}
+    scenePath: Assets/_Source/Scenes/Cutscene.unity

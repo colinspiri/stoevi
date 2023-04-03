@@ -39,6 +39,9 @@ public class MenuManager : MonoBehaviour
             menuScreenStack.Clear();
             menuScreenStack.Add(startingScreen);
         }
+        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void OnDisable()

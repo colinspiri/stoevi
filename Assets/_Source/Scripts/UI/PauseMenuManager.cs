@@ -31,9 +31,6 @@ public class PauseMenuManager : MonoBehaviour {
         pauseMenu.SetActive(true);
         
         hud.SetHUDEnabled(false);
-        
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
 
         if(GameManager.Instance) GameManager.Instance.Pause(true);
     }
