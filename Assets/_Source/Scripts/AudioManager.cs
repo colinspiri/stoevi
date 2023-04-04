@@ -81,7 +81,7 @@ public class AudioManager : MonoBehaviour {
         playerTiredBreathing.Stop();
 
         // main menu scene
-        if (newScene.path == sceneLoader.mainMenuScene.ScenePath) {
+        if (newScene.path == sceneLoader.mainMenuScene.ScenePath || newScene.path == sceneLoader.cutsceneScene.ScenePath) {
             mainMenuMusic.Play();
         }
         else mainMenuMusic.Stop();
