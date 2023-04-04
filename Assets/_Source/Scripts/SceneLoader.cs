@@ -11,11 +11,13 @@ public class SceneLoader : ScriptableObject {
     public SceneReference cutsceneScene;
     
     public void NewGame() {
+        Time.timeScale = 1;
         PlayerPrefs.DeleteKey("CurrentDay");
         SceneManager.LoadScene(introCutscene.ScenePath);
     }
 
     public void LoadCurrentDay() {
+        Time.timeScale = 1;
         int currentDay = PlayerPrefs.GetInt("CurrentDay", 1);
 
         if (currentDay == 1) {
@@ -27,15 +29,18 @@ public class SceneLoader : ScriptableObject {
     }
 
     public void LoadShop() {
+        Time.timeScale = 1;
         SceneManager.LoadScene(shopScene.ScenePath);
     }
 
     public void LoadCutscene() {
+        Time.timeScale = 1;
         SceneManager.LoadScene(cutsceneScene.ScenePath);
     }
 
     public void Restart()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

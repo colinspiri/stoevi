@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 100511851}
   - component: {fileID: 100511850}
   - component: {fileID: 100511849}
-  - component: {fileID: 100511848}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -142,18 +141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &100511848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100511847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!81 &100511849
 AudioListener:
   m_ObjectHideFlags: 0
@@ -236,7 +223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638271798026783204, guid: ea4a0c68e4d7f064091966f4be7cdb16, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4638271798026783204, guid: ea4a0c68e4d7f064091966f4be7cdb16, type: 3}
       propertyPath: m_AnchorMax.x
@@ -662,7 +649,7 @@ RectTransform:
   m_Children:
   - {fileID: 809248221}
   m_Father: {fileID: 1975616064}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -853,7 +840,7 @@ RectTransform:
   - {fileID: 1128733823}
   - {fileID: 1975616064}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -947,8 +934,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 164803221}
   - {fileID: 1204484059}
+  - {fileID: 164803221}
   m_Father: {fileID: 1880458743}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1038,7 +1025,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2060750428
 MonoBehaviour:
