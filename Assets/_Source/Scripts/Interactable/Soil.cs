@@ -1,10 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using SpookuleleAudio;
 using UnityEngine;
-using Yarn.Compiler;
 
 public class Soil : Interactable {
     // components

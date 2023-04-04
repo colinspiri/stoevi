@@ -1,10 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
-using SpookuleleAudio;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 

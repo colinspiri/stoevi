@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Yarn.Unity;
 
 [CreateAssetMenu(fileName = "FarmingConstants", menuName = "FarmingConstants")]
 public class FarmingConstants : ScriptableObject {

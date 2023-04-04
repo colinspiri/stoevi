@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "TimeOfDay", menuName = "TimeOfDay")]
 public class TimeOfDay : ScriptableObject {

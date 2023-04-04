@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using BehaviorDesigner.Runtime;
-using UnityEngine;
 
 [System.Serializable]
 public class SharedCrop : SharedVariable<Crop>

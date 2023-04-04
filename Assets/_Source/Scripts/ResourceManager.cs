@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using BehaviorDesigner.Runtime.Tasks;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class ResourceManager : MonoBehaviour {
     // water

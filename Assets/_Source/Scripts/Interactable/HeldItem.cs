@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.ProBuilder;
 
 [CreateAssetMenu(fileName = "NewHeldItem", menuName = "HeldItem", order = 0)]
 public class HeldItem : ScriptableObject {

@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using BehaviorDesigner.Runtime.Tasks.Unity.UnityPhysics;
 using UnityEngine;
 
 public class CameraRaycast : MonoBehaviour {

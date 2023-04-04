@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class FindNearestCrop : Conditional {

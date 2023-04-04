@@ -1,13 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using SpookuleleAudio;
-using StarterAssets;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
-using Yarn.Unity;
 
 public class AudioManager : MonoBehaviour {
     public static AudioManager Instance;

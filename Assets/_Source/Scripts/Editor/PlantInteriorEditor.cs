@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using PlasticGui;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(PlantInterior))]

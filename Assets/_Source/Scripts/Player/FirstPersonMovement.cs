@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Numerics;
-using BehaviorDesigner.Runtime.Tasks.Unity.Math;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Debug = UnityEngine.Debug;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;

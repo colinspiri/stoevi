@@ -1,13 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using BehaviorDesigner.Runtime.Tasks.Movement;
-using BehaviorDesigner.Runtime.Tasks.Unity.UnityString;
 using SpookuleleAudio;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
-using Yarn.Compiler;
 using Random = UnityEngine.Random;
 
 public class Crop : Interactable {

@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class CameraShake : MonoBehaviour {
     // components
