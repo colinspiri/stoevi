@@ -793,6 +793,11 @@ MonoBehaviour:
   Preset: {fileID: 11400000, guid: c92c3f473501cba4784364ca5d58511a, type: 2}
   timeOfDay: {fileID: 11400000, guid: d3c088879691b0344b62ed8e5b4c3373, type: 2}
   TimePercent: 0
+  lightningEnabled: 0
+  minLightningTime: 2
+  maxLightningTime: 5
+  lightningDuration: 0.5
+  lightningColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1473746514
 GameObject:
   m_ObjectHideFlags: 0

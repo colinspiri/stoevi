@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [ExecuteAlways]
@@ -7,26 +8,62 @@ public class LightManager : MonoBehaviour {
     private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
 
-    // state
+    // time of day
     [SerializeField] private TimeOfDay timeOfDay;
     [SerializeField, Range(0, 1)] private float TimePercent;
 
+    // lightning
+    [Header("Lightning")] 
+    public bool lightningEnabled;
+    public float minLightningTime;
+    public float maxLightningTime;
+    public float lightningDuration;
+    public Color lightningColor;
+    private bool flashing;
+    private float lightningTimer;
+
     private void Start() {
         TryGetComponents();
+        
+        lightningTimer = Random.Range(minLightningTime, maxLightningTime);
     }
 
     // Update is called once per frame
     void Update() {
         if (Preset == null) return;
 
+        if(Application.isPlaying) {
+            if (!flashing) {
+                UpdateLighting(timeOfDay ? timeOfDay.GetTimePercent() : TimePercent);
+            }
+
+            // lightning
+            if (lightningEnabled) {
+                lightningTimer -= Time.deltaTime;
+                if (lightningTimer <= 0) {
+                    StartCoroutine(FlashColor(lightningColor));
+                    lightningTimer = Random.Range(minLightningTime, maxLightningTime);
+                }
+            }
+        }
         // update lighting in editor
-        if (!Application.isPlaying) {
+        else {
             UpdateLighting(TimePercent);
         }
-        else {
-            if(timeOfDay) UpdateLighting(timeOfDay.GetTimePercent());
-            else UpdateLighting(TimePercent);
+    }
+
+    private IEnumerator FlashColor(Color color) {
+        flashing = true;
+
+        // RenderSettings.ambientLight = color;
+        RenderSettings.fogColor = color;
+        if (Camera != null) {
+            Camera.backgroundColor = color;
         }
+
+        yield return new WaitForSeconds(lightningDuration);
+        
+        flashing = false;
     }
 
     private void UpdateLighting(float timePercent) {
