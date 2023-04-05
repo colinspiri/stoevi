@@ -15,7 +15,7 @@ MonoBehaviour:
   AmbientColor:
     serializedVersion: 2
     key0: {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
-    key1: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 0.6698113, g: 0.2506526, b: 0.2506526, a: 1}
     key2: {r: 1, g: 0, b: 0, a: 0}
     key3: {r: 0.24313726, g: 0.3137255, b: 0.8784314, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
