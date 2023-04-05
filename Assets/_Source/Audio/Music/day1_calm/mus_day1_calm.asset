@@ -1,0 +1,235 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9138948483540398516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: calm7
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 1
+  AudioGroup: {fileID: 7930902516760894136, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: cee8c28a281ffcb4490dd58216537f8d, type: 3}
+--- !u!114 &-2354098784522081483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: calm5
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 1
+  AudioGroup: {fileID: 7930902516760894136, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: 84a7eeceda6af884f9581981332c8a86, type: 3}
+--- !u!114 &-1167707650955033085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: calm1
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 1
+  AudioGroup: {fileID: 7930902516760894136, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: 5d3c4d870a10ff24abc95f7f3aa9735c, type: 3}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 258db2a15eac23144931cc00dfc516e4, type: 3}
+  m_Name: mus_day1_calm
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 1
+  AudioGroup: {fileID: 7930902516760894136, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 0}
+  PreviewStartTime: 0
+  SoundContainers:
+  - {fileID: -1167707650955033085}
+  - {fileID: 691217851468269844}
+  - {fileID: 3610007423003993518}
+  - {fileID: 5212145603016181369}
+  - {fileID: -2354098784522081483}
+  - {fileID: 4605271909007070936}
+  - {fileID: -9138948483540398516}
+  - {fileID: 7790881455072527736}
+--- !u!114 &691217851468269844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: calm2
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 1
+  AudioGroup: {fileID: 7930902516760894136, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: 744d120e1f6af2a45b1a7dcf8b764d6b, type: 3}
+--- !u!114 &3610007423003993518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: calm3
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 1
+  AudioGroup: {fileID: 7930902516760894136, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: 607b0cdad897b034ea2d6fa425524cac, type: 3}
+--- !u!114 &4605271909007070936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: calm6
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 1
+  AudioGroup: {fileID: 7930902516760894136, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: 94673f19f4eb55b40bb0f895ea317791, type: 3}
+--- !u!114 &5212145603016181369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: calm4
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 1
+  AudioGroup: {fileID: 7930902516760894136, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: f3a410a13feeb7d498ae6abee6c621f0, type: 3}
+--- !u!114 &7790881455072527736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771e944d98fe9c841b1bd65ae0e7094e, type: 3}
+  m_Name: calm8
+  m_EditorClassIdentifier: 
+  PitchRangeEnabled: 0
+  PitchRange: {x: 1, y: 1}
+  VolumeRangeEnabled: 0
+  VolumeRange: {x: 1, y: 1}
+  AudioGroupEnabled: 1
+  AudioGroup: {fileID: 7930902516760894136, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
+  LoopingEnabled: 0
+  LoopBounds: {x: 0, y: 0}
+  LoopCount: 0
+  IgnoreListenerPause: 0
+  ParentContainer: {fileID: 11400000}
+  PreviewStartTime: 0
+  AudioClip: {fileID: 8300000, guid: fe9924bb78b9d814c98ba195b499a03a, type: 3}

@@ -158,7 +158,7 @@ MonoBehaviour:
   - Day2Elena
   - Day2Germany
   - Day2Weeds
-  distanceThreshold: 75
+  distanceThreshold: 70
   minWaitTime: 10
   maxWaitTime: 20
 --- !u!4 &337539688
