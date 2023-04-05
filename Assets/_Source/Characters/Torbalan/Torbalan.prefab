@@ -176,10 +176,10 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 69474ae2da2567b4ca7d56037c4daf59, type: 2}
-  minBrightness: 20
-  maxBrightness: 80
-  minConeOpacity: 0.05
-  maxConeOpacity: 0.8
+  minBrightness: 5
+  maxBrightness: 60
+  minConeOpacity: 0.2
+  maxConeOpacity: 0.9
 --- !u!1 &789039114618768132
 GameObject:
   m_ObjectHideFlags: 0

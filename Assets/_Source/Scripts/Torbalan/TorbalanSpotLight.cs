@@ -43,8 +43,8 @@ public class TorbalanSpotLight : MonoBehaviour {
         }
         else {
             color = Color.yellow;
-            brightness = 0;
-            coneOpacity = 0;
+            brightness = minBrightness;
+            coneOpacity = minConeOpacity;
         }
         light.color = color;
         light.intensity = brightness;
