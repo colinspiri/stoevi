@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02fae89fde1247e5a3a3060dcb3ed9e2, type: 3}
-  m_Name: Fertilizer
+  m_Script: {fileID: 11500000, guid: cfab3141d8d444239e7fa3e6868fd6ad, type: 3}
+  m_Name: Batteries
   m_EditorClassIdentifier: 
-  itemName: fertilizer
-  pickupPrefab: {fileID: 1433479246987159136, guid: bbc628e78fbd4e24797aba1a744dc2b6, type: 3}
-  speedModifier: 1
+  DeveloperDescription: current number of batteries
+  Value: 1

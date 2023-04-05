@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfab3141d8d444239e7fa3e6868fd6ad, type: 3}
-  m_Name: PlayerTomatoes
+  m_Script: {fileID: 11500000, guid: 0711bdb611494bb43ba386f659e837ab, type: 3}
+  m_Name: Fertilizer_ShopItem
   m_EditorClassIdentifier: 
-  DeveloperDescription: 
-  Value: 5
+  itemName: fertilizer
+  price: 20

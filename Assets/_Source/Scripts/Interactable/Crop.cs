@@ -21,7 +21,6 @@ public class Crop : Interactable {
     public IntVariable currentWater;
     public IntVariable playerTomatoes;
     public HeldItem heldItem;
-    public Item fertilizer;
     public GameEvent onHarvest;
 
     // state
@@ -64,7 +63,7 @@ public class Crop : Interactable {
         if (stage == GrowthStage.Ripe) return true;
         
         // fertilize
-        if (soil != null && !soil.fertilized && heldItem.heldItem == fertilizer) return true;
+        if (soil != null && !soil.fertilized) return true;
         
         // DEBUG: shorten growth timer
         #if true && UNITY_EDITOR
@@ -144,7 +143,7 @@ public class Crop : Interactable {
             return;
         }
         // fertilize
-        if (soil != null && !soil.fertilized && heldItem.heldItem == fertilizer) {
+        if (soil != null && !soil.fertilized) {
             soil.Fertilize();
             return;
         }
@@ -165,7 +164,7 @@ public class Crop : Interactable {
             crop_water.Play3D(transform);
         }
         // fertilize
-        else if (soil != null && !soil.fertilized && heldItem.heldItem == fertilizer) {
+        else if (soil != null && !soil.fertilized) {
             crop_fertilize.Play3D(transform);
         }
         // harvest or dig up bare
@@ -310,7 +309,7 @@ public class Crop : Interactable {
             return "hold " + GetInteractButton() + " to harvest tomato";
         }
         // fertilize
-        else if (soil != null && !soil.fertilized && heldItem.heldItem == fertilizer) {
+        else if (soil != null && !soil.fertilized) {
             return "hold " + GetInteractButton() + " to fertilize";
         }
         return "";

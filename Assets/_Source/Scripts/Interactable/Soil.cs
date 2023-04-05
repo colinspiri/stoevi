@@ -12,7 +12,6 @@ public class Soil : Interactable {
     
     // constants
     public FarmingConstants farmingConstants;
-    public Item fertilizer;
     public IntVariable seeds;
 
     // state
@@ -25,24 +24,16 @@ public class Soil : Interactable {
     }
 
     public override bool IsInteractable() {
-        // player holding fertilizer
-        if (heldItem.heldItem == fertilizer) {
-            return !fertilized;
-        }
         // can plant crops
-        else if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
+        if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
             return true;
         }
         return false;
     }
 
     public override void Interact() {
-        // player holding fertilizer
-        if (heldItem.heldItem == fertilizer) {
-            if(!fertilized) Fertilize();
-        }
         // plant crops
-        else if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
+        if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
             var lookPosition = CameraRaycast.Instance.GetCurrentInteractableHitPosition();
             SpawnCrop(lookPosition);
             
@@ -62,12 +53,12 @@ public class Soil : Interactable {
     public override void OnStartInteracting() {
         base.OnStartInteracting();
         
-        // fertilizing
-        if (!fertilized && heldItem.heldItem == fertilizer) {
+        /*// fertilizing
+        if (!fertilized) {
             crop_fertilize.Play3D(transform);
-        }
+        }*/
         // planting crops
-        else if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
+        if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
             crop_plant.Play3D(transform);
         }
     }
@@ -96,12 +87,12 @@ public class Soil : Interactable {
 
     public override string GetButtonPrompt() {
         // fertilize
-        if(heldItem.heldItem == fertilizer) {
+        /*if() {
             if(fertilized) return "already fertilized";
             return "hold " + GetInteractButton() + " to fertilize";
-        }
+        }*/
         // plant 
-        else if (seeds.Value <= 0) {
+        if (seeds.Value <= 0) {
             return "out of seeds";
         }
         else if (crops.Count < farmingConstants.maxCrops) {
