@@ -14,23 +14,16 @@ public class SkipCutscene : MonoBehaviour {
     public bool canSkip;
 
     private void Start() {
-        string cutsceneName = SceneManager.GetActiveScene().name;
-        int playedAlready = PlayerPrefs.GetInt(cutsceneName, 0);
-        if (playedAlready == 0) {
-            canSkip = false;
-            PlayerPrefs.SetInt(cutsceneName, 1);
-        }
-        else if(playedAlready == 1) {
-            canSkip = true;
-        }
-        
-        // enable/disable UI prompt
-        skipPrompt.SetActive(canSkip);
+        skipPrompt.SetActive(false);
     }
 
     private void Update() {
-        if (canSkip && Keyboard.current.anyKey.wasPressedThisFrame) {
-            Skip();
+        if (Keyboard.current.anyKey.wasPressedThisFrame) {
+            if (canSkip) Skip();
+            else {
+                canSkip = true;
+                skipPrompt.SetActive(true);
+            }
         }
     }
 

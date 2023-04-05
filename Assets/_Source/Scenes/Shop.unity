@@ -251,7 +251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1737569140063103630, guid: 684ec8f3d149e49d5ae643f4650075c8, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1737569140063103630, guid: 684ec8f3d149e49d5ae643f4650075c8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2441,6 +2441,11 @@ MonoBehaviour:
   Preset: {fileID: 11400000, guid: c3d9c746094a7404b9c394124bd25a74, type: 2}
   timeOfDay: {fileID: 0}
   TimePercent: 0
+  lightningEnabled: 0
+  minLightningTime: 0
+  maxLightningTime: 0
+  lightningDuration: 0
+  lightningColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1707581519
 Transform:
   m_ObjectHideFlags: 0
@@ -3214,6 +3219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 2080387502}
+  modifier: -1
 --- !u!1001 &1558430404606216820
 PrefabInstance:
   m_ObjectHideFlags: 0

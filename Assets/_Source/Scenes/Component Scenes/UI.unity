@@ -2655,8 +2655,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1720d42a6cfae459ef3d2afeb43bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeOfDay_Day1: {fileID: 11400000, guid: d3c088879691b0344b62ed8e5b4c3373, type: 2}
-  timeOfDay_Day2: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  timeOfDays:
+  - {fileID: 11400000, guid: d3c088879691b0344b62ed8e5b4c3373, type: 2}
+  - {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
+  - {fileID: 11400000, guid: e8aece26a0a64c842af1cdb99fce04cb, type: 2}
+  - {fileID: 11400000, guid: a25816872c982a04fb3bee64055dc8ac, type: 2}
+  - {fileID: 11400000, guid: fab5b1d5fe9023441adb0c9b4234e1f1, type: 2}
 --- !u!1 &1107441611
 GameObject:
   m_ObjectHideFlags: 0

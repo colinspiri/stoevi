@@ -21,6 +21,17 @@ MonoBehaviour:
   day2Scene:
     sceneAsset: {fileID: 102900000, guid: 8177ba1438c10794697df8015df5e37e, type: 3}
     scenePath: Assets/_Source/Scenes/Day2.unity
+  dayScenes:
+  - sceneAsset: {fileID: 102900000, guid: b2f0725004145404eb4513d60ac70066, type: 3}
+    scenePath: Assets/_Source/Scenes/Day1.unity
+  - sceneAsset: {fileID: 102900000, guid: 8177ba1438c10794697df8015df5e37e, type: 3}
+    scenePath: Assets/_Source/Scenes/Day2.unity
+  - sceneAsset: {fileID: 102900000, guid: e59eee17cbed1b64595bd84eec2c2a15, type: 3}
+    scenePath: Assets/_Source/Scenes/Day3.unity
+  - sceneAsset: {fileID: 102900000, guid: cf3e9eac0e867da4fb22036400dae8cb, type: 3}
+    scenePath: Assets/_Source/Scenes/Day4.unity
+  - sceneAsset: {fileID: 102900000, guid: cfd48abd920d13e46bd9ae6d44ee4a8f, type: 3}
+    scenePath: Assets/_Source/Scenes/Day5.unity
   mainMenuScene:
     sceneAsset: {fileID: 102900000, guid: 6dd513305e2b80642a43c3ad87d60f9e, type: 3}
     scenePath: Assets/_Source/Scenes/MainMenu.unity

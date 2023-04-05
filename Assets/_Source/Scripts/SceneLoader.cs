@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "SceneLoader", menuName = "SceneLoader", order = 0)]
@@ -6,6 +7,7 @@ public class SceneLoader : ScriptableObject {
     public SceneReference introCutscene;
     public SceneReference day1Scene;
     public SceneReference day2Scene;
+    public List<SceneReference> dayScenes;
     public SceneReference mainMenuScene;
     public SceneReference shopScene;
     public SceneReference cutsceneScene;
@@ -19,13 +21,10 @@ public class SceneLoader : ScriptableObject {
     public void LoadCurrentDay() {
         Time.timeScale = 1;
         int currentDay = PlayerPrefs.GetInt("CurrentDay", 1);
+        int index = currentDay - 1;
+        if (index >= dayScenes.Count) index = dayScenes.Count - 1;
 
-        if (currentDay == 1) {
-            SceneManager.LoadScene(day1Scene.ScenePath);
-        }
-        else {
-            SceneManager.LoadScene(day2Scene.ScenePath);
-        }
+        SceneManager.LoadScene(dayScenes[index].ScenePath);
     }
 
     public void LoadShop() {

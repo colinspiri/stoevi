@@ -1,11 +1,11 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class DateTimeText : MonoBehaviour {
     private TextMeshProUGUI text;
 
-    public TimeOfDay timeOfDay_Day1;
-    public TimeOfDay timeOfDay_Day2;
+    public List<TimeOfDay> timeOfDays;
 
     private void Awake() {
         text = GetComponent<TextMeshProUGUI>();
@@ -14,9 +14,9 @@ public class DateTimeText : MonoBehaviour {
     private void Update() {
         // get correct timeOfDay
         int currentDay = PlayerPrefs.GetInt("CurrentDay", 1);
-        TimeOfDay timeOfDay = timeOfDay_Day1;
-        if (currentDay == 1) timeOfDay = timeOfDay_Day1;
-        else timeOfDay = timeOfDay_Day2;
+        int index = currentDay - 1;
+        if (index >= timeOfDays.Count) index = timeOfDays.Count - 1;
+        TimeOfDay timeOfDay = timeOfDays[index];
         
         // format text
         string uiText = "Day " + currentDay;

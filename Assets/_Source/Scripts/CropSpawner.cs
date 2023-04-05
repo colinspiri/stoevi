@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
+using Random = UnityEngine.Random;
 
 public class CropSpawner : MonoBehaviour {
     // constants
@@ -9,7 +11,7 @@ public class CropSpawner : MonoBehaviour {
     // components
     public List<SoilData> allSoilData;
 
-    void Awake() {
+    private void Start() {
         int day = PlayerPrefs.GetInt("CurrentDay", 1);
         if (day == 1) {
             ClearAllSoilData();
