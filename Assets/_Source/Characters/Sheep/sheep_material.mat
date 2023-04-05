@@ -105,7 +105,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _Unlit: 0
-    - _VertexInaccuracy: 20
+    - _VertexInaccuracy: -1
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}

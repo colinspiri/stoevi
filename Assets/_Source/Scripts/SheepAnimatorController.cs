@@ -34,7 +34,10 @@ public class SheepAnimatorController : MonoBehaviour {
     }
 
     public void Bleat() {
-        animator.SetTrigger("bleat");
         bleat.Play3D(transform);
+
+        if (animator.GetBool("walking") == false && animator.GetBool("running") == false) {
+            animator.SetTrigger("bleat");
+        }
     }
 }

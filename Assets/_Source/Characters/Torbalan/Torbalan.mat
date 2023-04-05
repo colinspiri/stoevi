@@ -135,7 +135,7 @@ Material:
     - _Surface: 0
     - _UVSec: 0
     - _Unlit: 0
-    - _VertexInaccuracy: 20
+    - _VertexInaccuracy: 30
     - _WorkflowMode: 0
     - _ZWrite: 1
     m_Colors:
