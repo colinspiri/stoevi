@@ -79,7 +79,7 @@ Transform:
   m_GameObject: {fileID: 7603266987921784218}
   m_LocalRotation: {x: -0, y: -0, z: -0.026016807, w: 0.9996615}
   m_LocalPosition: {x: 18.299995, y: 4.7222176, z: 0.9500122}
-  m_LocalScale: {x: 5.8533483, y: 1.5, z: 6.957741}
+  m_LocalScale: {x: 2, y: 1.7, z: 2}
   m_Children:
   - {fileID: 2402667733861981639}
   m_Father: {fileID: 0}
@@ -100,7 +100,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7603266987921784218}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
   type: 1
+  playerInside: 0
 --- !u!114 &8018839745192154857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,5 +215,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interiorWallPrefab: {fileID: 1642986201645481353, guid: 18b020bf07dc3b1469a3169a98b4f792, type: 3}
-  interiorWallDistance: 1.5
-  interiors: []
+  interiorWallDistance: 1
