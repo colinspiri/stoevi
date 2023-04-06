@@ -1,5 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
+using SpookuleleAudio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,8 +16,8 @@ public class IntroCutscene : MonoBehaviour {
     public GameObject titleText;
 
     [Header("Credits")]
-    public CanvasGroup creditsPanel;
-    
+    public List<CanvasGroup> creditsPanels;
+
     [Header("Setting")]
     public GameObject settingPanel;
     public TextMeshProUGUI bulgariaText;
@@ -25,6 +27,11 @@ public class IntroCutscene : MonoBehaviour {
 
     [Header("Scenes")]
     public SceneReference day1Scene;
+    
+    [Header("Audio")]
+    public AudioSource ambience_day;
+    public float fadeInTime;
+    public ASoundContainer ui_play;
 
     // Start is called before the first frame update
     void Start()
@@ -32,8 +39,12 @@ public class IntroCutscene : MonoBehaviour {
         titlePanel.gameObject.SetActive(true);
         titleText.SetActive(false);
 
-        creditsPanel.gameObject.SetActive(false);
-        creditsPanel.alpha = 0;
+        /*credits1Panel.gameObject.SetActive(false);
+        credits1Panel.alpha = 0;*/
+        foreach (var creditsPanel in creditsPanels) {
+            creditsPanel.gameObject.SetActive(false);
+            creditsPanel.alpha = 0;
+        }
 
         settingPanel.SetActive(false);
         bulgariaText.alpha = 0;
@@ -49,6 +60,7 @@ public class IntroCutscene : MonoBehaviour {
 
         // title
         titleText.SetActive(true);
+        ui_play.Play();
         AudioManager.Instance.PlayIntroCutsceneMusic();
 
         yield return new WaitForSeconds(2);
@@ -58,19 +70,31 @@ public class IntroCutscene : MonoBehaviour {
         titlePanel.gameObject.SetActive(false);
         
         // credits
-        creditsPanel.gameObject.SetActive(true);
+        foreach (var creditsPanel in creditsPanels) {
+            creditsPanel.gameObject.SetActive(true);
+            creditsPanel.DOFade(1, fadeTime);
 
-        creditsPanel.DOFade(1, fadeTime);
+            yield return new WaitForSeconds(3);
+
+            Tween _creditsPanelTween = creditsPanel.DOFade(0, fadeTime);
+            yield return _creditsPanelTween.WaitForCompletion();
+            creditsPanel.gameObject.SetActive(false);
+        }
+        /*credits1Panel.gameObject.SetActive(true);
+
+        credits1Panel.DOFade(1, fadeTime);
 
         yield return new WaitForSeconds(3);
 
-        Tween creditsPanelTween = creditsPanel.DOFade(0, fadeTime);
+        Tween creditsPanelTween = credits1Panel.DOFade(0, fadeTime);
         yield return creditsPanelTween.WaitForCompletion();
-        creditsPanel.gameObject.SetActive(false);
+        credits1Panel.gameObject.SetActive(false);*/
         
         // setting
         settingPanel.SetActive(true);
-        AudioManager.Instance.PlayDayAmbience();
+        ambience_day.Play();
+        ambience_day.volume = 0;
+        ambience_day.DOFade(1, fadeInTime);
 
         Tween bulgariaTween = bulgariaText.DOFade(1, fadeTime);
         yield return bulgariaTween.WaitForCompletion();

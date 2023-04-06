@@ -28,8 +28,6 @@ public class SkipCutscene : MonoBehaviour {
     }
 
     private void Skip() {
-        AudioManager.Instance.StopIntroCutsceneMusic();
-
         if (callEvent) {
             nextEvent.Invoke();
         }
