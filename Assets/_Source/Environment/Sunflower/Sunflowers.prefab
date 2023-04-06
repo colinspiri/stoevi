@@ -79,12 +79,12 @@ Transform:
   m_GameObject: {fileID: 9061780796740596484}
   m_LocalRotation: {x: -0, y: -0, z: -0.00084143097, w: 0.99999964}
   m_LocalPosition: {x: 0.8, y: 5.95, z: 8.3}
-  m_LocalScale: {x: 14.051444, y: 3.5, z: 6.9279}
+  m_LocalScale: {x: 6, y: 3.5, z: 6}
   m_Children:
   - {fileID: 4179307479395227301}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.775}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.963}
 --- !u!33 &9061780796740596487
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -100,7 +100,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9061780796740596484}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
   type: 1
+  playerInside: 0
 --- !u!114 &6992611028650446744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,4 +216,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interiorWallPrefab: {fileID: 1642986201645481353, guid: 304b5637b5b91c54b91beca4cb99ec92, type: 3}
   interiorWallDistance: 3
-  interiors: []

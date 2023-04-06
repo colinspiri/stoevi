@@ -29,7 +29,7 @@ public class PlantInteriorEditor : Editor
         plantInterior.DestroyAllInteriors();
 
         Bounds bounds = plantInterior.GetComponent<Renderer>().bounds;
-        float borderWallOffset = 0.35f;
+        float borderWallOffset = 0f;
         
         // along X
         float startingX = plantInterior.transform.position.x - bounds.extents.x + borderWallOffset;
