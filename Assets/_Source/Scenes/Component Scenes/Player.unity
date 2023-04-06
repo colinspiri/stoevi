@@ -159,7 +159,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -229,12 +229,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77be237dc6e1cac43a52fcfee4571e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followObject: {fileID: 1730259098}
   sfx_flashlight_on: {fileID: 11400000, guid: 210da67414b431e41a94fbb7752d2422, type: 2}
   sfx_flashlight_off: {fileID: 11400000, guid: cb24185f70630e140afae38e2654617a, type: 2}
+  followObject: {fileID: 1730259098}
   lerpSpeed: 5
-  minFlickerTime: 30
-  maxFlickerTime: 90
+  fullBatteryTime:
+    UseConstant: 1
+    ConstantValue: 90
+    Variable: {fileID: 0}
+  batteryPercent: {fileID: 11400000, guid: 084a5843c99fc9f4e89a543e3b093a80, type: 2}
+  additionalBatteries: {fileID: 11400000, guid: a368df9e29888be48b060678c31cf4f8, type: 2}
+  flickerBatteryPercent: 0.6
+  minFlickerTime: 5
+  maxFlickerTime: 10
+  lowBatteryPercent: 0.25
+  lowBatteryMultiplier: 0.5
   minFlickerDelay: 0.05
   maxFlickerDelay: 0.5
   flickerOnTime: 0.05
