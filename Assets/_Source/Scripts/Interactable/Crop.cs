@@ -20,7 +20,6 @@ public class Crop : Interactable {
     public IntVariable seeds;
     public IntVariable currentWater;
     public IntVariable playerTomatoes;
-    public HeldItem heldItem;
     public GameEvent onHarvest;
 
     // state
@@ -46,35 +45,7 @@ public class Crop : Interactable {
         health = Health.Fair;
         ChangeCropStage(stage);
     }
-
-    public override bool IsInteractable() {
-        // can be removed
-        if (stage == GrowthStage.Bare || health == Health.Dead) return true;
-        
-        // can be watered
-        if (state == State.NeedsWater && currentWater.Value > 0 &&
-            (stage == GrowthStage.Sprout ||
-             stage == GrowthStage.Intermediate ||
-             stage == GrowthStage.Unripe)) {
-            return true;
-        }
-
-        // can be harvested
-        if (stage == GrowthStage.Ripe) return true;
-        
-        // fertilize
-        if (soil != null && !soil.fertilized) return true;
-        
-        // DEBUG: shorten growth timer
-        #if true && UNITY_EDITOR
-        if (state == State.Growing) {
-            return true;
-        }
-        #endif
-
-        return false;
-    }
-
+    
     private void Update() {
         // growth timer
         if (state == State.Growing) {
@@ -104,24 +75,33 @@ public class Crop : Interactable {
         }
     }
 
-    public void Fertilize() {
-        // reduce grow timer
-        if (state == State.Growing) {
-            float reductionProportion = (farmingConstants.baseGrowthTime - farmingConstants.fertilizedGrowthTime) / farmingConstants.baseGrowthTime;
-            growthTimer -= growthTimer * reductionProportion;
+
+    public override bool IsInteractablePrimary() {
+        // can be removed
+        if (stage == GrowthStage.Bare || health == Health.Dead) return true;
+        
+        // can be watered
+        if (state == State.NeedsWater && currentWater.Value > 0 &&
+            (stage == GrowthStage.Sprout ||
+             stage == GrowthStage.Intermediate ||
+             stage == GrowthStage.Unripe)) {
+            return true;
         }
 
-        // increase health
-        health = health switch {
-            Health.Dead => Health.Dead,
-            Health.Wilted => Health.Fair,
-            Health.Fair => Health.Great,
-        };
-        
-        textureManager.UpdateTextures(stage, state, health);
+        // can be harvested
+        if (stage == GrowthStage.Ripe) return true;
+
+        // DEBUG: shorten growth timer
+        #if true && UNITY_EDITOR
+        if (state == State.Growing) {
+            return true;
+        }
+        #endif
+
+        return false;
     }
 
-    public override void Interact() {
+    public override void InteractPrimary() {
         // can be removed
         if (stage == GrowthStage.Bare || health == Health.Dead) {
             seeds.ApplyChange(1);
@@ -142,11 +122,6 @@ public class Crop : Interactable {
             Water();
             return;
         }
-        // fertilize
-        if (soil != null && !soil.fertilized) {
-            soil.Fertilize();
-            return;
-        }
         // DEBUG: shorten growth timer
         #if true && UNITY_EDITOR
         if (state == State.Growing) {
@@ -155,22 +130,62 @@ public class Crop : Interactable {
         }
         #endif
     }
-    
-    public override void OnStartInteracting() {
-        base.OnStartInteracting();
+
+    public override void OnStartInteractingPrimary() {
+        base.OnStartInteractingPrimary();
         
         // if starting to water
         if (state == State.NeedsWater && currentWater.Value > 0) {
             crop_water.Play3D(transform);
         }
-        // fertilize
-        else if (soil != null && !soil.fertilized) {
-            crop_fertilize.Play3D(transform);
-        }
         // harvest or dig up bare
         else if (stage == GrowthStage.Ripe || stage == GrowthStage.Bare || health == Health.Dead) {
             crop_harvest.Play3D(transform);
         }
+    }
+
+    public override bool IsInteractableSecondary() {
+        // fertilize
+        // TODO: check if player has fertilizer
+        if (soil != null && !soil.fertilized) return true;
+
+        return false;
+    }
+
+    public override void InteractSecondary() {
+        base.InteractSecondary();
+        
+        // fertilize
+        if (soil != null && !soil.fertilized) {
+            soil.Fertilize();
+            return;
+        }
+    }
+
+    public override void OnStartInteractingSecondary() {
+        base.OnStartInteractingSecondary();
+        
+        // fertilize
+        if (soil != null && !soil.fertilized) {
+            crop_fertilize.Play3D(transform);
+        }
+    }
+
+    public void Fertilize() {
+        // reduce grow timer
+        if (state == State.Growing) {
+            float reductionProportion = (farmingConstants.baseGrowthTime - farmingConstants.fertilizedGrowthTime) / farmingConstants.baseGrowthTime;
+            growthTimer -= growthTimer * reductionProportion;
+        }
+
+        // increase health
+        health = health switch {
+            Health.Dead => Health.Dead,
+            Health.Wilted => Health.Fair,
+            Health.Fair => Health.Great,
+        };
+        
+        textureManager.UpdateTextures(stage, state, health);
     }
 
     private void Water() {
@@ -238,8 +253,7 @@ public class Crop : Interactable {
     public void Destroy() {
         ChangeCropStage(GrowthStage.Bare);
     }
-
-
+    
     public void AdvanceToNextDay() {
         
     }
@@ -298,20 +312,24 @@ public class Crop : Interactable {
         return "";
     }
 
-    public override string GetButtonPrompt() {
+    public override string GetButtonPromptPrimary() {
         if (stage == GrowthStage.Bare || health == Health.Dead) {
-            return "hold " + GetInteractButton() + " to dig up";
+            return "hold " + GetInteractPrimaryButton() + " to dig up";
         }
         else if (state == State.NeedsWater) {
-            return currentWater.Value <= 0 ? "out of water" : "hold " + GetInteractButton() + " to water";
+            return currentWater.Value <= 0 ? "out of water" : "hold " + GetInteractPrimaryButton() + " to water";
         }
         else if (stage == GrowthStage.Ripe) {
-            return "hold " + GetInteractButton() + " to harvest tomato";
+            return "hold " + GetInteractPrimaryButton() + " to harvest tomato";
         }
-        // fertilize
-        else if (soil != null && !soil.fertilized) {
-            return "hold " + GetInteractButton() + " to fertilize";
+        return "";
+    }
+
+    public override string GetButtonPromptSecondary() {
+        if (soil != null && !soil.fertilized) {
+            return "hold " + GetInteractSecondaryButton() + " to fertilize";
         }
+
         return "";
     }
 

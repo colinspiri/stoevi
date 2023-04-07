@@ -1,7 +1,7 @@
 
 public class Gate : Interactable {
     
-    public override void Interact() {
+    public override void InteractPrimary() {
         GameManager.Instance.GameOver(true);
     }
 
@@ -13,7 +13,7 @@ public class Gate : Interactable {
         return "";
     }
 
-    public override string GetButtonPrompt() {
-        return "hold " + GetInteractButton() + " to go home";
+    public override string GetButtonPromptPrimary() {
+        return "hold " + GetInteractPrimaryButton() + " to go home";
     }
 }

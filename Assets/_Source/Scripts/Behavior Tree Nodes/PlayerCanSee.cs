@@ -15,7 +15,7 @@ public class PlayerCanSee : Conditional {
         float angle = Vector3.Angle(FirstPersonMovement.Instance.transform.forward, directionToTarget);
         bool withinView = angle < maxAngle.Value / 2;
         
-        Debug.Log("angle = " + angle);
+        // Debug.Log("angle = " + angle);
 
         return withinView ? TaskStatus.Success : TaskStatus.Failure;
     }

@@ -15,7 +15,6 @@ public class FirstPersonMovement : MonoBehaviour
 	public PlayerInput playerInput;
 	private CharacterController controller;
 	private InputActions inputActions;
-	public HeldItem heldItem;
 	#endregion
 	
 	#region Public Constants
@@ -201,10 +200,6 @@ public class FirstPersonMovement : MonoBehaviour
 		else {
 			targetSpeed = walkSpeed;
 			moveState = MoveState.Walking;
-		}
-		// modify target speed by held item modifier
-		if (heldItem.HoldingItem()) {
-			targetSpeed *= heldItem.heldItem.speedModifier;
 		}
 		// modify target speed if moving backward
 		if (move.y < 0) {

@@ -49,7 +49,7 @@ public class Sheep : Interactable {
         return angle < playerFacingAngle;
     }
 
-    public override void Interact() {
+    public override void InteractPrimary() {
         sheep_hit.Play3D(transform);
         CameraShake.Instance.Shake();
         
@@ -77,8 +77,8 @@ public class Sheep : Interactable {
         return "";
     }
 
-    public override string GetButtonPrompt() {
-        return GetInteractButton() + " to hit sheep";
+    public override string GetButtonPromptPrimary() {
+        return GetInteractPrimaryButton() + " to hit sheep";
     }
 
     protected void OnDestroy() {

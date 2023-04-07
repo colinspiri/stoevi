@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Flashlight_AdditionalBatteries
   m_EditorClassIdentifier: 
   DeveloperDescription: current number of additional batteries
-  Value: 8
+  Value: 2

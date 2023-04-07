@@ -15,8 +15,10 @@ public class InputHandler : MonoBehaviour {
     
     public bool peek;
     
-    public bool interact;
-    public static event Action OnInteractPressed = delegate { };
+    public bool interactPrimary;
+    public bool interactSecondary;
+    public static event Action OnInteractPrimaryPressed = delegate { };
+    public static event Action OnInteractSecondaryPressed = delegate { };
 
     [Header("Movement Settings")]
     public bool analogMovement;
@@ -69,13 +71,21 @@ public class InputHandler : MonoBehaviour {
         peek = value.isPressed;
     }
     
-    public void OnInteract(InputValue value) {
-        interact = value.isPressed;
+    public void OnInteractPrimary(InputValue value) {
+        interactPrimary = value.isPressed;
         
-        if (interact && !GameManager.Instance.gameStopped) OnInteractPressed();
+        if (interactPrimary && !GameManager.Instance.gameStopped) OnInteractPrimaryPressed();
+    }
+    public void OnInteractSecondary(InputValue value) {
+        interactSecondary = value.isPressed;
+
+        if (interactSecondary && !GameManager.Instance.gameStopped) {
+            OnInteractSecondaryPressed();
+        }
     }
     public void ResetInteractInput() {
-        interact = false;
+        interactPrimary = false;
+        interactSecondary = false;
     }
 
     public void OnToggleDebug(InputValue value) {

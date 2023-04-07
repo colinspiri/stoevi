@@ -4,12 +4,10 @@ using UnityEngine.UI;
 
 public class InteractableUI : MonoBehaviour {
     // components
-    public HeldItem heldItem;
     
     [Header("Object Info")]
     public GameObject objectInfo;
     public TextMeshProUGUI objectName;
-    // public GameObject objectInfoLine;
     public TextMeshProUGUI objectDescription;
     
     [Header("Progress Slider")]
@@ -41,12 +39,7 @@ public class InteractableUI : MonoBehaviour {
         switch (InteractableManager.Instance.interactionState)
         {
             case InteractableManager.InteractionState.None:
-                if (heldItem.HoldingItem()) {
-                    ShowHeldItem();
-                }
-                else {
-                    HideInteractableUI();
-                }
+                HideInteractableUI();
                 break;
             case InteractableManager.InteractionState.Selecting:
                 ShowSelectedObject();
@@ -66,13 +59,6 @@ public class InteractableUI : MonoBehaviour {
         timerPanel.gameObject.SetActive(false);
     }
 
-    private void ShowHeldItem() {
-        objectInfo.SetActive(false);
-        progressSlider.value = 0;
-        buttonPrompt.gameObject.SetActive(true);
-        buttonPrompt.text = Interactable.GetDropButton() + " to drop " + heldItem.heldItem.itemName;
-    }
-
     private void ShowSelectedObject() {
         var selectedObject = InteractableManager.Instance.selectedObject;
         
@@ -81,8 +67,10 @@ public class InteractableUI : MonoBehaviour {
         progressSlider.value = 0;
 
         buttonPrompt.gameObject.SetActive(true);
-        buttonPrompt.text = selectedObject.GetButtonPrompt();
         buttonPrompt.alpha = 1;
+        buttonPrompt.text = selectedObject.GetButtonPromptPrimary();
+        string secondary = selectedObject.GetButtonPromptSecondary();
+        if (!secondary.Equals("")) buttonPrompt.text += "\n" + secondary;
         
         ShowTimer(selectedObject);
     }
@@ -95,8 +83,10 @@ public class InteractableUI : MonoBehaviour {
         progressSlider.value = InteractableManager.Instance.GetInteractingFloat();
 
         buttonPrompt.gameObject.SetActive(true);
-        buttonPrompt.text = selectedObject.GetButtonPrompt();
         buttonPrompt.alpha = 0.5f;
+        buttonPrompt.text = selectedObject.GetButtonPromptPrimary();
+        string secondary = selectedObject.GetButtonPromptSecondary();
+        if (!secondary.Equals("")) buttonPrompt.text += "\n" + secondary;
         
         ShowTimer(selectedObject);
     }

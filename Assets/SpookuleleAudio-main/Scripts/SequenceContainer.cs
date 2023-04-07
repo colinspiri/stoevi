@@ -11,13 +11,9 @@ namespace SpookuleleAudio
         public override SoundClip GetSoundClip()
         {
             int index = mLastPlayedIndex + 1;
-            Debug.Log("last played was " + mLastPlayedIndex);
-
             if (index >= SoundContainers.Count || index < 0)
                 index = 0;
             
-            Debug.Log("playing " + index);
-
             mLastPlayedIndex = index;
 
             SoundClip s = SoundContainers[index].GetSoundClip();

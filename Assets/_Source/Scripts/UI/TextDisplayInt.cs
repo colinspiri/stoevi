@@ -10,6 +10,7 @@ public class TextDisplayInt : MonoBehaviour
     public IntReference intReference;
     
     // constants
+    public int modifier = 0;
     public bool animateOnUpdate;
     
     // state
@@ -26,7 +27,7 @@ public class TextDisplayInt : MonoBehaviour
     }
 
     private void UpdateText(bool animate) {
-        text.text = intReference.Value.ToString();
+        text.text = (intReference.Value + modifier).ToString();
         previousValue = intReference.Value;
 
         if (animate) {

@@ -8,7 +8,6 @@ public class Soil : Interactable {
     public ASoundContainer crop_plant;
     public ASoundContainer crop_fertilize;
     public SoilData soilData;
-    public HeldItem heldItem;
     
     // constants
     public FarmingConstants farmingConstants;
@@ -23,7 +22,7 @@ public class Soil : Interactable {
         LoadData();
     }
 
-    public override bool IsInteractable() {
+    public override bool IsInteractablePrimary() {
         // can plant crops
         if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
             return true;
@@ -31,7 +30,7 @@ public class Soil : Interactable {
         return false;
     }
 
-    public override void Interact() {
+    public override void InteractPrimary() {
         // plant crops
         if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
             var lookPosition = CameraRaycast.Instance.GetCurrentInteractableHitPosition();
@@ -41,17 +40,19 @@ public class Soil : Interactable {
         }
     }
 
+    public override void InteractSecondary() {
+        throw new System.NotImplementedException();
+    }
+
     public void Fertilize() {
         fertilized = true;
         foreach (var crop in crops) {
             crop.Fertilize();
         }
-        
-        heldItem.RemoveItem();
     }
 
-    public override void OnStartInteracting() {
-        base.OnStartInteracting();
+    public override void OnStartInteractingPrimary() {
+        base.OnStartInteractingPrimary();
         
         /*// fertilizing
         if (!fertilized) {
@@ -85,7 +86,7 @@ public class Soil : Interactable {
         else return "";
     }
 
-    public override string GetButtonPrompt() {
+    public override string GetButtonPromptPrimary() {
         // fertilize
         /*if() {
             if(fertilized) return "already fertilized";
@@ -96,7 +97,7 @@ public class Soil : Interactable {
             return "out of seeds";
         }
         else if (crops.Count < farmingConstants.maxCrops) {
-            return "hold " + GetInteractButton() + " to plant seed";
+            return "hold " + GetInteractPrimaryButton() + " to plant seed";
         }
         else return "no more space";
     }

@@ -3,7 +3,7 @@ public class Pickup : Interactable {
     public Item item;
     public HeldItem heldItem;
 
-    public override void Interact() {
+    public override void InteractPrimary() {
         // if holding something, first drop it
         if (heldItem.HoldingItem()) {
             heldItem.DropItem(transform);
@@ -22,7 +22,7 @@ public class Pickup : Interactable {
         return "";
     }
 
-    public override string GetButtonPrompt() {
-        return GetInteractButton() + " to pick up " + item.itemName;
+    public override string GetButtonPromptPrimary() {
+        return GetInteractPrimaryButton() + " to pick up " + item.itemName;
     }
 }

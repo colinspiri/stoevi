@@ -50,8 +50,14 @@ public class Flashlight : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         light.enabled = false;
-
+        
+        // get battery time from percent SO
         currentBatteryTime = Mathf.Lerp(0, fullBatteryTime.Value, batteryPercent.Value);
+        if (currentBatteryTime <= 0) {
+            if (additionalBatteries.Value >= 1) {
+                currentBatteryTime = fullBatteryTime;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -69,10 +75,11 @@ public class Flashlight : MonoBehaviour
 
             if (batteryPercent.Value <= 0) {
                 batteryPercent.SetValue(0);
+                additionalBatteries.ApplyChange(-1);
                 TurnOff();
             }
 
-            Debug.Log("battery = " + batteryPercent.Value*100f + " with " + additionalBatteries.Value + " additional batteries");
+            // Debug.Log("battery = " + batteryPercent.Value*100f + " with " + additionalBatteries.Value + " additional batteries");
         }
         
         // flicker
@@ -105,9 +112,8 @@ public class Flashlight : MonoBehaviour
         else {
             // check battery percent
             if (batteryPercent.Value <= 0) {
-                // consume another battery
+                // check if have batteries
                 if (additionalBatteries.Value >= 1) {
-                    additionalBatteries.ApplyChange(-1);
                     currentBatteryTime = fullBatteryTime;
                 }
                 // no more batteries

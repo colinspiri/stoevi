@@ -8,12 +8,16 @@ public class Well : Interactable {
     public IntVariable maxWater;
     public IntVariable currentWater;
     
-    public override void Interact() {
+    public override void InteractPrimary() {
         currentWater.SetValue(maxWater);
     }
 
-    public override void OnStartInteracting() {
-        base.OnStartInteracting();
+    public override void InteractSecondary() {
+        throw new System.NotImplementedException();
+    }
+
+    public override void OnStartInteractingPrimary() {
+        base.OnStartInteractingPrimary();
         well.Play3D(transform);
     }
 
@@ -25,11 +29,11 @@ public class Well : Interactable {
         return "";
     }
 
-    public override string GetButtonPrompt() {
-        return (currentWater.Value == maxWater.Value) ? "water is already full" : "hold " + GetInteractButton() + " to refill water";
+    public override string GetButtonPromptPrimary() {
+        return (currentWater.Value == maxWater.Value) ? "water is already full" : "hold " + GetInteractPrimaryButton() + " to refill water";
     }
 
-    public override bool IsInteractable() {
+    public override bool IsInteractablePrimary() {
         return currentWater.Value < maxWater.Value;
     }
 }

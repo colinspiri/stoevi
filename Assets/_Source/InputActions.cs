@@ -35,9 +35,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Interact"",
+                    ""name"": ""InteractPrimary"",
                     ""type"": ""PassThrough"",
                     ""id"": ""3f8e907f-2e13-4369-aecc-8a9704b2db29"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""InteractSecondary"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""c42d13ab-ce50-4604-96f1-1e0316dc285c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -363,11 +371,11 @@ public class @InputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9cd0cf0c-2615-4520-ace6-e3905ae8cb82"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Interact"",
+                    ""action"": ""InteractPrimary"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -378,7 +386,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Playstation"",
-                    ""action"": ""Interact"",
+                    ""action"": ""InteractPrimary"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -389,7 +397,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox"",
-                    ""action"": ""Interact"",
+                    ""action"": ""InteractPrimary"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -400,7 +408,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Interact"",
+                    ""action"": ""InteractPrimary"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -621,6 +629,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0de73df4-5ba2-4b1b-b6cd-703196656400"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""InteractSecondary"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1288,7 +1307,8 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Look = m_Gameplay.FindAction("Look", throwIfNotFound: true);
-        m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
+        m_Gameplay_InteractPrimary = m_Gameplay.FindAction("InteractPrimary", throwIfNotFound: true);
+        m_Gameplay_InteractSecondary = m_Gameplay.FindAction("InteractSecondary", throwIfNotFound: true);
         m_Gameplay_Run = m_Gameplay.FindAction("Run", throwIfNotFound: true);
         m_Gameplay_Crouch = m_Gameplay.FindAction("Crouch", throwIfNotFound: true);
         m_Gameplay_Peek = m_Gameplay.FindAction("Peek", throwIfNotFound: true);
@@ -1364,7 +1384,8 @@ public class @InputActions : IInputActionCollection, IDisposable
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Look;
-    private readonly InputAction m_Gameplay_Interact;
+    private readonly InputAction m_Gameplay_InteractPrimary;
+    private readonly InputAction m_Gameplay_InteractSecondary;
     private readonly InputAction m_Gameplay_Run;
     private readonly InputAction m_Gameplay_Crouch;
     private readonly InputAction m_Gameplay_Peek;
@@ -1383,7 +1404,8 @@ public class @InputActions : IInputActionCollection, IDisposable
         public GameplayActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Look => m_Wrapper.m_Gameplay_Look;
-        public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
+        public InputAction @InteractPrimary => m_Wrapper.m_Gameplay_InteractPrimary;
+        public InputAction @InteractSecondary => m_Wrapper.m_Gameplay_InteractSecondary;
         public InputAction @Run => m_Wrapper.m_Gameplay_Run;
         public InputAction @Crouch => m_Wrapper.m_Gameplay_Crouch;
         public InputAction @Peek => m_Wrapper.m_Gameplay_Peek;
@@ -1411,9 +1433,12 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Look.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLook;
-                @Interact.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
-                @Interact.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
-                @Interact.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
+                @InteractPrimary.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteractPrimary;
+                @InteractPrimary.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteractPrimary;
+                @InteractPrimary.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteractPrimary;
+                @InteractSecondary.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteractSecondary;
+                @InteractSecondary.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteractSecondary;
+                @InteractSecondary.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteractSecondary;
                 @Run.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRun;
                 @Run.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRun;
                 @Run.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRun;
@@ -1460,9 +1485,12 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
-                @Interact.started += instance.OnInteract;
-                @Interact.performed += instance.OnInteract;
-                @Interact.canceled += instance.OnInteract;
+                @InteractPrimary.started += instance.OnInteractPrimary;
+                @InteractPrimary.performed += instance.OnInteractPrimary;
+                @InteractPrimary.canceled += instance.OnInteractPrimary;
+                @InteractSecondary.started += instance.OnInteractSecondary;
+                @InteractSecondary.performed += instance.OnInteractSecondary;
+                @InteractSecondary.canceled += instance.OnInteractSecondary;
                 @Run.started += instance.OnRun;
                 @Run.performed += instance.OnRun;
                 @Run.canceled += instance.OnRun;
@@ -1639,7 +1667,8 @@ public class @InputActions : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
+        void OnInteractPrimary(InputAction.CallbackContext context);
+        void OnInteractSecondary(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnPeek(InputAction.CallbackContext context);

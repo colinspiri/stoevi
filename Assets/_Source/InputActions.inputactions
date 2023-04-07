@@ -22,9 +22,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Interact",
+                    "name": "InteractPrimary",
                     "type": "PassThrough",
                     "id": "3f8e907f-2e13-4369-aecc-8a9704b2db29",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "InteractSecondary",
+                    "type": "PassThrough",
+                    "id": "c42d13ab-ce50-4604-96f1-1e0316dc285c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -350,11 +358,11 @@
                 {
                     "name": "",
                     "id": "9cd0cf0c-2615-4520-ace6-e3905ae8cb82",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Interact",
+                    "action": "InteractPrimary",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -365,7 +373,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Playstation",
-                    "action": "Interact",
+                    "action": "InteractPrimary",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -376,7 +384,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
-                    "action": "Interact",
+                    "action": "InteractPrimary",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -387,7 +395,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Interact",
+                    "action": "InteractPrimary",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -608,6 +616,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Map",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0de73df4-5ba2-4b1b-b6cd-703196656400",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "InteractSecondary",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

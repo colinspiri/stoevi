@@ -4,8 +4,6 @@ using UnityEngine;
 public class InteractableManager : MonoBehaviour {
     // components
     public static InteractableManager Instance;
-    private InputActions inputActions;
-    public HeldItem heldItem;
 
     // all interactables
     private List<Crop> allCrops = new List<Crop>();
@@ -15,38 +13,41 @@ public class InteractableManager : MonoBehaviour {
     public enum InteractionState { None, Selecting, Interacting }
     public InteractionState interactionState { get; private set; }
     public Interactable selectedObject { get; private set; }
+    private enum InteractType { Primary, Secondary }
+    private InteractType currentInteractType;
     private float interactingTimer;
 
     private void Awake() {
         Instance = this;
-        
-        inputActions = new InputActions();
-        inputActions.Enable();
-        inputActions.Gameplay.Drop.performed += context => {
-            heldItem.DropItem();
-        };
     }
 
     private void Start() {
         interactionState = InteractionState.None;
         selectedObject = null;
 
-        InputHandler.OnInteractPressed += () => {
+        InputHandler.OnInteractPrimaryPressed += () => {
             if (interactionState == InteractionState.Selecting) {
                 // check if interactable
-                if (!selectedObject.IsInteractable()) return;
+                if (!selectedObject.IsInteractablePrimary()) return;
                 
                 // tap to interact
-                if(selectedObject.InteractionTime == 0) selectedObject.Interact();
+                if(selectedObject.InteractionTimePrimary == 0) selectedObject.InteractPrimary();
                 // hold to interact
-                else StartInteracting();
+                else StartInteracting(InteractType.Primary);
             }
-            /*else if (interactionState == InteractionState.None) {
-                // drop item
-                if (heldItem.HoldingItem()) {
-                    heldItem.DropItem();
+        };
+        InputHandler.OnInteractSecondaryPressed += () => {
+            if (interactionState == InteractionState.Selecting) {
+                // check if interactable
+                if (!selectedObject.IsInteractableSecondary()) return;
+                
+                // tap to interact
+                if (selectedObject.InteractionTimeSecondary == 0) {
+                    selectedObject.InteractSecondary();
                 }
-            }*/
+                // hold to interact
+                else StartInteracting(InteractType.Secondary);
+            }
         };
     }
 
@@ -61,17 +62,25 @@ public class InteractableManager : MonoBehaviour {
         // interacting with object
         else if (interactionState == InteractionState.Interacting) {
             // if no longer interactable or button released, stop interacting
-            if (!selectedObject.IsInteractable() || !InputHandler.Instance.interact) {
-                StopInteracting();
+            if (currentInteractType == InteractType.Primary && (!selectedObject.IsInteractablePrimary() || !InputHandler.Instance.interactPrimary)) {
+                StopInteracting(InteractType.Primary);
+            }
+            if (currentInteractType == InteractType.Secondary && (!selectedObject.IsInteractableSecondary() || !InputHandler.Instance.interactSecondary)) {
+                StopInteracting(InteractType.Secondary);
             }
             
             // count up hold timer
             interactingTimer += Time.deltaTime;
             
             // if holding for long enough, call interact
-            if (interactingTimer >= selectedObject.InteractionTime) {
-                selectedObject.Interact();
-                StopInteracting();
+            float interactionTime = currentInteractType == InteractType.Primary
+                ? selectedObject.InteractionTimePrimary
+                : selectedObject.InteractionTimeSecondary;
+            if (interactingTimer >= interactionTime) {
+                if(currentInteractType == InteractType.Primary) selectedObject.InteractPrimary();
+                else if(currentInteractType == InteractType.Secondary) selectedObject.InteractSecondary();
+                
+                StopInteracting(currentInteractType);
                 InputHandler.Instance.ResetInteractInput();
             }
         }
@@ -119,16 +128,29 @@ public class InteractableManager : MonoBehaviour {
         interactingTimer = 0;
     }
 
-    private void StartInteracting() {
+    private void StartInteracting(InteractType interactType) {
         interactionState = InteractionState.Interacting;
-        selectedObject.OnStartInteracting();
         interactingTimer = 0;
+        currentInteractType = interactType;
+
+        if (interactType == InteractType.Primary) {
+            selectedObject.OnStartInteractingPrimary();
+        }
+        else if (interactType == InteractType.Secondary) {
+            selectedObject.OnStartInteractingSecondary();
+        }
     }
 
-    private void StopInteracting() {
+    private void StopInteracting(InteractType interactType) {
         interactionState = InteractionState.Selecting;
-        selectedObject.OnStopInteracting();
         interactingTimer = 0;
+
+        if (interactType == InteractType.Primary) {
+            selectedObject.OnStopInteractingPrimary();
+        }
+        else if (interactType == InteractType.Secondary) {
+            selectedObject.OnStopInteractingSecondary();
+        }
     }
 
     public List<Crop> GetAllCrops() {
@@ -179,6 +201,12 @@ public class InteractableManager : MonoBehaviour {
     }
 
     public float GetInteractingFloat() {
-        return interactingTimer / selectedObject.InteractionTime;
+        if (currentInteractType == InteractType.Primary) {
+            return interactingTimer / selectedObject.InteractionTimePrimary;
+        }
+        else if (currentInteractType == InteractType.Secondary) {
+            return interactingTimer / selectedObject.InteractionTimeSecondary;
+        }
+        return 0;
     }
 }

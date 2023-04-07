@@ -300,7 +300,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractionDistance: 5
-  InteractionTime: 0
+  InteractionTimePrimary: 0
+  InteractionTimeSecondary: 1
   sheep_hit: {fileID: 11400000, guid: 0fefbda7640dc554686b13e8cf56fc10, type: 2}
   bleatLoudness: 35
   playerChaseDistance: 10

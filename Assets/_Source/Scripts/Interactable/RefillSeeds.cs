@@ -1,11 +1,11 @@
 
 public class RefillSeeds : Interactable
 {
-    public override bool IsInteractable() {
+    public override bool IsInteractablePrimary() {
         return false;
     }
 
-    public override void Interact() {
+    public override void InteractPrimary() {
         
     }
 
@@ -17,7 +17,7 @@ public class RefillSeeds : Interactable
         return "";
     }
 
-    public override string GetButtonPrompt() {
+    public override string GetButtonPromptPrimary() {
         return "temporarily disabled";
     }
 }
