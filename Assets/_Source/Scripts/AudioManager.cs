@@ -1,3 +1,4 @@
+using System.Reflection;
 using DG.Tweening;
 using SpookuleleAudio;
 using UnityEngine;
@@ -26,6 +27,8 @@ public class AudioManager : MonoBehaviour {
     [Header("Ambience")] 
     public AudioSource ambience_day;
     public AudioSource ambience_night;
+    private float ambienceDayVolume;
+    private float ambienceNightVolume;
 
     [Header("SFX")] private bool rustle;
     public AudioSource walkingSound;
@@ -56,6 +59,9 @@ public class AudioManager : MonoBehaviour {
         ambience_night.ignoreListenerPause = true;
 
         tensionVolume = tensionMusic.volume;
+        ambienceDayVolume = ambience_day.volume;
+        ambienceNightVolume = ambience_night.volume;
+        Debug.Log("day = " + ambienceDayVolume + " night = " + ambienceNightVolume);
         
         audioSettings.Initialize();
 
@@ -179,14 +185,19 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
+    public void PlayDayAmbience(float fadeInDuration = 1f) {
+        ambience_day.Play();
+        ambience_day.volume = 0;
+        ambience_day.DOFade(ambienceDayVolume, fadeInDuration);
+    }
     public void TransitionToNightAmbience() {
-        ambience_day.DOFade(0, 10f).SetUpdate(true).OnComplete(() => {
+        ambience_day.DOFade(0, 20f).SetUpdate(true).OnComplete(() => {
             ambience_day.Stop();
         });
         
         ambience_night.Play();
         ambience_night.volume = 0f;
-        ambience_night.DOFade(0.1f, 10f).SetUpdate(true);
+        ambience_night.DOFade(ambienceNightVolume, 20f).SetUpdate(true);
     }
 
     public void PlayIntroCutsceneMusic() {
