@@ -60,7 +60,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.2
-  far clip plane: 500
+  far clip plane: 100
   field of view: 80
   orthographic: 0
   orthographic size: 5
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cfuStatus: PSXEffects v1.18.4 - version ahead?!
   sections: 01010100
-  customRes: {x: 3840, y: 2160}
+  customRes: {x: 1920, y: 1080}
   resolutionFactor: 1
   limitFramerate: 60
   skipFrames: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   clampAffine: 1
   affineBounds: 5
   polygonalDrawDistance: 0
-  vertexInaccuracy: 30
+  vertexInaccuracy: 40
   polygonInaccuracy: 0
   colorDepth: 4
   scanlines: 0

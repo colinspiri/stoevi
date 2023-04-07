@@ -13,9 +13,7 @@ public abstract class Interactable : MonoBehaviour {
 
     public abstract void InteractPrimary();
 
-    public virtual void InteractSecondary() {
-        Debug.Log("InteractSecondary on " + gameObject.name);
-    }
+    public virtual void InteractSecondary() { }
 
     public abstract string GetObjectName();
     public abstract string GetObjectDescription();

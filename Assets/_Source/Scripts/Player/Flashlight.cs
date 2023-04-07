@@ -49,15 +49,15 @@ public class Flashlight : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        light.enabled = false;
+        TurnOff(false);
         
         // get battery time from percent SO
-        currentBatteryTime = Mathf.Lerp(0, fullBatteryTime.Value, batteryPercent.Value);
-        if (currentBatteryTime <= 0) {
+        if (batteryPercent.Value <= 0) {
             if (additionalBatteries.Value >= 1) {
-                currentBatteryTime = fullBatteryTime;
+                batteryPercent.Value = 1;
             }
         }
+        currentBatteryTime = Mathf.Lerp(0, fullBatteryTime.Value, batteryPercent.Value);
     }
 
     // Update is called once per frame
@@ -129,7 +129,7 @@ public class Flashlight : MonoBehaviour
         light.enabled = true;
         sfx_flashlight_on.Play();
     }
-    private void TurnOff() {
+    private void TurnOff(bool playSound = true) {
         flashlightOn = false;
         light.enabled = false;
         if (flickerCoroutine != null) {
