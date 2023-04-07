@@ -1,19 +1,23 @@
 using System.Collections.Generic;
 using SpookuleleAudio;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Soil : Interactable {
-    // components
+    [Header("Components")]
     public GameObject seedPrefab;
-    public ASoundContainer crop_plant;
-    public ASoundContainer crop_fertilize;
-    public SoilData soilData;
     
-    // constants
+    [Header("Audio")]
+    public AudioSource crop_plant;
+    public AudioSource crop_fertilize;
+    
+    [Header("Scriptable Objects")]
+    public SoilData soilData;
     public FarmingConstants farmingConstants;
-    public IntVariable seeds;
+    [FormerlySerializedAs("seeds")] public IntVariable currentSeeds;
+    public IntVariable currentFertilizer;
 
-    // state
+    [Header("State")]
     public List<Crop> crops = new List<Crop>();
     public bool fertilized { get; private set; }
 
@@ -23,44 +27,72 @@ public class Soil : Interactable {
     }
 
     public override bool IsInteractablePrimary() {
-        // can plant crops
-        if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
+        if(crops.Count < farmingConstants.maxCrops && currentSeeds.Value > 0) {
             return true;
         }
         return false;
     }
-
     public override void InteractPrimary() {
-        // plant crops
-        if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
+        if(crops.Count < farmingConstants.maxCrops && currentSeeds.Value > 0) {
+            currentSeeds.ApplyChange(-1);
+            
             var lookPosition = CameraRaycast.Instance.GetCurrentInteractableHitPosition();
             SpawnCrop(lookPosition);
-            
-            seeds.ApplyChange(-1);
+        }
+    }
+    public override void OnStartInteractingPrimary() {
+        base.OnStartInteractingPrimary();
+        
+        if(crops.Count < farmingConstants.maxCrops && currentSeeds.Value > 0) {
+            crop_plant.Play();
+            this.InteractionTimePrimary = crop_plant.clip.length;
         }
     }
 
+    public override void OnStopInteractingPrimary() {
+        base.OnStopInteractingPrimary();
+        
+        crop_plant.Stop();
+
+        this.InteractionTimePrimary = 1;
+    }
+
+    public override bool IsInteractableSecondary() {
+        if (!fertilized && currentFertilizer.Value > 0) {
+            return true;
+        }
+
+        return false;
+    }
     public override void InteractSecondary() {
-        throw new System.NotImplementedException();
+        base.InteractSecondary();
+        
+        if (!fertilized && currentFertilizer.Value > 0) {
+            currentFertilizer.ApplyChange(-1);
+            Fertilize();
+        }
+    }
+    public override void OnStartInteractingSecondary() {
+        base.OnStartInteractingSecondary();
+        
+        if (!fertilized && currentFertilizer.Value > 0) {
+            crop_fertilize.Play();
+            this.InteractionTimeSecondary = crop_fertilize.clip.length;
+        }
+    }
+
+    public override void OnStopInteractingSecondary() {
+        base.OnStopInteractingSecondary();
+        
+        crop_fertilize.Stop();
+
+        this.InteractionTimeSecondary = 1;
     }
 
     public void Fertilize() {
         fertilized = true;
         foreach (var crop in crops) {
             crop.Fertilize();
-        }
-    }
-
-    public override void OnStartInteractingPrimary() {
-        base.OnStartInteractingPrimary();
-        
-        /*// fertilizing
-        if (!fertilized) {
-            crop_fertilize.Play3D(transform);
-        }*/
-        // planting crops
-        if(crops.Count < farmingConstants.maxCrops && seeds.Value > 0) {
-            crop_plant.Play3D(transform);
         }
     }
 
@@ -87,19 +119,26 @@ public class Soil : Interactable {
     }
 
     public override string GetButtonPromptPrimary() {
-        // fertilize
-        /*if() {
-            if(fertilized) return "already fertilized";
-            return "hold " + GetInteractButton() + " to fertilize";
-        }*/
-        // plant 
-        if (seeds.Value <= 0) {
+        if (crops.Count >= farmingConstants.maxCrops) {
+            return "";
+        }
+        if (currentSeeds.Value <= 0) {
             return "out of seeds";
         }
-        else if (crops.Count < farmingConstants.maxCrops) {
+        if (crops.Count < farmingConstants.maxCrops && currentSeeds.Value > 0) {
             return "hold " + GetInteractPrimaryButton() + " to plant seed";
         }
-        else return "no more space";
+        return "";
+    }
+
+    public override string GetButtonPromptSecondary() {
+        if (currentFertilizer.Value <= 0) {
+            return "out of fertilizer";
+        }
+        else if (!fertilized && currentFertilizer.Value > 0) {
+            return "hold " + GetInteractSecondaryButton() + " to fertilize";
+        }
+        else return "";
     }
 
     public void SaveData() {

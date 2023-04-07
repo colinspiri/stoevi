@@ -1,24 +1,33 @@
 using SpookuleleAudio;
+using UnityEngine;
 
 public class Well : Interactable {
     // components
-    public ASoundContainer well;
+    public AudioSource well;
     
     // shared state
     public IntVariable maxWater;
     public IntVariable currentWater;
-    
+
+    protected override void Start() {
+        base.Start();
+        this.InteractionTimePrimary = well.clip.length;
+    }
+
     public override void InteractPrimary() {
         currentWater.SetValue(maxWater);
     }
 
-    public override void InteractSecondary() {
-        throw new System.NotImplementedException();
-    }
-
     public override void OnStartInteractingPrimary() {
         base.OnStartInteractingPrimary();
-        well.Play3D(transform);
+        
+        well.Play();
+    }
+
+    public override void OnStopInteractingPrimary() {
+        base.OnStopInteractingPrimary();
+        
+        well.Stop();
     }
 
     public override string GetObjectName() {

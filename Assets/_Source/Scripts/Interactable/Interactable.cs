@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 public abstract class Interactable : MonoBehaviour {
-    // constants
+    [Header("Interactable")]
     [FormerlySerializedAs("interactionDistance")] public float InteractionDistance = 5f;
     [FormerlySerializedAs("InteractionTime")] [FormerlySerializedAs("interactionTime")] public float InteractionTimePrimary = 1f;
     public float InteractionTimeSecondary = 1f;

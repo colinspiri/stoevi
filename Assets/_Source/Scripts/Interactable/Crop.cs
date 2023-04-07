@@ -4,21 +4,26 @@ using Random = UnityEngine.Random;
 
 public class Crop : Interactable {
     // components
+    [Header("Components")]
     public CropTextureManager textureManager;
     public CropCoverManager coverManager;
     public CropMapIcon mapIcon;
     public Soil soil;
-    public ASoundContainer crop_water;
-    public ASoundContainer crop_fertilize;
-    public ASoundContainer crop_harvest;
+    
+    [Header("Audio")]
+    public AudioSource crop_water;
+    public AudioSource crop_harvest;
+    public AudioSource crop_fertilize;
     public ASoundContainer item_pickup;
 
     // constants
+    [Header("Scriptable Objects")]
     public FarmingConstants farmingConstants;
     
     // shared state
     public IntVariable seeds;
     public IntVariable currentWater;
+    public IntVariable currentFertilizer;
     public IntVariable playerTomatoes;
     public GameEvent onHarvest;
 
@@ -136,18 +141,27 @@ public class Crop : Interactable {
         
         // if starting to water
         if (state == State.NeedsWater && currentWater.Value > 0) {
-            crop_water.Play3D(transform);
+            crop_water.Play();
+            this.InteractionTimePrimary = crop_water.clip.length;
         }
         // harvest or dig up bare
         else if (stage == GrowthStage.Ripe || stage == GrowthStage.Bare || health == Health.Dead) {
-            crop_harvest.Play3D(transform);
+            crop_harvest.Play();
+            this.InteractionTimePrimary = crop_harvest.clip.length;
         }
+    }
+    public override void OnStopInteractingPrimary() {
+        base.OnStartInteractingPrimary();
+        
+        crop_water.Stop();
+        crop_harvest.Stop();
+        
+        this.InteractionTimePrimary = 1;
     }
 
     public override bool IsInteractableSecondary() {
         // fertilize
-        // TODO: check if player has fertilizer
-        if (soil != null && !soil.fertilized) return true;
+        if (soil != null && !soil.fertilized && currentFertilizer.Value > 0) return true;
 
         return false;
     }
@@ -156,19 +170,27 @@ public class Crop : Interactable {
         base.InteractSecondary();
         
         // fertilize
-        if (soil != null && !soil.fertilized) {
+        if (soil != null && !soil.fertilized && currentFertilizer.Value > 0) {
+            currentFertilizer.ApplyChange(-1);
             soil.Fertilize();
             return;
         }
     }
-
     public override void OnStartInteractingSecondary() {
         base.OnStartInteractingSecondary();
         
         // fertilize
-        if (soil != null && !soil.fertilized) {
-            crop_fertilize.Play3D(transform);
+        if (soil != null && !soil.fertilized && currentFertilizer.Value > 0) {
+            crop_fertilize.Play();
+            this.InteractionTimeSecondary = crop_fertilize.clip.length;
         }
+    }
+    public override void OnStopInteractingSecondary() {
+        base.OnStopInteractingSecondary();
+        
+        crop_fertilize.Stop();
+        
+        this.InteractionTimeSecondary = 1;
     }
 
     public void Fertilize() {
@@ -326,7 +348,7 @@ public class Crop : Interactable {
     }
 
     public override string GetButtonPromptSecondary() {
-        if (soil != null && !soil.fertilized) {
+        if (soil != null && !soil.fertilized && currentFertilizer.Value > 0) {
             return "hold " + GetInteractSecondaryButton() + " to fertilize";
         }
 

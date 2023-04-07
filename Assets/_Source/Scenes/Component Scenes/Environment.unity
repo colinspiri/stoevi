@@ -16843,13 +16843,14 @@ MonoBehaviour:
   coverManager: {fileID: 1600517233}
   mapIcon: {fileID: 743714205}
   soil: {fileID: 1198256718}
-  crop_water: {fileID: 11400000, guid: 15caaae9f88bdcd4fadd96a0427ac49d, type: 2}
-  crop_fertilize: {fileID: 11400000, guid: f6a57fa60c9d3c342afab1f502a323d8, type: 2}
-  crop_harvest: {fileID: 11400000, guid: d29504e1f55bfee4a938b55ca4f2834e, type: 2}
+  crop_water: {fileID: 0}
+  crop_harvest: {fileID: 0}
+  crop_fertilize: {fileID: 0}
   item_pickup: {fileID: 11400000, guid: 32862b536d7773245bc2809aabb1604a, type: 2}
   farmingConstants: {fileID: 11400000, guid: a961ae10cb1a6e542bab791fb71fd28d, type: 2}
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
   currentWater: {fileID: 11400000, guid: 01b6dcf868da00d4296266026a1ef576, type: 2}
+  currentFertilizer: {fileID: 0}
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   onHarvest: {fileID: 11400000, guid: 9c9581a02da2f4f45bde32fcc323b764, type: 2}
   stage: 2
@@ -38949,6 +38950,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.777
       objectReference: {fileID: 0}
+    - target: {fileID: 632353680163892388, guid: 7648f79866726c04790d756c272598cf, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2791628938817125640, guid: 7648f79866726c04790d756c272598cf, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -38960,6 +38965,10 @@ PrefabInstance:
     - target: {fileID: 4885260523492744456, guid: 7648f79866726c04790d756c272598cf, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257495703397517251, guid: 7648f79866726c04790d756c272598cf, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7648f79866726c04790d756c272598cf, type: 3}
