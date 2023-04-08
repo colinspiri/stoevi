@@ -92,6 +92,7 @@ public class InteractableManager : MonoBehaviour {
         
         // see if camera is pointing at an object
         RaycastHit hitInfo;
+        if (CameraRaycast.Instance == null) return;
         Interactable interactable = CameraRaycast.Instance.GetCurrentInteractable(out hitInfo);
         
         // if no object, deselect

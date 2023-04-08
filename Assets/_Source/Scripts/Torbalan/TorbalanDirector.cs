@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator;
 using UnityEngine;
 
 public class TorbalanDirector : MonoBehaviour {
@@ -27,13 +28,18 @@ public class TorbalanDirector : MonoBehaviour {
     }
 
     private void Start() {
-        Player = FirstPersonMovement.Instance.gameObject;
-        SetDirectorState(DirectorState.Backstage);
-        aggressionLevel = 0;
+        Player = FirstPersonMovement.Instance != null ? FirstPersonMovement.Instance.gameObject : null;
+        if (Player != null) {
+            SetDirectorState(DirectorState.Backstage);
+            aggressionLevel = 0;
+        }
     }
 
     // Update is called once per frame
     void Update() {
+        Player = FirstPersonMovement.Instance != null ? FirstPersonMovement.Instance.gameObject : null;
+        if (Player == null) return;
+        
         SetTargetPosition();
 
         if (directorState == DirectorState.Frontstage) {

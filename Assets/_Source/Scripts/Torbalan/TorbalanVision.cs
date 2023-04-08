@@ -63,6 +63,8 @@ public class TorbalanVision : MonoBehaviour {
     }
 
     private void Update() {
+        if (FirstPersonMovement.Instance == null) return;
+        
         LookForPlayer();
 
         if (PlayerWithinVision) {

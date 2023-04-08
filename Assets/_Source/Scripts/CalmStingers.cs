@@ -21,7 +21,7 @@ public class CalmStingers : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (TorbalanHearing.Instance != null) {
+        if (TorbalanHearing.Instance != null && FirstPersonMovement.Instance != null) {
             distanceFromTorbalan = Vector3.Distance(FirstPersonMovement.Instance.transform.position, TorbalanHearing.Instance.transform.position);
             if (distanceFromTorbalan < distanceThreshold) return;
         }

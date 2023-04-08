@@ -26,14 +26,17 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
         {
             base.OnStart();
 
-            targetPosition = target.Value.transform.position;
-            SetDestination(Target());
+            if (target.Value != null) {
+                targetPosition = target.Value.transform.position;
+                SetDestination(Target());
+            }
         }
 
         // Evade from the target. Return success once the agent has fleed the target by moving far enough away from it
         // Return running if the agent is still fleeing
-        public override TaskStatus OnUpdate()
-        {
+        public override TaskStatus OnUpdate() {
+            if (target.Value == null) return TaskStatus.Success;
+            
             if (Vector3.Magnitude(transform.position - target.Value.transform.position) > evadeDistance.Value) {
                 return TaskStatus.Success;
             }
