@@ -27,6 +27,8 @@ public class SheepManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (FirstPersonMovement.Instance == null) return;
+        
         scareTimer -= Time.deltaTime;
         
         if (scareTimer <= 0) {
