@@ -10,6 +10,8 @@ public class SheepAnimatorController : MonoBehaviour {
     public Animator animator;
     public NavMeshAgent agent;
     public ASoundContainer bleat;
+    public AudioSource sheep_walking;
+    public AudioSource sheep_running;
     
     // constants
     public float walkingSpeedThreshold;
@@ -24,6 +26,20 @@ public class SheepAnimatorController : MonoBehaviour {
         // set animator params
         animator.SetBool("walking", walking);
         animator.SetBool("running", running);
+        
+        // set sfx
+        if (running) {
+            if(!sheep_running.isPlaying) sheep_running.Play();
+            if(sheep_walking.isPlaying) sheep_walking.Stop();
+        }
+        else if (walking) {
+            if(!sheep_walking.isPlaying) sheep_walking.Play();
+            if(sheep_running.isPlaying) sheep_running.Stop();
+        }
+        else {
+            if(sheep_walking.isPlaying) sheep_walking.Stop();
+            if(sheep_running.isPlaying) sheep_running.Stop();
+        }
     }
 
     public void PlayEatingAnimation() {
