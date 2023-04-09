@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &169688071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9005220659476430823, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+  m_PrefabInstance: {fileID: 1233076070}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &249371807
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cfuStatus: PSXEffects v1.18.4 - version ahead?!
   sections: 01010100
-  customRes: {x: 1408, y: 792}
+  customRes: {x: 933, y: 525}
   resolutionFactor: 1
   limitFramerate: 60
   skipFrames: 0
@@ -449,7 +454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfx_flashlight_on: {fileID: 11400000, guid: 210da67414b431e41a94fbb7752d2422, type: 2}
   sfx_flashlight_off: {fileID: 11400000, guid: cb24185f70630e140afae38e2654617a, type: 2}
-  followObject: {fileID: 249371807}
+  followObject: {fileID: 169688071}
   lerpSpeed: 5
   fullBatteryTime:
     UseConstant: 1
@@ -1028,6 +1033,10 @@ PrefabInstance:
     - target: {fileID: 4877943795587145618, guid: 8578100fc6540484a84b62ee235cd27d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374504424603398478, guid: 8578100fc6540484a84b62ee235cd27d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8578100fc6540484a84b62ee235cd27d, type: 3}
