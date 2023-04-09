@@ -135,7 +135,10 @@ public class Flashlight : MonoBehaviour
         if (flickerCoroutine != null) {
             StopCoroutine(flickerCoroutine);
         }
-        sfx_flashlight_off.Play();
+
+        if (playSound) {
+            sfx_flashlight_off.Play();
+        }
     }
 
     private IEnumerator Flicker() {
