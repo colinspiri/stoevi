@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Seed_ShopItem
   m_EditorClassIdentifier: 
   itemName: seeds
-  price: 10
+  price: 50

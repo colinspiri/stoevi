@@ -2,25 +2,23 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "TorbalanDirectorSettings", menuName = "TorbalanDirectorSettings")]
 public class TorbalanDirectorSettings : ScriptableObject {
-    [Header("Backstage")]
+    [Header("Constants")]
     public float backstageDistance;
-    [SerializeField] private float backstageTimeWhileCalm;
-    [SerializeField] private float backstageTimeWhileAggressive; // 30
-
-    [Header("Frontstage")] 
     public float frontstageDistance;
     public float frontstagePatrolRadius;
-    [SerializeField] private float frontstageTimeWhileCalm;
-    [SerializeField] private float frontstageTimeWhileAggressive; // 60
-
-    [Header("Intensity")]
     public float intensityDistance;
-    [SerializeField] private float maxIntensityWhileCalm;
-    [SerializeField] private float maxIntensityWhileAggressive; // 60
-
-    [Header("Aggression")] 
     public int maxAggressionLevel;
 
+    [Header("Calm")]
+    [SerializeField] private float backstageTimeWhileCalm;
+    [SerializeField] private float frontstageTimeWhileCalm;
+    [SerializeField] private float maxIntensityWhileCalm;
+    
+    [Header("Aggressive")]
+    [SerializeField] private float backstageTimeWhileAggressive; // 30
+    [SerializeField] private float frontstageTimeWhileAggressive; // 60
+    [SerializeField] private float maxIntensityWhileAggressive; // 60
+    
     public float GetBackstageTime(int aggressionLevel) {
         return Mathf.Lerp(backstageTimeWhileCalm, backstageTimeWhileAggressive, (float)aggressionLevel / maxAggressionLevel);
     }

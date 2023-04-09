@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Battery_ShopItem
   m_EditorClassIdentifier: 
   itemName: batteries
-  price: 30
+  price: 80

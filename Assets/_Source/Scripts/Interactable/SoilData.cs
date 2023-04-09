@@ -7,8 +7,8 @@ using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "NewSoilData", menuName = "SoilData")]
 public class SoilData : SerializedScriptableObject {
-    private static float maxDistanceFromCenter = 1.5f;
-    private static float minDistanceToOtherCrop = 1.5f;
+    /*private static float maxDistanceFromCenter = 1.5f;
+    private static float minDistanceToOtherCrop = 1.5f;*/
     
     public List<CropData> cropData = new List<CropData>();
 
@@ -16,11 +16,9 @@ public class SoilData : SerializedScriptableObject {
         ClearData();
         
         foreach (var crop in soil.crops) {
-            Vector3 relativePosition = crop.transform.localPosition;
-            relativePosition.y = 0;
             Crop.GrowthStage stage = crop.stage;
         
-            cropData.Add(new CropData(relativePosition, stage));
+            cropData.Add(new CropData(stage));
         }
         
         SaveToFile();
@@ -57,39 +55,15 @@ public class SoilData : SerializedScriptableObject {
     }
 
     public void AddRandomCrop(Crop.GrowthStage growthStage = Crop.GrowthStage.Sprout) {
-        if (cropData.Count >= 2) return;
+        if (cropData.Count >= 1) return;
 
-        Vector3 randomPosition = Vector3.zero;
-        int maxLoops = 1000;
-        for (int loops = 0; loops <= maxLoops; loops++) {
-            randomPosition.x = Random.Range(-maxDistanceFromCenter, maxDistanceFromCenter);
-            randomPosition.z = Random.Range(-maxDistanceFromCenter, maxDistanceFromCenter);
-
-            // if no other crops, accept random position
-            if (cropData.Count == 0) break;
-            
-            // if there is other crop, calculate distance
-            bool passesDistanceCriteria = true;
-            foreach (var data in cropData) {
-                float distance = Vector3.Distance(randomPosition, data.relativePosition);
-                if (distance == 0) continue;
-                if (distance <= minDistanceToOtherCrop) {
-                    passesDistanceCriteria = false;
-                    break;
-                }
-            }
-            if (passesDistanceCriteria) break;
-            // reset random position for next loop
-            randomPosition = Vector3.zero;
-        }
-        
-        cropData.Add(new CropData(randomPosition, growthStage));
+        cropData.Add(new CropData(growthStage));
 
         SaveToFile();
     }
 
     public bool HasSpaceInSoil() {
-        return cropData.Count < 2;
+        return cropData.Count == 0;
     }
 
     private string GetFilePath() {
@@ -99,11 +73,9 @@ public class SoilData : SerializedScriptableObject {
 
 [Serializable]
 public struct CropData {
-    public Vector3 relativePosition;
     public Crop.GrowthStage stage;
 
-    public CropData(Vector3 relativePosition, Crop.GrowthStage stage) {
-        this.relativePosition = relativePosition;
+    public CropData(Crop.GrowthStage stage) {
         this.stage = stage;
     }
 }

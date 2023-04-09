@@ -1281,7 +1281,7 @@ PrefabInstance:
     - target: {fileID: 7792800765921402578, guid: 9179bc2b961bca64f9d0980e8a406b66, type: 3}
       propertyPath: resource.Variable
       value: 
-      objectReference: {fileID: 11400000, guid: a374cfa139b415040a2fe2c5f602c2be, type: 2}
+      objectReference: {fileID: 11400000, guid: cd033259694f5b647a2767cafb06d684, type: 2}
     - target: {fileID: 7792800765921402578, guid: 9179bc2b961bca64f9d0980e8a406b66, type: 3}
       propertyPath: resource.UseConstant
       value: 0
@@ -1799,6 +1799,7 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 9438487269c562e4eaceabcc0c2d9b9e, type: 2}
+  modifier: 0
   animateOnUpdate: 0
 --- !u!114 &1214914048
 MonoBehaviour:

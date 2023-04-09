@@ -52,3 +52,13 @@ MonoBehaviour:
     ConstantValue: 1
     Variable: {fileID: 11400000, guid: 78e9d495e4f690147a4b9876ed2824a9, type: 2}
   seeds: {fileID: 11400000, guid: 7601488ce0ffb2b4e82b15bff75f8a2a, type: 2}
+  startingFertilizer:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 1c007c5c6cb426b499b405441d6a180c, type: 2}
+  currentFertilizer: {fileID: 11400000, guid: cd033259694f5b647a2767cafb06d684, type: 2}
+  startingBatteries:
+    UseConstant: 1
+    ConstantValue: 1
+    Variable: {fileID: 0}
+  currentBatteries: {fileID: 11400000, guid: a368df9e29888be48b060678c31cf4f8, type: 2}

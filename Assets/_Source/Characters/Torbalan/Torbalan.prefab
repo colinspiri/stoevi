@@ -294,7 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blind: 0
   eyesOffset: {x: 0, y: 3.59, z: 0}
-  normalVisionDistance: 25
+  normalVisionDistance: 22
   normalVisionAngle: 90
   peripheralVisionDistance: 11
   peripheralVisionAngle: 160
@@ -659,7 +659,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7557208376370848537, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0b6a9f7998f46ef4f8b8d439890a8d1e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -668,7 +668,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 30
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -1016,7 +1016,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7557208376370848537, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
   m_audioClip: {fileID: 8300000, guid: 3adb3eeb936bc214786f78162a7a115f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1025,7 +1025,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0
-  MaxDistance: 30
+  MaxDistance: 35
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0

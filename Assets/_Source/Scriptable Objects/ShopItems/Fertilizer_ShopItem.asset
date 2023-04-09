@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Fertilizer_ShopItem
   m_EditorClassIdentifier: 
   itemName: fertilizer
-  price: 20
+  price: 30

@@ -151,7 +151,7 @@ public class Soil : Interactable {
         soilData.LoadDataFromFile();
 
         foreach (var cropData in soilData.cropData) {
-            Vector3 spawnPosition = cropData.relativePosition + transform.position;
+            Vector3 spawnPosition = transform.position;
             spawnPosition.y = transform.position.y + transform.localScale.y / 2;
             SpawnCrop(spawnPosition, cropData.stage);
         }

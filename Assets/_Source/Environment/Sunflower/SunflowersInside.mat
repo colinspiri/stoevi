@@ -107,7 +107,7 @@ Material:
     - _Cul: 2
     - _Cull: 2
     - _Cutoff: 0.5
-    - _CutoutThreshold: 0.5
+    - _CutoutThreshold: 0.444
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DiffModel: 1
@@ -118,7 +118,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _LODAmt: 0
-    - _Metallic: 0
+    - _Metallic: 1
     - _Mode: 0
     - _NormalMapDepth: 1
     - _OcclusionStrength: 1

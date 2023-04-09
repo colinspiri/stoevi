@@ -30,7 +30,7 @@ MonoBehaviour:
   ripeWilted: {fileID: 2100000, guid: 73779875a5b70ad44b0b4e84dfa933a7, type: 2}
   bareHealthy: {fileID: 2100000, guid: 099da817f98eafb459841181814c1379, type: 2}
   bareWilted: {fileID: 2100000, guid: 995ffc635d32645499fc9be7f9c34cae, type: 2}
-  maxCrops: 2
+  maxCrops: 1
   baseThirstyTime: 1000
   baseGrowthTime: 80
   fertilizedThirstyTime: 1000
