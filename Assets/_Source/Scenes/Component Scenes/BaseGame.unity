@@ -159,8 +159,8 @@ MonoBehaviour:
   - Day2Germany
   - Day2Weeds
   distanceThreshold: 70
-  minWaitTime: 10
-  maxWaitTime: 20
+  minWaitTime: 5
+  maxWaitTime: 10
 --- !u!4 &337539688
 Transform:
   m_ObjectHideFlags: 0
