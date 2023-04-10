@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
-  type: 1
+  type: 0
   playerInside: 0
 --- !u!64 &7546777149145996579
 MeshCollider:
