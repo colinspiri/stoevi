@@ -40,7 +40,7 @@ MonoBehaviour:
   PitchRangeEnabled: 1
   PitchRange: {x: 0.8, y: 1.2}
   VolumeRangeEnabled: 1
-  VolumeRange: {x: 0.5, y: 0.8}
+  VolumeRange: {x: 0.7, y: 0.7}
   AudioGroupEnabled: 1
   AudioGroup: {fileID: 7557208376370848537, guid: e0ff0dc201fd74a078d406047537f0f4, type: 2}
   LoopingEnabled: 0
