@@ -1,45 +1,16 @@
-﻿title: Cutscene1BeforeShop
-tags:
----
-// Rumen's donkey and cart pulls up
-Rumen: Dimo! How are you doing?
-Dimo: Rumen.
-Rumen: Where's Petrov? Nobody was home.
-Dimo: Left with his wife recently.
-Rumen: So, last man standing, huh.
-Dimo: Mhm...
-===
-
-title: Cutscene1AfterShop
-tags:
----
-Rumen: Why do you stay here, Dimo?
-// Dimo's tone changes to stern
-Dimo: My farm is not for sale.
-Rumen: I'm worried about you. An old man living alone-
-Dimo: I'm not alone. And you're older than me.
-Rumen: Two kids went missing in Peshtera last week. Stoyan's kids.
-Dimo: Elena and Mariya?
-Rumen: Yeah. They're saying it was <i>mango</i>.
-Dimo: Who said that?
-Rumen: Everyone's saying it. You know how they are, <i>mango</i>.
-Rumen: Move into our villages, steal our sheep, and kidnap our children for their religion.
-Rumen: Servants of Satan.
-// Dimo is skeptical
-Dimo: Right.
-===
-
-title: Cutscene1Yoan
+﻿title: Cutscene1
 tags:
 ---
 // Sound of footsteps approaching.
 // A knock on the door.
 // From inside the house, footsteps approaching.
 // The door creaks open.
+<<theme 2>>
 Dimo: Yoan. You didn't write.
 Yoan: Hi Dad. Nice to see you, too.
 Dimo: I thought you were in university?
 Yoan: I am, well, I was. I I'm taking a gap semester.
+<<theme 3>>
 Dimo: A break?
 Yoan: I just needed some time to think, that's all.
 // endearing, worried about his son
@@ -48,11 +19,9 @@ Yoan: Can we talk tomorrow?
 Dimo: What is there to think about? You have a good life, a good future.
 Dimo: Just one more semester, then dental school. You are lucky.
 Yoan: I know. I've just been thinking about other things.
+<<theme 4>>
 // Yoan debates telling Dimo that he doesn't wanna go to dental school
 Yoan: Other, uh...things, I don't know.
-// silence
-<<wait 2>>
-Yoan: Can we please talk tomorrow?
 // silence 
 <<wait 2>>
 Dimo: Come inside. Eat.

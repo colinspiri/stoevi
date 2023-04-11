@@ -26,15 +26,15 @@ public class KillPlayer : Action
             return TaskStatus.Running;
         }
 
-        if (!Application.isEditor || gameOverInEditor) {
-            GameManager.Instance.GameOver(false);
-        }
-
         return TaskStatus.Success;
     }
 
     public override void OnEnd() {
         base.OnEnd();
+        
         timer = 0;
+        if (!Application.isEditor || gameOverInEditor) {
+            GameManager.Instance.GameOver(false);
+        }
     }
 }

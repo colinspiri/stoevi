@@ -3,6 +3,7 @@ using DG.Tweening;
 using SpookuleleAudio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class AudioManager : MonoBehaviour {
     public static AudioManager Instance;
@@ -13,7 +14,7 @@ public class AudioManager : MonoBehaviour {
     
     [Header("Music")]
     public AudioSource mainMenuMusic;
-    public AudioSource introCutsceneMusic;
+    public AudioSource themeBassMusic;
     public ASoundContainer detectedStinger;
     public ASoundContainer chaseStinger;
     [Space]
@@ -83,33 +84,39 @@ public class AudioManager : MonoBehaviour {
         playerBreathing.Stop();
         playerTiredBreathing.Stop();
         
-        // intro cutscene
-        if (introCutsceneMusic.isPlaying) {
-            introCutsceneMusic.DOFade(0, 5f).SetUpdate(true).OnComplete(() => {
-                introCutsceneMusic.Stop();
+        
+        // theme bass music
+        if (newScene.path == sceneLoader.cutsceneScene.ScenePath) {
+            themeBassMusic.Play();
+        }
+        else if (themeBassMusic.isPlaying) {
+            themeBassMusic.DOFade(0, 5f).SetUpdate(true).OnComplete(() => {
+                themeBassMusic.Stop();
             });
         }
 
         // main menu scene
-        if (newScene.path == sceneLoader.mainMenuScene.ScenePath || newScene.path == sceneLoader.cutsceneScene.ScenePath) {
+        if (newScene.path == sceneLoader.mainMenuScene.ScenePath) {
             mainMenuMusic.Play();
         }
         else mainMenuMusic.Stop();
 
-        // days 
+        // ambience 
         bool isDay = false;
         foreach (var dayScene in sceneLoader.dayScenes) {
             if (newScene.path == dayScene.ScenePath) {
                 isDay = true;
-                if(!ambience_day.isPlaying) ambience_day.Play();
                 break;
             }
         }
-        if(!isDay) ambience_day.Stop();
+        if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath) {
+            if(!ambience_day.isPlaying) ambience_day.Play();
+        }
+        else ambience_day.Stop();
     }
 
     public void StopIntroCutsceneMusic() {
-        introCutsceneMusic.Stop();
+        themeBassMusic.Stop();
     }
 
     public void PauseGameSound() {
@@ -201,7 +208,7 @@ public class AudioManager : MonoBehaviour {
     }
 
     public void PlayIntroCutsceneMusic() {
-        introCutsceneMusic.Play();
+        themeBassMusic.Play();
     }
 
     public void SetBreathingSound(bool value) {

@@ -14,20 +14,23 @@ public class CutsceneStart : MonoBehaviour {
 
     private void Start() {
         int currentDay = PlayerPrefs.GetInt("CurrentDay", 1);
-        int lookupDay = currentDay - 1;
 
-        if (cutscenesByDay.ContainsKey(lookupDay)) {
-            string cutsceneNode = cutscenesByDay[lookupDay];
+        if (cutscenesByDay.ContainsKey(currentDay)) {
+            string cutsceneNode = cutscenesByDay[currentDay];
             
             // get dialogue runner
             dialogueRunner = FindObjectOfType<DialogueRunner>();
             if (dialogueRunner != null) {
                 dialogueRunner.onNodeComplete.AddListener(_ => OnCutsceneDone());
+                dialogueRunner.StartDialogue(cutsceneNode);
             }
-            dialogueRunner.StartDialogue(cutsceneNode);
+            else OnCutsceneDone();
+        }
+        else {
+            OnCutsceneDone();
         }
 
-        Debug.Log("currentDay = " + currentDay);
+        Debug.Log("playing cutscene for day = " + currentDay);
     }
     
     private void OnCutsceneDone() {

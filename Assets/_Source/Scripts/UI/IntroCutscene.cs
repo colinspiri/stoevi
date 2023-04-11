@@ -26,7 +26,7 @@ public class IntroCutscene : MonoBehaviour {
     public TextMeshProUGUI exceptText;
 
     [Header("Scenes")]
-    public SceneReference day1Scene;
+    public SceneLoader sceneLoader;
     
     [Header("Audio")]
     public AudioSource ambience_day;
@@ -109,7 +109,7 @@ public class IntroCutscene : MonoBehaviour {
         Tween exceptTween = exceptText.DOFade(1, fadeTime);
         yield return exceptTween.WaitForCompletion();
 
-        SceneManager.LoadScene(day1Scene.ScenePath);
+        SceneManager.LoadScene(sceneLoader.cutsceneScene);
         
         yield return null;
     }

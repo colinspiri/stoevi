@@ -1645,6 +1645,11 @@ MonoBehaviour:
   Preset: {fileID: 11400000, guid: 227c832ea72d0d84aa7974658c2b0001, type: 2}
   timeOfDay: {fileID: 11400000, guid: b29e226c24d0e7442891ff2dc24a8c27, type: 2}
   TimePercent: 0
+  lightningEnabled: 0
+  minLightningTime: 0
+  maxLightningTime: 0
+  lightningDuration: 0
+  lightningColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &1919236535
 Transform:
   m_ObjectHideFlags: 0
