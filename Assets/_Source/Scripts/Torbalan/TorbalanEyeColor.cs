@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class TorbalanEyeColor : MonoBehaviour {
     // components
     public Material eyesMaterial;
+    public FloatReference torbalanAwareness;
     [Space]
 
     // public variables
@@ -11,47 +13,39 @@ public class TorbalanEyeColor : MonoBehaviour {
     public float flashRemainTime;
     public float flashDimTime;
     [Header("Idle")]
-    public Color idleColor;
     public float idleIntensity;
     [Space]
     // searching
     [Header("Searching")]
-    public Color searchColor;
     public float searchIntensity;
     public float searchFlashIntensity;
     [Space]
     // chasing
     [Header("Chasing")]
-    public Color chaseColor;
     public float chaseIntensity;
     public float chaseFlashIntensity;
     
     // state
-    private enum EyeState { Idle, Search, Chase, Flashing }
-    private EyeState state;
     private Color currentColor;
     private float currentIntensity;
 
     private const string EMISSIVE = "_EmissionColor";
 
-    private void Start() {
-        state = EyeState.Idle;
-    }
-
     // Update is called once per frame
     void Update() {
-        // set current color and intensity
-        if (state == EyeState.Idle) {
-            currentColor = idleColor;
-            currentIntensity = idleIntensity;
+        TorbalanStateTracker.TorbalanState state = TorbalanStateTracker.Instance.currentState;
+        if (state == TorbalanStateTracker.TorbalanState.Chase) {
+            currentColor = Color.red;
+            currentIntensity = chaseIntensity;
         }
-        else if (state == EyeState.Search) {
-            currentColor = searchColor;
+        else if (state == TorbalanStateTracker.TorbalanState.Search) {
+            float t = torbalanAwareness.Value;
+            currentColor = Color.Lerp(Color.yellow, Color.red, t);
             currentIntensity = searchIntensity;
         }
-        else if (state == EyeState.Chase) {
-            currentColor = chaseColor;
-            currentIntensity = chaseIntensity;
+        else {
+            currentColor = Color.yellow;
+            currentIntensity = idleIntensity;
         }
 
         // update material
@@ -59,7 +53,7 @@ public class TorbalanEyeColor : MonoBehaviour {
         eyesMaterial.SetColor(EMISSIVE, emissiveColor);
     }
 
-    public void FlashSearch() {
+    /*public void FlashSearch() {
         currentColor = searchColor;
         StartCoroutine(FlashCoroutine(searchIntensity, searchFlashIntensity, EyeState.Search));
     }
@@ -67,10 +61,6 @@ public class TorbalanEyeColor : MonoBehaviour {
     public void FlashChase() {
         currentColor = chaseColor;
         StartCoroutine(FlashCoroutine(chaseIntensity, chaseFlashIntensity, EyeState.Chase));
-    }
-
-    public void EyesIdle() {
-        state = EyeState.Idle;
     }
 
     private IEnumerator FlashCoroutine(float startIntensity, float flashIntensity, EyeState stateOnEnd) {
@@ -98,5 +88,5 @@ public class TorbalanEyeColor : MonoBehaviour {
         state = stateOnEnd;
 
         yield return null;
-    }
+    }*/
 }

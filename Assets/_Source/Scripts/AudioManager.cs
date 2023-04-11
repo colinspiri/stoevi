@@ -24,6 +24,11 @@ public class AudioManager : MonoBehaviour {
     public float tensionFadeOutDistance;
     private float tensionVolume;
     private bool tensionFading;
+    [Space] 
+    public AudioSource chaseMusic;
+    public float chaseFadeTime;
+    private float chaseVolume;
+    private bool chaseFading;
 
     [Header("Ambience")] 
     public AudioSource ambience_day;
@@ -60,6 +65,7 @@ public class AudioManager : MonoBehaviour {
         ambience_night.ignoreListenerPause = true;
 
         tensionVolume = tensionMusic.volume;
+        chaseVolume = chaseMusic.volume;
         ambienceDayVolume = ambience_day.volume;
         ambienceNightVolume = ambience_night.volume;
         Debug.Log("day = " + ambienceDayVolume + " night = " + ambienceNightVolume);
@@ -81,6 +87,7 @@ public class AudioManager : MonoBehaviour {
         // stop misc sounds
         ambience_night.Stop();
         tensionMusic.Stop();
+        chaseMusic.Stop();
         playerBreathing.Stop();
         playerTiredBreathing.Stop();
         
@@ -101,7 +108,7 @@ public class AudioManager : MonoBehaviour {
         }
         else mainMenuMusic.Stop();
 
-        // ambience 
+        
         bool isDay = false;
         foreach (var dayScene in sceneLoader.dayScenes) {
             if (newScene.path == dayScene.ScenePath) {
@@ -109,10 +116,20 @@ public class AudioManager : MonoBehaviour {
                 break;
             }
         }
+        // ambience 
         if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath) {
             if(!ambience_day.isPlaying) ambience_day.Play();
         }
         else ambience_day.Stop();
+        
+        // tension
+        if (isDay) {
+            Debug.Log("start playing tension music");
+            tensionMusic.Play();
+            tensionMusic.volume = 0;
+            chaseMusic.Play();
+            chaseMusic.volume = 0;
+        }
     }
 
     public void StopIntroCutsceneMusic() {
@@ -168,26 +185,41 @@ public class AudioManager : MonoBehaviour {
             }
         }
         
-        // tension music
+        // torbalan music
         if (FirstPersonMovement.Instance && TorbalanDirector.Instance) {
+            // tension music
             float distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position,
                 TorbalanDirector.Instance.transform.position);
-
-            if (distance < tensionFadeInDistance && !tensionMusic.isPlaying && !tensionFading) {
-                tensionMusic.Play();
-                tensionMusic.volume = 0;
+            
+            if (distance < tensionFadeInDistance && tensionMusic.volume == 0 && !tensionFading) {
                 tensionMusic.DOFade(tensionVolume, tensionFadeTime).OnComplete(() => {
                     tensionFading = false;
                 });
                 tensionFading = true;
             }
 
-            if (distance > tensionFadeOutDistance && tensionMusic.isPlaying && !tensionFading) {
-                tensionFading = true;
+            if (distance > tensionFadeOutDistance && tensionMusic.volume == tensionVolume && !tensionFading) {
                 tensionMusic.DOFade(0, tensionFadeTime).OnComplete(() => {
-                    tensionMusic.Stop();
                     tensionFading = false;
                 });
+                tensionFading = true;
+            }
+            
+            // chase music
+            TorbalanStateTracker.TorbalanState state = TorbalanStateTracker.Instance.currentState;
+            if (state == TorbalanStateTracker.TorbalanState.Chase && chaseMusic.volume == 0 && !chaseFading) {
+                chaseMusic.volume = 0;
+                chaseMusic.DOFade(chaseVolume, chaseFadeTime).OnComplete(() => {
+                    chaseFading = false;
+                });
+                chaseFading = true;
+            }
+
+            if (state != TorbalanStateTracker.TorbalanState.Chase && chaseMusic.volume == chaseVolume && !chaseFading) {
+                chaseMusic.DOFade(0, chaseFadeTime).OnComplete(() => {
+                    chaseFading = false;
+                });
+                chaseFading = true;
             }
         }
     }

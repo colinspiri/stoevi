@@ -24,12 +24,31 @@ public class TorbalanSpotLight : MonoBehaviour {
     {
         Color color;
         float brightness, coneOpacity;
-        if (torbalanAwareness.Value >= 1) {
+        
+        TorbalanStateTracker.TorbalanState state = TorbalanStateTracker.Instance.currentState;
+
+        if (state == TorbalanStateTracker.TorbalanState.Chase) {
             color = Color.red;
             brightness = maxBrightness;
             coneOpacity = maxConeOpacity;
         }
-        else if (torbalanAwareness.Value >= 0.5f) {
+        else if (state == TorbalanStateTracker.TorbalanState.Search) {
+            float t = torbalanAwareness.Value;
+            color = Color.Lerp(Color.yellow, Color.red, t);
+            brightness = maxBrightness;
+            coneOpacity = minConeOpacity;
+        }
+        else if (state == TorbalanStateTracker.TorbalanState.Frontstage) {
+            color = Color.yellow;
+            brightness = minBrightness;
+            coneOpacity = minConeOpacity;
+        }
+        else {
+            color = Color.yellow;
+            brightness = 0;
+            coneOpacity = 0;
+        }
+        /*else if (torbalanAwareness.Value >= 0.5f) {
             color = Color.red;
             float t = (torbalanAwareness.Value - 0.5f) * 2f;
             brightness = Mathf.Lerp(minBrightness, maxBrightness, t);
@@ -45,7 +64,7 @@ public class TorbalanSpotLight : MonoBehaviour {
             color = Color.yellow;
             brightness = minBrightness;
             coneOpacity = minConeOpacity;
-        }
+        }*/
         light.color = color;
         light.intensity = brightness;
         volumetricLightMesh.maximumOpacity = coneOpacity;
