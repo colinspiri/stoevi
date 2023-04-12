@@ -2,34 +2,34 @@
 tags:
 ---
 // Rumen's donkey and cart pulls up
-Rumen: Dimo! How are you doing?
+Rumen: Dimo! Still holding up?
 Dimo: Rumen.
 Rumen: Where's Petrov?
 Dimo: Left with his wife two days ago.
 Rumen: So, last man standing, huh.
+Dimo: Mhm.
 <<theme 2>>
-Dimo: Mhm...
 <<wait 2>>
-Dimo: My farm is not for sale.
-Rumen: I'm worried about you. An old man living alone-
-Dimo: I'm not alone.
 Rumen: Stoyan's kids went missing in Peshtera last week.
 <<theme 3>>
 Dimo: Elena and Mariya?
-<<theme 4>>
 Rumen: Yeah. They're saying it was <i>mango</i>.
 Dimo: Who said that?
-Rumen: You know how they are. Children of the devil.
-// Dimo is skeptical
-Dimo: Right...
-Rumen: It's dangerous here now. When are you moving?
-Dimo: No.
+Rumen: You know how they are. Child-stealing devil-worshippers.
+Dimo: You think I am easily scared.
+Rumen: How's the harvest? You'll have something for me tomorrow?
+Dimo: Yes.
+Rumen: When are you leaving, Dimo?
+Dimo: My farm is not for sale.
+Rumen: I'm just worried about you. An old man living alone-
+Dimo: I am not alone.
 Rumen: You gonna spend the rest of your life in an empty village?
 Dimo: I like the quiet.
 Rumen: Still saving for Germany?
 Dimo: I'm close.
-Rumen: Is that what you tell them?
-// Dimo's angry, but not yelling
+Rumen: Is that what you tell her?
 Dimo: Do not speak about my children.
-Rumen: Think about it, Dimo. See you tomorrow.
+<<theme 4>>
+Rumen: Think about it, Dimo.
+Rumen: Good luck on your harvest.
 ===
