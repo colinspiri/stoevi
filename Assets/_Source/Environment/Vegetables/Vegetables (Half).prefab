@@ -61,7 +61,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 11400000, guid: 68a0799cbf43c154cb4fe41c3e788152, type: 2}
   type: 1
+  isBush: 1
   playerInside: 0
 --- !u!114 &2949478073187016427
 MonoBehaviour:

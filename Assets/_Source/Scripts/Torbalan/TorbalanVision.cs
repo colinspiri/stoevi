@@ -158,7 +158,7 @@ public class TorbalanVision : MonoBehaviour {
 
     private bool CanSeePlayerInCone(float distance, float angle) {
         // check if player in complete cover
-        if (allCover.PlayerInCompleteCover()) {
+        if (allCover.PlayerHiddenByCompleteCover()) {
             return false;
         }
         
@@ -177,7 +177,7 @@ public class TorbalanVision : MonoBehaviour {
         if (behindCompleteCover) return false;
         
         // check if player in sparse cover
-        bool behindSparseCover = allCover.PlayerInSparseCover() || PointBehindCover(targetPosition, true);
+        bool behindSparseCover = allCover.PlayerHiddenBySparseCover() || PointBehindCover(targetPosition, true);
         if (behindSparseCover) {
             playerBehindSparseCover = true;
             return true;

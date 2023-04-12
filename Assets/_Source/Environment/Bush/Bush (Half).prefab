@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2402667733861981639}
   - component: {fileID: 8237348704795005287}
   m_Layer: 12
-  m_Name: NavMeshModifier
+  m_Name: NavMeshModifier Torbalan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,54 @@ MonoBehaviour:
   m_Size: {x: 1.1, y: 3, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
   m_Area: 3
-  m_AffectedAgents: ffffffff
+  m_AffectedAgents: 00000000
+--- !u!1 &1899332755146792591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5253925283269043392}
+  - component: {fileID: 3307519768205014305}
+  m_Layer: 12
+  m_Name: NavMeshModifier Sheep
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5253925283269043392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899332755146792591}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7603266987921784221}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3307519768205014305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899332755146792591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2777bba7e4e7c6f4681e3ea77eef5438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 1.1, y: 3, z: 1.1}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Area: 1
+  m_AffectedAgents: f2652fae
 --- !u!1 &7603266987921784218
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +104,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7603266987921784221}
   - component: {fileID: 7603266987921784220}
-  - component: {fileID: 7603266987921784209}
   - component: {fileID: 7603266987921784208}
   - component: {fileID: 8018839745192154857}
   - component: {fileID: 7744822456385680094}
@@ -80,6 +126,7 @@ Transform:
   m_LocalScale: {x: 2, y: 1.7, z: 2}
   m_Children:
   - {fileID: 2402667733861981639}
+  - {fileID: 5253925283269043392}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 1.103, y: 0, z: -2.039}
@@ -96,22 +143,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7603266987921784209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7603266987921784218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d07ce676d7afda4dabb3b0f7dd5e654, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!114 &7603266987921784208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,8 +156,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 11400000, guid: 68a0799cbf43c154cb4fe41c3e788152, type: 2}
   type: 1
-  playerInside: 0
+  isBush: 1
 --- !u!114 &8018839745192154857
 MonoBehaviour:
   m_ObjectHideFlags: 0

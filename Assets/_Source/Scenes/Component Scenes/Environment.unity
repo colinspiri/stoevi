@@ -1473,6 +1473,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2047240049}
     m_Modifications:
+    - target: {fileID: 109631218872755471, guid: 602413cae09adef41af4164e20bd9564, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7389856602024743248, guid: 602413cae09adef41af4164e20bd9564, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -14958,6 +14962,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5253925283269043392, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7603266987921784218, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
       propertyPath: m_Name
       value: Bush (Half) (5)
@@ -15286,6 +15294,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 196993131}
     m_Modifications:
+    - target: {fileID: 109631218872755471, guid: 602413cae09adef41af4164e20bd9564, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7389856602024743248, guid: 602413cae09adef41af4164e20bd9564, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -35285,8 +35297,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 0}
   type: 1
-  playerInside: 0
+  isBush: 0
 --- !u!1001 &733540694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37024,8 +37037,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 0}
   type: 0
-  playerInside: 0
+  isBush: 0
 --- !u!65 &791551795
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38068,6 +38082,10 @@ PrefabInstance:
     - target: {fileID: 2402667733861981639, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253925283269043392, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7603266987921784218, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
       propertyPath: m_Name
@@ -44805,8 +44823,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 0}
   type: 1
-  playerInside: 0
+  isBush: 0
 --- !u!1001 &917434817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57536,8 +57555,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 0}
   type: 1
-  playerInside: 0
+  isBush: 0
 --- !u!65 &1124847596
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60219,6 +60239,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5253925283269043392, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7603266987921784218, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
       propertyPath: m_Name
       value: Bush (Half)
@@ -60555,8 +60579,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 0}
   type: 1
-  playerInside: 0
+  isBush: 0
 --- !u!65 &1221720621
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -63386,6 +63411,10 @@ PrefabInstance:
     - target: {fileID: 2402667733861981639, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253925283269043392, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7603266987921784218, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
       propertyPath: m_Name
@@ -66226,8 +66255,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 0}
   type: 1
-  playerInside: 0
+  isBush: 0
 --- !u!65 &1380213456
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -73669,8 +73699,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 0}
   type: 0
-  playerInside: 0
+  isBush: 0
 --- !u!65 &1607153608
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -73832,6 +73863,10 @@ PrefabInstance:
     - target: {fileID: 2402667733861981639, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253925283269043392, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7603266987921784218, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
       propertyPath: m_Name
@@ -74727,8 +74762,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 0}
   type: 1
-  playerInside: 0
+  isBush: 0
 --- !u!65 &1631700478
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -79931,8 +79967,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 0}
   type: 0
-  playerInside: 0
+  isBush: 0
 --- !u!65 &1772286095
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -81226,6 +81263,10 @@ PrefabInstance:
     - target: {fileID: 2402667733861981639, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253925283269043392, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7603266987921784218, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
       propertyPath: m_Name
@@ -84033,6 +84074,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5253925283269043392, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7603266987921784218, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
       propertyPath: m_Name
       value: Bush (Half) (7)
@@ -85088,8 +85133,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 0}
   type: 0
-  playerInside: 0
+  isBush: 0
 --- !u!65 &1932196603
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -86647,8 +86693,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 0}
   type: 1
-  playerInside: 0
+  isBush: 0
 --- !u!65 &1979679186
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -87495,6 +87542,10 @@ PrefabInstance:
     - target: {fileID: 2402667733861981639, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5253925283269043392, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7603266987921784218, guid: db05920ca65761a489eeda9a8a2d723d, type: 3}
       propertyPath: m_Name
@@ -91596,8 +91647,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 0}
   type: 1
-  playerInside: 0
+  isBush: 0
 --- !u!1 &5897584532155144386
 GameObject:
   m_ObjectHideFlags: 0
@@ -91904,8 +91956,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 0}
   type: 1
-  playerInside: 0
+  isBush: 0
 --- !u!65 &8750128218469677636
 BoxCollider:
   m_ObjectHideFlags: 0
