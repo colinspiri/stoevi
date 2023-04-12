@@ -21,7 +21,7 @@ public class DynamicVignette : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (previousValue != coverSet.PlayerInCompleteCover()) {
+        if (previousValue != coverSet.PlayerHiddenByCompleteCover()) {
             UpdateVignette();
         }
     }
@@ -30,7 +30,7 @@ public class DynamicVignette : MonoBehaviour
         var vignette = profile.GetSetting<Vignette>();
         float startingIntensity = vignette.intensity.value;
 
-        if (coverSet.PlayerInCompleteCover()) {
+        if (coverSet.PlayerHiddenByCompleteCover()) {
             DOTween.To(() => vignette.intensity.value, value => vignette.intensity.value = value, hiddenIntensity,
                 interpolationTime);
             // vignette.intensity.Interp(startingIntensity, hiddenIntensity, interpolationTime);
@@ -41,6 +41,6 @@ public class DynamicVignette : MonoBehaviour
             // vignette.intensity.Interp(startingIntensity, defaultIntensity, interpolationTime);
         }
         
-        previousValue = coverSet.PlayerInCompleteCover();
+        previousValue = coverSet.PlayerHiddenByCompleteCover();
     }
 }

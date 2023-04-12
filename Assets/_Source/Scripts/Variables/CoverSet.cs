@@ -3,17 +3,17 @@
 [CreateAssetMenu]
 public class CoverSet : Set<Cover> {
 
-    public bool PlayerInCompleteCover() {
+    public bool PlayerHiddenByCompleteCover() {
         foreach (var cover in Items) {
-            if (cover.playerInside && cover.type == Cover.CoverType.Complete) return true;
+            if (cover.type == Cover.CoverType.Complete && cover.playerInside && cover.torbalanInside == false) return true;
         }
 
         return false;
     }
     
-    public bool PlayerInSparseCover() {
+    public bool PlayerHiddenBySparseCover() {
         foreach (var cover in Items) {
-            if (cover.playerInside && cover.type == Cover.CoverType.Sparse) return true;
+            if (cover.type == Cover.CoverType.Sparse && cover.playerInside && cover.torbalanInside == false) return true;
         }
 
         return false;

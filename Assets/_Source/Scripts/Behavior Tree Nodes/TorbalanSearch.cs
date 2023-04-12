@@ -21,6 +21,8 @@ public class TorbalanSearch : NavMeshMovement {
     public SharedFloat minPauseDuration;
     public SharedFloat maxPauseDuration;
     public SharedFloat maxSearchTime;
+    public BushSet bushSet;
+    public SharedFloat bushSpacing;
     [Header("Huffing")] 
     public ASoundContainer torbalan_huff;
     public SharedFloat minTimeBetweenHuffs;
@@ -175,6 +177,19 @@ public class TorbalanSearch : NavMeshMovement {
 
         // add the rest of the points to search positions
         foreach (var point in randomPoints) {
+            // discard point if inside bush
+            bool insideBush = false;
+            foreach (var bush in bushSet.Items) {
+                Bounds bounds = bush.GetComponent<Collider>().bounds;
+                bounds.Expand(bushSpacing.Value);
+                if (bounds.Contains(point)) {
+                    insideBush = true;
+                    break;
+                }
+            }
+
+            if (insideBush) continue;
+            
             searchPositions.Add(point);
         }
 

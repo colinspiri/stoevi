@@ -12,7 +12,7 @@ NavMeshProjectSettings:
   - name: Jump
     cost: 2
   - name: Plant
-    cost: 3
+    cost: 5
   - name: 
     cost: 1
   - name: 
@@ -73,7 +73,7 @@ NavMeshProjectSettings:
   m_Settings:
   - serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 1
+    agentRadius: 0.5
     agentHeight: 4
     agentSlope: 45
     agentClimb: 1.15
