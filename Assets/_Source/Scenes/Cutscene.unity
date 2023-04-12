@@ -331,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638271798219830054, guid: ea4a0c68e4d7f064091966f4be7cdb16, type: 3}
       propertyPath: holdTime
-      value: 1
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4638271798300311444, guid: ea4a0c68e4d7f064091966f4be7cdb16, type: 3}
       propertyPath: m_AnchorMax.y
