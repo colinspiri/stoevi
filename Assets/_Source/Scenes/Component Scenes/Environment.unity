@@ -4736,25 +4736,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 304b5637b5b91c54b91beca4cb99ec92, type: 3}
---- !u!1 &156846148 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1760714182489039777, guid: 19b1a4af70a303942a82b000ada97792, type: 3}
-  m_PrefabInstance: {fileID: 280253823}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &156846149
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156846148}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 3562073674547505438, guid: 19b1a4af70a303942a82b000ada97792, type: 3}
 --- !u!1 &159405366
 GameObject:
   m_ObjectHideFlags: 0
@@ -14151,9 +14132,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1760714182489039777, guid: 19b1a4af70a303942a82b000ada97792, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 19b1a4af70a303942a82b000ada97792, type: 3}
       propertyPath: m_Name
       value: M_Shed_v2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 19b1a4af70a303942a82b000ada97792, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094559010302358929, guid: 19b1a4af70a303942a82b000ada97792, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6461672201273267177, guid: 19b1a4af70a303942a82b000ada97792, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19b1a4af70a303942a82b000ada97792, type: 3}
@@ -32563,15 +32560,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8523131639148403480, guid: 8dd786e2e3188ee4dbf3a861c5c85145, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.550003
+      value: -6.52
       objectReference: {fileID: 0}
     - target: {fileID: 8523131639148403480, guid: 8dd786e2e3188ee4dbf3a861c5c85145, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.313057
+      value: 4.68
       objectReference: {fileID: 0}
     - target: {fileID: 8523131639148403480, guid: 8dd786e2e3188ee4dbf3a861c5c85145, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.220001
+      value: -21.15
       objectReference: {fileID: 0}
     - target: {fileID: 8523131639148403480, guid: 8dd786e2e3188ee4dbf3a861c5c85145, type: 3}
       propertyPath: m_LocalRotation.w
@@ -36163,7 +36160,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh2077792
+  m_Name: pb_Mesh512904
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -53822,7 +53819,7 @@ GameObject:
   - component: {fileID: 1042573285}
   - component: {fileID: 1042573287}
   m_Layer: 0
-  m_Name: NavMesh - Torbalan
+  m_Name: NavMesh - Torbalan (Day 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53847,16 +53844,16 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 6272
-  m_UseGeometry: 0
+  m_UseGeometry: 1
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.33333334
+  m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: e318ca0a69a764c4f8013a0347f60d01, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 3720a05d606a270478e401709ef458b2, type: 2}
 --- !u!4 &1042573286
 Transform:
   m_ObjectHideFlags: 0
@@ -64209,7 +64206,7 @@ GameObject:
   - component: {fileID: 1317729910}
   - component: {fileID: 1317729909}
   m_Layer: 0
-  m_Name: NavMesh - Sheep
+  m_Name: NavMesh - Sheep (Day 1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64234,7 +64231,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 2240
-  m_UseGeometry: 0
+  m_UseGeometry: 1
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
@@ -64243,7 +64240,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.33333334
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: b6f4e94ca566fa34a87e727fc559867f, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: a7dfbb29ca38f634f9c4860a6032eddd, type: 2}
 --- !u!4 &1317729910
 Transform:
   m_ObjectHideFlags: 0
@@ -91760,15 +91757,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8523131639148403480, guid: 8dd786e2e3188ee4dbf3a861c5c85145, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.24
+      value: 21.25
       objectReference: {fileID: 0}
     - target: {fileID: 8523131639148403480, guid: 8dd786e2e3188ee4dbf3a861c5c85145, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.0076447
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 8523131639148403480, guid: 8dd786e2e3188ee4dbf3a861c5c85145, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.77
+      value: 13.74
       objectReference: {fileID: 0}
     - target: {fileID: 8523131639148403480, guid: 8dd786e2e3188ee4dbf3a861c5c85145, type: 3}
       propertyPath: m_LocalRotation.w

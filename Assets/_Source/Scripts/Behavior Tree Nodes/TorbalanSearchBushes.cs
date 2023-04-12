@@ -14,14 +14,22 @@ public class TorbalanSearchBushes : NavMeshMovement {
     public SharedVector3 lastKnownPosition;
     public SharedFloat searchRadius;
     public SharedFloat patrolDistanceFromBush;
+    public SharedFloat pauseTime;
+    public SharedFloat maxSearchTime;
 
     // state
     private List<Cover> bushesToSearch;
     private List<Vector3> bushPatrolPoints;
+    private float plantAreaCost;
+    private float pauseTimer;
+    private float searchTimer;
 
     public override void OnStart() {
         base.OnStart();
-        
+
+        plantAreaCost = NavMesh.GetAreaCost(3);
+        pauseTimer = 0;
+
         Owner.RegisterEvent("LastKnownPositionUpdated", FindBushesToSearch);
         FindBushesToSearch();
     }
@@ -29,31 +37,74 @@ public class TorbalanSearchBushes : NavMeshMovement {
     public override TaskStatus OnUpdate() {
         if (bushesToSearch.Count == 0) return TaskStatus.Success;
         
+        // count timer
+        searchTimer += Time.deltaTime;
+        if (searchTimer >= maxSearchTime.Value) {
+            return TaskStatus.Success;
+        }
+
+        // arrived
         if (HasArrived()) {
-            if (bushPatrolPoints != null && bushPatrolPoints.Count > 0) {
-                bushPatrolPoints.RemoveAt(0);
-                // more points to patrol
-                if (bushPatrolPoints.Count > 0) {
-                    Debug.Log("patrolling next point");
-                    SetDestination(bushPatrolPoints[0]);
-                }
-                // onto next bush
-                else {
-                    bushesToSearch.RemoveAt(0);
-                    // more bushes to check
-                    Debug.Log("next bush");
-                    if (bushesToSearch.Count > 0) {
-                        StartPatrollingBush();
+            // reset timer
+            if (pauseTimer <= 0) {
+                pauseTimer = pauseTime.Value;
+                Stop();
+                // Debug.Log("reset timer");
+            }
+            
+            // count down timer
+            if (pauseTimer > 0) {
+                pauseTimer -= Time.deltaTime;
+                // Debug.Log("paused " + pauseTimer);
+            
+                // if timer finished, choose new destination
+                if(pauseTimer <= 0) {
+                    // was patrolling
+                    if (bushPatrolPoints.Count > 0) {
+                        bushPatrolPoints.RemoveAt(0);
+                
+                        // more points to patrol
+                        if (bushPatrolPoints.Count > 0) {
+                            // Debug.Log("patrolling next point");
+                            SetDestination(bushPatrolPoints[0]);
+                            return TaskStatus.Running;
+                        }
+                        // move into bush
+                        else {
+                            // Debug.Log("moving into bush");
+                            Cover currentBush = bushesToSearch[0];
+                            SetDestination(GetClosestPointOnNavMesh(currentBush.transform.position));
+                            // set bush cost to normal
+                            NavMesh.SetAreaCost(3, 1);
+                            return TaskStatus.Running;
+                        }
                     }
-                    // finished all bushes
+                    // was moving into bush
                     else {
-                        Debug.Log("done");
-                        return TaskStatus.Success;
+                        bushesToSearch.RemoveAt(0);
+                        // set bush cost back to normal
+                        NavMesh.SetAreaCost(3, plantAreaCost);
+                
+                        // more bushes to check
+                        if (bushesToSearch.Count > 0) {
+                            // Debug.Log("start next bush");
+                            StartPatrollingBush();
+                            return TaskStatus.Running;
+                        }
+                        // finished all bushes
+                        else {
+                            // Debug.Log("finished all bushes");
+                            return TaskStatus.Success;
+                        }
                     }
                 }
             }
         }
         
+        
+        
+
+
         return TaskStatus.Running;
     }
 
@@ -65,21 +116,36 @@ public class TorbalanSearchBushes : NavMeshMovement {
         Collider collider = currentBush.GetComponent<Collider>();
         Bounds bounds = collider.bounds;
         bounds.Expand(patrolDistanceFromBush.Value);
-        Vector3 corner1 = bounds.min;
+        Vector3 corner1 = GetClosestPointOnNavMesh(bounds.min);
         corner1.y = bounds.center.y;
-        Vector3 corner3 = bounds.max;
+        Vector3 corner3 = GetClosestPointOnNavMesh(bounds.max);
         corner3.y = bounds.center.y;
-        Vector3 corner2 = new Vector3(corner1.x, bounds.center.y, corner3.z);
-        Vector3 corner4 = new Vector3(corner3.x, bounds.center.y, corner1.z);
+        Vector3 corner2 = GetClosestPointOnNavMesh(new Vector3(corner1.x, bounds.center.y, corner3.z));
+        Vector3 corner4 = GetClosestPointOnNavMesh(new Vector3(corner3.x, bounds.center.y, corner1.z));
         
         bushPatrolPoints.Add(corner1);
         bushPatrolPoints.Add(corner2);
         bushPatrolPoints.Add(corner3);
         bushPatrolPoints.Add(corner4);
-        bushPatrolPoints.Add(bounds.center);
-        bushPatrolPoints.Add(corner2);
 
         SetDestination(bushPatrolPoints[0]);
+    }
+
+    private Vector3 GetClosestPointOnNavMesh(Vector3 inPoint) {
+        Vector3 point;
+        NavMeshHit hit;
+        float radius = 0;
+        do {
+            Vector2 randomDirection2D = Random.insideUnitCircle.normalized;
+            Vector3 randomDirection = new Vector3(randomDirection2D.x, 0, randomDirection2D.y);
+
+            point = inPoint + randomDirection * radius;
+            radius += 0.1f;
+        } while(!NavMesh.SamplePosition(point, out hit, 10.0f, NavMesh.AllAreas));
+
+        Debug.Log("inPoint = " + inPoint);
+        Debug.Log("outPoint = " + hit.position);
+        return hit.position;
     }
 
     private void FindBushesToSearch() {
@@ -106,6 +172,8 @@ public class TorbalanSearchBushes : NavMeshMovement {
 
     public override void OnEnd() {
         base.OnEnd();
+        
+        NavMesh.SetAreaCost(3, plantAreaCost);
         
         Owner.UnregisterEvent("LastKnownPositionUpdated", FindBushesToSearch);
     }

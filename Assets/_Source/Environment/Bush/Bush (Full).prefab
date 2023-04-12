@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2856001824717972206}
   - component: {fileID: 3513745107341459138}
   m_Layer: 12
-  m_Name: NavMeshModifier Torbalan
+  m_Name: NavMeshModifier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,10 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2777bba7e4e7c6f4681e3ea77eef5438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Size: {x: 1.1, y: 3, z: 1.1}
+  m_Size: {x: 1.3, y: 3, z: 1.3}
   m_Center: {x: 0, y: 0, z: 0}
   m_Area: 3
-  m_AffectedAgents: 00000000
+  m_AffectedAgents: ffffffff
 --- !u!1 &7389856602024743255
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,7 +79,6 @@ Transform:
   m_LocalScale: {x: 3, y: 3.5000005, z: 3}
   m_Children:
   - {fileID: 2856001824717972206}
-  - {fileID: 109631218872755471}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 1.103, y: 0, z: -2.039}
@@ -150,50 +149,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interiorWallPrefab: {fileID: 1642986201645481353, guid: 18b020bf07dc3b1469a3169a98b4f792, type: 3}
   interiorWallDistance: 1.5
---- !u!1 &8935156455171189577
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 109631218872755471}
-  - component: {fileID: 4405624278767472958}
-  m_Layer: 12
-  m_Name: NavMeshModifier Sheep
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &109631218872755471
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8935156455171189577}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7389856602024743248}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4405624278767472958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8935156455171189577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2777bba7e4e7c6f4681e3ea77eef5438, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Size: {x: 1.1, y: 3, z: 1.1}
-  m_Center: {x: 0, y: 0, z: 0}
-  m_Area: 1
-  m_AffectedAgents: f2652fae
