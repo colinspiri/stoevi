@@ -38,7 +38,6 @@ public class VOManager : MonoBehaviour {
             randomIndex = Random.Range(0, voClips.Count);
         } while (randomIndex == previousRandomIndex);
         previousRandomIndex = randomIndex;
-        Debug.Log("playing clip " + randomIndex);
 
         // play clip
         AudioClip randomClip = voClips[randomIndex];

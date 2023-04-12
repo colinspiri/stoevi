@@ -17,7 +17,7 @@ public class FadePulse : MonoBehaviour {
         text.alpha = 0;
         StartFadingIn();
     }
-
+    
     private void StartFadingIn() {
         text.DOFade(1, fadeTime).SetUpdate(true).OnComplete(StartFadingOut);
     }

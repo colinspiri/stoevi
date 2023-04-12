@@ -707,9 +707,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""RightClick"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""2c422b02-0e1e-4555-aa95-372aecc53cb8"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
