@@ -9,18 +9,21 @@ tags:
 Dimo: Yoan. You didn't write.
 Yoan: Hi Dad. Nice to see you, too.
 Dimo: I thought you were at university?
-Yoan: I am, well, I was. I'm taking a gap semester.
+Yoan: I, uh, I'm taking a gap semester.
 <<theme 3>>
-Dimo: A vacation?
-Yoan: I just needed some time to think, that's all.
+Dimo: A break?
+Yoan: I needed some time to think, refocus, that's all.
 // endearing, worried about his son
 Dimo: Think about what? You have a good life, a good future.
+Yoan: Well,
 Dimo: One more year, then dental school. You are lucky.
-Yoan: I know. I've just been thinking about other things.
+Yoan: I know. I just need more time.
 <<theme 4>>
+Dimo: ...
 // Yoan debates telling Dimo that he doesn't wanna go to dental school
-Yoan: Other, uh...things, I don't know.
-// silence 
+Yoan: I'm just, not sure about-
+Yoan: Never mind.
+// silence
 <<wait 2>>
 Dimo: Come inside. Eat.
 // door closes
