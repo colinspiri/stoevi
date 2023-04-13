@@ -469,7 +469,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: click to continue
+  m_text: <sprite name="left_click"> continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 471b9406ae572be4b876f7c53c0caa8f, type: 2}
   m_sharedMaterial: {fileID: 5125687796235707659, guid: 471b9406ae572be4b876f7c53c0caa8f, type: 2}

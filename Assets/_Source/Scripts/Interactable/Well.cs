@@ -39,7 +39,7 @@ public class Well : Interactable {
     }
 
     public override string GetButtonPromptPrimary() {
-        return (currentWater.Value == maxWater.Value) ? "water is already full" : "hold " + GetInteractPrimaryButton() + " to refill water";
+        return (currentWater.Value == maxWater.Value) ? "water is already full" : GetInteractPrimaryButton() + " refill water";
     }
 
     public override bool IsInteractablePrimary() {

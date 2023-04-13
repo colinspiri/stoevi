@@ -70,7 +70,10 @@ public class InteractableUI : MonoBehaviour {
         buttonPrompt.alpha = 1;
         buttonPrompt.text = selectedObject.GetButtonPromptPrimary();
         string secondary = selectedObject.GetButtonPromptSecondary();
-        if (!secondary.Equals("")) buttonPrompt.text += "\n" + secondary;
+        if (!secondary.Equals("")) {
+            if (selectedObject.GetButtonPromptPrimary().Equals("") == false) buttonPrompt.text += "\n";
+            buttonPrompt.text += secondary;
+        }
         
         ShowTimer(selectedObject);
     }
@@ -86,7 +89,10 @@ public class InteractableUI : MonoBehaviour {
         buttonPrompt.alpha = 0.5f;
         buttonPrompt.text = selectedObject.GetButtonPromptPrimary();
         string secondary = selectedObject.GetButtonPromptSecondary();
-        if (!secondary.Equals("")) buttonPrompt.text += "\n" + secondary;
+        if (!secondary.Equals("")) {
+            if (selectedObject.GetButtonPromptPrimary().Equals("") == false) buttonPrompt.text += "\n";
+            buttonPrompt.text += secondary;
+        }
         
         ShowTimer(selectedObject);
     }

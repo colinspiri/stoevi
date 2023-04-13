@@ -23,6 +23,6 @@ public class Pickup : Interactable {
     }
 
     public override string GetButtonPromptPrimary() {
-        return GetInteractPrimaryButton() + " to pick up " + item.itemName;
+        return GetInteractPrimaryButton() + " pick up " + item.itemName;
     }
 }

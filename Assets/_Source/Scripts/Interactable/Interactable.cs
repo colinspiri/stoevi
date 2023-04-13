@@ -55,10 +55,10 @@ public abstract class Interactable : MonoBehaviour {
         
     }
     protected static string GetInteractPrimaryButton() {
-        return "LMB";
+        return "<sprite name=\"left_click\">";
     }
     protected static string GetInteractSecondaryButton() {
-        return "RMB";
+        return "<sprite name=\"right_click\">";
     }
 
     private void OnDestroy() {

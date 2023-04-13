@@ -126,7 +126,7 @@ public class Soil : Interactable {
             return "out of seeds";
         }
         if (crops.Count < farmingConstants.maxCrops && currentSeeds.Value > 0) {
-            return "hold " + GetInteractPrimaryButton() + " to plant seed";
+            return GetInteractPrimaryButton() + " plant seed";
         }
         return "";
     }
@@ -136,7 +136,7 @@ public class Soil : Interactable {
             return "out of fertilizer";
         }
         else if (!fertilized && currentFertilizer.Value > 0) {
-            return "hold " + GetInteractSecondaryButton() + " to fertilize";
+            return GetInteractSecondaryButton() + " fertilize";
         }
         else return "";
     }

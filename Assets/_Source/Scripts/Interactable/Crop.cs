@@ -336,20 +336,20 @@ public class Crop : Interactable {
 
     public override string GetButtonPromptPrimary() {
         if (stage == GrowthStage.Bare || health == Health.Dead) {
-            return "hold " + GetInteractPrimaryButton() + " to dig up";
+            return GetInteractPrimaryButton() + " dig up";
         }
         else if (state == State.NeedsWater) {
-            return currentWater.Value <= 0 ? "out of water" : "hold " + GetInteractPrimaryButton() + " to water";
+            return currentWater.Value <= 0 ? "out of water" : GetInteractPrimaryButton() + " water";
         }
         else if (stage == GrowthStage.Ripe) {
-            return "hold " + GetInteractPrimaryButton() + " to harvest tomato";
+            return GetInteractPrimaryButton() + " harvest tomato";
         }
         return "";
     }
 
     public override string GetButtonPromptSecondary() {
         if (soil != null && !soil.fertilized && currentFertilizer.Value > 0) {
-            return "hold " + GetInteractSecondaryButton() + " to fertilize";
+            return GetInteractSecondaryButton() + " fertilize";
         }
 
         return "";

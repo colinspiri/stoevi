@@ -78,7 +78,7 @@ public class Sheep : Interactable {
     }
 
     public override string GetButtonPromptPrimary() {
-        return GetInteractPrimaryButton() + " to hit sheep";
+        return GetInteractPrimaryButton() + " hit sheep";
     }
 
     protected void OnDestroy() {
