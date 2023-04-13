@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour {
     [Header("Music")]
     public AudioSource mainMenuMusic;
     public AudioSource themeBassMusic;
+    private float themeBassMusicVolume;
     public ASoundContainer detectedStinger;
     public ASoundContainer chaseStinger;
     [Space]
@@ -64,6 +65,7 @@ public class AudioManager : MonoBehaviour {
         ambience_day.ignoreListenerPause = true;
         ambience_night.ignoreListenerPause = true;
 
+        themeBassMusicVolume = themeBassMusic.volume;
         tensionVolume = tensionMusic.volume;
         chaseVolume = chaseMusic.volume;
         ambienceDayVolume = ambience_day.volume;
@@ -95,6 +97,7 @@ public class AudioManager : MonoBehaviour {
         // theme bass music
         if (newScene.path == sceneLoader.cutsceneScene.ScenePath) {
             themeBassMusic.Play();
+            themeBassMusic.volume = themeBassMusicVolume;
         }
         else if (themeBassMusic.isPlaying) {
             themeBassMusic.DOFade(0, 5f).SetUpdate(true).OnComplete(() => {
