@@ -249,7 +249,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 25
+  m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -376,6 +376,7 @@ MonoBehaviour:
   backwardSlowFactor: 0.6
   mapFactor: 0.45
   speedChangeRate: 5
+  crouchStaminaMultiplier: 0.35
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0

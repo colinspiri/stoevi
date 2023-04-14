@@ -1,8 +1,15 @@
 
 public class Gate : Interactable {
-    
+    public IntReference objectiveComplete;
+
+    public override bool IsInteractablePrimary() {
+        return objectiveComplete.Value == 1;
+    }
+
     public override void InteractPrimary() {
-        GameManager.Instance.GameOver(true);
+        if (objectiveComplete.Value == 1) {
+            GameManager.Instance.GameOver(true);
+        }
     }
 
     public override string GetObjectName() {
@@ -14,6 +21,11 @@ public class Gate : Interactable {
     }
 
     public override string GetButtonPromptPrimary() {
-        return GetInteractPrimaryButton() + " go home";
+        if (objectiveComplete.Value == 1) {
+            return GetInteractPrimaryButton() + " go home";
+        }
+        else {
+            return "must complete objective";
+        }
     }
 }

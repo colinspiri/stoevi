@@ -44,9 +44,9 @@ public class TorbalanHearing : MonoBehaviour {
             heardTimer = heardTime;
             LastHeardLocation = soundOrigin;
 
-            if (!torbalan_inhale.isPlaying) {
+            /*if (!torbalan_inhale.isPlaying) {
                 torbalan_inhale.Play();
-            }
+            }*/
             
             behavior.SetVariableValue("Last Known Position", FirstPersonMovement.Instance.transform.position);
             behavior.SendEvent("LastKnownPositionUpdated");

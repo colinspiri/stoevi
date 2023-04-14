@@ -23,10 +23,6 @@ public class TorbalanSearch : NavMeshMovement {
     public SharedFloat maxSearchTime;
     public BushSet bushSet;
     public SharedFloat bushSpacing;
-    [Header("Huffing")] 
-    public ASoundContainer torbalan_huff;
-    public SharedFloat minTimeBetweenHuffs;
-    public SharedFloat maxTimeBetweenHuffs;
 
     // state
     private List<Vector3> searchPositions;
@@ -35,13 +31,10 @@ public class TorbalanSearch : NavMeshMovement {
     private State currentState;
     private float pauseTimer;
     private float searchTimer;
-    private float huffTimer;
 
     public override void OnStart() {
         base.OnStart();
         
-        huffTimer = Random.Range(minTimeBetweenHuffs.Value, maxTimeBetweenHuffs.Value);
-
         GenerateSearchPositions();
         
         Owner.RegisterEvent("LastKnownPositionUpdated", GenerateSearchPositions);
@@ -79,13 +72,6 @@ public class TorbalanSearch : NavMeshMovement {
         searchTimer += Time.deltaTime;
         if (searchTimer >= maxSearchTime.Value) {
             return TaskStatus.Success;
-        }
-        
-        // huff timer
-        huffTimer -= Time.deltaTime;
-        if (huffTimer <= 0) {
-            torbalan_huff.Play3D(transform);
-            huffTimer = Random.Range(minTimeBetweenHuffs.Value, maxTimeBetweenHuffs.Value);
         }
 
         return TaskStatus.Running;

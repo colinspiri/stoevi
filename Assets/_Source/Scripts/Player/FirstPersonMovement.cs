@@ -28,6 +28,8 @@ public class FirstPersonMovement : MonoBehaviour
 	public float mapFactor = 1f;
 	[Tooltip("Acceleration and deceleration")]
 	public float speedChangeRate = 10.0f;
+	[Space]
+	public float crouchStaminaMultiplier = 1f;
 
 	[Header("Sounds")] 
 	public FloatReference walkLoudness;
@@ -123,6 +125,7 @@ public class FirstPersonMovement : MonoBehaviour
 		
 		// consume stamina
 		if(moveState == MoveState.Running) StaminaController.Instance.ConsumeStamina();
+		else if(crouching) StaminaController.Instance.ConsumeStamina(crouchStaminaMultiplier);
 		
 		// report sound
 		if (TorbalanHearing.Instance != null) {
@@ -172,8 +175,11 @@ public class FirstPersonMovement : MonoBehaviour
 	}
 	
 	private void Move() {
-		// input
-		crouching = InputHandler.Instance.crouching;
+		// if crouching
+		if (InputHandler.Instance.crouching && StaminaController.Instance.HasStamina()) {
+			crouching = true;
+		}
+		else crouching = false;
 		
 		// if there is no input, set the target speed to 0
 		float targetSpeed;

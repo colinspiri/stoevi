@@ -61,6 +61,12 @@ public class StaminaController : MonoBehaviour {
 
         ChangeStamina(-multiplier * Time.deltaTime);
     }
+    public void PauseStaminaRegeneration() {
+        if (!HasStamina()) return;
+        
+        ChangeStaminaState(StaminaState.Decreasing);
+        pauseTimer = pauseTime;
+    }
     #endregion
     
     #region Helper Functions
