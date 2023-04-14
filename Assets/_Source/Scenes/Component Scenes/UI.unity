@@ -3707,6 +3707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 1275970989}
+  mapEnabled: {fileID: 11400000, guid: dfa422d37817c0b4995c354936e61fd5, type: 2}
 --- !u!225 &1275970989
 CanvasGroup:
   m_ObjectHideFlags: 0

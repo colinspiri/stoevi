@@ -7,7 +7,7 @@ public class MapUI : MonoBehaviour {
     public CanvasGroup canvasGroup;
     
     // state
-    private bool mapEnabled;
+    public IntVariable mapEnabled;
 
     private void Awake() {
         inputActions = new InputActions();
@@ -20,18 +20,14 @@ public class MapUI : MonoBehaviour {
 
         inputActions.Gameplay.Map.started += EnableMap;
         inputActions.Gameplay.Map.canceled += DisableMap;
-        inputActions.Gameplay.Map.performed += ToggleMap;
     }
 
     public void SetMapEnabled(bool value) {
-        mapEnabled = value;
+        mapEnabled.SetValue(value ? 1 : 0);
 
-        canvasGroup.alpha = mapEnabled ? 1 : 0;
+        canvasGroup.alpha = mapEnabled.Value;
     }
-
-    private void ToggleMap(InputAction.CallbackContext context) {
-        // SetMapEnabled(!mapEnabled);
-    }
+    
     private void EnableMap(InputAction.CallbackContext context) {
         SetMapEnabled(true);
     }
@@ -42,6 +38,5 @@ public class MapUI : MonoBehaviour {
     private void OnDestroy() {
         inputActions.Gameplay.Map.started -= EnableMap;
         inputActions.Gameplay.Map.canceled -= DisableMap;
-        inputActions.Gameplay.Map.performed -= ToggleMap;
     }
 }

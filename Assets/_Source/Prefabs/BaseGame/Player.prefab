@@ -365,11 +365,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 0}
+  mapEnabled:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: dfa422d37817c0b4995c354936e61fd5, type: 2}
   walkSpeed: 4
-  runSpeed: 8
+  runSpeed: 9
   crouchSpeed: 1.5
   interactingSpeed: 0.3
   backwardSlowFactor: 0.6
+  mapFactor: 0.45
   speedChangeRate: 5
   walkLoudness:
     UseConstant: 0

@@ -15,6 +15,7 @@ public class FirstPersonMovement : MonoBehaviour
 	public PlayerInput playerInput;
 	private CharacterController controller;
 	private InputActions inputActions;
+	public IntReference mapEnabled;
 	#endregion
 	
 	#region Public Constants
@@ -24,6 +25,7 @@ public class FirstPersonMovement : MonoBehaviour
 	public float crouchSpeed = 1f;
 	public float interactingSpeed = 1f;
 	public float backwardSlowFactor = 1f;
+	public float mapFactor = 1f;
 	[Tooltip("Acceleration and deceleration")]
 	public float speedChangeRate = 10.0f;
 
@@ -204,6 +206,10 @@ public class FirstPersonMovement : MonoBehaviour
 		// modify target speed if moving backward
 		if (move.y < 0) {
 			targetSpeed *= backwardSlowFactor;
+		}
+		// modify target speed if map is up
+		if (mapEnabled.Value == 1) {
+			targetSpeed *= mapFactor;
 		}
 
 		// a reference to the players current horizontal velocity
