@@ -253,12 +253,12 @@ public class Crop : Interactable {
         int maxTomatoes = 0;
         // set min/max tomatoes based on health
         if (health == Health.Great) {
-            minTomatoes = 3;
-            maxTomatoes = 5;
+            minTomatoes = 2;
+            maxTomatoes = 3;
         }
         else if (health == Health.Fair) {
             minTomatoes = 1;
-            maxTomatoes = 3;
+            maxTomatoes = 2;
         }
         else if (health == Health.Wilted) {
             minTomatoes = 1;
