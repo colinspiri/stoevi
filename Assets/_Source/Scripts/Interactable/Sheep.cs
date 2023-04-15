@@ -5,17 +5,23 @@ using UnityEngine.Serialization;
 public class Sheep : Interactable {
     // components
     public ASoundContainer sheep_hit;
+    public IntVariable objectiveComplete;
     
     // behavior tree shared variables
     public GameObject player { get; set; }
     public bool scared { get; set; }
     public bool beingChased { get; set; }
+    public bool isLeashed { get; set; }
 
     // public constants
     public float bleatLoudness;
     [Header("Player Chase")]
     [FormerlySerializedAs("playerRunTowardsDistance")] public float playerChaseDistance;
     public float playerFacingAngle;
+
+    [Header("Yoan-Sheep")] 
+    public bool isYoan;
+    public bool canBeLeashed;
     
     // state
     private float sneakTimer;
@@ -56,6 +62,19 @@ public class Sheep : Interactable {
         BecomeScared();
     }
 
+    public override bool IsInteractableSecondary() {
+        return canBeLeashed;
+    }
+
+    public override void InteractSecondary() {
+        if (canBeLeashed) {
+            isLeashed = !isLeashed;
+            if (isYoan) {
+                objectiveComplete.Value = isLeashed ? 1 : 0;
+            } 
+        }
+    }
+
     public void BecomeScared() {
         scared = true;
         
@@ -70,15 +89,25 @@ public class Sheep : Interactable {
     }
 
     public override string GetObjectName() {
-        return "sheep";
+        if (isYoan) return "Yoan";
+        else return "sheep";
     }
 
     public override string GetObjectDescription() {
+        if (canBeLeashed && isLeashed) return "leashed";
         return "";
     }
 
     public override string GetButtonPromptPrimary() {
         return GetInteractPrimaryButton() + " hit sheep";
+    }
+
+    public override string GetButtonPromptSecondary() {
+        if (canBeLeashed) {
+            return GetInteractSecondaryButton() + " " + (isLeashed ? "detach leash" : "attach leash");
+        }
+
+        return "";
     }
 
     protected void OnDestroy() {

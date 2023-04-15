@@ -43,7 +43,6 @@ public class ObjectiveManager : MonoBehaviour {
             objectiveText = "Harvest " + playerTomatoes.Value + "/" + requiredTomatoesDay4.Value + " tomatoes";
         }
         else if (day == 5) {
-            // TODO if yoan has been leashed
             objectiveText = "Find Yoan";
         }
     }
