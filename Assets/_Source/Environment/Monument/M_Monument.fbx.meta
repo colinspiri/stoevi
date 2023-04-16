@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 204c53bd139338a45a22ad4604319702
+guid: b1e011c5027e96a448d1d69a5b4fa118
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: b02321afc1c94ba43bf94225f0e75550, type: 2}
+      name: Stoneface2
+    second: {fileID: 2100000, guid: 833614a43f8e71e40a5bcf3363d74d74, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -97,7 +97,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
