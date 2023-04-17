@@ -67,6 +67,10 @@ public class InputHandler : MonoBehaviour {
             crouching = false;
         }
     }
+    public void ResetCrouchInput() {
+        crouching = false;
+    }
+    
     public void OnPeek(InputValue value) {
         peek = value.isPressed;
     }

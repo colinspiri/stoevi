@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using SpookuleleAudio;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Quaternion = UnityEngine.Quaternion;
@@ -19,7 +20,7 @@ public class FirstPersonMovement : MonoBehaviour
 	#endregion
 	
 	#region Public Constants
-	[Header("Player")]
+	[Header("Movement")]
 	public float walkSpeed = 1f;
 	public float runSpeed = 1f;
 	public float crouchSpeed = 1f;
@@ -28,8 +29,11 @@ public class FirstPersonMovement : MonoBehaviour
 	public float mapFactor = 1f;
 	[Tooltip("Acceleration and deceleration")]
 	public float speedChangeRate = 10.0f;
-	[Space]
+	
+	[Header("Crouching")]
 	public float crouchStaminaMultiplier = 1f;
+	public ASoundContainer player_inhale;
+	public ASoundContainer player_exhale;
 
 	[Header("Sounds")] 
 	public FloatReference walkLoudness;
@@ -177,9 +181,20 @@ public class FirstPersonMovement : MonoBehaviour
 	private void Move() {
 		// if crouching
 		if (InputHandler.Instance.crouching && StaminaController.Instance.HasStamina()) {
+			if (!crouching) {
+				// start crouching
+				player_inhale.Play();
+			}
 			crouching = true;
 		}
-		else crouching = false;
+		else {
+			if (crouching) {
+				// stop crouching
+				player_exhale.Play();
+			}
+			crouching = false;
+			InputHandler.Instance.ResetCrouchInput();
+		}
 		
 		// if there is no input, set the target speed to 0
 		float targetSpeed;
