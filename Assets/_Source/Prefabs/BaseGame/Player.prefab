@@ -376,7 +376,7 @@ MonoBehaviour:
   backwardSlowFactor: 0.6
   mapFactor: 0.45
   speedChangeRate: 5
-  crouchStaminaMultiplier: 0.35
+  crouchStaminaMultiplier: 0.2
   walkLoudness:
     UseConstant: 0
     ConstantValue: 0

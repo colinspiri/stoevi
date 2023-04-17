@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: VegetablesOutside
+  m_Name: VegetablesFull
   m_Shader: {fileID: 4800000, guid: 94cb0d6305cd4a743b1d2ec684e277de, type: 3}
-  m_ShaderKeywords: DIFF_VERTEX SPEC_GOURAUD TRANSPARENT _ALPHABLEND_ON _DIFFMODEL_VERTEX
+  m_ShaderKeywords: BFC DIFF_VERTEX SPEC_GOURAUD TRANSPARENT _ALPHABLEND_ON _DIFFMODEL_VERTEX
     _DRAWDIST_ON _EMISSION _GLOSSYREFLECTIONS_OFF _SPECMODEL_GOURAUD
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -55,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e76caab831a9d7746a8bd2a0ef310a77, type: 3}
+        m_Texture: {fileID: 2800000, guid: 91c9a1e57e5216344bdef7647232d1c6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetalMap:
@@ -105,7 +105,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Cul: 0
+    - _Cul: 2
     - _Cull: 2
     - _Cutoff: 0.5
     - _CutoutThreshold: 0.5
@@ -140,8 +140,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 0.56078434}
-    - _Color: {r: 1, g: 1, b: 1, a: 0.627451}
+    - _BaseColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 0.39215687}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}

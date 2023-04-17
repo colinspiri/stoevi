@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5435709996148528735}
   m_Layer: 6
-  m_Name: Vegetables Interior Wall
+  m_Name: Vegetables Interior Wall (Full)
   m_TagString: PlantInterior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,7 +91,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d1b60d46f9dbb141b2db919259df60c, type: 2}
+  - {fileID: 2100000, guid: dded81a6496ad6049b152105e7f11970, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,7 +172,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4d1b60d46f9dbb141b2db919259df60c, type: 2}
+  - {fileID: 2100000, guid: dded81a6496ad6049b152105e7f11970, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -28,7 +28,7 @@ public class PlantInteriorEditor : Editor
         // remove all previous interior objects
         plantInterior.DestroyAllInteriors();
 
-        Bounds bounds = plantInterior.GetComponent<Renderer>().bounds;
+        Bounds bounds = plantInterior.GetComponent<Collider>().bounds;
         float borderWallOffset = 0f;
         
         // along X

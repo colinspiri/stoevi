@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8523131639148403487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.650002, y: 6.934578, z: 15.399994}
-  m_LocalScale: {x: 3, y: 3.5, z: 3}
+  m_LocalScale: {x: 2.3, y: 3.5, z: 2.3}
   m_Children:
   - {fileID: 4444151146059075691}
   m_Father: {fileID: 0}
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cc196d37a775442872de225cb8004c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interiorWallPrefab: {fileID: 1642986201645481353, guid: 881baa234b649544c904686aaea59b6e, type: 3}
-  interiorWallDistance: 1.5
+  interiorWallPrefab: {fileID: 1642986201645481353, guid: 14b2b24c7ad645d43a1a74e6a735dbb7, type: 3}
+  interiorWallDistance: 1
 --- !u!1 &8893904319092277152
 GameObject:
   m_ObjectHideFlags: 0
