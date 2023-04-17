@@ -12,7 +12,7 @@ public class CropMapIcon : MonoBehaviour {
     public GameObject unripeWilted;
     public Slider timerPanel;
 
-    public void UpdateMapIcon(Crop.GrowthStage stage, Crop.State state,  Crop.Health health) {
+    public void UpdateMapIcon(Crop.GrowthStage stage, Crop.InteractionState interactionState,  Crop.Health health) {
         // disable all icons
         tomato.SetActive(false);
         sproutHealthy.SetActive(false);
@@ -43,7 +43,7 @@ public class CropMapIcon : MonoBehaviour {
         }
         
         // set icon
-        if (state == Crop.State.Growing) {
+        if (interactionState == Crop.InteractionState.Growing) {
             timerPanel.gameObject.SetActive(true);
         }
         else {

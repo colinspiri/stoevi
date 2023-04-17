@@ -6,93 +6,70 @@ public class CropTextureManager : MonoBehaviour {
     public List<MeshRenderer> meshRenderers;
     public ParticleSystem particles;
 
-    public void UpdateTextures(Crop.GrowthStage stage, Crop.State state, Crop.Health health) {
+    public void UpdateTextures(Crop.GrowthStage stage, Crop.InteractionState interactionState, Crop.Health health, bool fertilized) {
         Material newMaterial = null;
 
         if (stage == Crop.GrowthStage.Sprout) {
-            if (health == Crop.Health.Fair || health == Crop.Health.Great) {
-                if (state == Crop.State.NeedsWater) newMaterial = farmingConstants.sproutHealthyWater;
-                else if (state == Crop.State.Growing) newMaterial = farmingConstants.sproutHealthyGrowing;
+            if (health == Crop.Health.Fair) {
+                if (interactionState == Crop.InteractionState.NeedsWater) newMaterial = farmingConstants.sproutHealthyWater;
+                else if (interactionState == Crop.InteractionState.Growing) newMaterial = farmingConstants.sproutHealthyGrowing;
             }
             else if (health == Crop.Health.Wilted) {
-                if (state == Crop.State.NeedsWater) newMaterial = farmingConstants.sproutWiltedWater;
-                else if (state == Crop.State.Growing) newMaterial = farmingConstants.sproutWiltedGrowing;
+                if (interactionState == Crop.InteractionState.NeedsWater) newMaterial = farmingConstants.sproutWiltedWater;
+                else if (interactionState == Crop.InteractionState.Growing) newMaterial = farmingConstants.sproutWiltedGrowing;
             }
             else if (health == Crop.Health.Dead) {
-                Debug.LogError(stage + " has no sprite for Dead");
+                newMaterial = farmingConstants.sproutDead;
             }
         }
         else if (stage == Crop.GrowthStage.Intermediate) {
-            if (health == Crop.Health.Fair || health == Crop.Health.Great) {
-                if (state == Crop.State.NeedsWater) newMaterial = farmingConstants.intermediateHealthyWater;
-                else if (state == Crop.State.Growing) newMaterial = farmingConstants.intermediateHealthyGrowing;
+            if (health == Crop.Health.Fair) {
+                if (interactionState == Crop.InteractionState.NeedsWater) newMaterial = farmingConstants.intermediateHealthyWater;
+                else if (interactionState == Crop.InteractionState.Growing) newMaterial = farmingConstants.intermediateHealthyGrowing;
             }
             else if (health == Crop.Health.Wilted) {
-                if (state == Crop.State.NeedsWater) newMaterial = farmingConstants.intermediateWiltedWater;
-                else if (state == Crop.State.Growing) newMaterial = farmingConstants.intermediateWiltedGrowing;
+                if (interactionState == Crop.InteractionState.NeedsWater) newMaterial = farmingConstants.intermediateWiltedWater;
+                else if (interactionState == Crop.InteractionState.Growing) newMaterial = farmingConstants.intermediateWiltedGrowing;
             }
             else if (health == Crop.Health.Dead) {
                 newMaterial = farmingConstants.intermediateDead;
             }
         }
         else if (stage == Crop.GrowthStage.Unripe) {
-            if (health == Crop.Health.Fair || health == Crop.Health.Great) {
-                if (state == Crop.State.NeedsWater) newMaterial = farmingConstants.unripeHealthyWater;
-                else if (state == Crop.State.Growing) newMaterial = farmingConstants.unripeHealthyGrowing;
+            if (health == Crop.Health.Fair) {
+                if (interactionState == Crop.InteractionState.NeedsWater) newMaterial = farmingConstants.unripeHealthyWater;
+                else if (interactionState == Crop.InteractionState.Growing) newMaterial = farmingConstants.unripeHealthyGrowing;
             }
             else if (health == Crop.Health.Wilted) {
-                if (state == Crop.State.NeedsWater) newMaterial = farmingConstants.unripeWiltedWater;
-                else if (state == Crop.State.Growing) newMaterial = farmingConstants.unripeWiltedGrowing;
+                if (interactionState == Crop.InteractionState.NeedsWater) newMaterial = farmingConstants.unripeWiltedWater;
+                else if (interactionState == Crop.InteractionState.Growing) newMaterial = farmingConstants.unripeWiltedGrowing;
             }
             else if (health == Crop.Health.Dead) {
                 newMaterial = farmingConstants.unripeDead;
             }
         }
         else if (stage == Crop.GrowthStage.Ripe) {
-            if (health == Crop.Health.Fair || health == Crop.Health.Great) {
+            if (health == Crop.Health.Fair) {
                 newMaterial = farmingConstants.ripeHealthy;
             }
             else if (health == Crop.Health.Wilted) {
                 newMaterial = farmingConstants.ripeWilted;
             }
             else if (health == Crop.Health.Dead) {
-                Debug.LogError(stage + " has no sprite for Dead");
+                newMaterial = farmingConstants.ripeDead;
             }
         }
         else if (stage == Crop.GrowthStage.Bare) {
-            if (health == Crop.Health.Fair || health == Crop.Health.Great) {
+            if (health == Crop.Health.Fair) {
                 newMaterial = farmingConstants.bareHealthy;
             }
             else if (health == Crop.Health.Wilted) {
                 newMaterial = farmingConstants.bareWilted;
             }
             else if (health == Crop.Health.Dead) {
-                Debug.LogError(stage + " has no sprite for Dead");
+                newMaterial = farmingConstants.bareDead;
             }
         }
-
-        /*if (health == Crop.Health.Dead) {
-            newMaterial = farmingConstants.emptyMaterial;
-        }
-        else {
-            switch (stage) {
-                case Crop.GrowthStage.Seed:
-                case Crop.GrowthStage.Sprout:
-                case Crop.GrowthStage.Intermediate:
-                case Crop.GrowthStage.Unripe:
-                    if (state == Crop.State.NeedsWater) newMaterial = farmingConstants.emptyMaterial;
-                    else if (state == Crop.State.Growing) newMaterial = farmingConstants.waterMaterial;
-                    break;
-                case Crop.GrowthStage.Ripe:
-                    newMaterial = farmingConstants.harvestMaterial;
-                    break;
-                case Crop.GrowthStage.Bare:
-                    newMaterial = farmingConstants.emptyMaterial;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }*/
 
         // set all renderers
         foreach (var meshRenderer in meshRenderers) {
@@ -100,7 +77,7 @@ public class CropTextureManager : MonoBehaviour {
         }
         
         // set particle system based on health
-        if (health == Crop.Health.Great) {
+        if (fertilized) {
             particles.Play();
         }
         else particles.Stop();

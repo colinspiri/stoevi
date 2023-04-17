@@ -16,22 +16,23 @@ MonoBehaviour:
   sproutHealthyGrowing: {fileID: 2100000, guid: fed099e682c72c548b60535d05316db8, type: 2}
   sproutWiltedWater: {fileID: 2100000, guid: a67eba369bb09a742b8484d585477c66, type: 2}
   sproutWiltedGrowing: {fileID: 2100000, guid: e69af75966b62d042887639fdcb5c67a, type: 2}
+  sproutDead: {fileID: 2100000, guid: 052ce72d3dc21e846a6075b695e882a3, type: 2}
   intermediateHealthyWater: {fileID: 2100000, guid: 1f4f21ab7e8676f439a0a923cbe9c73f, type: 2}
   intermediateHealthyGrowing: {fileID: 2100000, guid: f8180e5286220d1408b2e0dd85a9ba3b, type: 2}
   intermediateWiltedWater: {fileID: 2100000, guid: 2d4115dc0c038a1439af1e4f80a8337a, type: 2}
   intermediateWiltedGrowing: {fileID: 2100000, guid: d6acf19f62134fb4f8936029223f8601, type: 2}
-  intermediateDead: {fileID: 2100000, guid: b16f374f2d311db4b9a085dd0cb95ed1, type: 2}
+  intermediateDead: {fileID: 2100000, guid: 136295acc92180546aa63aed49888196, type: 2}
   unripeHealthyWater: {fileID: 2100000, guid: 0955d314479989a44b6b718f53d2fbc0, type: 2}
   unripeHealthyGrowing: {fileID: 2100000, guid: 7c3f1644ccbe856458a8713ea77e0d7b, type: 2}
   unripeWiltedWater: {fileID: 2100000, guid: e23d529cad5d0f049ac956b887cd1fed, type: 2}
   unripeWiltedGrowing: {fileID: 2100000, guid: f75eaa896d3cdb54ea769a26a10444c4, type: 2}
-  unripeDead: {fileID: 2100000, guid: b16f374f2d311db4b9a085dd0cb95ed1, type: 2}
+  unripeDead: {fileID: 2100000, guid: 44f528abcf4d0404f8c001929cf8637f, type: 2}
   ripeHealthy: {fileID: 2100000, guid: 73aa5ea855e1a2e4cbe943313c929b80, type: 2}
   ripeWilted: {fileID: 2100000, guid: 73779875a5b70ad44b0b4e84dfa933a7, type: 2}
+  ripeDead: {fileID: 2100000, guid: 944c27b01d7cb6d439982897b76f4be6, type: 2}
   bareHealthy: {fileID: 2100000, guid: 099da817f98eafb459841181814c1379, type: 2}
   bareWilted: {fileID: 2100000, guid: 995ffc635d32645499fc9be7f9c34cae, type: 2}
+  bareDead: {fileID: 2100000, guid: 00a1e44805c96f2449c3e713b9982422, type: 2}
   maxCrops: 1
-  baseThirstyTime: 1000
   baseGrowthTime: 80
-  fertilizedThirstyTime: 1000
   fertilizedGrowthTime: 60

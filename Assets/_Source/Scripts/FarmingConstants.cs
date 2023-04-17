@@ -8,6 +8,7 @@ public class FarmingConstants : ScriptableObject {
     public Material sproutHealthyGrowing;
     public Material sproutWiltedWater;
     public Material sproutWiltedGrowing;
+    public Material sproutDead;
     [Space]
     public Material intermediateHealthyWater;
     public Material intermediateHealthyGrowing;
@@ -23,16 +24,16 @@ public class FarmingConstants : ScriptableObject {
     [Space] 
     public Material ripeHealthy;
     public Material ripeWilted;
+    public Material ripeDead;
     [Space] 
     public Material bareHealthy;
     public Material bareWilted;
+    public Material bareDead;
 
     [Header("Soil")] 
     public int maxCrops;
 
     [Header("Crops")] 
-    public float baseThirstyTime;
     public float baseGrowthTime;
-    public float fertilizedThirstyTime;
     public float fertilizedGrowthTime;
 }

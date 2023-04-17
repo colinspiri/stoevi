@@ -96,11 +96,12 @@ public class Soil : Interactable {
         }
     }
 
-    private void SpawnCrop(Vector3 position, Crop.GrowthStage stage = Crop.GrowthStage.Sprout) {
+    private void SpawnCrop(Vector3 position, Crop.GrowthStage stage = Crop.GrowthStage.Sprout, Crop.Health health = Crop.Health.Fair) {
         Crop crop = Instantiate(seedPrefab, position, transform.rotation).GetComponent<Crop>();
         crop.transform.parent = transform;
         crop.soil = this;
         crop.stage = stage;
+        crop.health = health;
         
         crops.Add(crop);
     }
@@ -153,7 +154,7 @@ public class Soil : Interactable {
         foreach (var cropData in soilData.cropData) {
             Vector3 spawnPosition = transform.position;
             spawnPosition.y = transform.position.y + transform.localScale.y / 2;
-            SpawnCrop(spawnPosition, cropData.stage);
+            SpawnCrop(spawnPosition, cropData.stage, cropData.health);
         }
     }
 

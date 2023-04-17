@@ -7,9 +7,6 @@ using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "NewSoilData", menuName = "SoilData")]
 public class SoilData : SerializedScriptableObject {
-    /*private static float maxDistanceFromCenter = 1.5f;
-    private static float minDistanceToOtherCrop = 1.5f;*/
-    
     public List<CropData> cropData = new List<CropData>();
 
     public void SaveDataFromSoil(Soil soil) {
@@ -17,8 +14,9 @@ public class SoilData : SerializedScriptableObject {
         
         foreach (var crop in soil.crops) {
             Crop.GrowthStage stage = crop.stage;
+            Crop.Health health = crop.health;
         
-            cropData.Add(new CropData(stage));
+            cropData.Add(new CropData(stage, health));
         }
         
         SaveToFile();
@@ -57,7 +55,7 @@ public class SoilData : SerializedScriptableObject {
     public void AddRandomCrop(Crop.GrowthStage growthStage = Crop.GrowthStage.Sprout) {
         if (cropData.Count >= 1) return;
 
-        cropData.Add(new CropData(growthStage));
+        cropData.Add(new CropData(growthStage, Crop.Health.Fair));
 
         SaveToFile();
     }
@@ -74,8 +72,10 @@ public class SoilData : SerializedScriptableObject {
 [Serializable]
 public struct CropData {
     public Crop.GrowthStage stage;
+    public Crop.Health health;
 
-    public CropData(Crop.GrowthStage stage) {
+    public CropData(Crop.GrowthStage stage, Crop.Health health) {
         this.stage = stage;
+        this.health = health;
     }
 }

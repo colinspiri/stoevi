@@ -12207,6 +12207,7 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   onHarvest: {fileID: 11400000, guid: 9c9581a02da2f4f45bde32fcc323b764, type: 2}
   stage: 2
+  health: 0
 --- !u!1 &231021314
 GameObject:
   m_ObjectHideFlags: 0
@@ -16465,6 +16466,7 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   onHarvest: {fileID: 11400000, guid: 9c9581a02da2f4f45bde32fcc323b764, type: 2}
   stage: 1
+  health: 0
 --- !u!1001 &339823011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32028,6 +32030,7 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   onHarvest: {fileID: 11400000, guid: 9c9581a02da2f4f45bde32fcc323b764, type: 2}
   stage: 3
+  health: 0
 --- !u!1001 &658040155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63746,6 +63749,7 @@ MonoBehaviour:
   playerTomatoes: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   onHarvest: {fileID: 11400000, guid: 9c9581a02da2f4f45bde32fcc323b764, type: 2}
   stage: 1
+  health: 0
 --- !u!1001 &1300576419
 PrefabInstance:
   m_ObjectHideFlags: 0

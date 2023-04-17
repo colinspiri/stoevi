@@ -61,7 +61,7 @@ public abstract class Interactable : MonoBehaviour {
         return "<sprite name=\"right_click\">";
     }
 
-    private void OnDestroy() {
+    protected virtual void OnDestroy() {
         if(InteractableManager.Instance != null) InteractableManager.Instance.RemoveInteractable(this);
     }
 }
