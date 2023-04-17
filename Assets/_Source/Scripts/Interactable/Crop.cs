@@ -200,9 +200,7 @@ public class Crop : Interactable {
         }
 
         // increase health
-        health = health switch {
-            Health.Wilted => Health.Fair,
-        };
+        if (health == Health.Wilted) health = Health.Fair;
         
         UpdateComponents();
     }

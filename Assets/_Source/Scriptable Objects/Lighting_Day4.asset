@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AmbientColor:
     serializedVersion: 2
-    key0: {r: 0.6901961, g: 0.6901961, b: 0.6901961, a: 1}
+    key0: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}
     key1: {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
     key2: {r: 0.5330188, g: 0.5671882, b: 1, a: 0}
     key3: {r: 0.24313726, g: 0.3137255, b: 0.8784314, a: 0}
@@ -43,17 +43,17 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   DirectionalColor:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 0.18431373, g: 0.3254902, b: 0.6784314, a: 1}
-    key2: {r: 0.29411766, g: 0.29411766, b: 0.29411766, a: 0}
+    key0: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 1}
+    key1: {r: 0, g: 0, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 24576
-    ctime2: 39321
+    ctime1: 65535
+    ctime2: 65535
     ctime3: 65535
     ctime4: 0
     ctime5: 0
@@ -68,21 +68,21 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 4
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   FogColor:
     serializedVersion: 2
-    key0: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
-    key1: {r: 0.72156864, g: 0.7882353, b: 1, a: 1}
-    key2: {r: 0.3529412, g: 0.34509805, b: 0.6039216, a: 0}
+    key0: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+    key1: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 1}
+    key2: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 0}
     key3: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 0}
     key4: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
-    ctime2: 49151
+    ctime1: 65535
+    ctime2: 65535
     ctime3: 65535
     ctime4: 65535
     ctime5: 0
@@ -97,9 +97,9 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 4
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  FogMaxDistanceDay: 40
-  FogMaxDistanceNight: 30
+  FogMaxDistanceDay: 32
+  FogMaxDistanceNight: 25
   StartingLightDirection: 50
   EndingLightDirection: 200
