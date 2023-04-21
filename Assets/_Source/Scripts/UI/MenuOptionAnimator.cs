@@ -27,6 +27,10 @@ public class MenuOptionAnimator : MonoBehaviour {
     public void Submit() {
         ExecuteEvents.Execute(selectable.gameObject, new BaseEventData(EventSystem.current), ExecuteEvents.submitHandler);
     }
+    
+    public void Deselect() {
+        ExecuteEvents.Execute(selectable.gameObject, new BaseEventData(EventSystem.current), ExecuteEvents.deselectHandler);
+    }
 
     public void DeselectAnimation() {
         selectable.transform.DOScale(1f, uiConstants.selectTime).SetUpdate(true);

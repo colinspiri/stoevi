@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopItemUI : MonoBehaviour {
     // SO references
@@ -14,8 +15,10 @@ public class ShopItemUI : MonoBehaviour {
     // components
     [Space]
     public TextMeshProUGUI itemNameText;
+    public TextMeshProUGUI itemDescriptionText;
     public TextMeshProUGUI countText;
     public TextMeshProUGUI priceText;
+    public Image icon;
 
     private void OnEnable() {
         UpdateUI();
@@ -23,9 +26,13 @@ public class ShopItemUI : MonoBehaviour {
 
     private void UpdateUI() {
         itemNameText.text = shopItem.itemName;
+        itemDescriptionText.text = shopItem.itemDescription;
+        
         priceText.text = shopItem.price.ToString() + " Lv";
 
         countText.text = resource.Value.ToString();
+
+        icon.sprite = shopItem.icon;
     }
 
     public void TryBuyItem() {
