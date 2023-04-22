@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
+    public SceneLoader sceneLoader;
     
     // day
     public int currentDay;
@@ -38,16 +39,21 @@ public class GameManager : MonoBehaviour {
             else Debug.LogError("Audio Manager not found");
         }
     }
+
+    public void EndDay() {
+        if (gameStopped) return;
+        
+        currentDay++;
+        PlayerPrefs.SetInt("CurrentDay", currentDay);
+            
+        InteractableManager.Instance.SaveAllData();
+            
+        sceneLoader.LoadShop();
+    }
     
     public void GameOver(bool playerSurvived = true) {
         if (gameStopped) return;
-        if (playerSurvived) {
-            currentDay++;
-            PlayerPrefs.SetInt("CurrentDay", currentDay);
-            
-            InteractableManager.Instance.SaveAllData();
-        }
-
+        
         Pause(true);
 
         OnGameOver(playerSurvived);

@@ -38,7 +38,7 @@ public class DebugController : MonoBehaviour {
         KILL_PLAYER = new DebugCommand("kill_player", "Kills player.", "kill_player",
             () => { GameManager.Instance.GameOver(false); });
         END_DAY = new DebugCommand("end_day", "Ends the current day.", "end_day",
-            () => { GameManager.Instance.GameOver(true); });
+            () => { GameManager.Instance.EndDay(); });
         SET_SEEDS = new DebugCommand<int>("set_seeds", "Sets the number of seeds", "set_seeds <seed_number>",
             x => { seeds.SetValue(x); });
         SET_DAY = new DebugCommand("set_day", "Sets the time to day.", "set_day",

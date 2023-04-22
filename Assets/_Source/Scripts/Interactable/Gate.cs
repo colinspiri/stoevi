@@ -8,7 +8,7 @@ public class Gate : Interactable {
 
     public override void InteractPrimary() {
         if (objectiveComplete.Value == 1) {
-            GameManager.Instance.GameOver(true);
+            GameManager.Instance.EndDay();
         }
     }
 

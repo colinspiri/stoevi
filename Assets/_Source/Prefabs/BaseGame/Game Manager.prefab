@@ -43,10 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7296883380efb406db595eea372ff3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxWater: 4
-  onWaterValueChange:
-    m_PersistentCalls:
-      m_Calls: []
-  playerHarvestedTomato:
-    m_PersistentCalls:
-      m_Calls: []
+  sceneLoader: {fileID: 11400000, guid: 9cdd62927cbfb2d44a15d938c0916e2d, type: 2}
+  currentDay: 0
+  gameStopped: 0

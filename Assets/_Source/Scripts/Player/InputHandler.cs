@@ -36,6 +36,9 @@ public class InputHandler : MonoBehaviour {
     private void Start() {
         // initialize sensitivity
         sensitivity = PlayerPrefs.GetFloat("Sensitivity", defaultSensitivity);
+        
+        // initialize cursor lock
+        SetCursorState(true);
     }
 
     private void Update() {
@@ -98,10 +101,6 @@ public class InputHandler : MonoBehaviour {
 
     public void OnReturn(InputValue value) {
         DebugController.Instance.Return();
-    }
-    
-    private void OnApplicationFocus(bool hasFocus) {
-        SetCursorState(cursorLocked);
     }
 
     private void SetCursorState(bool newState) {

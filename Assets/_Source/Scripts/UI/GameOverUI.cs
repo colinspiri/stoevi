@@ -7,8 +7,6 @@ public class GameOverUI : MonoBehaviour {
     // components
     private CanvasGroup canvasGroup;
     public GameObject gameOverPanel;
-    public TextMeshProUGUI gameOverMessage;
-    public TextMeshProUGUI actionButtonText;
 
     private void Awake() {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -31,15 +29,5 @@ public class GameOverUI : MonoBehaviour {
         
         canvasGroup.alpha = 0;
         canvasGroup.DOFade(1, 0.5f).SetUpdate(true);
-        
-        if (playerSurvived) {
-            gameOverPanel.GetComponent<Image>().color = Color.black;
-            gameOverMessage.text = "You survived.";
-            actionButtonText.text = "continue";
-        }
-        else {
-            gameOverMessage.text = "You died.";
-            actionButtonText.text = "restart";
-        }
     }
 }
