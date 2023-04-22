@@ -28,7 +28,7 @@ public class ShopItemUI : MonoBehaviour {
         itemNameText.text = shopItem.itemName;
         itemDescriptionText.text = shopItem.itemDescription;
         
-        priceText.text = shopItem.price.ToString() + " Lv";
+        priceText.text = shopItem.price.ToString() + " levs";
 
         countText.text = resource.Value.ToString();
 
