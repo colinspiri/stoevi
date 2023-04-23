@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_Shed
   m_Shader: {fileID: 4800000, guid: 94cb0d6305cd4a743b1d2ec684e277de, type: 3}
-  m_ShaderKeywords: DIFF_VERTEX OPAQUE SPEC_GOURAUD _DIFFMODEL_VERTEX _DRAWDIST_ON
+  m_ShaderKeywords: BFC DIFF_VERTEX OPAQUE SPEC_GOURAUD _DIFFMODEL_VERTEX _DRAWDIST_ON
     _EMISSION _SPECMODEL_GOURAUD
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -80,7 +80,7 @@ Material:
     m_Floats:
     - _BlendOp: 0
     - _BumpScale: 1
-    - _Cul: 0
+    - _Cul: 2
     - _Cutoff: 0.5
     - _CutoutThreshold: 0.5
     - _DetailNormalMapScale: 1
