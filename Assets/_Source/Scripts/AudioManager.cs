@@ -19,14 +19,16 @@ public class AudioManager : MonoBehaviour {
     public ASoundContainer detectedStinger;
     public ASoundContainer chaseStinger;
     [Space]
-    public AudioSource tensionMusic;
+    public AudioSource tensionDay23;
+    public AudioSource tensionDay45;
     public float tensionFadeTime;
     public float tensionFadeInDistance;
     public float tensionFadeOutDistance;
     private float tensionVolume;
     private bool tensionFading;
     [Space] 
-    public AudioSource chaseMusic;
+    public AudioSource chaseDay23;
+    public AudioSource chaseDay45;
     public float chaseFadeTime;
     private float chaseVolume;
     private bool chaseFading;
@@ -50,6 +52,9 @@ public class AudioManager : MonoBehaviour {
     public ASoundContainer backSound;
     public ASoundContainer selectSound;
     public ASoundContainer submitSound;
+    
+    // state
+    private int day;
 
     private void Awake() {
         if (Instance != null) {
@@ -66,8 +71,8 @@ public class AudioManager : MonoBehaviour {
         ambience_night.ignoreListenerPause = true;
 
         themeBassMusicVolume = themeBassMusic.volume;
-        tensionVolume = tensionMusic.volume;
-        chaseVolume = chaseMusic.volume;
+        tensionVolume = tensionDay23.volume;
+        chaseVolume = chaseDay23.volume;
         ambienceDayVolume = ambience_day.volume;
         ambienceNightVolume = ambience_night.volume;
         Debug.Log("day = " + ambienceDayVolume + " night = " + ambienceNightVolume);
@@ -88,8 +93,10 @@ public class AudioManager : MonoBehaviour {
         
         // stop misc sounds
         ambience_night.Stop();
-        tensionMusic.Stop();
-        chaseMusic.Stop();
+        tensionDay23.Stop();
+        tensionDay45.Stop();
+        chaseDay23.Stop();
+        chaseDay45.Stop();
         playerBreathing.Stop();
         playerTiredBreathing.Stop();
         
@@ -126,12 +133,15 @@ public class AudioManager : MonoBehaviour {
         else ambience_day.Stop();
         
         // tension
+        day = PlayerPrefs.GetInt("CurrentDay", 1);
         if (isDay) {
             Debug.Log("start playing tension music");
-            tensionMusic.Play();
-            tensionMusic.volume = 0;
-            chaseMusic.Play();
-            chaseMusic.volume = 0;
+            AudioSource tension = day >= 4 ? tensionDay45 : tensionDay23;
+            AudioSource chase = day >= 4 ? chaseDay45 : chaseDay23;
+            tension.Play();
+            tension.volume = 0;
+            chase.Play();
+            chase.volume = 0;
         }
     }
 
@@ -193,16 +203,18 @@ public class AudioManager : MonoBehaviour {
             // tension music
             float distance = Vector3.Distance(FirstPersonMovement.Instance.transform.position,
                 TorbalanDirector.Instance.transform.position);
+
+            AudioSource tension = day >= 4 ? tensionDay45 : tensionDay23;
             
-            if (distance < tensionFadeInDistance && tensionMusic.volume == 0 && !tensionFading) {
-                tensionMusic.DOFade(tensionVolume, tensionFadeTime).OnComplete(() => {
+            if (distance < tensionFadeInDistance && tension.volume == 0 && !tensionFading) {
+                tension.DOFade(tensionVolume, tensionFadeTime).OnComplete(() => {
                     tensionFading = false;
                 });
                 tensionFading = true;
             }
 
-            if (distance > tensionFadeOutDistance && tensionMusic.volume == tensionVolume && !tensionFading) {
-                tensionMusic.DOFade(0, tensionFadeTime).OnComplete(() => {
+            if (distance > tensionFadeOutDistance && tension.volume == tensionVolume && !tensionFading) {
+                tension.DOFade(0, tensionFadeTime).OnComplete(() => {
                     tensionFading = false;
                 });
                 tensionFading = true;
@@ -210,16 +222,17 @@ public class AudioManager : MonoBehaviour {
             
             // chase music
             TorbalanStateTracker.TorbalanState state = TorbalanStateTracker.Instance.currentState;
-            if (state == TorbalanStateTracker.TorbalanState.Chase && chaseMusic.volume == 0 && !chaseFading) {
-                chaseMusic.volume = 0;
-                chaseMusic.DOFade(chaseVolume, chaseFadeTime).OnComplete(() => {
+            AudioSource chase = day >= 4 ? chaseDay45 : chaseDay23;
+
+            if (state == TorbalanStateTracker.TorbalanState.Chase && chase.volume == 0 && !chaseFading) {
+                chase.DOFade(chaseVolume, chaseFadeTime).OnComplete(() => {
                     chaseFading = false;
                 });
                 chaseFading = true;
             }
 
-            if (state != TorbalanStateTracker.TorbalanState.Chase && chaseMusic.volume == chaseVolume && !chaseFading) {
-                chaseMusic.DOFade(0, chaseFadeTime).OnComplete(() => {
+            if (state != TorbalanStateTracker.TorbalanState.Chase && chase.volume == chaseVolume && !chaseFading) {
+                chase.DOFade(0, chaseFadeTime).OnComplete(() => {
                     chaseFading = false;
                 });
                 chaseFading = true;
