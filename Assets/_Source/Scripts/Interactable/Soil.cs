@@ -34,6 +34,8 @@ public class Soil : Interactable {
     }
     public override void InteractPrimary() {
         if(crops.Count < farmingConstants.maxCrops && currentSeeds.Value > 0) {
+            if(ObjectiveUI.Instance != null) ObjectiveUI.Instance.FinishPrompt("Plant");
+
             currentSeeds.ApplyChange(-1);
             
             var lookPosition = CameraRaycast.Instance.GetCurrentInteractableHitPosition();

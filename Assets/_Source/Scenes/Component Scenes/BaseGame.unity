@@ -471,6 +471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Objective Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 1052198405990903938, guid: 854aa094ecc9f3c4b8a11a8063bacbd5, type: 3}
+      propertyPath: timeOfDay
+      value: 
+      objectReference: {fileID: 11400000, guid: d3c088879691b0344b62ed8e5b4c3373, type: 2}
     - target: {fileID: 1052198405990903939, guid: 854aa094ecc9f3c4b8a11a8063bacbd5, type: 3}
       propertyPath: m_RootOrder
       value: 7

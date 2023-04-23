@@ -193,6 +193,9 @@ public class Crop : Interactable {
     }
 
     public void Fertilize() {
+        // objective 
+        if(ObjectiveUI.Instance != null) ObjectiveUI.Instance.FinishPrompt("Fertilize");
+        
         // reduce grow timer
         if (interactionState == InteractionState.Growing) {
             float reductionProportion = (farmingConstants.baseGrowthTime - farmingConstants.fertilizedGrowthTime) / farmingConstants.baseGrowthTime;
@@ -206,6 +209,8 @@ public class Crop : Interactable {
     }
 
     private void Water() {
+        if(ObjectiveUI.Instance != null) ObjectiveUI.Instance.FinishPrompt("Water");
+
         currentWater.ApplyChange(-1);
 
         wateredToday = true;

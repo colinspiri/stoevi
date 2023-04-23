@@ -65,14 +65,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'WASD - move
+  m_text: '<b>WASD</b> - move
 
-    MOUSE - look around
+    <b>Mouse</b> - look around
 
-    <sprite name="left_click"> &
-    <sprite name="right_click">- interact
+    <sprite name="left_click">
+    & <sprite name="right_click">- interact
 
-    SHIFT - sprint'
+    <b>Shift</b> - sprint'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 471b9406ae572be4b876f7c53c0caa8f, type: 2}
   m_sharedMaterial: {fileID: 5125687796235707659, guid: 471b9406ae572be4b876f7c53c0caa8f, type: 2}
@@ -270,14 +270,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'C - crouch
+  m_text: '<b>C</b> - crouch
 
-    F - flashlight
+    <b>F</b> - flashlight
 
-    TAB - map
+    <b>Tab</b> - map
 
-    CTRL + <direction>
-    - peek'
+    <b>Ctrl</b>
+    + direction - peek'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 471b9406ae572be4b876f7c53c0caa8f, type: 2}
   m_sharedMaterial: {fileID: 5125687796235707659, guid: 471b9406ae572be4b876f7c53c0caa8f, type: 2}

@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 
 public class DayManager : MonoBehaviour {
+    public static DayManager Instance;
+    
     public int day;
     public TimeOfDay timeOfDay;
 
@@ -9,6 +11,7 @@ public class DayManager : MonoBehaviour {
 #if UNITY_EDITOR
         PlayerPrefs.SetInt("CurrentDay", day);
 #endif
+        Instance = this;
     }
 
     // Start is called before the first frame update
