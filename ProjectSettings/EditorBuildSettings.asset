@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/_Source/Scenes/Component Scenes/UI.unity
     guid: 094e2805e8fd7194e8788fae9e38f86a
   - enabled: 1
-    path: Assets/_Source/Scenes/Component Scenes/Environment.unity
+    path: Assets/_Source/Scenes/Component Scenes/Environment_Day1.unity
     guid: 993e39bf7ac59ff48a2e7d8893d99147
   - enabled: 1
     path: Assets/_Source/Scenes/Component Scenes/Interactables.unity

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Yarn;
 using Yarn.Unity;
@@ -9,9 +10,13 @@ using Random = UnityEngine.Random;
 public class VOManager : MonoBehaviour {
     // components
     private AudioSource audioSource;
-    
+    public TextMeshProUGUI speakerText;
+
     // data
-    public List<AudioClip> voClips;
+    public List<AudioClip> voDimo;
+    public List<AudioClip> voRumen;
+    public List<AudioClip> voYoan;
+    public List<AudioClip> voAna;
     
     // state
     private int previousRandomIndex;
@@ -28,8 +33,16 @@ public class VOManager : MonoBehaviour {
         // check if already playing
         if (audioSource.isPlaying) return;
         
-        // TODO check current character
-        
+        // check current speaker
+        string speaker = speakerText.text;
+        List<AudioClip> voClips = speaker switch {
+            "Dimo" => voDimo,
+            "Rumen" => voRumen,
+            "Yoan" => voYoan,
+            "Ana" => voAna,
+            _ => null
+        };
+
         // TODO if in game, apply radio filter
         
         // play random clip
