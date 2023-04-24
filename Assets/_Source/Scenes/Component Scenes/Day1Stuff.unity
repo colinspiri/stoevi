@@ -615,7 +615,7 @@ PrefabInstance:
     - target: {fileID: 7519358152994054270, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1141651106}
+      objectReference: {fileID: 1108889490}
     - target: {fileID: 7828185290522087055, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -769,7 +769,7 @@ MonoBehaviour:
   distanceThreshold: 70
   minWaitTime: 10
   maxWaitTime: 40
---- !u!43 &1141651106
+--- !u!43 &1108889490
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

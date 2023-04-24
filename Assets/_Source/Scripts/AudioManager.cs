@@ -35,9 +35,13 @@ public class AudioManager : MonoBehaviour {
 
     [Header("Ambience")] 
     public AudioSource ambience_day;
+    public AudioSource ambience_day_rain;
     public AudioSource ambience_night;
+    public AudioSource ambience_night_rain;
     private float ambienceDayVolume;
+    private float ambienceDayRainVolume;
     private float ambienceNightVolume;
+    private float ambienceNightRainVolume;
 
     [Header("SFX")] private bool rustle;
     public AudioSource walkingSound;
@@ -68,14 +72,17 @@ public class AudioManager : MonoBehaviour {
     private void Start() {
         mainMenuMusic.ignoreListenerPause = true;
         ambience_day.ignoreListenerPause = true;
+        ambience_day_rain.ignoreListenerPause = true;
         ambience_night.ignoreListenerPause = true;
+        ambience_night_rain.ignoreListenerPause = true;
 
         themeBassMusicVolume = themeBassMusic.volume;
         tensionVolume = tensionDay23.volume;
         chaseVolume = chaseDay23.volume;
         ambienceDayVolume = ambience_day.volume;
+        ambienceDayRainVolume = ambience_day_rain.volume;
         ambienceNightVolume = ambience_night.volume;
-        Debug.Log("day = " + ambienceDayVolume + " night = " + ambienceNightVolume);
+        ambienceNightRainVolume = ambience_night_rain.volume;
         
         audioSettings.Initialize();
 
@@ -93,6 +100,7 @@ public class AudioManager : MonoBehaviour {
         
         // stop misc sounds
         ambience_night.Stop();
+        ambience_night_rain.Stop();
         tensionDay23.Stop();
         tensionDay45.Stop();
         chaseDay23.Stop();
@@ -119,6 +127,7 @@ public class AudioManager : MonoBehaviour {
         else mainMenuMusic.Stop();
 
         
+        day = PlayerPrefs.GetInt("CurrentDay", 1);
         bool isDay = false;
         foreach (var dayScene in sceneLoader.dayScenes) {
             if (newScene.path == dayScene.ScenePath) {
@@ -127,13 +136,23 @@ public class AudioManager : MonoBehaviour {
             }
         }
         // ambience 
-        if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath) {
-            if(!ambience_day.isPlaying) ambience_day.Play();
+        if (day == 4) {
+            if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath) {
+                if(!ambience_day_rain.isPlaying) ambience_day_rain.Play();
+            }
+            else ambience_day_rain.Stop();
+            ambience_day.Stop();
         }
-        else ambience_day.Stop();
+        else {
+            if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath) {
+                if(!ambience_day.isPlaying) ambience_day.Play();
+            }
+            else ambience_day.Stop();
+            ambience_day_rain.Stop();
+        }
+        
         
         // tension
-        day = PlayerPrefs.GetInt("CurrentDay", 1);
         if (isDay) {
             Debug.Log("start playing tension music");
             AudioSource tension = day >= 4 ? tensionDay45 : tensionDay23;
@@ -152,12 +171,16 @@ public class AudioManager : MonoBehaviour {
     public void PauseGameSound() {
         AudioListener.pause = true;
         ambience_day.DOFade(0.1f, 1).SetUpdate(true);
+        ambience_day_rain.DOFade(0.1f, 1).SetUpdate(true);
         ambience_night.DOFade(0.05f, 1).SetUpdate(true);
+        ambience_night_rain.DOFade(0.05f, 1).SetUpdate(true);
     }
     public void ResumeGameSound() {
         AudioListener.pause = false;
-        ambience_day.DOFade(0.3f, 1).SetUpdate(true);
-        ambience_night.DOFade(0.1f, 1).SetUpdate(true);
+        ambience_day.DOFade(ambienceDayVolume, 1).SetUpdate(true);
+        ambience_day_rain.DOFade(ambienceDayRainVolume, 1).SetUpdate(true);
+        ambience_night.DOFade(ambienceNightVolume, 1).SetUpdate(true);
+        ambience_night_rain.DOFade(ambienceNightRainVolume, 1).SetUpdate(true);
     }
 
     private void Update() {
@@ -241,18 +264,26 @@ public class AudioManager : MonoBehaviour {
     }
 
     public void PlayDayAmbience(float fadeInDuration = 1f) {
-        ambience_day.Play();
-        ambience_day.volume = 0;
-        ambience_day.DOFade(ambienceDayVolume, fadeInDuration);
+        AudioSource current_ambience_day = day == 4 ? ambience_day_rain : ambience_day;
+        float current_ambience_volume = day == 4 ? ambienceDayRainVolume : ambienceDayVolume;
+        
+        current_ambience_day.Play();
+        current_ambience_day.volume = 0;
+        current_ambience_day.DOFade(current_ambience_volume, fadeInDuration);
     }
     public void TransitionToNightAmbience() {
-        ambience_day.DOFade(0, 20f).SetUpdate(true).OnComplete(() => {
-            ambience_day.Stop();
+        AudioSource current_ambience_day = day == 4 ? ambience_day_rain : ambience_day;
+        
+        current_ambience_day.DOFade(0, 20f).SetUpdate(true).OnComplete(() => {
+            current_ambience_day.Stop();
         });
         
-        ambience_night.Play();
-        ambience_night.volume = 0f;
-        ambience_night.DOFade(ambienceNightVolume, 20f).SetUpdate(true);
+        AudioSource current_ambience_night = day == 4 ? ambience_night_rain : ambience_night;
+        float current_ambience_volume = day == 4 ? ambienceNightRainVolume : ambienceNightVolume;
+        
+        current_ambience_night.Play();
+        current_ambience_night.volume = 0f;
+        current_ambience_night.DOFade(current_ambience_volume, 20f).SetUpdate(true);
     }
 
     public void PlayIntroCutsceneMusic() {
