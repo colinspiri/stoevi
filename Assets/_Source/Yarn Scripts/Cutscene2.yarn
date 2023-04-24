@@ -9,27 +9,31 @@ Dimo: And the kids?
 Rumen: It's been 10 days now. Nobody found 'em.
 Dimo: Hm.
 Rumen: You didn't tell her?
+<<wait 1>>
 <<theme 2>>
 Dimo: There was someone on my farm today.
 Rumen: Some <i>mango</i> beggar? Stealing your shit?
-Dimo: Taller. Bigger.
-Rumen: Never seen a well-fed <i>mango</i>?
 Dimo: Dressed like a <i>kukeri</i>. Fur, bells, masks, horns, the whole costume.
 Rumen: ...
 <<theme 3>>
 Rumen: The <i>Torbalan</i>.
-Dimo: Bullshit.
-Rumen: Dimo, you need to leave.
 Dimo: You try to scare me.
+Rumen: Dimo, you need to leave.
 Rumen: Come with me, to Plovdiv. I have work. Food service. Tourist stuff for rich Turks.
-Dimo: They'll pay you if you bring someone else?
-Rumen: We can split it.
-Dimo: I am not leaving my farm, Rumen. Stop asking.
-Rumen: You're putting your kids in danger.
-Dimo: You are a good salesman.
-Rumen: Dimo, if the Torbalan sees you, you're fucked.
-Rumen: He'll take your sheep, take your children.
+Dimo: I am not leaving my farm, Rumen.
+Rumen: You're putting your children in danger.
+Rumen: Dimo, he'll take your kids, turn them against you.
 Dimo: Whoever it is, he will not get to my children.
+Rumen: He'll turn them into sheep.
 Dimo: See you tomorrow, Rumen.
-Rumen: Hope I do.
+Rumen: I hope I do.
+
+// Rumen: I worry about you. An old man living alone-
+// Dimo: I am not alone.
+// Rumen: You gonna spend the rest of your life in an empty village?
+// Dimo: I like the quiet.
+// Rumen: Still saving for Germany?
+// Dimo: I'm close.
+// Rumen: Is that what you tell her?
+// Dimo: Do not speak about my children.
 ===
