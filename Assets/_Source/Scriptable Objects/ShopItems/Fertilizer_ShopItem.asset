@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Fertilizer_ShopItem
   m_EditorClassIdentifier: 
   itemName: fertilizer
-  price: 30
+  itemDescription: 
+  price: 10
   icon: {fileID: 21300000, guid: 08f1691e1f22cbb44b2131e74561d68c, type: 3}

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Battery_ShopItem
   m_EditorClassIdentifier: 
   itemName: batteries
-  price: 80
+  itemDescription: 
+  price: 30
   icon: {fileID: 21300000, guid: 87d0c91e80276fa4c9270c36e998c501, type: 3}

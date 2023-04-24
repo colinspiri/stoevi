@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: seeds
   itemDescription: tomato seed packet
-  price: 50
+  price: 20
   icon: {fileID: 21300000, guid: a4c06b5b6907bfe459f52143e581050a, type: 3}
