@@ -31,7 +31,7 @@ public class FirstPersonMovement : MonoBehaviour
 	public float speedChangeRate = 10.0f;
 	
 	[Header("Crouching")]
-	public float crouchStaminaMultiplier = 1f;
+	// public float crouchStaminaMultiplier = 1f;
 	public ASoundContainer player_inhale;
 	public ASoundContainer player_exhale;
 
@@ -129,7 +129,7 @@ public class FirstPersonMovement : MonoBehaviour
 		
 		// consume stamina
 		if(moveState == MoveState.Running) StaminaController.Instance.ConsumeStamina();
-		else if(crouching) StaminaController.Instance.ConsumeStamina(crouchStaminaMultiplier);
+		else if(crouching) StaminaController.Instance.PauseStaminaRegeneration();
 		
 		// report sound
 		if (TorbalanHearing.Instance != null) {
