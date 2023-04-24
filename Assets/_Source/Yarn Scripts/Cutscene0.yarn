@@ -6,23 +6,14 @@ Rumen: Dimo, my friend!
 Dimo: Rumen.
 Rumen: Where's Petrov?
 Dimo: Left with his wife two days ago.
-Rumen: So, last man standing, huh.
+Rumen: So, last man standing, huh?
 Dimo: Mhm.
 <<theme 1>>
 Rumen: When are you leaving?
 Dimo: My farm is not for sale.
-Rumen: I worry about you. An old man living alone-
-Dimo: I am not alone.
-Rumen: You gonna spend the rest of your life in an empty village?
-Dimo: I like the quiet.
-Rumen: Still saving for Germany?
-Dimo: I'm close.
-Rumen: Is that what you tell her?
-Dimo: Do not speak about my children.
-<<theme 2>>
-<<wait 2>>
-Rumen: Stoyan's kids went missing in Peshtera last week.
+<<wait 1>>
 <<theme 3>>
+Rumen: Stoyan's kids went missing in Peshtera last week.
 Dimo: Elena and Mariya?
 Rumen: Yeah. They're saying it was <i>mango</i>.
 Dimo: Who said that?
