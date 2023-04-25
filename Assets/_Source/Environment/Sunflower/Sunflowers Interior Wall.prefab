@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5435709996148528735}
+  - component: {fileID: 688267086309403056}
   m_Layer: 6
   m_Name: Sunflowers Interior Wall
   m_TagString: PlantInterior
@@ -32,6 +33,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &688267086309403056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642986201645481353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6619b7c8311131e45b90a4f1b5ef1a9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderers:
+  - {fileID: 1137453082893046551}
+  - {fileID: 8924519820931667964}
+  day1Material: {fileID: 2100000, guid: 1695a493288115d42931b99d296ab857, type: 2}
+  day3Material: {fileID: 2100000, guid: 5184668e308f7504aaa6a120cc0357a0, type: 2}
+  day4Material: {fileID: 2100000, guid: b07193cdc25405443b0e72ee3a9265bd, type: 2}
+  day5Material: {fileID: 2100000, guid: a733da28f9bb5cd4c83a476a399a2959, type: 2}
 --- !u!1 &1992176202726578787
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +111,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a733da28f9bb5cd4c83a476a399a2959, type: 2}
+  - {fileID: 2100000, guid: 5184668e308f7504aaa6a120cc0357a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,7 +192,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a733da28f9bb5cd4c83a476a399a2959, type: 2}
+  - {fileID: 2100000, guid: 5184668e308f7504aaa6a120cc0357a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

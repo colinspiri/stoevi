@@ -105,6 +105,6 @@ MonoBehaviour:
   EndingLightDirection: 200
   lightningEnabled: 1
   minLightningTime: 10
-  maxLightningTime: 30
-  lightningDuration: 0.4
+  maxLightningTime: 20
+  lightningDuration: 0.5
   lightningColor: {r: 1, g: 0, b: 0, a: 1}
