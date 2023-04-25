@@ -158,7 +158,7 @@ MonoBehaviour:
   - sceneAsset: {fileID: 102900000, guid: 270a6fdd892916d48b59d80d3d8c25af, type: 3}
     scenePath: Assets/_Source/Scenes/Component Scenes/Day4Stuff.unity
   - sceneAsset: {fileID: 102900000, guid: 993e39bf7ac59ff48a2e7d8893d99147, type: 3}
-    scenePath: Assets/_Source/Scenes/Component Scenes/Environment.unity
+    scenePath: Assets/_Source/Scenes/Component Scenes/Environment_Day1.unity
   - sceneAsset: {fileID: 102900000, guid: a23ab905d791c68488bc3f83f8fcd630, type: 3}
     scenePath: Assets/_Source/Scenes/Component Scenes/Player.unity
   - sceneAsset: {fileID: 102900000, guid: 094e2805e8fd7194e8788fae9e38f86a, type: 3}

@@ -136,7 +136,7 @@ public class AudioManager : MonoBehaviour {
             }
         }
         // ambience 
-        if (day == 4) {
+        if (day >= 4) {
             if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath) {
                 if(!ambience_day_rain.isPlaying) ambience_day_rain.Play();
             }
@@ -264,22 +264,22 @@ public class AudioManager : MonoBehaviour {
     }
 
     public void PlayDayAmbience(float fadeInDuration = 1f) {
-        AudioSource current_ambience_day = day == 4 ? ambience_day_rain : ambience_day;
-        float current_ambience_volume = day == 4 ? ambienceDayRainVolume : ambienceDayVolume;
+        AudioSource current_ambience_day = day >= 4 ? ambience_day_rain : ambience_day;
+        float current_ambience_volume = day >= 4 ? ambienceDayRainVolume : ambienceDayVolume;
         
         current_ambience_day.Play();
         current_ambience_day.volume = 0;
         current_ambience_day.DOFade(current_ambience_volume, fadeInDuration);
     }
     public void TransitionToNightAmbience() {
-        AudioSource current_ambience_day = day == 4 ? ambience_day_rain : ambience_day;
+        AudioSource current_ambience_day = day >= 4 ? ambience_day_rain : ambience_day;
         
         current_ambience_day.DOFade(0, 20f).SetUpdate(true).OnComplete(() => {
             current_ambience_day.Stop();
         });
         
-        AudioSource current_ambience_night = day == 4 ? ambience_night_rain : ambience_night;
-        float current_ambience_volume = day == 4 ? ambienceNightRainVolume : ambienceNightVolume;
+        AudioSource current_ambience_night = day >= 4 ? ambience_night_rain : ambience_night;
+        float current_ambience_volume = day >= 4 ? ambienceNightRainVolume : ambienceNightVolume;
         
         current_ambience_night.Play();
         current_ambience_night.volume = 0f;

@@ -41,6 +41,7 @@ public class Crop : Interactable {
     
     // wilting
     private bool wateredToday;
+    private bool isRaining;
 
     private void Awake() {
         textureManager = GetComponent<CropTextureManager>();
@@ -51,6 +52,18 @@ public class Crop : Interactable {
         
         ChangeCropStage(stage);
         wateredToday = false;
+        isRaining = false;
+
+        int day = PlayerPrefs.GetInt("CurrentDay", 1);
+        if (day >= 4) {
+            wateredToday = true;
+            isRaining = true;
+            health = health switch {
+                Health.Fair => Health.Wilted,
+                Health.Wilted => Health.Dead,
+                _ => health,
+            };
+        }
     }
     
     private void Update() {
@@ -215,6 +228,12 @@ public class Crop : Interactable {
 
         wateredToday = true;
 
+        StartGrowing();
+        
+        UpdateComponents();
+    }
+
+    private void StartGrowing() {
         // start growing
         if (stage == GrowthStage.Sprout || stage == GrowthStage.Intermediate ||
             stage == GrowthStage.Unripe) {
@@ -223,8 +242,6 @@ public class Crop : Interactable {
             growthTime = (soil && soil.fertilized) ? farmingConstants.fertilizedGrowthTime : farmingConstants.baseGrowthTime;
             growthTimer = growthTime;
         }
-        
-        UpdateComponents();
     }
 
     private void Harvest() {
@@ -282,7 +299,12 @@ public class Crop : Interactable {
             case GrowthStage.Sprout:
             case GrowthStage.Intermediate:
             case GrowthStage.Unripe:
-                interactionState = InteractionState.NeedsWater;
+                if (isRaining == false) {
+                    interactionState = InteractionState.NeedsWater;
+                }
+                else {
+                    StartGrowing();
+                }
                 break;
             case GrowthStage.Ripe:
                 interactionState = InteractionState.Harvestable;
@@ -316,7 +338,7 @@ public class Crop : Interactable {
             return "dead";
         }
         else if (health == Health.Wilted) {
-            return "wilted";
+            return isRaining ? "overwatered" : "wilted";
         }
         else if (soil && soil.fertilized) {
             return "fertilized";
