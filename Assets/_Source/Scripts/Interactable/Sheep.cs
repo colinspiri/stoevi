@@ -6,13 +6,14 @@ public class Sheep : Interactable {
     // components
     public ASoundContainer sheep_hit;
     public IntVariable objectiveComplete;
+    public TimeOfDay timeOfDay;
     
     // behavior tree shared variables
     public GameObject player { get; set; }
     public bool scared { get; set; }
     public bool beingChased { get; set; }
     public bool isLeashed { get; set; }
-
+    
     // public constants
     public float bleatLoudness;
     [Header("Player Chase")]
@@ -35,6 +36,13 @@ public class Sheep : Interactable {
         player = (FirstPersonMovement.Instance != null) ? FirstPersonMovement.Instance.gameObject : null;
 
         beingChased = CheckIfBeingChased();
+
+        if (isYoan && timeOfDay.IsNight() == false) {
+            var distance = Vector3.Distance(player.transform.position, transform.position);
+            if (distance <= playerChaseDistance) {
+                beingChased = true;
+            }
+        }
     }
 
     private bool CheckIfBeingChased() {

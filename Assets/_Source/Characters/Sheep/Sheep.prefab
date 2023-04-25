@@ -399,7 +399,8 @@ MonoBehaviour:
         Min Distance","IsShared":true,"SinglemValue":3},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Leash
         Max Speed","IsShared":true,"SinglemValue":9.5},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"Leash
         Max Distance","IsShared":true,"SinglemValue":8},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"Is
-        Leashed","IsShared":true,"PropertyMapping":"Sheep/isLeashed","PropertyMappingOwner":25,"BooleanmValue":false}]}'
+        Leashed","IsShared":true,"PropertyMapping":"Sheep/isLeashed","PropertyMappingOwner":25,"BooleanmValue":false},{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"Is
+        Yoan","IsShared":true,"PropertyMapping":"Sheep/sheepIsYoan","PropertyMappingOwner":26,"BooleanmValue":false}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
@@ -432,6 +433,7 @@ MonoBehaviour:
         - {fileID: 6620360020038090571}
         - {fileID: 6620360020038090571}
         - {fileID: 6620360020038090571}
+        - {fileID: 6620360020038090571}
         byteData: 
         byteDataArray: 
       Version: 1.7.3
@@ -454,6 +456,7 @@ MonoBehaviour:
   InteractionTimeSecondary: 1
   sheep_hit: {fileID: 11400000, guid: 0fefbda7640dc554686b13e8cf56fc10, type: 2}
   objectiveComplete: {fileID: 11400000, guid: bf9a8b8ba19945c49b7868551e5fc18c, type: 2}
+  timeOfDay: {fileID: 11400000, guid: fab5b1d5fe9023441adb0c9b4234e1f1, type: 2}
   bleatLoudness: 35
   playerChaseDistance: 10
   playerFacingAngle: 45
