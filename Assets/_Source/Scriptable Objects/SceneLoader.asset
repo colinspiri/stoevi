@@ -15,12 +15,6 @@ MonoBehaviour:
   introCutscene:
     sceneAsset: {fileID: 102900000, guid: c24d2e2d55a1fbf40884fdac4fe4fced, type: 3}
     scenePath: Assets/_Source/Scenes/IntroCutscene.unity
-  day1Scene:
-    sceneAsset: {fileID: 102900000, guid: b2f0725004145404eb4513d60ac70066, type: 3}
-    scenePath: Assets/_Source/Scenes/Day1.unity
-  day2Scene:
-    sceneAsset: {fileID: 102900000, guid: 8177ba1438c10794697df8015df5e37e, type: 3}
-    scenePath: Assets/_Source/Scenes/Day2.unity
   dayScenes:
   - sceneAsset: {fileID: 102900000, guid: b2f0725004145404eb4513d60ac70066, type: 3}
     scenePath: Assets/_Source/Scenes/Day1.unity
@@ -41,3 +35,6 @@ MonoBehaviour:
   cutsceneScene:
     sceneAsset: {fileID: 102900000, guid: 0399db3bc9a27114482ecacfb9e10a53, type: 3}
     scenePath: Assets/_Source/Scenes/Cutscene.unity
+  endCreditsScene:
+    sceneAsset: {fileID: 102900000, guid: a213b4f22af2453449bc840d95c29a49, type: 3}
+    scenePath: Assets/_Source/Scenes/EndCredits.unity

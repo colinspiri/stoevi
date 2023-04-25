@@ -11,4 +11,11 @@ public class LightingPreset : ScriptableObject {
     public float FogMaxDistanceNight;
     [Range(0, 360)] public float StartingLightDirection;
     [Range(0, 360)] public float EndingLightDirection;
+    
+    [Header("Lightning")] 
+    public bool lightningEnabled;
+    public float minLightningTime;
+    public float maxLightningTime;
+    public float lightningDuration;
+    public Color lightningColor;
 }

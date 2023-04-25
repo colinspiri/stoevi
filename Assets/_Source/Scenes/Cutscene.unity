@@ -367,7 +367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4638271798828358899, guid: ea4a0c68e4d7f064091966f4be7cdb16, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 439.5
       objectReference: {fileID: 0}
     - target: {fileID: 4638271798828358899, guid: ea4a0c68e4d7f064091966f4be7cdb16, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1391,36 +1391,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1975616064}
     m_Modifications:
     - target: {fileID: 4155520467768534843, guid: 546ae258a21c69e46be750271996a7d5, type: 3}
-      propertyPath: callEvent
+      propertyPath: useYarnCallback
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4155520467768534843, guid: 546ae258a21c69e46be750271996a7d5, type: 3}
-      propertyPath: nextEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4155520467768534843, guid: 546ae258a21c69e46be750271996a7d5, type: 3}
-      propertyPath: nextEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4155520467768534843, guid: 546ae258a21c69e46be750271996a7d5, type: 3}
-      propertyPath: nextEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 11400000, guid: 9cdd62927cbfb2d44a15d938c0916e2d, type: 2}
-    - target: {fileID: 4155520467768534843, guid: 546ae258a21c69e46be750271996a7d5, type: 3}
-      propertyPath: nextEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4155520467768534843, guid: 546ae258a21c69e46be750271996a7d5, type: 3}
-      propertyPath: nextEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadCurrentDay
-      objectReference: {fileID: 0}
-    - target: {fileID: 4155520467768534843, guid: 546ae258a21c69e46be750271996a7d5, type: 3}
-      propertyPath: nextEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SceneLoader, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4155520467768534843, guid: 546ae258a21c69e46be750271996a7d5, type: 3}
-      propertyPath: nextEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4155520467768534844, guid: 546ae258a21c69e46be750271996a7d5, type: 3}
       propertyPath: m_Pivot.x

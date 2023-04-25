@@ -13,19 +13,13 @@ public class LightManager : MonoBehaviour {
     [SerializeField, Range(0, 1)] private float TimePercent;
 
     // lightning
-    [Header("Lightning")] 
-    public bool lightningEnabled;
-    public float minLightningTime;
-    public float maxLightningTime;
-    public float lightningDuration;
-    public Color lightningColor;
     private bool flashing;
     private float lightningTimer;
 
     private void Start() {
         TryGetComponents();
         
-        lightningTimer = Random.Range(minLightningTime, maxLightningTime);
+        lightningTimer = Random.Range(Preset.minLightningTime, Preset.maxLightningTime);
     }
 
     // Update is called once per frame
@@ -38,11 +32,11 @@ public class LightManager : MonoBehaviour {
             }
 
             // lightning
-            if (lightningEnabled) {
+            if (Preset.lightningEnabled) {
                 lightningTimer -= Time.deltaTime;
                 if (lightningTimer <= 0) {
-                    StartCoroutine(FlashColor(lightningColor));
-                    lightningTimer = Random.Range(minLightningTime, maxLightningTime);
+                    StartCoroutine(FlashColor(Preset.lightningColor));
+                    lightningTimer = Random.Range(Preset.minLightningTime, Preset.maxLightningTime);
                 }
             }
         }
@@ -61,7 +55,7 @@ public class LightManager : MonoBehaviour {
             Camera.backgroundColor = color;
         }
 
-        yield return new WaitForSeconds(lightningDuration);
+        yield return new WaitForSeconds(Preset.lightningDuration);
         
         flashing = false;
     }

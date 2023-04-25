@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -12,11 +13,15 @@ public class SkipCutscene : MonoBehaviour {
     private DialogueRunner dialogueRunner;
 
     // constants
-    public bool callEvent;
-    public SceneReference nextScene;
-    public UnityEvent nextEvent;
-    public GameObject skipPrompt;
+    public TextMeshProUGUI skipPrompt;
+    public float skipPromptAlpha;
     public float skipTime;
+    [Header("On Skip")]
+    public bool useEvent;
+    public UnityEvent nextEvent;
+    public bool useScene;
+    public SceneReference nextScene;
+    public bool useYarnCallback;
     
     // state
     private bool showSkipPrompt;
@@ -34,15 +39,21 @@ public class SkipCutscene : MonoBehaviour {
     }
 
     private void Start() {
-        showSkipPrompt = false;
-        skipPrompt.SetActive(false);
+        showSkipPrompt = true;
+        skipPrompt.gameObject.SetActive(false);
         
         dialogueRunner = FindObjectOfType<DialogueRunner>();
     }
 
     private void Update() {
+        if (showSkipPrompt) {
+            skipPrompt.gameObject.SetActive(true);
+            skipPrompt.alpha = skipPromptAlpha;
+        }
+        
         if (inputActions.UI.RightClick.ReadValue<float>() > 0) {
             showSkipPrompt = true;
+            skipPrompt.alpha = 1;
             skipTimer += Time.deltaTime;
             
             if (skipTimer >= skipTime) {
@@ -52,20 +63,19 @@ public class SkipCutscene : MonoBehaviour {
         else skipTimer = 0f;
         
         UpdateSlider();
-
-        if (showSkipPrompt) skipPrompt.SetActive(true);
     }
 
     private void Skip() {
-        dialogueRunner.onNodeComplete.Invoke(dialogueRunner.CurrentNodeName);
-        dialogueRunner.Stop();
-
-        /*if (callEvent) {
+        if (useEvent) {
             nextEvent.Invoke();
         }
-        else {
+        else if(useScene) {
             SceneManager.LoadScene(nextScene);
-        }*/
+        }
+        else if (useYarnCallback) {
+            dialogueRunner.onNodeComplete.Invoke(dialogueRunner.CurrentNodeName);
+            dialogueRunner.Stop();
+        }
     }
 
     private void UpdateSlider() {

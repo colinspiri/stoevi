@@ -61,7 +61,7 @@ public class IntroCutscene : MonoBehaviour {
         // title
         titleText.SetActive(true);
         ui_play.Play();
-        AudioManager.Instance.PlayIntroCutsceneMusic();
+        AudioManager.Instance.PlayThemeBassMusic();
 
         yield return new WaitForSeconds(2);
         

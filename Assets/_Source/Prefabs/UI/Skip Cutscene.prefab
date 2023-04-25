@@ -175,15 +175,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 4155520467131763212}
-  callEvent: 0
-  nextScene:
-    sceneAsset: {fileID: 0}
-    scenePath: 
+  skipPrompt: {fileID: 4155520468096628024}
+  skipPromptAlpha: 0.3
+  skipTime: 3
+  useEvent: 0
   nextEvent:
     m_PersistentCalls:
       m_Calls: []
-  skipPrompt: {fileID: 4155520468096628027}
-  skipTime: 3
+  useScene: 0
+  nextScene:
+    sceneAsset: {fileID: 0}
+    scenePath: 
+  useYarnCallback: 0
 --- !u!1 &4155520468096628027
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +329,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4155520468096628027}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fcf8293c603d8b4abaf2b60d12a8b72, type: 3}
   m_Name: 
@@ -390,7 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

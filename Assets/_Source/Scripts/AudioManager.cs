@@ -112,7 +112,7 @@ public class AudioManager : MonoBehaviour {
         playerTiredBreathing.Stop();
 
         // theme bass music
-        if (newScene.path == sceneLoader.cutsceneScene.ScenePath) {
+        if (newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath) {
             themeBassMusic.Play();
             themeBassMusic.volume = themeBassMusicVolume;
         }
@@ -139,14 +139,14 @@ public class AudioManager : MonoBehaviour {
         }
         // ambience 
         if (day >= 4) {
-            if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath) {
+            if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath) {
                 if(!ambience_day_rain.isPlaying) ambience_day_rain.Play();
             }
             else ambience_day_rain.Stop();
             ambience_day.Stop();
         }
         else {
-            if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath) {
+            if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath) {
                 if(!ambience_day.isPlaying) ambience_day.Play();
             }
             else ambience_day.Stop();
@@ -288,8 +288,8 @@ public class AudioManager : MonoBehaviour {
         current_ambience_night.DOFade(current_ambience_volume, 20f).SetUpdate(true);
     }
 
-    public void PlayIntroCutsceneMusic() {
-        themeBassMusic.Play();
+    public void PlayThemeBassMusic() {
+        if(themeBassMusic.isPlaying == false) themeBassMusic.Play();
     }
 
     public void SetBreathingSound(bool value) {

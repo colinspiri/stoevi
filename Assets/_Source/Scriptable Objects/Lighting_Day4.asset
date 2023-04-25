@@ -103,3 +103,8 @@ MonoBehaviour:
   FogMaxDistanceNight: 25
   StartingLightDirection: 50
   EndingLightDirection: 200
+  lightningEnabled: 1
+  minLightningTime: 20
+  maxLightningTime: 40
+  lightningDuration: 0.2
+  lightningColor: {r: 1, g: 1, b: 1, a: 1}

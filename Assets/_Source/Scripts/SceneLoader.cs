@@ -9,6 +9,7 @@ public class SceneLoader : ScriptableObject {
     public SceneReference mainMenuScene;
     public SceneReference shopScene;
     public SceneReference cutsceneScene;
+    public SceneReference endCreditsScene;
     
     public void NewGame() {
         Time.timeScale = 1;
@@ -33,6 +34,10 @@ public class SceneLoader : ScriptableObject {
     public void LoadCutscene() {
         Time.timeScale = 1;
         SceneManager.LoadScene(cutsceneScene.ScenePath);
+    }
+    public void LoadEndCredits() {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(endCreditsScene.ScenePath);
     }
 
     public void Restart()
