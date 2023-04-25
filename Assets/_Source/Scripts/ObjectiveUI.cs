@@ -58,11 +58,7 @@ public class ObjectiveUI : MonoBehaviour {
                 ShowNextPrompt();
             }
             else {
-                if (objectiveComplete.Value == 1) {
-                    text.enabled = false;
-                    text.text = "";
-                }
-                else if(ObjectiveManager.Instance != null) {
+                if(ObjectiveManager.Instance != null) {
                     text.enabled = true;
                     text.alpha = 1;
                     text.text = ObjectiveManager.Instance.objectiveText;

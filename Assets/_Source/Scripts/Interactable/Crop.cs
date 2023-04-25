@@ -339,7 +339,12 @@ public class Crop : Interactable {
             return "dead";
         }
         else if (health == Health.Wilted) {
-            return isRaining ? "overwatered" : "wilted";
+            if (isRaining) {
+                int day = PlayerPrefs.GetInt("CurrentDay", 1);
+                if (day == 5) return "bleeding";
+                else if (day == 4) return "overwatered";
+            }
+            return "wilted";
         }
         else if (soil && soil.fertilized) {
             return "fertilized";

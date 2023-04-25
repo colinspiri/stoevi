@@ -12,7 +12,7 @@ public class StealCrop : Action {
      public override void OnStart() {
           base.OnStart();
           stealTimer = 0;
-          animator.SetBool("pickingfruit", true);
+          if(animator != null) animator.SetBool("pickingfruit", true);
      }
      
      public override TaskStatus OnUpdate() {
@@ -36,6 +36,6 @@ public class StealCrop : Action {
 
      public override void OnEnd() {
           base.OnEnd();
-          animator.SetBool("pickingfruit", false);
+          if(animator != null) animator.SetBool("pickingfruit", false);
      }
 }

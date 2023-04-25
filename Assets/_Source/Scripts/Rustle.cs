@@ -19,11 +19,11 @@ public class Rustle : MonoBehaviour {
                 AudioManager.Instance.SetRustle(true);
             
                 // report sound
-                float loudness = loudnessIncrease + FirstPersonMovement.Instance.moveState switch {
+                /*float loudness = loudnessIncrease + FirstPersonMovement.Instance.moveState switch {
                     FirstPersonMovement.MoveState.Walking => walkLoudness,
                     FirstPersonMovement.MoveState.Running => runLoudness,
                 };
-                if(TorbalanHearing.Instance) TorbalanHearing.Instance.ReportSound(FirstPersonMovement.Instance.transform.position, loudness);
+                if(TorbalanHearing.Instance) TorbalanHearing.Instance.ReportSound(FirstPersonMovement.Instance.transform.position, loudness);*/
             }
             else AudioManager.Instance.SetRustle(false);
         }

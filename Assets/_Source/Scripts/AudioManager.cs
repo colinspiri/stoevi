@@ -139,14 +139,14 @@ public class AudioManager : MonoBehaviour {
         }
         // ambience 
         if (day >= 4) {
-            if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath) {
+            if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath || newScene.path == sceneLoader.shopScene.ScenePath) {
                 if(!ambience_day_rain.isPlaying) ambience_day_rain.Play();
             }
             else ambience_day_rain.Stop();
             ambience_day.Stop();
         }
         else {
-            if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath) {
+            if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath || newScene.path == sceneLoader.shopScene.ScenePath) {
                 if(!ambience_day.isPlaying) ambience_day.Play();
             }
             else ambience_day.Stop();
