@@ -3,11 +3,13 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Yarn.Unity;
 
 public class SkipCutscene : MonoBehaviour {
     // components
     private InputActions inputActions;
     public Slider slider;
+    private DialogueRunner dialogueRunner;
 
     // constants
     public bool callEvent;
@@ -34,6 +36,8 @@ public class SkipCutscene : MonoBehaviour {
     private void Start() {
         showSkipPrompt = false;
         skipPrompt.SetActive(false);
+        
+        dialogueRunner = FindObjectOfType<DialogueRunner>();
     }
 
     private void Update() {
@@ -53,12 +57,15 @@ public class SkipCutscene : MonoBehaviour {
     }
 
     private void Skip() {
-        if (callEvent) {
+        dialogueRunner.onNodeComplete.Invoke(dialogueRunner.CurrentNodeName);
+        dialogueRunner.Stop();
+
+        /*if (callEvent) {
             nextEvent.Invoke();
         }
         else {
             SceneManager.LoadScene(nextScene);
-        }
+        }*/
     }
 
     private void UpdateSlider() {

@@ -1926,6 +1926,8 @@ MonoBehaviour:
   playerBreathing: {fileID: 8743267321918049683}
   playerTiredBreathing: {fileID: 431829728061881010}
   torbalanInhale: {fileID: 11400000, guid: 72b5a34dd21e3234d8dfa059da9ab8a5, type: 2}
+  sheep_bleat: {fileID: 11400000, guid: 16b83431b8146a14bb6f8b675a217298, type: 2}
+  sheep_hit: {fileID: 11400000, guid: 0fefbda7640dc554686b13e8cf56fc10, type: 2}
   backSound: {fileID: 11400000, guid: 568ef0dbd1cc2bb43959efe8fddd520d, type: 2}
   selectSound: {fileID: 11400000, guid: b406f63ec8aea304e952af77d349595c, type: 2}
   submitSound: {fileID: 11400000, guid: e68f8c3b202904044ab36df3ce91d044, type: 2}

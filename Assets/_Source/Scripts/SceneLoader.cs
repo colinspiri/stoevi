@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "SceneLoader", menuName = "SceneLoader", order = 0)]
 public class SceneLoader : ScriptableObject {
     public SceneReference introCutscene;
-    public SceneReference day1Scene;
-    public SceneReference day2Scene;
     public List<SceneReference> dayScenes;
     public SceneReference mainMenuScene;
     public SceneReference shopScene;

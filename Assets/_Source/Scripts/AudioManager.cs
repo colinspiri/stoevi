@@ -4,6 +4,7 @@ using SpookuleleAudio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using Yarn.Unity;
 
 public class AudioManager : MonoBehaviour {
     public static AudioManager Instance;
@@ -51,6 +52,8 @@ public class AudioManager : MonoBehaviour {
     public AudioSource playerBreathing;
     public AudioSource playerTiredBreathing;
     public ASoundContainer torbalanInhale;
+    public ASoundContainer sheep_bleat;
+    public ASoundContainer sheep_hit;
 
     [Header("UI")]
     public ASoundContainer backSound;
@@ -310,4 +313,13 @@ public class AudioManager : MonoBehaviour {
     public void PlayBackSound() { backSound.Play(); }
     public void PlaySelectSound() { selectSound.Play(); }
     public void PlaySubmitSound() { submitSound.Play(); }
+
+    [YarnCommand("sheep_bleat")]
+    public static void PlayBleat() {
+        Instance.sheep_bleat.Play();
+    }
+    [YarnCommand("sheep_hit")]
+    public static void PlaySheepHit() {
+        Instance.sheep_hit.Play();
+    }
 }

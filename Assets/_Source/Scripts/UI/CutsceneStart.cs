@@ -34,6 +34,12 @@ public class CutsceneStart : MonoBehaviour {
     }
     
     private void OnCutsceneDone() {
-        sceneLoader.LoadCurrentDay();
+        int currentDay = PlayerPrefs.GetInt("CurrentDay", 1);
+
+        if (currentDay >= 6) {
+            // TODO: load end credits
+            sceneLoader.MainMenu();
+        }
+        else sceneLoader.LoadCurrentDay();
     }
 }

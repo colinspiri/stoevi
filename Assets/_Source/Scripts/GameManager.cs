@@ -48,8 +48,11 @@ public class GameManager : MonoBehaviour {
         PlayerPrefs.SetInt("CurrentDay", currentDay);
             
         InteractableManager.Instance.SaveAllData();
-            
-        sceneLoader.LoadShop();
+
+        if (currentDay == 6) {
+            sceneLoader.LoadCutscene();
+        }
+        else sceneLoader.LoadShop();
     }
     
     public void GameOver(bool playerSurvived = true) {
