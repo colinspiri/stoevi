@@ -1,16 +1,12 @@
 ﻿title: Cutscene1
 tags:
 ---
-// Sound of footsteps approaching.
-// A knock on the door.
-// From inside the house, footsteps approaching.
-// The door creaks open.
-<<theme 2>>
+<<theme 1>>
 Dimo: Yoan. You didn't write.
 Yoan: Hi Dad. Nice to see you, too.
 Dimo: I thought you were at university?
 Yoan: I, uh, I'm taking a gap semester.
-<<theme 3>>
+<<theme 2>>
 Dimo: A break?
 Yoan: I needed some time to think, refocus, that's all.
 // endearing, worried about his son
@@ -18,12 +14,13 @@ Dimo: Think about what? You have a good life, a good future.
 Yoan: Well,
 Dimo: One more year, then dental school. You are lucky.
 Yoan: I know. I just... need more time to prepare.
-<<theme 4>>
+<<theme 3>>
 Dimo: ...
 // Yoan debates telling Dimo that he doesn't wanna go to dental school
 Yoan: Never mind.
 // silence
 <<wait 1>>
+<<theme 4>>
 Dimo: Come inside. Eat.
 // door closes
 ===

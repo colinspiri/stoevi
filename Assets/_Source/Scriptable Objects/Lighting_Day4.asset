@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AmbientColor:
     serializedVersion: 2
-    key0: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}
+    key0: {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
     key1: {r: 0.5647059, g: 0.5647059, b: 0.5647059, a: 1}
     key2: {r: 0.5330188, g: 0.5671882, b: 1, a: 0}
     key3: {r: 0.24313726, g: 0.3137255, b: 0.8784314, a: 0}
@@ -43,7 +43,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   DirectionalColor:
     serializedVersion: 2
-    key0: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 1}
+    key0: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
     key1: {r: 0, g: 0, b: 0, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -72,7 +72,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   FogColor:
     serializedVersion: 2
-    key0: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+    key0: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
     key1: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 1}
     key2: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 0}
     key3: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 0}
@@ -104,7 +104,7 @@ MonoBehaviour:
   StartingLightDirection: 50
   EndingLightDirection: 200
   lightningEnabled: 1
-  minLightningTime: 20
-  maxLightningTime: 40
-  lightningDuration: 0.2
+  minLightningTime: 5
+  maxLightningTime: 10
+  lightningDuration: 0.3
   lightningColor: {r: 1, g: 1, b: 1, a: 1}

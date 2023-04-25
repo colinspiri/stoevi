@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 public class ConversationManager : MonoBehaviour {
     // public constants
     public List<string> conversations;
+    public bool triggerFirstImmediately;
+    public float immediateDelay;
     public float distanceThreshold;
     public float minWaitTime;
     public float maxWaitTime;
@@ -17,7 +19,6 @@ public class ConversationManager : MonoBehaviour {
     
     // state
     private int nextConversation = 0;
-    private bool conversationPlaying;
     private float distanceFromTorbalan;
     private float waitTimer;
 
@@ -31,7 +32,11 @@ public class ConversationManager : MonoBehaviour {
         if (dialogueRunner != null) {
             dialogueRunner.onNodeComplete.AddListener(_ => OnConversationDone());
         }
-        waitTimer = Random.Range(minWaitTime, maxWaitTime);
+
+        if (triggerFirstImmediately) {
+            waitTimer = immediateDelay;
+        }
+        else waitTimer = Random.Range(minWaitTime, maxWaitTime);
     }
 
     // Update is called once per frame
@@ -40,42 +45,39 @@ public class ConversationManager : MonoBehaviour {
             dialogueRunner = FindObjectOfType<DialogueRunner>();
             return;
         }
-        if (nextConversation >= conversations.Count) return;
-        if (conversationPlaying) return;
+        if (dialogueRunner.IsDialogueRunning) return;
 
-        if (TorbalanHearing.Instance != null && FirstPersonMovement.Instance != null) {
-            distanceFromTorbalan = Vector3.Distance(FirstPersonMovement.Instance.transform.position, TorbalanHearing.Instance.transform.position);
-            if (distanceFromTorbalan < distanceThreshold) return;
-        }
-
-        if (waitTimer <= 0) {
-            StartNextConversation();
-        }
-        else {
+        // count wait timer
+        if (waitTimer > 0) {
             waitTimer -= Time.deltaTime;
+            Debug.Log("waitTimer = " + waitTimer);
+        }
+        
+        // calculate torbalan distance
+        if (FirstPersonMovement.Instance == null || TorbalanDirector.Instance == null)
+            distanceFromTorbalan = float.MaxValue;
+        else distanceFromTorbalan = Vector3.Distance(FirstPersonMovement.Instance.transform.position, TorbalanHearing.Instance.transform.position);
+
+        // try to start next conversation
+        if (nextConversation < conversations.Count && waitTimer <= 0 && distanceFromTorbalan > distanceThreshold) {
+            StartNextConversation();
         }
     }
 
     public bool TryStartConversation(string nodeName) {
         if (dialogueRunner.IsDialogueRunning) return false;
-
-        if (distanceThreshold < distanceThreshold) return false;
+        if (distanceFromTorbalan < distanceThreshold) return false;
         
         dialogueRunner.StartDialogue(nodeName);
-        conversationPlaying = true;
         return true;
     }
 
     private void StartNextConversation() {
-        // start conversation
         dialogueRunner.StartDialogue(conversations[nextConversation]);
         nextConversation++;
-        conversationPlaying = true;
     }
 
     private void OnConversationDone() {
-        conversationPlaying = false;
-        // start wait timer
         waitTimer = Random.Range(minWaitTime, maxWaitTime);
     }
 }

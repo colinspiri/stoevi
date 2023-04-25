@@ -106,5 +106,5 @@ MonoBehaviour:
   lightningEnabled: 1
   minLightningTime: 30
   maxLightningTime: 60
-  lightningDuration: 0.2
+  lightningDuration: 0.5
   lightningColor: {r: 1, g: 0, b: 0, a: 1}

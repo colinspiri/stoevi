@@ -1,6 +1,5 @@
 ﻿title: Day3Weeds
 ---
-// triggered when player approaches weeds (from day 2)
 Dimo: Yoan?
 Yoan: Yes?
 Dimo: Is there something you forgot?
@@ -8,6 +7,21 @@ Yoan: Um, not that I'm aware.
 Dimo: The weeds, <i>Vancho</i>.
 Yoan: I did the weeds.
 Dimo: You tell me one thing, but I see another.
-Yoan: I did, Dad.
-Dimo: Do it again, then. Better this time.
+Yoan: I swear I did, Dad.
+Dimo: Do it again. Better this time.
+===
+
+title: Day3Germany
+---
+Dimo: Dad, when Ana leaves for college, what will you do?
+Yoan: Stay in Levnik? Alone?
+Dimo: You will visit me, I hope.
+Yoan: Come with me to Sofia.
+Yoan: It'll be less lonely.
+Dimo: No, but thank you <i>Vancho</i>.
+Yoan: I can help you sell the farm.
+Dimo: No reason to.
+Dimo: Soon, I will have money saved for Germany.
+Yoan: Oh. Never mind.
+Yoan: Didn't know you were still thinking about Germany.
 ===

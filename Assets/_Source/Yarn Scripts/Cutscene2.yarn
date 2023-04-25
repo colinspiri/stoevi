@@ -2,10 +2,10 @@ title: Cutscene2
 tags:
 ---
 Rumen: Dimo.
-<<theme 1>>
 Dimo: Hello, Rumen.
 Rumen: Stoyan and his wife left Peshtera today. Last ones.
 Dimo: And the kids?
+<<theme 1>>
 Rumen: It's been 10 days now. Nobody found 'em.
 Dimo: Hm.
 Rumen: You didn't tell her?
@@ -24,16 +24,8 @@ Dimo: I am not leaving my farm, Rumen.
 Rumen: You're putting your children in danger.
 Rumen: Dimo, he'll take your kids, turn them against you.
 Dimo: Whoever it is, he will not get to my children.
+<<theme 4>>
 Rumen: He'll turn them into sheep.
 Dimo: See you tomorrow, Rumen.
 Rumen: I hope I do.
-
-// Rumen: I worry about you. An old man living alone-
-// Dimo: I am not alone.
-// Rumen: You gonna spend the rest of your life in an empty village?
-// Dimo: I like the quiet.
-// Rumen: Still saving for Germany?
-// Dimo: I'm close.
-// Rumen: Is that what you tell her?
-// Dimo: Do not speak about my children.
 ===

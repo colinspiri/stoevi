@@ -1,5 +1,53 @@
-﻿title: Day5
+﻿title: Day5Start
 tags:
 ---
+Dimo: Yoan, come back!
+Dimo: Ana!! Ana, can you hear me! Yoan?
+Dimo: I will find you.
+===
 
+title: Day5Ana1
+tags:
+---
+Dimo: Ana?
+<<wait 1>>
+Dimo: Ana?! Ana!
+===
+
+title: Day5Yoan1
+tags:
+---
+Dimo: Yoan!
+Dimo: Yoan, can you hear me??
+<<wait 1>>
+Dimo: Yoan, come back!
+===
+
+title: Day5Ana2
+tags:
+---
+Dimo: Ana!
+Dimo: Ana, is that you?
+<<wait 2>>
+Ana: Dad?
+Dimo: Ana, go home now.
+Dimo: Wait for me at the house. 
+Dimo: I have to find Yoan.
+Ana: Okay, okay.
+===
+
+title: Day5Yoan2
+tags:
+---
+Dimo: Yoan! Yoan!
+<<wait 1>>
+Dimo: Yoan?
+===
+
+title: Day5YoanFound
+tags:
+---
+Dimo: Yoan, come here. Let me leash you.
+Dimo: Follow me. Be quiet. We will go home now.
+Dimo: You are in big trouble.
 ===

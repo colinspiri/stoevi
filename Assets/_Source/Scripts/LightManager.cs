@@ -49,7 +49,7 @@ public class LightManager : MonoBehaviour {
     private IEnumerator FlashColor(Color color) {
         flashing = true;
 
-        // RenderSettings.ambientLight = color;
+        if(DirectionalLight != null) DirectionalLight.color = color;
         RenderSettings.fogColor = color;
         if (Camera != null) {
             Camera.backgroundColor = color;

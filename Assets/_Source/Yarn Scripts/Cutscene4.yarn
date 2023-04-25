@@ -1,60 +1,39 @@
 ﻿title: Cutscene4
 tags:
 ---
-Dimo: Where is Ana?
-Yoan: She wasn't with you?
-Dimo: I told her to stay inside.
-// ana went to peshtera today to go find elena
-// dimo says elena is missing
-// during day 5, ana comes back
-// cutscene 5, dimo apologizes and makes up with ana
-
-
-Ana: Dad! It hurts when you touch it!
-Dimo: It's okay, <i>Ani</i>.
-Yoan: How is this okay??
-Dimo: Be either quiet or helpful.
-Dimo: Sit up.
-// Ana sits up
-Yoan: She was almost a sheep
-Dimo: Ana, listen to me next time. I love you, <i>tati</i>.
-Yoan: Dad! What's going on?
-Dimo: I know. Come here.
-Yoan: We need to get out of here.
-Dimo: It's too dangerous. We will wait until tomorrow, then-
-Yoan: Then what?
-Dimo: Then we collect the last of our harvest, and take it to Rumen.
-Yoan: Seriously? There's a fucking sheep-man who's gonna kill us!
-Dimo: Do not speak foul language in front of your sister.
-Yoan: You shouldn't be worried about the farm, right now, Dad!
-Dimo: How else do you think I feed you every day?
-Yoan: This isn't about that! We're in danger!
-Dimo: Listen to me. I will not abandon our livelihood so easily.
-Dimo: And when I die, this farm will be yours too.
-Dimo: Yoan, I do everything for <i>you</i>.
+Yoan: Dad.
+Yoan: Ana's gone.
+Dimo: Where is she?
+Yoan: She left a note. "Going to Peshtera to find Elena"
+Dimo: ...
+Yoan: We have to go find her.
+<<theme 1>>
+Dimo: I will go. You stay.
+Yoan: Dad, that's too far for you. Let me go.
+<<theme 2>>
+Dimo: It is too dangerous. 
+Dimo: Take care of the farm and bring the harvest to Rumen.
+Yoan: Are you serious?
+Dimo: I will not abandon our livelihood so easily.
+Yoan: We're in serious danger. The farm isn't important now.
+Dimo: When I die, this farm will be yours too.
 Dimo: I will not let you ruin your future.
-Yoan: My <i>future</i>. I'm doing fine, no thanks to you.
-Dimo: What about dental school?
-Yoan: I'm not going to dental school!
-Dimo: Is that why you came home, to slack off? How will you make money?
-Yoan: I might not.
-Dimo: You cannot do that.
-Yoan: Why not?
+Yoan: Stop worrying about my future.
+Dimo: Worrying is my job. I will stop worrying once you are a dentist.
+<<theme 3>>
+Yoan: Dad, I'm not going to dental school.
+<<wait 0.5>>
+Dimo: Is that why you came home then, for vacation?
+Yoan: No, I was just having second thoughts.
+Dimo: Don't have second thoughts. Just do it.
+Yoan: Why?
+<<theme 4>>
 Dimo: Because I said so, <i>Vancho</i>.
-Yoan: You're my dad, but you're not my fucking boss.
-// Yoan starts to leave
+Yoan: You're not the fucking boss of me.
 Dimo: Where are you going? Stay here.
+Yoan: I'm going to find Ana.
+Dimo: No. 
 Yoan: I'm leaving.
-Dimo: Yoan! Do as I say.
-// Yoan slams the door behind him
-// Ana struggles to get up, winces in pain
-Ana: I'll go get him.
-Dimo: Sit down. You're injured.
-Ana: Daddy, please. Don't leave me here.
-// Dimo grabs his stuff
-<<wait 2>>
-Dimo: Stay with me though, yes?
-Ana: I can help you find him.
-Dimo: Let's go.
-// They open the door and leave
+Dimo: No! Yoan! Do as I say.
+Dimo: Yoan!
 ===

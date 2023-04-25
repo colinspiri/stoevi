@@ -2,8 +2,7 @@
 ---
 Yoan: Hey dad?
 Dimo: You overslept.
-Yoan: Yeah, uh, sorry. Where's the yogurt?
-Dimo: No more, sorry <i>Vancho</i>. Too late, your sister beat you.
+Yoan: Yeah, uh, sorry.
 Dimo: You're still on university sleep schedule.
 Dimo: Get ready to work tomorrow.
 Yoan: Okay.
@@ -12,60 +11,31 @@ Yoan: Okay.
 title: Day2School
 ---
 Dimo: Yoan, have you applied to dental school yet?
-Yoan: I've just been really busy.
+Yoan: I've been really busy.
 Dimo: You must always be thinking about your future, Yoan.
 Dimo: Otherwise you will become like <i>mango</i>.
-Yoan: Uh...
-Dimo: Be careful.
-// Yoan: And I'm tryna focus on the present more. Do you know Stoicism?
-// Dimo: But you should think about the future too.
-// Yoan: I mean, I do. When I have to, I guess.
-// Yoan: Just like, I gotta focus on getting up every day, you know?
-// Dimo: Waking up is very hard for you?
-// Yoan: It's more like, I don't know, finding a reason to.
-// Dimo: ...
-// Dimo: When will you apply?
-// // Yoan realizes he's told his dad too much, and snaps back in anger
-// Yoan: Not sure, okay. When I get back to school, maybe?
-// Dimo: Not maybe.
-// Dimo: You must always be thinking about your future, Yoan.
+Yoan: Um...
+Dimo: Get on it soon.
 ===
 
 title: Day2Elena
 ---
 Ana: Dad, do you need any help today?
-Dimo: Not anymore, no. Thank you for offering.
+Dimo: No.
 Ana: Ok, I'm going to Peshtera to see Elena and Mariya.
 // deep breath, distressed & deciding whether to tell the truth or not
 Dimo: It's too late to go that far.
 Ana: Do you need me here?
-Dimo: Do not make me repeat myself.
+Dimo: You are not going. Do not make me repeat myself.
 Ana: God forbid.
-===
-
-title: Day2Germany
----
-Yoan: Dad, what will you do when Ana's gone?
-Yoan: You gonna stay here? Alone?
-Dimo: You will visit me, I hope.
-Yoan: Come with me to Sofia. I can help pay.
-Yoan: It'll be less lonely, and I can see you more often.
-Dimo: I don't think so, <i>Vancho</i>.
-Yoan: I can help you sell the farm.
-Dimo: No. No reason to.
-Dimo: Soon, I will have enough money saved for Germany.
-Dimo: But we can't go if I pay rent to some lazy old woman in Sofia.
-Yoan: Oh.
-Yoan: Sorry, didn't know you were still thinking about Germany.
 ===
 
 title: Day2Weeds
 ---
-// triggered when player approaches weeds
-Dimo: Yoan, pull out these weeds tomorrow around sunrise.
-Dimo: It would be good for you to do something in the morning.
+Dimo: Yoan, pull out these weeds tomorrow at sunrise.
+Dimo: It would be good to do something early in the morning.
 Yoan: Okay, sure, yeah.
-Dimo: And take a walk in the fresh air, too. About 20-30 minutes.
+Dimo: Take a walk in the fresh air, too. At least 30 minutes.
 Yoan: Yes.
 Dimo: And also take out the sheep.
 Yoan: Yep.

@@ -15,12 +15,13 @@ title: Day1Money
 tags:
 ---
 Ana: Hey Dad, I found an American book at school today.
-Ana: It's about the stock market. How to get rich quick.
+Ana: About the stock market. How to get rich quick.
 Dimo: There is no easy way, <i>Ani</i>.
-Ana: Not true. Rumen didn't do shit and he got rich.
+Ana: Rumen didn't do shit and he got rich.
 Dimo: Rumen did not have a husband and kids.
 Ana: Neither do I.
 Dimo: You will.
+Dimo: And Rumen gambled it all away anyways.
 ===
 
 title: Day1Ivan
@@ -34,7 +35,7 @@ title: Day1Monument
 tags:
 ---
 // triggered when player approaches
-Dimo: Only thing they ever did for me.
+Dimo: This monument - only thing they ever did for me.
 Dimo: Ugly, too.
 Dimo: Ana, can you take down the statue tomorrow?
 Ana: I'm not <i>that</i> strong.
@@ -57,7 +58,7 @@ tags:
 ---
 // triggered when player sees Torbalan
 // talking to the figure in Bulgarian
-Dimo: Hello? <i>Dobar den?</i> <i>Koi ci ti?</i> Who are you?
+Dimo: Hello? Who are you?
 ===
 
 title: Day1Torbalan3

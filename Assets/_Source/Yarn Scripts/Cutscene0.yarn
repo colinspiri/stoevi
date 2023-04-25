@@ -5,11 +5,12 @@ tags:
 Rumen: Dimo, my friend!
 Dimo: Rumen.
 Rumen: Where's Petrov?
+<<theme 1>>
 Dimo: Left with his wife two days ago.
 Rumen: So, last man standing, huh?
 Dimo: Mhm.
-<<theme 1>>
 Rumen: When are you leaving?
+<<theme 2>>
 Dimo: My farm is not for sale.
 <<wait 1>>
 <<theme 3>>

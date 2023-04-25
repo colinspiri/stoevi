@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: TorbalanDirectorSettings_Day5
   m_EditorClassIdentifier: 
   backstageDistance: 50
-  backstageTimeWhileCalm: 120
-  backstageTimeWhileAggressive: 30
   frontstageDistance: 35
   frontstagePatrolRadius: 15
-  frontstageTimeWhileCalm: 10
-  frontstageTimeWhileAggressive: 60
   intensityDistance: 20
-  maxIntensityWhileCalm: 20
-  maxIntensityWhileAggressive: 90
   maxAggressionLevel: 5
+  backstageTimeWhileCalm: 60
+  frontstageTimeWhileCalm: 30
+  maxIntensityWhileCalm: 60
+  backstageTimeWhileAggressive: 10
+  frontstageTimeWhileAggressive: 90
+  maxIntensityWhileAggressive: 60

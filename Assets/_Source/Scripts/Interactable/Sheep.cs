@@ -39,7 +39,7 @@ public class Sheep : Interactable {
 
         if (isYoan && timeOfDay.IsNight() == false) {
             var distance = Vector3.Distance(player.transform.position, transform.position);
-            if (distance <= playerChaseDistance) {
+            if (distance <= playerChaseDistance * 2) {
                 beingChased = true;
             }
         }

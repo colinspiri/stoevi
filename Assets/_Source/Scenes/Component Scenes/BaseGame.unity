@@ -123,6 +123,71 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &125780239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 125780240}
+  - component: {fileID: 125780241}
+  m_Layer: 0
+  m_Name: Crop Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &125780240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125780239}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 109.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &125780241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125780239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12581951f4fbe9e4aa26a2ceeabf47ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cropsToSpawnByStage:
+    keys: 0000000001000000020000000300000004000000
+    values: 0000000000000000000000000000000000000000
+  allSoilData:
+  - {fileID: 11400000, guid: 903eac2d8ff18b34b98f39990960530c, type: 2}
+  - {fileID: 11400000, guid: 6f27a3b2d57fa9f4a8f996b2ed1c7a17, type: 2}
+  - {fileID: 11400000, guid: 4bfa08b999a5ab44ea68cd73de385d7b, type: 2}
+  - {fileID: 11400000, guid: da0c33ad0b23e6c45ba396e8f603f46b, type: 2}
+  - {fileID: 11400000, guid: bbaff75818f9a234fbe85b4e77117d5f, type: 2}
+  - {fileID: 11400000, guid: d66a04685dff8ad4e9acd9d3ed5fed1b, type: 2}
+  - {fileID: 11400000, guid: 7668c1531b7751c4f8974f85a7fdbce9, type: 2}
+  - {fileID: 11400000, guid: ce62d3ea0d38aaa4fb3a828a7532d25d, type: 2}
+  - {fileID: 11400000, guid: f521a314c03c9fc4c8c47a51963c63f6, type: 2}
+  - {fileID: 11400000, guid: a09628c76d7e2a14e821917e44ba2894, type: 2}
+  - {fileID: 11400000, guid: 739ee9d41da4eb44c9ba502426c12410, type: 2}
+  - {fileID: 11400000, guid: 1313238a568778b488e141193cde9fdc, type: 2}
+  - {fileID: 11400000, guid: 4e26c0e825cf10240940e939003ed5e2, type: 2}
+  - {fileID: 11400000, guid: 8d096549927f1ab4f855f4c6490c13c4, type: 2}
+  - {fileID: 11400000, guid: 1734acf144dfd6d46bfef4e070511deb, type: 2}
+  - {fileID: 11400000, guid: 29a8792cc0251d444af64f53a8d5220e, type: 2}
+  - {fileID: 11400000, guid: 7908df73cefd9b44d994784e49e9d1c0, type: 2}
+  - {fileID: 11400000, guid: 62302db0bc3e022498316a7b4f715e46, type: 2}
 --- !u!1 &337539686
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,6 +223,8 @@ MonoBehaviour:
   - Day2Elena
   - Day2Germany
   - Day2Weeds
+  triggerFirstImmediately: 0
+  immediateDelay: 0
   distanceThreshold: 70
   minWaitTime: 5
   maxWaitTime: 10
@@ -175,6 +242,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &582848901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 582848903}
+  - component: {fileID: 582848902}
+  - component: {fileID: 582848904}
+  m_Layer: 13
+  m_Name: Post-Process Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &582848902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582848901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 51f57ab9b86b477439b9f4b1a671bfa4, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!4 &582848903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582848901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 109.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &582848904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582848901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63317783c53a057449c037bb35849b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 51f57ab9b86b477439b9f4b1a671bfa4, type: 2}
+  coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  defaultIntensity: 0.3
+  hiddenIntensity: 0.5
+  interpolationTime: 0.8
 --- !u!1001 &978594352
 PrefabInstance:
   m_ObjectHideFlags: 0

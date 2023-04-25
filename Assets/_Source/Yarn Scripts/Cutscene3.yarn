@@ -1,17 +1,19 @@
 ﻿title: Cutscene3
 tags:
 ---
-// door opens and closes
+<<theme 1>>
 Dimo: Yoan, go lock the back door. Ana, close all the windows.
 Yoan: Okay, uh, why?
 Ana: What's going on?
 Dimo: There is someone on our land. Searching for us.
 Dimo: Rumen thinks he's a <i>mango</i>.
 Yoan: Don't call them that, Dad.
+<<theme 2>>
 Dimo: Ana, stay inside tomorrow.
 Ana: What? I want to go see Elena.
 Dimo: It's too dangerous. Listen to me.
 Ana: Dad, come on. I can handle myself.
+<<theme 3>>
 Dimo: I'm not asking.
 Ana: Are you serious? What about Yoan?
 Dimo: Yoan and I will do our work outside carefully.
@@ -19,5 +21,7 @@ Yoan: Wait, still?
 Dimo: Yes. I will not let my farm rot away so easily.
 Yoan: Really?
 Ana: Really?
+<<theme 4>>
 Dimo: Do not talk back.
+<<wait 1>>
 ===
