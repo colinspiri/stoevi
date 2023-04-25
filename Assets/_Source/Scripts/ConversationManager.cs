@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
+using Random = UnityEngine.Random;
 
 public class ConversationManager : MonoBehaviour {
     // public constants
@@ -10,6 +12,7 @@ public class ConversationManager : MonoBehaviour {
     public float maxWaitTime;
     
     // components
+    public static ConversationManager Instance;
     private DialogueRunner dialogueRunner;
     
     // state
@@ -17,7 +20,11 @@ public class ConversationManager : MonoBehaviour {
     private bool conversationPlaying;
     private float distanceFromTorbalan;
     private float waitTimer;
-    
+
+    private void Awake() {
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start() {
         dialogueRunner = FindObjectOfType<DialogueRunner>();
@@ -47,6 +54,16 @@ public class ConversationManager : MonoBehaviour {
         else {
             waitTimer -= Time.deltaTime;
         }
+    }
+
+    public bool TryStartConversation(string nodeName) {
+        if (dialogueRunner.IsDialogueRunning) return false;
+
+        if (distanceThreshold < distanceThreshold) return false;
+        
+        dialogueRunner.StartDialogue(nodeName);
+        conversationPlaying = true;
+        return true;
     }
 
     private void StartNextConversation() {

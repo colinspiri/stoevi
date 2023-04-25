@@ -10,7 +10,7 @@ public abstract class Cutscene : MonoBehaviour {
     public TextMeshProUGUI dayText;
     
     // constants
-    private static float fadeTime = 3f;
+    private static float fadeTime = 1f;
 
     private void Awake() {
         canvasGroup = GetComponent<CanvasGroup>();
