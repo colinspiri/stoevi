@@ -9,6 +9,7 @@ using UnityEngine.Serialization;
 
 public class EndCredits : MonoBehaviour {
     public float fadeTime;
+    public float panelWaitTime;
 
     [Header("Title")]
     public CanvasGroup firstPanel;
@@ -44,7 +45,7 @@ public class EndCredits : MonoBehaviour {
         ui_play.Play();
         AudioManager.Instance.PlayThemeBassMusic();
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(panelWaitTime);
         
         Tween titlePanelTween = firstPanel.DOFade(0, fadeTime);
         yield return titlePanelTween.WaitForCompletion();
@@ -58,7 +59,7 @@ public class EndCredits : MonoBehaviour {
 
             if (i == otherPanels.Count - 1) break;
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(panelWaitTime);
 
             Tween panelTween = panel.DOFade(0, fadeTime);
             yield return panelTween.WaitForCompletion();

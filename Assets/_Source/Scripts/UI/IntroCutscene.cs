@@ -9,6 +9,7 @@ using UnityEngine.Serialization;
 
 public class IntroCutscene : MonoBehaviour {
     public float fadeTime;
+    public float panelWaitTime;
     [FormerlySerializedAs("waitTime")] public float lineWaitTime;
 
     [Header("Title")]
@@ -63,7 +64,7 @@ public class IntroCutscene : MonoBehaviour {
         ui_play.Play();
         AudioManager.Instance.PlayThemeBassMusic();
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(panelWaitTime);
         
         Tween titlePanelTween = titlePanel.DOFade(0, fadeTime);
         yield return titlePanelTween.WaitForCompletion();
@@ -74,7 +75,7 @@ public class IntroCutscene : MonoBehaviour {
             creditsPanel.gameObject.SetActive(true);
             creditsPanel.DOFade(1, fadeTime);
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(panelWaitTime);
 
             Tween _creditsPanelTween = creditsPanel.DOFade(0, fadeTime);
             yield return _creditsPanelTween.WaitForCompletion();

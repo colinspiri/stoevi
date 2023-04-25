@@ -10,6 +10,7 @@ public class LightManager : MonoBehaviour {
 
     // time of day
     [SerializeField] private TimeOfDay timeOfDay;
+    public bool useTimePercentInGame;
     [SerializeField, Range(0, 1)] private float TimePercent;
 
     // lightning
@@ -28,7 +29,8 @@ public class LightManager : MonoBehaviour {
 
         if(Application.isPlaying) {
             if (!flashing) {
-                UpdateLighting(timeOfDay ? timeOfDay.GetTimePercent() : TimePercent);
+                if(useTimePercentInGame) UpdateLighting(TimePercent);
+                else UpdateLighting(timeOfDay ? timeOfDay.GetTimePercent() : TimePercent);
             }
 
             // lightning
