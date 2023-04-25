@@ -4,7 +4,7 @@ using SpookuleleAudio;
 using UnityEngine;
 
 public class CalmStingers : MonoBehaviour {
-    public ASoundContainer mus_day1_calm;
+    public ASoundContainer mus_calm;
     public float distanceThreshold;
     public float minWaitTime;
     public float maxWaitTime;
@@ -27,7 +27,7 @@ public class CalmStingers : MonoBehaviour {
         }
 
         if (waitTimer <= 0) {
-            mus_day1_calm.Play();
+            mus_calm.Play();
             waitTimer = Random.Range(minWaitTime, maxWaitTime);
         }
         else {
