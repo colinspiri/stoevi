@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TimeOfDay_Day1
   m_EditorClassIdentifier: 
   eveningTimeInMinutes: 2.5
-  nightTimeInMinutes: 5
-  currentTime: 2559.5151
+  nightTimeInMinutes: 7
+  currentTime: 300
   onNight: {fileID: 11400000, guid: f0da2e717e7bb6145a9a22d81299e26f, type: 2}

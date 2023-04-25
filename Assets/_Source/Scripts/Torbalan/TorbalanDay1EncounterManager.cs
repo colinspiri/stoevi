@@ -32,7 +32,7 @@ public class TorbalanDay1EncounterManager : MonoBehaviour {
         }
     }
 
-    public void EndEncounter() {
+    public void PlayEncounterDialogue() {
         // play dialogue
         if (dialogueRunner == null) {
             dialogueRunner = FindObjectOfType<DialogueRunner>();
@@ -44,8 +44,9 @@ public class TorbalanDay1EncounterManager : MonoBehaviour {
                 dialogueRunner.StartDialogue(yarnNode);
             }
         }
-        
-        
+    }
+
+    public void EndEncounter() {
         Encounter = false;
         encounterIndex++;
     }

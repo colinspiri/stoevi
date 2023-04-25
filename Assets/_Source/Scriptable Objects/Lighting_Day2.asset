@@ -99,7 +99,12 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  FogMaxDistanceDay: 40
+  FogMaxDistanceDay: 45
   FogMaxDistanceNight: 30
   StartingLightDirection: 50
   EndingLightDirection: 200
+  lightningEnabled: 0
+  minLightningTime: 0
+  maxLightningTime: 0
+  lightningDuration: 0
+  lightningColor: {r: 0, g: 0, b: 0, a: 0}
