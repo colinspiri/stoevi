@@ -50,7 +50,6 @@ public class ConversationManager : MonoBehaviour {
         // count wait timer
         if (waitTimer > 0) {
             waitTimer -= Time.deltaTime;
-            Debug.Log("waitTimer = " + waitTimer);
         }
         
         // calculate torbalan distance

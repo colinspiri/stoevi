@@ -143,8 +143,6 @@ public class TorbalanSearchBushes : NavMeshMovement {
             radius += 0.1f;
         } while(!NavMesh.SamplePosition(point, out hit, 10.0f, NavMesh.AllAreas));
 
-        Debug.Log("inPoint = " + inPoint);
-        Debug.Log("outPoint = " + hit.position);
         return hit.position;
     }
 

@@ -156,7 +156,6 @@ public class AudioManager : MonoBehaviour {
         
         // tension
         if (isDay) {
-            Debug.Log("start playing tension music");
             AudioSource tension = day >= 4 ? tensionDay45 : tensionDay23;
             AudioSource chase = day >= 4 ? chaseDay45 : chaseDay23;
             tension.Play();

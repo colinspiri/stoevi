@@ -278,10 +278,8 @@ public class Crop : Interactable {
     
     public void AdvanceToNextDay() {
         if (!wateredToday) {
-            Debug.Log("not watered today, wilted to " + health.ToString());
             Wilt();
         }
-        else Debug.Log("watered today");
     }
 
     private void Grow() {
