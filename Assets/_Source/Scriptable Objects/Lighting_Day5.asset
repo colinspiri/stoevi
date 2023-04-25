@@ -100,7 +100,7 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   FogMaxDistanceDay: 30
-  FogMaxDistanceNight: 15
+  FogMaxDistanceNight: 20
   StartingLightDirection: 200
   EndingLightDirection: 200
   lightningEnabled: 1
