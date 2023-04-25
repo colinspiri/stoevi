@@ -50,7 +50,6 @@ public class Crop : Interactable {
     protected override void Start() {
         base.Start();
         
-        ChangeCropStage(stage);
         wateredToday = false;
         isRaining = false;
 
@@ -64,6 +63,8 @@ public class Crop : Interactable {
                 _ => health,
             };
         }
+        
+        ChangeCropStage(stage);
     }
     
     private void Update() {

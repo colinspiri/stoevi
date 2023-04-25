@@ -107,8 +107,7 @@ public class AudioManager : MonoBehaviour {
         chaseDay45.Stop();
         playerBreathing.Stop();
         playerTiredBreathing.Stop();
-        
-        
+
         // theme bass music
         if (newScene.path == sceneLoader.cutsceneScene.ScenePath) {
             themeBassMusic.Play();

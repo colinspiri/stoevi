@@ -1,4 +1,5 @@
 using DG.Tweening;
+using SpookuleleAudio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,7 @@ public class GameOverUI : MonoBehaviour {
     // components
     private CanvasGroup canvasGroup;
     public GameObject gameOverPanel;
+    public ASoundContainer gameOverStinger;
 
     private void Awake() {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -29,5 +31,7 @@ public class GameOverUI : MonoBehaviour {
         
         canvasGroup.alpha = 0;
         canvasGroup.DOFade(1, 0.5f).SetUpdate(true);
+        
+        gameOverStinger.Play();
     }
 }

@@ -1091,6 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 6442295116052333941}
+  gameOverStinger: {fileID: 11400000, guid: 7b05ff8de3ec0df41ac5bb65b6ef825d, type: 2}
 --- !u!1 &282849917
 GameObject:
   m_ObjectHideFlags: 0
