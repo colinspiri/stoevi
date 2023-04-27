@@ -458,7 +458,7 @@ MonoBehaviour:
   lerpSpeed: 5
   fullBatteryTime:
     UseConstant: 1
-    ConstantValue: 90
+    ConstantValue: 9
     Variable: {fileID: 0}
   batteryPercent: {fileID: 11400000, guid: 084a5843c99fc9f4e89a543e3b093a80, type: 2}
   additionalBatteries: {fileID: 11400000, guid: a368df9e29888be48b060678c31cf4f8, type: 2}
@@ -709,15 +709,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.7735849
+      value: 0.8867924
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.7735849
+      value: 0.8867924
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.7735849
+      value: 0.8867924
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430823, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_Name

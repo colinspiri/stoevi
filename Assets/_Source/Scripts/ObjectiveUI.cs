@@ -12,13 +12,14 @@ public class ObjectiveUI : MonoBehaviour {
     // public variables
     public TextMeshProUGUI text;
     public float timeToFadeAway;
-    public IntReference objectiveComplete;
+    public float inactionTime;
     public List<Prompt> allPrompts = new List<Prompt>();
 
     // private state
     private Prompt currentPrompt;
     private List<Prompt> queuedPrompts = new List<Prompt>();
     private bool promptActive;
+    private float inactionTimer;
 
     private void Awake() {
         if (Instance != null) {
@@ -53,7 +54,15 @@ public class ObjectiveUI : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (promptActive == false) {
+        if (promptActive) {
+            if (currentPrompt is { fadeOnInaction: true }) {
+                inactionTimer += Time.deltaTime;
+                if (inactionTimer > inactionTime) {
+                    FinishPrompt(currentPrompt.name);
+                }
+            }
+        }
+        else {
             if (queuedPrompts.Count > 0) {
                 ShowNextPrompt();
             }
@@ -116,9 +125,22 @@ public class ObjectiveUI : MonoBehaviour {
 
     public void FinishPrompt(string controlPromptName)
     {
-        if (currentPrompt == null) return;
-        if (currentPrompt.name == controlPromptName) {
+        if (currentPrompt != null && currentPrompt.name == controlPromptName) {
             RemoveCurrentPrompt();
+        }
+
+        foreach (var prompt in queuedPrompts) {
+            if (prompt.canBeFinishedEarly && prompt.name == controlPromptName) {
+                queuedPrompts.Remove(prompt);
+                return;
+            }
+        }
+
+        foreach (var prompt in allPrompts) {
+            if (prompt.canBeFinishedEarly && prompt.name == controlPromptName) {
+                allPrompts.Remove(prompt);
+                return;
+            }
         }
     }
 
@@ -166,7 +188,9 @@ public class Prompt
 {
     public string name;
     [TextArea] public string promptText;
-
-    [Space] public bool queueImmediately;
+    [Space] 
+    public bool queueImmediately;
+    public bool canBeFinishedEarly;
+    public bool fadeOnInaction;
     public int day = 1;
 }

@@ -1635,46 +1635,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 693191648}
   timeToFadeAway: 1
-  objectiveComplete:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: bf9a8b8ba19945c49b7868551e5fc18c, type: 2}
+  inactionTime: 0
   allPrompts:
   - name: Look
     promptText: <b>Mouse</b> to look around
     queueImmediately: 1
+    canBeFinishedEarly: 1
+    fadeOnInaction: 0
     day: 1
   - name: Move
     promptText: <b>WASD</b> to move
     queueImmediately: 1
+    canBeFinishedEarly: 0
+    fadeOnInaction: 0
     day: 1
   - name: Sprint
     promptText: <b>Shift</b> to sprint
     queueImmediately: 1
+    canBeFinishedEarly: 1
+    fadeOnInaction: 0
     day: 1
   - name: Crouch
     promptText: <b>C</b> to crouch
     queueImmediately: 1
+    canBeFinishedEarly: 1
+    fadeOnInaction: 0
     day: 1
   - name: Map
     promptText: <b>Tab</b> to see map
     queueImmediately: 1
+    canBeFinishedEarly: 1
+    fadeOnInaction: 0
     day: 1
   - name: Plant
     promptText: Find soil and plant a seed
     queueImmediately: 1
+    canBeFinishedEarly: 1
+    fadeOnInaction: 0
     day: 1
   - name: Water
     promptText: Water the sprout
     queueImmediately: 1
+    canBeFinishedEarly: 1
+    fadeOnInaction: 0
     day: 1
   - name: Fertilize
     promptText: Fertilize the sprout
     queueImmediately: 1
+    canBeFinishedEarly: 1
+    fadeOnInaction: 0
     day: 1
   - name: Flashlight
     promptText: <b>F</b> to toggle flashlight
     queueImmediately: 0
+    canBeFinishedEarly: 1
+    fadeOnInaction: 0
     day: 1
 --- !u!114 &693191651
 MonoBehaviour:

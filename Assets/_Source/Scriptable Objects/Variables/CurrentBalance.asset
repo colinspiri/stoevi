@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CurrentBalance
   m_EditorClassIdentifier: 
   DeveloperDescription: money the player has
-  Value: -10
+  Value: 0

@@ -62,3 +62,4 @@ MonoBehaviour:
     ConstantValue: 1
     Variable: {fileID: 0}
   currentBatteries: {fileID: 11400000, guid: a368df9e29888be48b060678c31cf4f8, type: 2}
+  batteryPercent: {fileID: 11400000, guid: 084a5843c99fc9f4e89a543e3b093a80, type: 2}

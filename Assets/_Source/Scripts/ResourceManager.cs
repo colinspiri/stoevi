@@ -23,9 +23,9 @@ public class ResourceManager : MonoBehaviour {
     [Header("Flashlight")] 
     public IntReference startingBatteries;
     public IntVariable currentBatteries;
+    public FloatVariable batteryPercent;
 
-    // Start is called before the first frame update
-    void Start() {
+    void Awake() {
         currentWater.SetValue(maxWater.Value);
         
         playerTomatoes.SetValue(0);
@@ -37,6 +37,7 @@ public class ResourceManager : MonoBehaviour {
             seeds.SetValue(startingSeeds.Value);
             currentFertilizer.SetValue(startingFertilizer.Value);
             currentBatteries.SetValue(startingBatteries.Value);
+            batteryPercent.SetValue(1);
         }
     }
 }
