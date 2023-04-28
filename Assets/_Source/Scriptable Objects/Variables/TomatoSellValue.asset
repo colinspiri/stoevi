@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: TomatoSellValue
   m_EditorClassIdentifier: 
   DeveloperDescription: amount of money tomatoes sell for
-  Value: 5
+  Value: 10

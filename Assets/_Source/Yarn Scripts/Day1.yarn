@@ -32,13 +32,13 @@ tags:
 ---
 // triggered when player approaches
 Dimo: This monument - only thing they ever did for me.
-Dimo: Ugly, too.
-Dimo: Ana, can you take down the statue tomorrow?
-Ana: I'm not <i>that</i> strong.
-Dimo: It was a joke.
-Ana: Your delivery sucks.
-Dimo: Listen, when I was young, people thought I was very funny.
-Ana: I bet.
+Dimo: Ugly.
+// Dimo: Ana, can you take down the statue tomorrow?
+// Ana: I'm not <i>that</i> strong.
+// Dimo: It was a joke.
+// Ana: Your delivery sucks.
+// Dimo: Listen, when I was young, people thought I was very funny.
+// Ana: I bet.
 ===
 
 title: Day1Torbalan1
@@ -54,7 +54,7 @@ tags:
 ---
 // triggered when player sees Torbalan
 // talking to the figure in Bulgarian
-Dimo: Hello? Who are you?
+Dimo: Hello? Who was that?
 ===
 
 title: Day1Torbalan3

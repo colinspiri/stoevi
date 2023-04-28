@@ -1,29 +1,6 @@
-﻿title: Day2Morning
+﻿title: Day2Elena
 ---
-Yoan: Hey dad?
-Dimo: You overslept.
-Yoan: Yeah, uh, sorry.
-Dimo: You're still on university sleep schedule.
-Dimo: Get ready to work tomorrow.
-Yoan: Okay.
-===
-
-title: Day2School
----
-Dimo: Yoan, have you applied to dental school yet?
-Yoan: I've been really busy.
-Dimo: You must always be thinking about your future, Yoan.
-Dimo: Otherwise you will become like <i>mango</i>.
-Yoan: Um...
-Dimo: Get on it soon.
-===
-
-title: Day2Elena
----
-Ana: Dad, do you need any help today?
-Dimo: No.
-Ana: Ok, I'm going to Peshtera to see Elena and Mariya.
-// deep breath, distressed & deciding whether to tell the truth or not
+Ana: Hey Dad, I'm going to Peshtera to see Elena and Mariya.
 Dimo: It's too late to go that far.
 Ana: Do you need me here?
 Dimo: You are not going. Do not make me repeat myself.
@@ -33,10 +10,8 @@ Ana: God forbid.
 title: Day2Weeds
 ---
 Dimo: Yoan, pull out these weeds tomorrow at sunrise.
-Dimo: It would be good to do something early in the morning.
-Yoan: Okay, sure, yeah.
-Dimo: Take a walk in the fresh air, too. At least 30 minutes.
-Yoan: Yes.
-Dimo: And also take out the sheep.
 Yoan: Yep.
+Dimo: It would be good to do something early in the morning.
+Yoan: Okay, sure.
+Dimo: And also take out the sheep.
 ===

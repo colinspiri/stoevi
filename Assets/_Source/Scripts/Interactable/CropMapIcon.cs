@@ -12,7 +12,7 @@ public class CropMapIcon : MonoBehaviour {
     public GameObject unripeWilted;
     public Slider timerPanel;
 
-    public void UpdateMapIcon(Crop.GrowthStage stage, Crop.InteractionState interactionState,  Crop.Health health) {
+    public void UpdateMapIcon(Crop.GrowthStage stage, Crop.InteractionState interactionState, Crop.Health health) {
         // disable all icons
         tomato.SetActive(false);
         sproutHealthy.SetActive(false);
@@ -21,21 +21,21 @@ public class CropMapIcon : MonoBehaviour {
         intermediateWilted.SetActive(false);
         unripeHealthy.SetActive(false);
         unripeWilted.SetActive(false);
-        
+
         // enable correct icon
         if (stage == Crop.GrowthStage.Ripe) {
-           tomato.SetActive(true);
+            tomato.SetActive(true);
         }
         else if (stage == Crop.GrowthStage.Sprout) {
-            if(health == Crop.Health.Wilted || health == Crop.Health.Dead) sproutWilted.SetActive(true);
+            if (health == Crop.Health.Wilted || health == Crop.Health.Dead) sproutWilted.SetActive(true);
             else sproutHealthy.SetActive(true);
         }
         else if (stage == Crop.GrowthStage.Intermediate) {
-            if(health == Crop.Health.Wilted || health == Crop.Health.Dead) intermediateWilted.SetActive(true);
+            if (health == Crop.Health.Wilted || health == Crop.Health.Dead) intermediateWilted.SetActive(true);
             else intermediateHealthy.SetActive(true);
         }
         else if (stage == Crop.GrowthStage.Unripe) {
-            if(health == Crop.Health.Wilted || health == Crop.Health.Dead) unripeWilted.SetActive(true);
+            if (health == Crop.Health.Wilted || health == Crop.Health.Dead) unripeWilted.SetActive(true);
             else unripeHealthy.SetActive(true);
         }
         else if (stage == Crop.GrowthStage.Bare) {

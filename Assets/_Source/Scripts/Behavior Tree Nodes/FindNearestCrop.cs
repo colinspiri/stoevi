@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class FindNearestCrop : Conditional {
     public SharedCrop targetCrop;
+    public List<Crop.GrowthStage> targetStages;
+    [Space]
 
     public bool withinRadiusFromSelf;
     public SharedFloat radiusFromSelf;
@@ -35,7 +37,7 @@ public class FindNearestCrop : Conditional {
         float nearestDistance = float.MaxValue;
         foreach (var candidate in crops) {
             if (candidate == null) continue;
-            if (candidate.stage != Crop.GrowthStage.Ripe) continue;
+            if (targetStages.Contains(candidate.stage) == false) continue;
             
             // calculate distance
             var candidateDistance = Vector3.Distance(candidate.transform.position, transform.position);

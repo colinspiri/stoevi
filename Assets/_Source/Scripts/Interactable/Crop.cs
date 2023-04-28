@@ -72,7 +72,7 @@ public class Crop : Interactable {
         if (interactionState == InteractionState.Growing) {
             growthTimer -= Time.deltaTime;
             if(growthTimer <= 0) Grow();
-            
+                
             // update map icon
             mapIcon.UpdateTimer(1 - (growthTimer / growthTime));
         }
@@ -122,12 +122,7 @@ public class Crop : Interactable {
     public override void InteractPrimary() {
         // can be removed
         if (interactionState == InteractionState.DigUp) {
-            // can only collect seeds if not also dead
-            if (health != Health.Dead) {
-                seeds.ApplyChange(1);
-                item_pickup.Play();
-            }
-            Destroy(gameObject);
+            DigUp();
             return;
         }
         // can be harvested
@@ -205,6 +200,19 @@ public class Crop : Interactable {
         
         this.InteractionTimeSecondary = 1;
     }
+    
+    private void DigUp() {
+        // can only collect seeds if not also dead
+        if (health != Health.Dead) {
+            float random = Random.Range(0f, 1f);
+            if (random <= 0.5f) {
+                // chance to collect seeds
+                seeds.ApplyChange(1);
+                item_pickup.Play();
+            }
+        }
+        Destroy(gameObject);
+    }
 
     public void Fertilize() {
         // objective 
@@ -251,12 +259,12 @@ public class Crop : Interactable {
         int maxTomatoes = 0;
         // set min/max tomatoes based on health
         if (health == Health.Fair && soil != null && soil.fertilized) {
-            minTomatoes = 2;
+            minTomatoes = 1;
             maxTomatoes = 3;
         }
         else if (health == Health.Fair) {
             minTomatoes = 1;
-            maxTomatoes = 2;
+            maxTomatoes = 1;
         }
         else if (health == Health.Wilted) {
             minTomatoes = 1;

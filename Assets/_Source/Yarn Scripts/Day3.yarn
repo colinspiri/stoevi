@@ -1,11 +1,9 @@
 ﻿title: Day3Weeds
 ---
-Dimo: Yoan?
-Yoan: Yes?
-Dimo: Is there something you forgot?
+Dimo: Yoan, is there something you forgot?
 Yoan: Um, not that I'm aware.
 Dimo: The weeds, <i>Vancho</i>.
-Yoan: I did the weeds.
+Yoan: Yeah, uh, I did it this morning.
 Dimo: You tell me one thing, but I see another.
 Yoan: I swear I did, Dad.
 Dimo: Do it again. Better this time.
@@ -13,15 +11,22 @@ Dimo: Do it again. Better this time.
 
 title: Day3Germany
 ---
-Dimo: Dad, when Ana leaves for college, what will you do?
+Dimo: Dad, when Ana leaves for college, are you gonna stay here?
 Yoan: Stay in Levnik? Alone?
 Dimo: You will visit me, I hope.
-Yoan: Come with me to Sofia.
-Yoan: It'll be less lonely.
-Dimo: No, but thank you <i>Vancho</i>.
+Yoan: Come with me to Sofia. It'll be less lonely.
 Yoan: I can help you sell the farm.
-Dimo: No reason to.
+Dimo: No.
 Dimo: Soon, I will have money saved for Germany.
 Yoan: Oh. Never mind.
 Yoan: Didn't know you were still thinking about Germany.
+===
+
+title: Day3School
+---
+Dimo: Yoan, have you applied to dental school yet?
+Yoan: I've been really busy.
+Dimo: You must always be thinking about your future, Yoan.
+Dimo: Otherwise you will become like <i>mango</i>.
+Yoan: Um...
 ===

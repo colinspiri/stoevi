@@ -49,7 +49,7 @@ MonoBehaviour:
     Variable: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   requiredTomatoesDay1:
     UseConstant: 1
-    ConstantValue: 4
+    ConstantValue: 2
     Variable: {fileID: 0}
   requiredTomatoesDay2:
     UseConstant: 1
