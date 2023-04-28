@@ -1,4 +1,19 @@
-﻿title: Cutscene3
+﻿title: Cutscene3Rumen
+tags:
+---
+Rumen: Dimo, you need to leave.
+Rumen: Come with me, to Plovdiv. I have work. Food service. Tourist stuff for rich Turks.
+Dimo: I am not leaving my farm, Rumen.
+Rumen: You're putting your children in danger.
+Rumen: Dimo, he'll take your kids, turn them against you.
+Dimo: Whoever it is, he will not get to my children.
+<<theme 4>>
+Rumen: He'll turn them into sheep.
+Dimo: See you tomorrow, Rumen.
+Rumen: I hope I do.
+===
+
+title: Cutscene3
 tags:
 ---
 <<theme 1>>
@@ -18,7 +33,7 @@ Dimo: I'm not asking.
 Ana: Are you serious? What about Yoan?
 Dimo: Yoan and I will do our work outside carefully.
 Yoan: Wait, still?
-Dimo: Yes. I will not let my farm rot away so easily.
+Dimo: Yes. I will not abandon our family's livelihood.
 Yoan: Really?
 Ana: Really?
 <<theme 4>>

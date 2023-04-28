@@ -9,9 +9,9 @@ Dimo: Of course.
 <<sheep_bleat>>
 <<wait 1>>
 Dimo: I know, I know.
-Ana: What?
+Ana: Dad, come on.
 Dimo: Your brother is scared.
-Ana: Dad, it's just a sheep.
+Ana: It's just a sheep.
 <<sheep_bleat>>
 <<wait 1>>
 <<sheep_hit>>

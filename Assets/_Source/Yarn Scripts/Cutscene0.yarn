@@ -1,26 +1,21 @@
 ﻿title: Cutscene0
 tags:
 ---
-// Rumen's donkey and cart pulls up
-Rumen: Dimo, my friend!
-Dimo: Rumen.
-Rumen: Where's Petrov?
+Rumen: Dimo, my friend! // trying to establish friendly rapport
+Dimo: Rumen. // implying the conversation will be transactional
+Rumen: Where's Petrov? // asking innocently even though he can figure it out, just wants to talk about it with Dimo
 <<theme 1>>
-Dimo: Left with his wife two days ago.
-Rumen: So, last man standing, huh?
-Dimo: Mhm.
-Rumen: When are you leaving?
+Dimo: Left with his wife two days ago. // giving the information, not wanting to be too talkative
+Rumen: So, last man standing, huh? // trying to turn it into a joke
+Dimo: Mhm. // Dimo doesn't think it's funny
+Dimo: How much for 4 seeds? // but is here to do business
+Rumen: 60 levs. When are you leaving this place? // answers Dimo, but also wants to keep talking about it
 <<theme 2>>
-Dimo: My farm is not for sale.
-<<wait 1>>
+Dimo: I have no plans to leave. Is 50 okay? // shuts Rumen down, but also asks for a favor
+Rumen: You make me hike all the way out to Levnik for 50 levs? // exaggerating the difference because he's greedy, also noting how isolated Dimo is now
+Rumen: This place is dead, Dimo. It's not the place we grew up in anymore. // trying to appeal to their childhood friendship
+Dimo: Fine, 60. See you tomorrow. // Dimo isn't swayed because he doesn't respect Rumen or think of them as friends
 <<theme 3>>
-Rumen: Stoyan's kids went missing in Peshtera last week.
-Dimo: Elena and Mariya?
-Rumen: Yeah. They're saying it was <i>mango</i>.
-Dimo: Who said that?
-Rumen: You know how they are. Child-stealing devil-worshippers.
-Dimo: You think I am easily scared.
-<<theme 4>>
-Rumen: See you tomorrow, Dimo.
-Rumen: Good luck with your harvest.
+Rumen: Sure, then. // passive-aggressive
+Rumen: Good luck with your harvest. // but still trying to maintain a relationship
 ===
