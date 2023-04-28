@@ -315,6 +315,7 @@ public class Crop : Interactable {
                 break;
             case GrowthStage.Ripe:
                 interactionState = InteractionState.Harvestable;
+                if(ObjectiveUI.Instance != null) ObjectiveUI.Instance.FinishPrompt("Ripe");
                 break;
             case GrowthStage.Bare:
                 interactionState = InteractionState.DigUp;

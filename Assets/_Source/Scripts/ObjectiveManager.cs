@@ -30,7 +30,7 @@ public class ObjectiveManager : MonoBehaviour {
         
         // day 5
         if (day == 5) {
-            objectiveText = "Find Yoan";
+            objectiveText = (objectiveComplete.Value == 1) ? "Go home" : "Find Yoan";
             return;
         }
         

@@ -290,7 +290,7 @@ Transform:
   m_Father: {fileID: 1245797973}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &503743338
+--- !u!43 &705321599
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -829,8 +829,6 @@ MonoBehaviour:
   conversations:
   - Day2Weeds
   - Day2Elena
-  triggerFirstImmediately: 1
-  immediateDelay: 20
   distanceThreshold: 60
   minWaitTime: 30
   maxWaitTime: 60
@@ -1179,7 +1177,7 @@ PrefabInstance:
     - target: {fileID: 7519358152994054270, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 503743338}
+      objectReference: {fileID: 705321599}
     - target: {fileID: 7828185290522087055, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_Layer
       value: 9

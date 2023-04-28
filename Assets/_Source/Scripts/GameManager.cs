@@ -16,12 +16,13 @@ public class GameManager : MonoBehaviour {
 
     private void Awake() {
         Instance = this;
-    }
-
-    private void Start() {
+        
         currentDay = PlayerPrefs.GetInt("CurrentDay", 1);
+        if (currentDay == 1) {
+            PlayerPrefs.DeleteAll();
+        }
     }
-
+    
     public void Pause(bool pauseAudio = false) {
         gameStopped = true;
         Time.timeScale = 0.0f;

@@ -373,10 +373,9 @@ MonoBehaviour:
   runSpeed: 9
   crouchSpeed: 1.5
   interactingSpeed: 0.3
-  backwardSlowFactor: 0.6
-  mapFactor: 0.45
+  backwardSlowFactor: 0.4
+  mapSpeed: 2
   speedChangeRate: 5
-  crouchStaminaMultiplier: 0.25
   player_inhale: {fileID: 11400000, guid: eb6aa65653bb3eb4c84b2480d81a2ea6, type: 2}
   player_exhale: {fileID: 11400000, guid: 5cfcc74b32ca7414681573dc7a9d9fb2, type: 2}
   walkLoudness:

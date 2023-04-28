@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -58,7 +57,7 @@ public class ObjectiveUI : MonoBehaviour {
             if (currentPrompt is { fadeOnInaction: true }) {
                 inactionTimer += Time.deltaTime;
                 if (inactionTimer > inactionTime) {
-                    FinishPrompt(currentPrompt.name);
+                    FinishPrompt(currentPrompt.promptName);
                 }
             }
         }
@@ -105,7 +104,7 @@ public class ObjectiveUI : MonoBehaviour {
         for (var i = 0; i < allPrompts.Count; i++)
         {
             var prompt = allPrompts[i];
-            if (prompt.name == controlPromptName && prompt.day == currentDay)
+            if (prompt.promptName == controlPromptName && prompt.day == currentDay)
             {
                 queuedPrompts.Add(prompt);
                 allPrompts.RemoveAt(i);
@@ -125,19 +124,19 @@ public class ObjectiveUI : MonoBehaviour {
 
     public void FinishPrompt(string controlPromptName)
     {
-        if (currentPrompt != null && currentPrompt.name == controlPromptName) {
+        if (currentPrompt != null && currentPrompt.promptName == controlPromptName) {
             RemoveCurrentPrompt();
         }
 
         foreach (var prompt in queuedPrompts) {
-            if (prompt.canBeFinishedEarly && prompt.name == controlPromptName) {
+            if (prompt.canBeFinishedEarly && prompt.promptName == controlPromptName) {
                 queuedPrompts.Remove(prompt);
                 return;
             }
         }
 
         foreach (var prompt in allPrompts) {
-            if (prompt.canBeFinishedEarly && prompt.name == controlPromptName) {
+            if (prompt.canBeFinishedEarly && prompt.promptName == controlPromptName) {
                 allPrompts.Remove(prompt);
                 return;
             }
@@ -181,16 +180,4 @@ public class ObjectiveUI : MonoBehaviour {
     private void OnFlashlight(InputAction.CallbackContext context) {
         FinishPrompt("Flashlight");
     }
-}
-
-[Serializable]
-public class Prompt
-{
-    public string name;
-    [TextArea] public string promptText;
-    [Space] 
-    public bool queueImmediately;
-    public bool canBeFinishedEarly;
-    public bool fadeOnInaction;
-    public int day = 1;
 }

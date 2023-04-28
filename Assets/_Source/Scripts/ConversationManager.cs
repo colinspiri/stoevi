@@ -7,8 +7,6 @@ using Random = UnityEngine.Random;
 public class ConversationManager : MonoBehaviour {
     // public constants
     public List<string> conversations;
-    public bool triggerFirstImmediately;
-    public float immediateDelay;
     public float distanceThreshold;
     public float minWaitTime;
     public float maxWaitTime;
@@ -33,10 +31,7 @@ public class ConversationManager : MonoBehaviour {
             dialogueRunner.onNodeComplete.AddListener(_ => OnConversationDone());
         }
 
-        if (triggerFirstImmediately) {
-            waitTimer = immediateDelay;
-        }
-        else waitTimer = Random.Range(minWaitTime, maxWaitTime);
+        waitTimer = Random.Range(minWaitTime, maxWaitTime);
     }
 
     // Update is called once per frame
@@ -51,14 +46,18 @@ public class ConversationManager : MonoBehaviour {
         if (waitTimer > 0) {
             waitTimer -= Time.deltaTime;
         }
+
+        // check if backstage
+        if (TorbalanDirector.Instance != null && !TorbalanDirector.Instance.Backstage) return;
         
-        // calculate torbalan distance
+        // check torbalan distance
         if (FirstPersonMovement.Instance == null || TorbalanDirector.Instance == null)
             distanceFromTorbalan = float.MaxValue;
         else distanceFromTorbalan = Vector3.Distance(FirstPersonMovement.Instance.transform.position, TorbalanHearing.Instance.transform.position);
+        if (distanceFromTorbalan <= distanceThreshold) return;
 
         // try to start next conversation
-        if (nextConversation < conversations.Count && waitTimer <= 0 && distanceFromTorbalan > distanceThreshold) {
+        if (nextConversation < conversations.Count && waitTimer <= 0) {
             StartNextConversation();
         }
     }

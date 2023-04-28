@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 using BehaviorDesigner.Runtime.Tasks.Unity.UnityAnimator;
 using UnityEngine;
+using Yarn.Unity;
 
 public class TorbalanDirector : MonoBehaviour {
     // components
     public static TorbalanDirector Instance;
     public List<Transform> areaNodes;
     public TorbalanDirectorSettings settings;
+    private DialogueRunner dialogueRunner;
 
     // behavior tree variables
     public Vector3 TargetPosition { get; set; }
@@ -25,6 +27,7 @@ public class TorbalanDirector : MonoBehaviour {
 
     private void Awake() {
         Instance = this;
+        dialogueRunner = FindObjectOfType<DialogueRunner>();
     }
 
     private void Start() {
@@ -103,7 +106,8 @@ public class TorbalanDirector : MonoBehaviour {
             // Debug.Log("backstage = " + Mathf.Floor(backstageTimer) + "/" + settings.GetBackstageTime(aggressionLevel));
         }
         
-        if (backstageTimer >= settings.GetBackstageTime(aggressionLevel)) {
+        bool dialoguePlaying = dialogueRunner != null && dialogueRunner.IsDialogueRunning;
+        if (backstageTimer >= settings.GetBackstageTime(aggressionLevel) && !dialoguePlaying) {
             backstageTimer = 0;
             SetDirectorState(DirectorState.Frontstage);
         }
