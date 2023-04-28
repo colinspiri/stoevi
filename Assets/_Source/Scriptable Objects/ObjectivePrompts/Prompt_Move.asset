@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: b2c063b0d3a14661b0e60ddad4219eaa, type: 3}
   m_Name: Prompt_Move
-  m_EditorClassIdentifier: Assembly-CSharp::Prompt
+  m_EditorClassIdentifier: 
   promptName: Move
   promptText: <b>WASD</b> to move
   queueImmediately: 1

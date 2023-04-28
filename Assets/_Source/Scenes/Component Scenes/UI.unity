@@ -1622,8 +1622,8 @@ MonoBehaviour:
   timeToFadeAway: 1
   inactionTime: 0
   allPrompts:
-  - {fileID: 11400000, guid: eb9e751a34f66f8459f17204c25aa3e2, type: 2}
-  - {fileID: 11400000, guid: a524ac7dabb74ef409678633e5a678f9, type: 2}
+  - {fileID: 11400000, guid: f702345b2bcc4ea4c9b5d9d175a19b22, type: 2}
+  - {fileID: 11400000, guid: dfdc3476874b6274e8c0ac942dcab9ab, type: 2}
   - {fileID: 11400000, guid: 0877ff694bd297b47b113e957278c55a, type: 2}
   - {fileID: 11400000, guid: 1208e8ee5afa1cc4d8565455fa6ec961, type: 2}
   - {fileID: 11400000, guid: 5aa313bb462d03640923ac6cb7922242, type: 2}
