@@ -11,10 +11,10 @@ Yoan: We have to go find her.
 Dimo: I will go. You stay.
 Yoan: Dad, that's too far for you. Let me go.
 <<theme 2>>
-Dimo: It is too dangerous. 
+Dimo: It is too dangerous.
 Dimo: Take care of the farm and bring the harvest to Rumen.
 Yoan: Are you serious?
-Dimo: I will not abandon our livelihood so easily.
+Dimo: I will not abandon our family's livelihood.
 Yoan: We're in serious danger. The farm isn't important now.
 Dimo: When I die, this farm will be yours too.
 Dimo: I will not let you ruin your future.
@@ -25,14 +25,14 @@ Yoan: Dad, I'm not going to dental school.
 <<wait 0.5>>
 Dimo: Is that why you came home then, for vacation?
 Yoan: No, I was just having second thoughts.
-Dimo: Don't have second thoughts. Just do it.
+Dimo: You must continue with your life, <i>Vancho</i>.
 Yoan: Why?
 <<theme 4>>
-Dimo: Because I said so, <i>Vancho</i>.
-Yoan: You're not the fucking boss of me.
+Dimo: Because I said so.
+Yoan: You're not the boss of me.
 Dimo: Where are you going? Stay here.
 Yoan: I'm going to find Ana.
-Dimo: No. 
+Dimo: No.
 Yoan: I'm leaving.
 Dimo: No! Yoan! Do as I say.
 Dimo: Yoan!

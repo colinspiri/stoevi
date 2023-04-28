@@ -1,12 +1,14 @@
-title: Cutscene2
+title: Cutscene2Rumen
 tags:
 ---
+// SUBTEXT: Rumen now actually thinks it's the Torbalan.  he's not crying wolf anymore, it's real. But Dimo now rationalizes and thinks it's just mango.
+// Rumen is for real panicked, not just fear-mongering. But Dimo doesn't trust him anymore, so he doesn't listen.
 Rumen: Dimo.
 Dimo: Hello, Rumen.
 Rumen: Stoyan and his wife left Peshtera today. Last ones.
-Dimo: And the kids?
+Dimo: And their kids?
 <<theme 1>>
-Rumen: It's been 10 days now. Nobody found 'em.
+Rumen: It's been 10 days now. Nobody found them.
 Dimo: Hm.
 Rumen: You didn't tell Ana?
 <<wait 1>>
@@ -28,4 +30,9 @@ Dimo: Whoever it is, he will not get to my children.
 Rumen: He'll turn them into sheep.
 Dimo: See you tomorrow, Rumen.
 Rumen: I hope I do.
+===
+
+title: Cutscene2
+tags:
+---
 ===
