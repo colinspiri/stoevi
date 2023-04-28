@@ -169,7 +169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &231490603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,8 +185,6 @@ MonoBehaviour:
   conversations:
   - Day3Weeds
   - Day3School
-  triggerFirstImmediately: 0
-  immediateDelay: 20
   distanceThreshold: 60
   minWaitTime: 10
   maxWaitTime: 30
@@ -204,7 +202,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &389869981
+--- !u!43 &409856866
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1000,7 +998,7 @@ PrefabInstance:
     - target: {fileID: 7519358152994054270, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 389869981}
+      objectReference: {fileID: 409856866}
     - target: {fileID: 7828185290522087055, guid: 1ee90a415715f8440a4f4654870be3cc, type: 3}
       propertyPath: m_Layer
       value: 9

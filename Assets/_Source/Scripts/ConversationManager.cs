@@ -64,7 +64,8 @@ public class ConversationManager : MonoBehaviour {
 
     public bool TryStartConversation(string nodeName) {
         if (dialogueRunner.IsDialogueRunning) return false;
-        if (distanceFromTorbalan < distanceThreshold) return false;
+        if (TorbalanDirector.Instance != null && !TorbalanDirector.Instance.Backstage) return false;
+        if (distanceFromTorbalan <= distanceThreshold) return false;
         
         dialogueRunner.StartDialogue(nodeName);
         return true;

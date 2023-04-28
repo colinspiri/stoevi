@@ -26,14 +26,11 @@ Dimo: Yoan, come back!
 title: Day5Ana2
 tags:
 ---
-Dimo: Ana!
-Dimo: Ana, is that you?
-<<wait 2>>
-Ana: Dad?
-Dimo: Ana, go home now.
-Dimo: Wait for me at the house. 
+Ana: Dad? Dad!
+Dimo: Ana! Ana, is that you?
+Ana: Dad, I found you! I'm here!
+Dimo: Ana, go home immediately. Wait for me at the house. 
 Dimo: I have to find Yoan.
-Ana: Okay, okay.
 ===
 
 title: Day5Yoan2

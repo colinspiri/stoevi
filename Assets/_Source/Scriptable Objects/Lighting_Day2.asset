@@ -43,7 +43,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   DirectionalColor:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
     key1: {r: 0.18431373, g: 0.3254902, b: 0.6784314, a: 1}
     key2: {r: 0.29411766, g: 0.29411766, b: 0.29411766, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
@@ -72,7 +72,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   FogColor:
     serializedVersion: 2
-    key0: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
+    key0: {r: 0.8352941, g: 0.8745098, b: 1, a: 1}
     key1: {r: 0.72156864, g: 0.7882353, b: 1, a: 1}
     key2: {r: 0.27, g: 0.27, b: 0.27, a: 0}
     key3: {r: 0.3137255, g: 0.3137255, b: 0.3137255, a: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  FogMaxDistanceDay: 45
+  FogMaxDistanceDay: 40
   FogMaxDistanceNight: 30
   StartingLightDirection: 50
   EndingLightDirection: 200
