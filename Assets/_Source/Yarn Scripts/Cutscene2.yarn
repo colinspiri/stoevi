@@ -1,6 +1,14 @@
 title: Cutscene2RumenA
 tags:
 ---
+<<theme 1>>
+Dimo: There was someone on my farm today.
+Rumen: Some <i>mango</i> beggar? Stealing your shit?
+Dimo: Dressed like a <i>kukeri</i>. Fur, bells, masks, horns, the whole costume.
+Rumen: ...
+<<theme 2>>
+Rumen: The <i>Torbalan</i>.
+Dimo: You try to scare me.
 ===
 
 title: Cutscene2RumenB
@@ -8,27 +16,10 @@ tags:
 ---
 // SUBTEXT: Rumen now actually thinks it's the Torbalan.  he's not crying wolf anymore, it's real. But Dimo now rationalizes and thinks it's just mango.
 // Rumen is for real panicked, not just fear-mongering. But Dimo doesn't trust him anymore, so he doesn't listen.
-Rumen: Dimo.
-Dimo: Hello, Rumen.
-Rumen: Stoyan and his wife left Peshtera today. Last ones.
-Dimo: And their kids?
-<<theme 1>>
-Rumen: It's been 10 days now. Nobody found them.
-Dimo: Hm.
-Rumen: You didn't tell Ana?
-<<wait 1>>
-<<theme 2>>
-Dimo: There was someone on my farm today.
-Rumen: Some <i>mango</i> beggar? Stealing your shit?
-Dimo: Dressed like a <i>kukeri</i>. Fur, bells, masks, horns, the whole costume.
-Rumen: ...
-<<theme 3>>
-Rumen: The <i>Torbalan</i>.
-Dimo: You try to scare me.
 Rumen: Dimo, you need to leave.
-Rumen: Come with me, to Plovdiv. I have work. Food service. Tourist stuff for rich Turks.
-Dimo: I am not leaving my farm, Rumen.
 Rumen: You're putting your children in danger.
+Dimo: I am not leaving.
+<<theme 3>>
 Rumen: Dimo, he'll take your kids, turn them against you.
 Dimo: Whoever it is, he will not get to my children.
 <<theme 4>>

@@ -1,21 +1,28 @@
 ﻿title: Cutscene3RumenA
 tags:
 ---
+Rumen: Stoyan and his wife left Peshtera today. Last ones.
+Dimo: And their kids?
+<<theme 1>>
+Rumen: It's been 10 days now. Nobody found them.
+Dimo: Hm.
+Rumen: You didn't tell Ana?
+<<theme 2>>
 ===
 
 title: Cutscene3RumenB
 tags:
 ---
-Rumen: Dimo, you need to leave.
-Rumen: Come with me, to Plovdiv. I have work. Food service. Tourist stuff for rich Turks.
-Dimo: I am not leaving my farm, Rumen.
-Rumen: You're putting your children in danger.
-Rumen: Dimo, he'll take your kids, turn them against you.
-Dimo: Whoever it is, he will not get to my children.
-<<theme 4>>
-Rumen: He'll turn them into sheep.
-Dimo: See you tomorrow, Rumen.
-Rumen: I hope I do.
+Rumen: Dimo, it's dangerous here. Come with me to Plovdiv.
+Rumen: I have work. Food service. Tourist stuff for rich Turks.
+Dimo: And you get extra pay if you bring me?
+Rumen: I'm worried about you. An old man, living alone.
+Dimo: I am not alone. 
+Rumen: What would Ana want?
+<<theme 3>>
+Dimo: You know nothing about my children.
+Rumen: I'm leaving in a week. Just consider it.
+Dimo: Do not wait for me.
 ===
 
 title: Cutscene3
