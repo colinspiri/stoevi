@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Reflection;
 using DG.Tweening;
 using SpookuleleAudio;
@@ -33,6 +34,10 @@ public class AudioManager : MonoBehaviour {
     public float chaseFadeTime;
     private float chaseVolume;
     private bool chaseFading;
+    [Space] 
+    public AudioSource themeStingerSource;
+    public List<AudioClip> themeStingers;
+
 
     [Header("Ambience")] 
     public AudioSource ambience_day;
@@ -163,6 +168,20 @@ public class AudioManager : MonoBehaviour {
             chase.Play();
             chase.volume = 0;
         }
+    }
+    
+    [YarnCommand("theme")]
+    public static void PlayTheme(int number) {
+        int index = number - 1;
+        if (index < 0 || index >= Instance.themeStingers.Count) {
+            Debug.Log("theme " + number + " is out of range");
+        }
+        
+        Debug.Log("Playing theme stinger " + number);
+
+        AudioClip clip = Instance.themeStingers[index];
+        Instance.themeStingerSource.clip = clip;
+        Instance.themeStingerSource.Play();
     }
 
     public void StopIntroCutsceneMusic() {

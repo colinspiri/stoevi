@@ -1727,9 +1727,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutscenesByDay:
-    keys: 02000000
+    keys: 02000000030000000400000005000000
     values:
     - Cutscene1RumenA
+    - Cutscene2RumenA
+    - Cutscene3RumenA
+    - Cutscene4RumenA
   onDialogueComplete:
     m_PersistentCalls:
       m_Calls:
@@ -3546,9 +3549,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutscenesByDay:
-    keys: 02000000
+    keys: 02000000030000000400000005000000
     values:
     - Cutscene1RumenB
+    - Cutscene2RumenB
+    - Cutscene3RumenB
+    - Cutscene4RumenB
   onDialogueComplete:
     m_PersistentCalls:
       m_Calls:

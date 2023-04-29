@@ -15,18 +15,4 @@ public class ThemeStingers : MonoBehaviour {
         Instance = this;
         audioSource = GetComponent<AudioSource>();
     }
-
-    [YarnCommand("theme")]
-    public static void PlayTheme(int number) {
-        int index = number - 1;
-        if (index < 0 || index >= Instance.themeStingers.Count) {
-            Debug.Log("theme " + number + " is out of range");
-        }
-        
-        Debug.Log("Playing theme stinger " + number);
-
-        AudioClip clip = Instance.themeStingers[index];
-        Instance.audioSource.clip = clip;
-        Instance.audioSource.Play();
-    }
 }
