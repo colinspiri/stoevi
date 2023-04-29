@@ -8291,6 +8291,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6679289703562662588, guid: f0accf10b98afbe42a674eb27156563e, type: 3}
+--- !u!114 &251141956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251141953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91610814907554cbdcdc281b322e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 0}
+  type: 1
+  isBush: 0
+--- !u!114 &251141957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251141952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df91610814907554cbdcdc281b322e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coverSet: {fileID: 11400000, guid: a0e27f16cb5193442a87a30a1fcbb1cd, type: 2}
+  bushSet: {fileID: 0}
+  type: 1
+  isBush: 0
 --- !u!1001 &251190384
 PrefabInstance:
   m_ObjectHideFlags: 0
