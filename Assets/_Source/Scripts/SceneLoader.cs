@@ -10,6 +10,7 @@ public class SceneLoader : ScriptableObject {
     public SceneReference shopScene;
     public SceneReference cutsceneScene;
     public SceneReference endCreditsScene;
+    public SceneReference splashScene;
     
     public void NewGame() {
         Time.timeScale = 1;

@@ -38,3 +38,6 @@ MonoBehaviour:
   endCreditsScene:
     sceneAsset: {fileID: 102900000, guid: a213b4f22af2453449bc840d95c29a49, type: 3}
     scenePath: Assets/_Source/Scenes/EndCredits.unity
+  splashScene:
+    sceneAsset: {fileID: 102900000, guid: aee39fdafc621ff44a243f3a70a8198c, type: 3}
+    scenePath: Assets/_Source/Scenes/Splash.unity

@@ -117,7 +117,7 @@ public class AudioManager : MonoBehaviour {
         playerTiredBreathing.Stop();
 
         // theme bass music
-        if (newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath) {
+        if (newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath || newScene.path == sceneLoader.splashScene.ScenePath) {
             themeBassMusic.Play();
             themeBassMusic.volume = themeBassMusicVolume;
         }
@@ -142,23 +142,30 @@ public class AudioManager : MonoBehaviour {
                 break;
             }
         }
+        
         // ambience 
-        if (day >= 4) {
-            if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath || newScene.path == sceneLoader.shopScene.ScenePath) {
-                if(!ambience_day_rain.isPlaying) ambience_day_rain.Play();
-            }
-            else ambience_day_rain.Stop();
+        if (newScene.path == sceneLoader.splashScene.ScenePath) {
+            if(!ambience_night.isPlaying) ambience_night.Play();
             ambience_day.Stop();
-        }
-        else {
-            if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath || newScene.path == sceneLoader.shopScene.ScenePath) {
-                if(!ambience_day.isPlaying) ambience_day.Play();
-            }
-            else ambience_day.Stop();
             ambience_day_rain.Stop();
         }
-        
-        
+        else {
+            if (day >= 4) {
+                if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath || newScene.path == sceneLoader.shopScene.ScenePath) {
+                    if(!ambience_day_rain.isPlaying) ambience_day_rain.Play();
+                }
+                else ambience_day_rain.Stop();
+                ambience_day.Stop();
+            }
+            else {
+                if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath || newScene.path == sceneLoader.shopScene.ScenePath) {
+                    if(!ambience_day.isPlaying) ambience_day.Play();
+                }
+                else ambience_day.Stop();
+                ambience_day_rain.Stop();
+            }
+        }
+
         // tension
         if (isDay) {
             AudioSource tension = day >= 4 ? tensionDay45 : tensionDay23;
