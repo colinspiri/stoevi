@@ -740,7 +740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeTime: 1
   panelWaitTime: 3
-  lineWaitTime: 0.7
+  lineWaitTime: 1.7
   titlePanel: {fileID: 26111822}
   titleText: {fileID: 1641521338}
   creditsPanels:

@@ -109,6 +109,7 @@ public class IntroCutscene : MonoBehaviour {
 
         Tween exceptTween = exceptText.DOFade(1, fadeTime);
         yield return exceptTween.WaitForCompletion();
+        yield return new WaitForSeconds(lineWaitTime);
 
         SceneManager.LoadScene(sceneLoader.cutsceneScene);
         
