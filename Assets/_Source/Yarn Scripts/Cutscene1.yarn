@@ -1,8 +1,13 @@
-﻿title: Cutscene1Rumen
+﻿title: Cutscene1RumenA
 tags:
 ---
 Rumen: Good morning, Dimo. What do you have for me? // trying to be friendly
 Dimo: Morning. Here. // trying to be transactional again
+===
+
+title: Cutscene1RumenB
+tags:
+---
 Rumen: Stoyan's kids went missing in Peshtera last week. // aware that he's shocking Dimo with the news, hoping to scare him
 Dimo: Elena and Mariya? // Dimo's concerned, and he knows the kids personally
 Rumen: Yeah. They're saying it was <i>mango</i>. // trying to rationalize and add to the fear
