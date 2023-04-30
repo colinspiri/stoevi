@@ -1,6 +1,8 @@
 using UnityEngine;
 
 public class ResourceManager : MonoBehaviour {
+    public static ResourceManager Instance;
+    
     // water
     [Header("Water")]
     public IntVariable maxWater;
@@ -26,6 +28,8 @@ public class ResourceManager : MonoBehaviour {
     public FloatVariable batteryPercent;
 
     void Awake() {
+        Instance = this;
+        
         currentWater.SetValue(maxWater.Value);
         
         playerTomatoes.SetValue(0);
@@ -39,5 +43,18 @@ public class ResourceManager : MonoBehaviour {
             currentBatteries.SetValue(startingBatteries.Value);
             batteryPercent.SetValue(1);
         }
+        else {
+            seeds.SetValue(PlayerPrefs.GetInt("Seeds", seeds.Value));
+            currentFertilizer.SetValue(PlayerPrefs.GetInt("Fertilizer", currentFertilizer.Value));
+            currentBatteries.SetValue(PlayerPrefs.GetInt("Batteries", currentBatteries.Value));
+            batteryPercent.SetValue(PlayerPrefs.GetFloat("BatteryPercent", batteryPercent.Value));
+        }
+    }
+
+    public void SaveAllData() {
+        PlayerPrefs.SetInt("Seeds", seeds.Value);
+        PlayerPrefs.SetInt("Fertilizer", currentFertilizer.Value);
+        PlayerPrefs.SetInt("Batteries", currentBatteries.Value);
+        PlayerPrefs.SetFloat("BatteryPercent", batteryPercent.Value);
     }
 }

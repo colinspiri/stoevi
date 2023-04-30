@@ -47,7 +47,9 @@ public class GameManager : MonoBehaviour {
         
         currentDay++;
         PlayerPrefs.SetInt("CurrentDay", currentDay);
-            
+        
+        ResourceManager.Instance.SaveAllData();
+        
         InteractableManager.Instance.SaveAllData();
 
         if (currentDay == 6) {

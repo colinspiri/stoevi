@@ -9,6 +9,7 @@ public class ShopItemUI : MonoBehaviour {
     // SO references
     public ShopItem shopItem;
     public IntReference resource;
+    public string resourceNamePlayerPrefs;
     [Space]
     public IntReference currentBalance;
 
@@ -46,10 +47,16 @@ public class ShopItemUI : MonoBehaviour {
         // TODO success SFX
         
         // reduce balance
-        if(currentBalance.Variable != null) currentBalance.Variable.ApplyChange(-1 * shopItem.price);
+        if (currentBalance.Variable != null) {
+            currentBalance.Variable.ApplyChange(-1 * shopItem.price);
+            PlayerPrefs.SetInt("CurrentBalance", currentBalance.Value);
+        }
         
         // increment resource
-        if(resource.Variable != null) resource.Variable.ApplyChange(1);
+        if (resource.Variable != null) {
+            resource.Variable.ApplyChange(1);
+            PlayerPrefs.SetInt(resourceNamePlayerPrefs, resource.Value);
+        }
         
         UpdateUI();
     }

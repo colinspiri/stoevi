@@ -17,10 +17,13 @@ public class DaySummaryUI : MonoBehaviour {
     private void OnEnable() {
         int total = 0;
         
-        // intialize savings
+        // initialize balance (as savings)
         int day = PlayerPrefs.GetInt("CurrentDay", 1);
         if (day <= 2) {
             currentBalance.Variable.SetValue(0);
+        }
+        else {
+            currentBalance.Variable.SetValue(PlayerPrefs.GetInt("CurrentBalance", currentBalance.Value));
         }
         
         savingsLine.description = "savings";
@@ -43,5 +46,6 @@ public class DaySummaryUI : MonoBehaviour {
         
         // update current balance
         currentBalance.Variable.SetValue(total);
+        PlayerPrefs.SetInt("CurrentBalance", currentBalance);
     }
 }
