@@ -104,7 +104,7 @@ MonoBehaviour:
   StartingLightDirection: 50
   EndingLightDirection: 200
   lightningEnabled: 1
-  minLightningTime: 20
+  minLightningTime: 10
   maxLightningTime: 30
   lightningDuration: 0.3
   lightningColor: {r: 1, g: 1, b: 1, a: 1}
