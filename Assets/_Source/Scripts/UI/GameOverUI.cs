@@ -29,8 +29,7 @@ public class GameOverUI : MonoBehaviour {
     private void ShowGameOverScreen(bool playerSurvived = true) {
         gameOverPanel.SetActive(true);
         
-        canvasGroup.alpha = 0;
-        canvasGroup.DOFade(1, 0.5f).SetUpdate(true);
+        canvasGroup.alpha = 1;
         
         gameOverStinger.Play();
     }

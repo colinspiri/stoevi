@@ -4,7 +4,7 @@ tags:
 Rumen: Stoyan and his wife left Peshtera today. Last ones.
 Dimo: And their kids?
 <<theme 1>>
-Rumen: It's been 10 days now. Nobody found them.
+Rumen: It's been 3 days now. Never turned up.
 Dimo: Hm.
 Rumen: You didn't tell Ana?
 <<theme 2>>
@@ -15,43 +15,48 @@ tags:
 ---
 Rumen: Dimo, it's dangerous here. Come with me to Plovdiv.
 Rumen: I have work. Food service. Tourist stuff for rich Turks.
-Dimo: And you get extra pay if you bring me?
 Rumen: I'm worried about you. An old man, living alone.
 Dimo: I am not alone. 
 Rumen: What would Ana want?
 <<theme 3>>
 Dimo: You know nothing about my children.
-Rumen: I'm leaving in a week. Just consider it.
+Rumen: I'm leaving in a week. Consider it.
 Dimo: Do not wait for me.
 ===
 
 title: Cutscene3
 tags:
 ---
+// maybe I can sorkin-ify this? instead of first ana, then yoan, have all three people arguing at the same time, talking across different points
 <<theme 1>>
 Dimo: Yoan, go lock the back door. Ana, close all the windows.
 Yoan: Okay, uh, why?
 Ana: What's going on?
 Dimo: There is someone on our land. Searching for us.
-Dimo: Rumen thinks he's a <i>mango</i>.
-Yoan: Don't call them that, Dad.
+Dimo: Rumen says he is a <i>mango</i>.
+Yoan: They're just people, Dad. I think that's a slur, actually.
 <<theme 2>>
 Dimo: Ana, stay inside tomorrow.
 Ana: What? I wanted to go to Peshtera to see Elena. I'll be back before 8.
 Dimo: It is too far.
-Ana: It's 30 minutes.
-Dimo: Listen to me.
-Ana: Dad, come on. I can handle myself.
+Ana: It's 30 minutes. I can handle myself.
 <<theme 3>>
 Dimo: Do not make me repeat myself.
 Ana: God forbid.
 Ana: Okay, then I'll help on the farm with Yoan.
-Dimo: No. You must stay here.
+Dimo: No.
+Yoan: It's dangerous out there.
 Dimo: Yoan and I will do our work outside carefully.
-Yoan: Wait, still?
-Dimo: Yes. I will not abandon our family's livelihood.
-Yoan: Really?
-Ana: Really?
+Yoan: Wait, still? But there's a guy-
+Dimo: <i>Vancho</i>, this is not an excuse to stop our work.
+Yoan: I didn't say that.
+Dimo: You forgot to pull the weeds I told you about yesterday.
+Yoan: No, I did it this morning.
+Dimo: You tell me one thing, but I see another.
+Yoan: I swear I did, Dad.
+Dimo: Do it again. Better this time.
+Dimo: I will not let our farm rot away because of your laziness.
+Yoan: I wasn't just being-
 <<theme 4>>
 Dimo: Do not talk back.
 <<wait 1>>

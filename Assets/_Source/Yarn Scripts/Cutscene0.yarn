@@ -1,21 +1,22 @@
 ﻿title: Cutscene0
 tags:
 ---
-Rumen: Dimo, my friend! // trying to establish friendly rapport
-Dimo: Rumen. // implying the conversation will be transactional
+Rumen Chorbadzhiev: Dimo, my friend! // trying to establish friendly rapport
+Dimo Stoev: Rumen. // implying the conversation will be transactional
 Rumen: Where's Petrov? // asking innocently even though he can figure it out, just wants to talk about it with Dimo
 <<theme 1>>
 Dimo: Left with his wife two days ago. // giving the information, not wanting to be too talkative
 Rumen: So, last man standing, huh? // trying to turn it into a joke
 Dimo: Mhm. // Dimo doesn't think it's funny
-Dimo: How much for 4 seeds? // but is here to do business
+Rumen: How's Ana? I passed her taking the sheep to Peshtera. // trying to spark conversation again
+Dimo: She is good, how much for 4 seeds? // but Dimo is here to do business
 Rumen: 60 levs. When are you leaving this place? // answers Dimo, but also wants to keep talking about it
 <<theme 2>>
-Dimo: I have no plans to leave. Is 50 okay? // shuts Rumen down, but also asks for a favor
+Dimo: We have no plans to leave. Is 50 okay? // shuts Rumen down, but also asks for a favor
 Rumen: You make me hike all the way out to Levnik for 50 levs? // exaggerating the difference because he's greedy, also noting how isolated Dimo is now
 Rumen: This place is dead, Dimo. It's not the place we grew up in anymore. // trying to appeal to their childhood friendship
 Dimo: Fine, 60. See you tomorrow. // Dimo isn't swayed because he doesn't respect Rumen or think of them as friends
 <<theme 3>>
-Rumen: Sure, then. // passive-aggressive
+Rumen: Sure. // passive-aggressive
 Rumen: Good luck with your harvest. // but still trying to maintain a relationship
 ===

@@ -35,16 +35,14 @@ public class VOManager : MonoBehaviour {
         
         // check current speaker
         string speaker = speakerText.text;
-        List<AudioClip> voClips = speaker switch {
-            "Dimo" => voDimo,
-            "Rumen" => voRumen,
-            "Yoan" => voYoan,
-            "Ana" => voAna,
-            _ => null
-        };
+        List<AudioClip> voClips;
+        if (speaker.Contains("Dimo")) voClips = voDimo;
+        else if (speaker.Contains("Rumen")) voClips = voRumen;
+        else if (speaker.Contains("Yoan")) voClips = voYoan;
+        else if (speaker.Contains("Ana")) voClips = voAna;
+        else voClips = new List<AudioClip>();
+        if (voClips.Count == 0) return;
 
-        // TODO if in game, apply radio filter
-        
         // play random clip
         int randomIndex;
         do {

@@ -3,12 +3,12 @@ tags:
 ---
 <<theme 1>>
 Dimo: There was someone on my farm today.
-Rumen: Some <i>mango</i> beggar? Stealing your shit?
+Rumen: Some <i>mango</i> beggar? Just like I told you.
 Dimo: Dressed like a <i>kukeri</i>. Fur, bells, masks, horns, the whole costume.
 Rumen: ...
 <<theme 2>>
 Rumen: The <i>Torbalan</i>.
-Dimo: You try to scare me.
+Dimo: You try to scare me away.
 ===
 
 title: Cutscene2RumenB
@@ -31,7 +31,17 @@ Rumen: I hope I do.
 title: Cutscene2
 tags:
 ---
-Dimo: Sit. Eat.
+Dimo Stoev: I told you, <i>Ani</i>, always count the sheep before returning.
+Ana Stoeva: I mean, at least I didn't lose any.
+Dimo: Where did these 2 extra sheep come from?
+Ana: I don't know, Dad.
+<<theme 1>>
+Dimo: You should have been more careful. I should have sent Yoan with you.
+Ana: I can do it myself.
+Yoan Stoev: She doesn't need me.
+Dimo: Maybe.
+Dimo: Both of you, sit. Eat.
+<<wait 0.25>>
 Yoan: What about you?
 Dimo: I... am not hungry.
 Yoan: Uh, okay... thanks.
@@ -40,35 +50,35 @@ Yoan: Hey Dad, do you know Dubarova?
 Dimo: Petya Dubarova?
 Yoan: Yeah.
 Dimo: The poet?
-Yoan: Yeah, uh-
 Dimo: <i>Absolyutno, Vancho</i>, of course.
-Dimo: I read a lot when I was your age.
-Yoan: I've been reading her stuff recently.
+Yoan: Oh, well I've been reading her stuff recently.
 Dimo: For class? // questioning if he's sacrificing his studies
 Yoan: Um, just for fun.
 Dimo: "There in the clouds, somewhere in crazy vines-
 Yoan: -from lashes with the tang of tears"
 Dimo: Very good.
 Yoan: I didn't know you liked poetry.
-Dimo: I loved it. I studied English in university.
-Yoan: Oh, great, well, so, I was kind of thinking of maybe switching my major.
+Dimo: I read a lot when I was your age. I studied English.
+Yoan: Oh, great, well, so, I was kinda thinking of maybe switching my major.
 <<wait 1>>
 Yoan: To English.
-<<wait 1.5>>
+<<wait 1>>
 Yoan: What do you think?
-<<wait 0.5>>
+<<theme 2>>
 Dimo: No. 
 <<wait 0.5>>
 Yoan: Well, it was just an idea.
-Dimo: It was a bad idea.
-Dimo: No prospects. No jobs.
+Dimo: A bad idea. No jobs. No way to live your life.
 Yoan: Okay, but-
+<<theme 3>>
 Dimo: Can you pull out the weeds tomorrow at sunrise?
 Yoan: I guess, yeah.
 Dimo: Some old-fashioned early-morning work would be good for you.
 Yoan: Sure, of course.
+<<theme 4>>
 Dimo: And also take out the sheep.
-Yoan: Okay.
+Ana: Dad! Serious?
+Dimo: It has to be done right.
 <<wait 0.5>>
-Yoan: Good talk.
+Yoan: Good talk, Dad.
 ===

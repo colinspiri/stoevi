@@ -8,14 +8,13 @@ Dimo: Morning. Here. // trying to be transactional again
 title: Cutscene1RumenB
 tags:
 ---
-Rumen: Stoyan's kids went missing in Peshtera last week. // aware that he's shocking Dimo with the news, hoping to scare him
+Rumen: Stoyan's kids went missing in Peshtera yesterday. // aware that he's shocking Dimo with the news, hoping to scare him
 Dimo: Elena and Mariya? // Dimo's concerned, and he knows the kids personally
 Rumen: Yeah. They're saying it was <i>mango</i>. // trying to rationalize and add to the fear
-Dimo: Who said that? // skeptical, thinks of Rumen as a selfish rumor mill
 Rumen: You know how they are. Child-stealing devil-worshippers. // implying that it's obvious, just wants to plant a seed of fear in Dimo
 Dimo: Mhm. // doubts Rumen, but not saying it outright
 Rumen: If they're in Peshtera, they'll be in Levnik soon. // connecting the dots for Dimo in case he didn't get it
-Dimo: And France is next, right? // mocking Rumen's fear-mongering attitude
+Dimo: Then Germany, right? // mocking Rumen's fear-mongering attitude
 Dimo: See you tomorrow, Rumen. // leaving
 ===
 
@@ -24,8 +23,8 @@ title: Cutscene1
 tags:
 ---
 <<theme 1>>
-Dimo: Yoan. You didn't write. // finding a way to express surprise without showing his disappointment
-Yoan: Hi Dad. Nice to see you, too. // sarcastic, pointing out how Dimo isn't loving enough
+Dimo Stoev: Yoan. You didn't write. // finding a way to express surprise without showing his disappointment
+Yoan Stoev: Hi Dad. Nice to see you, too. // sarcastic, pointing out how Dimo isn't loving enough
 Dimo: Is university on break? // feigning a guess to show his surprise
 Yoan: I, uh, I'm taking a gap semester. // hopes he'll understand, nervous how Dimo will react
 <<theme 2>>
@@ -35,7 +34,7 @@ Yoan: I need some time to think, refocus my ambitions, that's all.
 Yoan: Is Ana here? // trying to change the conversation & move on
 Dimo: You have a bright future, <i>Vancho</i>. What are you thinking about? // being more direct about his concern, but also honestly trying to understand
 Yoan: I told you - considering my options. Can I put my stuff down now? // getting upset, trying to change the conversation again
-Dimo: What about what we talked about? Are you still doing dental school? // continuing the conversation, trying to understand
+Dimo: What about what we talked about? About dental school? // continuing the conversation, trying to understand
 Dimo: It is a good career. You know Stefan's son is a dentist, and he mak-  // he genuinely thinks it's a good path, asking if Yoan agrees or if it's something else
 Yoan: -"makes good money in Germany." I know. You've told me. // passive aggressive, tired of the lectures
 Dimo: So?

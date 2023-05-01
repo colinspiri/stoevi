@@ -1,22 +1,29 @@
 ﻿title: Cutscene4RumenA
 tags:
 ---
+Rumen: Are you looking for Stoyan's kids?
+Dimo: What?
 ===
 
 title: Cutscene4RumenB
 tags:
 ---
+Rumen: Did you send Ana to go look for the kids?
+Dimo: I did not.
+Rumen: Well I saw her running back from Peshtera.
+Dimo: You did not do anything?
+Rumen: Figured you knew.
+Dimo: <i>Glupav.</i> The Torbalan is near. I must find her first.
 ===
 
 title: Cutscene4
 tags:
 ---
-Yoan: Dad.
-Yoan: Ana's gone.
-Dimo: Where is she?
-Yoan: She left a note. "Going to Peshtera to find Elena"
-Dimo: ...
-Yoan: We have to go find her.
+Yoan: Dad-
+Dimo: Ana is in danger.
+Yoan: Yeah, she left a note. "Going to Peshtera to find Elena"
+Dimo: Rumen saw her coming back, so she cannot be far.
+Yoan: Let's go find her.
 <<theme 1>>
 Dimo: I will go. You stay.
 Yoan: Dad, that's too far for you. Let me go.
@@ -25,7 +32,7 @@ Dimo: It is too dangerous.
 Dimo: Take care of the farm and bring the harvest to Rumen.
 Yoan: Are you serious?
 Dimo: I will not abandon our family's livelihood.
-Yoan: We're in serious danger. The farm isn't important now.
+Yoan: The farm isn't important now.
 Dimo: When I die, this farm will be yours too.
 Dimo: I will not let you ruin your future.
 Yoan: Stop worrying about my future.
