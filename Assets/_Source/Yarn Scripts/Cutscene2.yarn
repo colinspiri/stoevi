@@ -31,4 +31,37 @@ Rumen: I hope I do.
 title: Cutscene2
 tags:
 ---
+Dimo: Sit. Eat.
+Yoan: What about you?
+Dimo: I am not hungry.
+Yoan: Uh...okay... thanks.
+<<wait 2>>
+Yoan: Hey Dad, do you know Dubarova?
+Dimo: Petya Dubarova?
+Yoan: Yeah.
+Dimo: The poet?
+Yoan: Yeah, uh-
+Dimo: <i>Absolyutno, Vancho</i>, of course.
+Dimo: I read a lot when I was your age.
+Yoan: Yeah, I've been reading her stuff.
+Dimo: For class? // questioning if he's sacrificing his studies
+Yoan: Um, just for fun.
+Dimo: "There in the clouds, somewhere in crazy vines"-
+Yoan: -"from lashes with the tang of tears"
+Dimo: Very good. 
+Yoan: I didn't know you read poetry.
+Dimo: I studied English.
+Yoan: Oh, well, so, I was kind of thinking of maybe switching to English.
+<<wait 2>>
+Dimo: No. 
+<<wait 0.5>>
+Yoan: Oh? Well, it was just an idea.
+Dimo: Not a good idea.
+Dimo: No prospects. No jobs. Just teaching.
+Yoan: Okay...
+Dimo: Can you pull out the weeds tomorrow at sunrise.
+Yoan: Yep.
+Dimo: It would be good to do something early in the morning.
+Yoan: Okay, sure.
+Dimo: And also take out the sheep.
 ===

@@ -29,21 +29,21 @@ Yoan: We're in serious danger. The farm isn't important now.
 Dimo: When I die, this farm will be yours too.
 Dimo: I will not let you ruin your future.
 Yoan: Stop worrying about my future.
-Dimo: Worrying is my job. I will stop worrying once you are a dentist.
+Dimo: I will stop worrying once you are a dentist.
 <<theme 3>>
 Yoan: Dad, I'm not going to dental school.
 <<wait 0.5>>
-Dimo: Is that why you came home then, for vacation?
-Yoan: No, I was just having second thoughts.
-Dimo: You must continue with your life, <i>Vancho</i>.
-Yoan: Why?
+Dimo: Did you come home for vacation, then?
+Yoan: No, I just needed to think.
+Dimo: That is normal.
+Dimo: But what <i>do</i> you want to do with your life, Yoan?
 <<theme 4>>
-Dimo: Because I said so.
+<<wait 2>>
 Yoan: You're not the boss of me.
 Dimo: Where are you going? Stay here.
 Yoan: I'm going to find Ana.
-Dimo: No.
+Dimo: No. Listen to me.
 Yoan: I'm leaving.
 Dimo: No! Yoan! Do as I say.
-Dimo: Yoan!
+Dimo: Listen to me, Yoan!
 ===
