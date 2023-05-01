@@ -14,26 +14,38 @@ public class PlayShopCutscene : MonoBehaviour
     // components
     private DialogueRunner dialogueRunner;
     
-    private void OnEnable() {
+    // state
+    private bool played;
+    private float backupTimer;
+
+    private void Update() {
+        if (!played) {
+            TryPlayCutscene();
+            backupTimer += Time.deltaTime;
+
+            if (backupTimer >= 2f) {
+                OnCutsceneDone();
+                played = true;
+            }
+        }
+    }
+
+    private void TryPlayCutscene() {
         int day = PlayerPrefs.GetInt("CurrentDay", 1);
-        Debug.Log("SHOP day = " + day);
 
         if (cutscenesByDay.ContainsKey(day)) {
             string cutsceneNode = cutscenesByDay[day];
             
             // get dialogue runner
             dialogueRunner = FindObjectOfType<DialogueRunner>();
-            if (dialogueRunner != null) {
-                dialogueRunner.onNodeComplete.AddListener(_ => OnCutsceneDone());
+            if (dialogueRunner != null && dialogueRunner.NodeExists(cutsceneNode)) {
                 dialogueRunner.StartDialogue(cutsceneNode);
+                dialogueRunner.onNodeComplete.AddListener(_ => OnCutsceneDone());
+                played = true;
             }
-            else OnCutsceneDone();
-        }
-        else {
-            OnCutsceneDone();
         }
     }
-    
+
     private void OnCutsceneDone() {
         onDialogueComplete.Invoke();
     }

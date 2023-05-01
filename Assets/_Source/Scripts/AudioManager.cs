@@ -122,7 +122,7 @@ public class AudioManager : MonoBehaviour {
             themeBassMusic.volume = themeBassMusicVolume;
         }
         else if (themeBassMusic.isPlaying) {
-            themeBassMusic.DOFade(0, 5f).SetUpdate(true).OnComplete(() => {
+            themeBassMusic.DOFade(0, 2f).SetUpdate(true).OnComplete(() => {
                 themeBassMusic.Stop();
             });
         }
@@ -145,21 +145,25 @@ public class AudioManager : MonoBehaviour {
         
         // ambience 
         if (newScene.path == sceneLoader.splashScene.ScenePath) {
-            if(!ambience_night.isPlaying) ambience_night.Play();
+            ambience_night.Play();
+            ambience_night.volume = ambienceNightVolume;
+            
             ambience_day.Stop();
             ambience_day_rain.Stop();
         }
         else {
             if (day >= 4) {
                 if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath || newScene.path == sceneLoader.shopScene.ScenePath) {
-                    if(!ambience_day_rain.isPlaying) ambience_day_rain.Play();
+                    ambience_day_rain.Play();
+                    ambience_day_rain.volume = ambienceDayRainVolume;
                 }
                 else ambience_day_rain.Stop();
                 ambience_day.Stop();
             }
             else {
                 if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath || newScene.path == sceneLoader.shopScene.ScenePath) {
-                    if(!ambience_day.isPlaying) ambience_day.Play();
+                    ambience_day.Play();
+                    ambience_day.volume = ambienceDayVolume;
                 }
                 else ambience_day.Stop();
                 ambience_day_rain.Stop();
@@ -301,7 +305,7 @@ public class AudioManager : MonoBehaviour {
     public void TransitionToNightAmbience() {
         AudioSource current_ambience_day = day >= 4 ? ambience_day_rain : ambience_day;
         
-        current_ambience_day.DOFade(0, 20f).SetUpdate(true).OnComplete(() => {
+        current_ambience_day.DOFade(0, 10f).SetUpdate(true).OnComplete(() => {
             current_ambience_day.Stop();
         });
         
@@ -310,11 +314,12 @@ public class AudioManager : MonoBehaviour {
         
         current_ambience_night.Play();
         current_ambience_night.volume = 0f;
-        current_ambience_night.DOFade(current_ambience_volume, 20f).SetUpdate(true);
+        current_ambience_night.DOFade(current_ambience_volume, 10f).SetUpdate(true);
     }
 
     public void PlayThemeBassMusic() {
-        if(themeBassMusic.isPlaying == false) themeBassMusic.Play();
+        themeBassMusic.Play();
+        themeBassMusic.volume = themeBassMusicVolume;
     }
 
     public void SetBreathingSound(bool value) {

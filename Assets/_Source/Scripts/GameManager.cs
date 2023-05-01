@@ -16,11 +16,6 @@ public class GameManager : MonoBehaviour {
 
     private void Awake() {
         Instance = this;
-        
-        currentDay = PlayerPrefs.GetInt("CurrentDay", 1);
-        if (currentDay == 1) {
-            PlayerPrefs.DeleteAll();
-        }
     }
     
     public void Pause(bool pauseAudio = false) {

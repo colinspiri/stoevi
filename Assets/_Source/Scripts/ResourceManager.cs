@@ -42,6 +42,12 @@ public class ResourceManager : MonoBehaviour {
             currentFertilizer.SetValue(startingFertilizer.Value);
             currentBatteries.SetValue(startingBatteries.Value);
             batteryPercent.SetValue(1);
+            
+            PlayerPrefs.DeleteKey("Seeds");
+            PlayerPrefs.DeleteKey("Fertilizer");
+            PlayerPrefs.DeleteKey("Batteries");
+            PlayerPrefs.DeleteKey("BatteryPercent");
+            PlayerPrefs.DeleteKey("CurrentBalance");
         }
         else {
             seeds.SetValue(PlayerPrefs.GetInt("Seeds", seeds.Value));

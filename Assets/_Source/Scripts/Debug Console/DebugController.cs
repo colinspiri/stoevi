@@ -11,6 +11,7 @@ public class DebugController : MonoBehaviour {
     public TextMeshProUGUI inputText;
     public IntVariable seeds;
     public List<TimeOfDay> timeOfDays;
+    public IntVariable objectiveComplete;
     
     // state
     private bool consoleVisible;
@@ -27,7 +28,8 @@ public class DebugController : MonoBehaviour {
     private static DebugCommand SET_NIGHT;
     private static DebugCommand<bool> SET_DEAF;
     private static DebugCommand<bool> SET_BLIND;
-    
+    private static DebugCommand OBJECTIVE_COMPLETE;
+
     private void Awake() {
         Instance = this;
         inputActions = new InputActions();
@@ -65,6 +67,9 @@ public class DebugController : MonoBehaviour {
         SET_BLIND = new DebugCommand<bool>("set_blind", "Sets Torbalan blind state.", "set_blind <bool>", value => {
             TorbalanVision.Instance.SetBlind(value);
         });
+        OBJECTIVE_COMPLETE = new DebugCommand("objective_complete", "Completes the objective.", "objective_complete",
+            () => { objectiveComplete.Value = 1; });
+        
 
     commandList = new List<DebugCommandBase> {
             KILL_PLAYER,
@@ -75,6 +80,7 @@ public class DebugController : MonoBehaviour {
             SET_NIGHT,
             SET_DEAF,
             SET_BLIND,
+            OBJECTIVE_COMPLETE
     };
         
         // start disabled
