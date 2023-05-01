@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,7 @@ public class ChangeMaterial : MonoBehaviour {
             3 => day3Material,
             2 => day1Material,
             1 => day1Material,
+            _ => day1Material
         };
         foreach (var meshRenderer in meshRenderers) {
             meshRenderer.material = currentMaterial;
