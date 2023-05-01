@@ -145,6 +145,7 @@ public class AudioManager : MonoBehaviour {
         
         // ambience 
         if (newScene.path == sceneLoader.splashScene.ScenePath) {
+            ambience_night.DOComplete();
             ambience_night.Play();
             ambience_night.volume = ambienceNightVolume;
             
@@ -154,6 +155,7 @@ public class AudioManager : MonoBehaviour {
         else {
             if (day >= 4) {
                 if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath || newScene.path == sceneLoader.shopScene.ScenePath) {
+                    ambience_day_rain.DOComplete();
                     ambience_day_rain.Play();
                     ambience_day_rain.volume = ambienceDayRainVolume;
                 }
@@ -162,6 +164,7 @@ public class AudioManager : MonoBehaviour {
             }
             else {
                 if (isDay || newScene.path == sceneLoader.cutsceneScene.ScenePath || newScene.path == sceneLoader.endCreditsScene.ScenePath || newScene.path == sceneLoader.shopScene.ScenePath) {
+                    ambience_day.DOComplete();
                     ambience_day.Play();
                     ambience_day.volume = ambienceDayVolume;
                 }

@@ -6,9 +6,6 @@ public class GameManager : MonoBehaviour {
     public static GameManager Instance;
     public SceneLoader sceneLoader;
     
-    // day
-    public int currentDay;
-
     // game state
     public bool gameStopped;
     
@@ -40,14 +37,15 @@ public class GameManager : MonoBehaviour {
     public void EndDay() {
         if (gameStopped) return;
         
-        currentDay++;
-        PlayerPrefs.SetInt("CurrentDay", currentDay);
+        int day = PlayerPrefs.GetInt("CurrentDay", 1);
+        day++;
+        PlayerPrefs.SetInt("CurrentDay", day);
         
         ResourceManager.Instance.SaveAllData();
         
         InteractableManager.Instance.SaveAllData();
 
-        if (currentDay == 6) {
+        if (day == 6) {
             sceneLoader.LoadCutscene();
         }
         else sceneLoader.LoadShop();
