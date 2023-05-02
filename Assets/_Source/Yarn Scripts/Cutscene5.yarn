@@ -1,19 +1,29 @@
 ﻿title: Cutscene5
 tags:
 ---
-Dimo: Yoan, follow me.
+Dimo: Are you okay, <i>Ani</i>?
+Ana: I'm good, Dad. I just-
+Dimo: I should have told you about Elena.
+<<wait 1.5>>
+Dimo: I am sorry.
+<<wait 0.5>>
+Dimo: I did not believe it at first. Honestly.
+Ana: It's alright. I'm good.
+Dimo: I am proud of you, though. Long way to run.
+Ana: Yeah... Thanks.
+Dimo: Yoan, come inside.
 <<sheep_bleat>>
-<<wait 1>>
-Ana: Are you sure it's still him?
-Dimo: Of course.
+<<wait 0.5>>
+Ana: Dad, that's a sheep.
+Dimo: No, that is your brother.
 <<sheep_bleat>>
-<<wait 1>>
-Dimo: I know, I know.
-Ana: Dad, come on.
+<<wait 0.5>>
+Dimo: I know, <i>Vancho</i>.
+Ana: Dad, what?
 Dimo: Your brother is scared.
 Ana: It's just a sheep.
 <<sheep_bleat>>
-<<wait 1>>
+<<wait 0.5>>
 <<sheep_hit>>
 <<wait 0.2>>
 Dimo: No foul language, <i>Vancho</i>.
@@ -22,13 +32,12 @@ Ana: Dad, listen to me-
 Dimo: We are leaving. Now.
 Dimo: Grab your things. No more than a backpack.
 <<sheep_bleat>>
-<<wait 1>>
+<<wait 0.5>>
 Dimo: And pack a bag for Yoan.
 Ana: Dad-
 <<theme 4>>
 Dimo: Do not talk back. We go to Sofia.
-// Ana leaves
 <<sheep_bleat>>
-<<wait 1>>
+<<wait 0.5>>
 Dimo: Good boy, Yoan.
 ===
