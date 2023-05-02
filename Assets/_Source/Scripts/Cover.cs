@@ -1,3 +1,4 @@
+using System;
 using BehaviorDesigner.Runtime.Tasks.Unity.Math;
 using UnityEngine;
 
@@ -27,6 +28,12 @@ public class Cover : MonoBehaviour
     private void OnDisable() {
         coverSet.Remove(this);
         if(isBush && bushSet != null) bushSet.Remove(this);
+    }
+
+    private void Update() {
+        if (playerInside && isBush) {
+            if(ObjectiveUI.Instance != null) ObjectiveUI.Instance.FinishPrompt("Bush");
+        }
     }
 
     private void OnTriggerEnter(Collider other) {

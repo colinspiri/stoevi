@@ -73,6 +73,13 @@ public class ObjectiveUI : MonoBehaviour {
                 }
             }
         }
+        
+        // queue bush 
+        float distance = Vector3.Distance(TorbalanDirector.Instance.transform.position,
+            FirstPersonMovement.Instance.transform.position);
+        if (distance <= 40) {
+            QueuePrompt("Bush");
+        }
     }
 
     private void RemoveCurrentPrompt() {
