@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b937b5e62947dcadcf78f2efb943b7, type: 3}
+  m_Name: Tips
+  m_EditorClassIdentifier: 
+  tips:
+  - The Torbalan can hear you running from far away.
+  - You can hide in foliage such as bushes, cabbage, wheat, and sunflowers.
+  - While crouching, you move slowly & silently.
+  - Running through foliage makes a lot of noise.
+  - Sheep will eat your ripe tomatoes unless scared away.
+  - Hit your sheep to scare them away.
+  - Fertilizer makes your crops grow faster.
+  - Sheep are easily scared by running.
+  - Crops will wilt if you leave them unwatered for a day.
+  - You do not regain stamina while crouching.
+  - Fertilized crops will sometimes yield multiple tomatoes.
+  - Leashed sheep will follow you closely.
