@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: e62bb5f624c4e8043b892e63e3ed5d0c
+  m_OcclusionCullingData: {fileID: 36300000, guid: 5681c0bdd19cc8f4b80cbdc275d78bfc, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
