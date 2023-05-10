@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CurrentSeeds
   m_EditorClassIdentifier: 
   DeveloperDescription: current number of seeds
-  Value: 12
+  Value: 0

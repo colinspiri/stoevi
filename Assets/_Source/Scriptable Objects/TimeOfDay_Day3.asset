@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0daaafd613e04476be80d4d0acb014ef, type: 3}
   m_Name: TimeOfDay_Day3
   m_EditorClassIdentifier: 
-  eveningTimeInMinutes: 4
-  nightTimeInMinutes: 7
-  currentTime: 0
+  eveningTimeInMinutes: 3
+  nightTimeInMinutes: 6
+  currentTime: 388.26736
   onNight: {fileID: 11400000, guid: f0da2e717e7bb6145a9a22d81299e26f, type: 2}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: CurrentFertilizer
   m_EditorClassIdentifier: 
   DeveloperDescription: current amount of fertilizer
-  Value: 0
+  Value: 1

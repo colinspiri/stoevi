@@ -204,12 +204,8 @@ public class Crop : Interactable {
     private void DigUp() {
         // can only collect seeds if not also dead
         if (health != Health.Dead) {
-            float random = Random.Range(0f, 1f);
-            if (random <= 0.5f) {
-                // chance to collect seeds
-                seeds.ApplyChange(1);
-                item_pickup.Play();
-            }
+            seeds.ApplyChange(1);
+            item_pickup.Play();
         }
         Destroy(gameObject);
     }
@@ -259,8 +255,8 @@ public class Crop : Interactable {
         int maxTomatoes = 0;
         // set min/max tomatoes based on health
         if (health == Health.Fair && soil != null && soil.fertilized) {
-            minTomatoes = 1;
-            maxTomatoes = 3;
+            minTomatoes = 2;
+            maxTomatoes = 2;
         }
         else if (health == Health.Fair) {
             minTomatoes = 1;
@@ -293,7 +289,7 @@ public class Crop : Interactable {
     private void Grow() {
         ChangeCropStage(stage switch {
             GrowthStage.Sprout => GrowthStage.Intermediate,
-            GrowthStage.Intermediate => GrowthStage.Unripe,
+            GrowthStage.Intermediate => GrowthStage.Ripe,
             GrowthStage.Unripe => GrowthStage.Ripe,
         });
     }

@@ -34,5 +34,5 @@ MonoBehaviour:
   bareWilted: {fileID: 2100000, guid: 995ffc635d32645499fc9be7f9c34cae, type: 2}
   bareDead: {fileID: 2100000, guid: 00a1e44805c96f2449c3e713b9982422, type: 2}
   maxCrops: 1
-  baseGrowthTime: 80
-  fertilizedGrowthTime: 60
+  baseGrowthTime: 120
+  fertilizedGrowthTime: 90
