@@ -17,9 +17,9 @@ MonoBehaviour:
   frontstagePatrolRadius: 15
   intensityDistance: 20
   maxAggressionLevel: 5
-  backstageTimeWhileCalm: 120
-  frontstageTimeWhileCalm: 10
+  backstageTimeWhileCalm: 90
+  frontstageTimeWhileCalm: 20
   maxIntensityWhileCalm: 20
   backstageTimeWhileAggressive: 60
-  frontstageTimeWhileAggressive: 20
+  frontstageTimeWhileAggressive: 30
   maxIntensityWhileAggressive: 20

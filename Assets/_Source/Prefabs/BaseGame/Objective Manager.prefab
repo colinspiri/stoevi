@@ -49,7 +49,7 @@ MonoBehaviour:
     Variable: {fileID: 11400000, guid: 01bb1e35cb163444d96b5accd715786a, type: 2}
   requiredTomatoesDay1:
     UseConstant: 1
-    ConstantValue: 4
+    ConstantValue: 3
     Variable: {fileID: 0}
   requiredTomatoesDay2:
     UseConstant: 1
@@ -57,10 +57,10 @@ MonoBehaviour:
     Variable: {fileID: 0}
   requiredTomatoesDay3:
     UseConstant: 1
-    ConstantValue: 4
+    ConstantValue: 5
     Variable: {fileID: 0}
   requiredTomatoesDay4:
     UseConstant: 1
-    ConstantValue: 4
+    ConstantValue: 6
     Variable: {fileID: 0}
   objectiveComplete: {fileID: 11400000, guid: bf9a8b8ba19945c49b7868551e5fc18c, type: 2}

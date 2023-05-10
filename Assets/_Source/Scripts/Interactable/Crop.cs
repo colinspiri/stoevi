@@ -168,6 +168,8 @@ public class Crop : Interactable {
     }
 
     public override bool IsInteractableSecondary() {
+        if (stage == GrowthStage.Bare) return false;
+        
         // fertilize
         if (soil != null && !soil.fertilized && currentFertilizer.Value > 0) return true;
 
