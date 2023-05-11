@@ -204,18 +204,20 @@ public class Crop : Interactable {
     }
     
     private void DigUp() {
-        // can only collect seeds if not also dead
+        if(soil != null) {
+            soil.DrainNutrients();
+        }
+        
+        // can only collect seeds if not dead
         if (health != Health.Dead) {
             seeds.ApplyChange(1);
             item_pickup.Play();
         }
+        
         Destroy(gameObject);
     }
 
     public void Fertilize() {
-        // objective 
-        if(ObjectiveUI.Instance != null) ObjectiveUI.Instance.FinishPrompt("Fertilize");
-        
         // reduce grow timer
         if (interactionState == InteractionState.Growing) {
             float reductionProportion = (farmingConstants.baseGrowthTime - farmingConstants.fertilizedGrowthTime) / farmingConstants.baseGrowthTime;

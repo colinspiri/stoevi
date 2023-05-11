@@ -31,7 +31,7 @@ public class Cover : MonoBehaviour
     }
 
     private void Update() {
-        if (playerInside && isBush) {
+        if (playerInside && type == CoverType.Complete) {
             if(ObjectiveUI.Instance != null) ObjectiveUI.Instance.FinishPrompt("Bush");
         }
     }

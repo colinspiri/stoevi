@@ -20,13 +20,19 @@ public class Soil : Interactable {
     [Header("State")]
     public List<Crop> crops = new List<Crop>();
     public bool fertilized { get; private set; }
+    public bool nutrientPoor { get; private set; }
 
     protected override void Start() {
         base.Start();
         LoadData();
+
+        nutrientPoor = false;
+        fertilized = false;
     }
 
     public override bool IsInteractablePrimary() {
+        if (nutrientPoor) return false;
+        
         if(crops.Count < farmingConstants.maxCrops && currentSeeds.Value > 0) {
             return true;
         }
@@ -60,6 +66,8 @@ public class Soil : Interactable {
     }
 
     public override bool IsInteractableSecondary() {
+        if (crops.Count > 0 && crops[0] != null && crops[0].stage == Crop.GrowthStage.Bare) return false;
+
         if (!fertilized && currentFertilizer.Value > 0) {
             return true;
         }
@@ -92,10 +100,19 @@ public class Soil : Interactable {
     }
 
     public void Fertilize() {
+        nutrientPoor = false;
+        
         fertilized = true;
         foreach (var crop in crops) {
             crop.Fertilize();
         }
+        
+        if(ObjectiveUI.Instance != null) ObjectiveUI.Instance.FinishPrompt("Fertilize");
+    }
+
+    public void DrainNutrients() {
+        fertilized = false;
+        nutrientPoor = true;
     }
 
     private void SpawnCrop(Vector3 position, Crop.GrowthStage stage = Crop.GrowthStage.Sprout, Crop.Health health = Crop.Health.Fair) {
@@ -117,6 +134,7 @@ public class Soil : Interactable {
     }
 
     public override string GetObjectDescription() {
+        if (nutrientPoor) return "nutrient-poor";
         if (fertilized) return "fertilized";
         else return "";
     }
@@ -124,6 +142,9 @@ public class Soil : Interactable {
     public override string GetButtonPromptPrimary() {
         if (crops.Count >= farmingConstants.maxCrops) {
             return "";
+        }
+        if (nutrientPoor) {
+            return "cannot plant";
         }
         if (currentSeeds.Value <= 0) {
             return "out of seeds";
@@ -135,6 +156,9 @@ public class Soil : Interactable {
     }
 
     public override string GetButtonPromptSecondary() {
+        if (crops.Count > 0 && crops[0] != null && crops[0].stage == Crop.GrowthStage.Bare) {
+            return "";
+        }
         if (currentFertilizer.Value <= 0) {
             return "out of fertilizer";
         }

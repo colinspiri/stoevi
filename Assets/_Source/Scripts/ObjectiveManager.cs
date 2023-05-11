@@ -46,12 +46,16 @@ public class ObjectiveManager : MonoBehaviour {
         if (playerTomatoes.Value < requiredTomatoes) {
             objectiveText = "Harvest " + playerTomatoes.Value + "/" + requiredTomatoes + " tomatoes";
         }
-        else if (DayManager.Instance != null && DayManager.Instance.timeOfDay.IsNight() == false) {
-            objectiveText = "Farm until night";
-        }
         else {
             objectiveComplete.SetValue(1);
-            objectiveText = "Return to gate to go home";
+
+            if (DayManager.Instance != null && DayManager.Instance.timeOfDay.IsNight() == false) {
+                objectiveText = "Farm until night";
+            }
+            else {
+                objectiveText = "Return to gate to go home";
+            }
         }
+        
     }
 }
