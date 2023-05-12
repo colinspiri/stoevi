@@ -15,6 +15,7 @@ public class ObjectiveManager : MonoBehaviour {
     // state
     public IntVariable objectiveComplete;
     public string objectiveText { get; private set; }
+    private GameObject yoanSheep;
     
     private void Awake() {
         Instance = this;
@@ -22,6 +23,8 @@ public class ObjectiveManager : MonoBehaviour {
 
     private void Start() {
         objectiveComplete.SetValue(0);
+        
+        yoanSheep = GameObject.Find("Yoan-Sheep");
     }
 
     // Update is called once per frame
@@ -30,7 +33,16 @@ public class ObjectiveManager : MonoBehaviour {
         
         // day 5
         if (day == 5) {
-            objectiveText = (objectiveComplete.Value == 1) ? "Go home" : "Find Yoan";
+            if (objectiveComplete.Value == 1) objectiveText = "Go home";
+            else {
+                objectiveText = "Find Yoan";
+                float distanceToYoan = Vector3.Distance(FirstPersonMovement.Instance.transform.position,
+                    yoanSheep.transform.position);
+                int displayDistance = 10 * Mathf.RoundToInt(distanceToYoan / 10);
+                if (displayDistance <= 70) {
+                    objectiveText += "\ndistance: " + Mathf.RoundToInt(displayDistance) + "m";
+                } 
+            }
             return;
         }
         

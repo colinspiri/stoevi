@@ -21,7 +21,10 @@ public class Sheep : Interactable {
     public float playerFacingAngle;
 
     [Header("Yoan-Sheep")] 
+    public string childName;
+    private string displayName;
     public bool isYoan;
+    public float yoanScareDistance;
     public bool canBeLeashed;
     
     // state
@@ -30,6 +33,10 @@ public class Sheep : Interactable {
     protected override void Start() {
         base.Start();
         if(SheepManager.Instance != null) SheepManager.Instance.AddSheep(this);
+        
+        int day = PlayerPrefs.GetInt("CurrentDay", 1);
+        if (day == 5) displayName = childName;
+        else displayName = "sheep";
     }
 
     private void Update() {
@@ -39,7 +46,7 @@ public class Sheep : Interactable {
 
         if (isYoan && timeOfDay.IsNight() == false) {
             var distance = Vector3.Distance(player.transform.position, transform.position);
-            if (distance <= playerChaseDistance * 2) {
+            if (distance <= yoanScareDistance) {
                 beingChased = true;
             }
         }
@@ -97,8 +104,7 @@ public class Sheep : Interactable {
     }
 
     public override string GetObjectName() {
-        if (isYoan) return "Yoan";
-        else return "sheep";
+        return displayName;
     }
 
     public override string GetObjectDescription() {
@@ -107,7 +113,7 @@ public class Sheep : Interactable {
     }
 
     public override string GetButtonPromptPrimary() {
-        return GetInteractPrimaryButton() + " hit sheep";
+        return GetInteractPrimaryButton() + " hit " + displayName;
     }
 
     public override string GetButtonPromptSecondary() {

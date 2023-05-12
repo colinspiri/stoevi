@@ -126,6 +126,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9060884633126362682, guid: 3a93b794a2b8e441eaf18b2abba5d7d8, type: 3}
+      propertyPath: childName
+      value: Yoan
+      objectReference: {fileID: 0}
+    - target: {fileID: 9060884633126362682, guid: 3a93b794a2b8e441eaf18b2abba5d7d8, type: 3}
       propertyPath: sheepName
       value: Yoan
       objectReference: {fileID: 0}
