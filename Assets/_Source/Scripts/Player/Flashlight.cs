@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class Flashlight : MonoBehaviour
 {
     // misc components
+    public static Flashlight Instance;
     private InputActions inputActions;
     private Light light;
     public ASoundContainer sfx_flashlight_on;
@@ -34,12 +35,14 @@ public class Flashlight : MonoBehaviour
     public float maxFlickerDelay;
     public float flickerOnTime;
     // state
-    private bool flashlightOn;
+    public bool flashlightOn { get; private set; }
     private float flickerTimer;
     private Coroutine flickerCoroutine;
 
 
     private void Awake() {
+        Instance = this;
+        
         light = GetComponent<Light>();
         
         inputActions = new InputActions();

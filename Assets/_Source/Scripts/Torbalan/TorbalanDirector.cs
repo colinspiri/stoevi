@@ -103,7 +103,7 @@ public class TorbalanDirector : MonoBehaviour {
 
         if (distance > settings.backstageDistance) {
             backstageTimer += Time.deltaTime;
-            Debug.Log("backstage = " + Mathf.Floor(backstageTimer) + "/" + settings.GetBackstageTime(aggressionLevel));
+            // Debug.Log("backstage = " + Mathf.Floor(backstageTimer) + "/" + settings.GetBackstageTime(aggressionLevel));
         }
         
         bool dialoguePlaying = dialogueRunner != null && dialogueRunner.IsDialogueRunning;
